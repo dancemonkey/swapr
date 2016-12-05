@@ -13,6 +13,8 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      let words = WordsAPI()
+      words.fetchWordData(word: "draw")
         // Do any additional setup after loading the view.
     }
     
