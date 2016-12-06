@@ -15,6 +15,8 @@
 		101A56181DF24A3000646B6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 101A56171DF24A3000646B6D /* Assets.xcassets */; };
 		101A56271DF24A7800646B6D /* ExpandedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A56261DF24A7800646B6D /* ExpandedVC.swift */; };
 		106A21F21DF621D000904258 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106A21F11DF621D000904258 /* Word.swift */; };
+		1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */; };
+		109827831DF7163900D56002 /* starterWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109827821DF7163900D56002 /* starterWords.txt */; };
 		10B03FD81DF4859C0055DE8C /* WordsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B03FD71DF4859C0055DE8C /* WordsAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		101A56191DF24A3000646B6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		101A56261DF24A7800646B6D /* ExpandedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedVC.swift; sourceTree = "<group>"; };
 		106A21F11DF621D000904258 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		109827821DF7163900D56002 /* starterWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starterWords.txt; sourceTree = "<group>"; };
 		10B03FD71DF4859C0055DE8C /* WordsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +118,7 @@
 				101A56231DF24A5800646B6D /* Controller */,
 				101A56141DF24A3000646B6D /* MainInterface.storyboard */,
 				101A56171DF24A3000646B6D /* Assets.xcassets */,
+				109827821DF7163900D56002 /* starterWords.txt */,
 				101A56191DF24A3000646B6D /* Info.plist */,
 			);
 			path = MessagesExtension;
@@ -138,6 +143,7 @@
 		101A56251DF24A6500646B6D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				10B03FD71DF4859C0055DE8C /* WordsAPI.swift */,
 				106A21F11DF621D000904258 /* Word.swift */,
 			);
 			name = Model;
@@ -146,7 +152,7 @@
 		10B03FD61DF4858A0055DE8C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				10B03FD71DF4859C0055DE8C /* WordsAPI.swift */,
+				1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 			files = (
 				101A56181DF24A3000646B6D /* Assets.xcassets in Resources */,
 				101A56161DF24A3000646B6D /* MainInterface.storyboard in Resources */,
+				109827831DF7163900D56002 /* starterWords.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +265,7 @@
 				106A21F21DF621D000904258 /* Word.swift in Sources */,
 				101A56131DF24A3000646B6D /* MessagesViewController.swift in Sources */,
 				101A56271DF24A7800646B6D /* ExpandedVC.swift in Sources */,
+				1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
