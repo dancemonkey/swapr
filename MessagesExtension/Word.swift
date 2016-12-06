@@ -10,5 +10,11 @@ import Foundation
 
 struct Word {
   var name: String
-  var definition: String
+  var definition: String? {
+    return WordsAPI().fetchDefinition(forWord: self.name)
+  }
+  
+  init(word: String) {
+    self.name = word
+  }
 }

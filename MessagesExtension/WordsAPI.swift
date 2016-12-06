@@ -12,11 +12,9 @@ class WordsAPI {
   
   let baseURL = "https://wordsapiv1.p.mashape.com/words/"
   let header = ["X-Mashape-Key": "p8jiu8dllpmshOya3mO11qIH01dfp1ZitJLjsnHu4q9CflQbWY", "Accept": "application/json"]
-  //static let MAX_WORD_LENGTH = 6
   let STARTER_WORDS = "starterWords"
   
   var word: String? = nil
-  var definition: String? = nil
   
   func fetchDefinition(forWord word: String) -> String? {
     let endpoint = baseURL + word
@@ -25,36 +23,35 @@ class WordsAPI {
     request.allHTTPHeaderFields = header
     request.httpMethod = "GET"
     NetworkRequest.get(withRequest: request, completion: { data -> String in
-      self.process(data: data)
-      return self.definition!
+      return self.getDefinition(fromData: data)!
     })
-    return "Still fetching definition..."
+    return nil
   }
   
-  private func process(data: Data) {
+  private func getDefinition(fromData data: Data) -> String? {
+    // build a callback function in so we can set up views on the main thread
+    // using this data
     if let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String:Any] {
       let results = json["results"] as! [AnyObject]
       for member in results {
         let definition = member["definition"] as? String
-        self.definition = definition
+        return definition
       }
     }
+    return nil
   }
   
-  func fetchRandomWord() -> String? {
-    // FETCH FROM LIST OF CURATED STARTER WORDS
+  func fetchRandomWord() -> Word? {
     if let path = Bundle.main.path(forResource: STARTER_WORDS, ofType: "txt") {
       do {
         let data = try String(contentsOfFile: path, encoding: .utf8)
         let allWords = data.components(separatedBy: .newlines)
         let random = Int(arc4random_uniform(UInt32(allWords.count)))
-        return allWords[random-1]
+        return Word(word: allWords[random-1])
       } catch {
         print(error)
-        return nil
       }
     }
-    print("returning nil")
     return nil
   }
   

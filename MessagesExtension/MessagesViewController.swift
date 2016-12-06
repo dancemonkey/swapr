@@ -14,8 +14,7 @@ class MessagesViewController: MSMessagesAppViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     let wordList = WordsAPI()
-    let def = wordList.fetchDefinition(forWord: "drawn")
-    print(def)
+    let newWord = wordList.fetchRandomWord()
     // Do any additional setup after loading the view.
   }
   
