@@ -1,27 +1,16 @@
 //
-//  ExpandedVC.swift
+//  CompactVC.swift
 //  Swapr
 //
-//  Created by Drew Lanning on 12/2/16.
+//  Created by Drew Lanning on 12/7/16.
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
 import UIKit
-import Messages
 
-class ExpandedVC: UIViewController {
+class CompactVC: UIViewController {
   
-  @IBOutlet weak var endTurn: UIButton!
-  @IBOutlet weak var bomb: UIButton!
-  @IBOutlet weak var lock: UIButton!
-  @IBOutlet weak var pass: UIButton!
-  @IBOutlet weak var swap: UIButton!
-  @IBOutlet weak var definition: UITextView!
-  @IBOutlet var addLetter: [UIButton]!
-  @IBOutlet var letters: [UIButton]!
-  
-  var message: MSMessage!
-  var composeDelegate: ComposeMessageDelegate!
+  var expandViewDelegate: ExpandViewDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()

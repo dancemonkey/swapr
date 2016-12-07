@@ -10,11 +10,17 @@ import Foundation
 
 struct Word {
   var name: String
+  private var _definition: String? = nil
   var definition: String? {
-    return WordsAPI().fetchDefinition(forWord: self.name)
+    return self._definition
   }
   
   init(word: String) {
     self.name = word
+    self.setDefinition(forWord: word)
+  }
+  
+  private mutating func setDefinition(forWord word: String) {
+    self._definition = WordsAPI().fetchDefinition(forWord: word)!
   }
 }

@@ -13,23 +13,76 @@ class MessagesViewController: MSMessagesAppViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let wordList = WordsAPI()
-    let newWord = wordList.fetchRandomWord()
+    
     // Do any additional setup after loading the view.
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  private func presentVC(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
+    
+    var controller: UIViewController
+    
+    if presentationStyle == .compact {
+      controller = instantiateCompactVC()
+    } else {
+      controller = instantiateExpandedVC(forConversation: conversation)
+    }
+    
+    for child in childViewControllers {
+      child.willMove(toParentViewController: nil)
+      child.view.removeFromSuperview()
+      child.removeFromParentViewController()
+    }
+    
+    addChildViewController(controller)
+    
+    controller.view.frame = view.bounds
+    controller.view.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(controller.view)
+    
+    controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    
+    controller.didMove(toParentViewController: self)
   }
+  
+  private func instantiateExpandedVC(forConversation conversation: MSConversation) -> UIViewController {
+    guard let vc = storyboard?.instantiateViewController(withIdentifier: "gameScreen") as? ExpandedVC else {
+      fatalError("VC not found.")
+    }
+    
+    if let message = conversation.selectedMessage, let url = message.url {
+      if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
+        if let queryItems = components.queryItems {
+          for item in queryItems {
+            if item.name.contains("swapr") {
+              vc.message = message
+            }
+          }
+        }
+      }
+    }
+    
+    vc.composeDelegate = self
+    
+    return vc
+  }
+  
+  private func instantiateCompactVC() -> UIViewController {
+    guard let compactVC = storyboard?.instantiateViewController(withIdentifier: "CompactVC") as? CompactVC else {
+      fatalError("Can't make a CompactVC")
+    }
+    
+    compactVC.expandViewDelegate = self
+    return compactVC
+  }
+
   
   // MARK: - Conversation Handling
   
   override func willBecomeActive(with conversation: MSConversation) {
-    // Called when the extension is about to move from the inactive to active state.
-    // This will happen when the extension is about to present UI.
-    
-    // Use this method to configure the extension and restore previously stored state.
+    presentVC(for: conversation, with: presentationStyle)
   }
   
   override func didResignActive(with conversation: MSConversation) {
@@ -60,9 +113,10 @@ class MessagesViewController: MSMessagesAppViewController {
   }
   
   override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-    // Called before the extension transitions to a new presentation style.
-    
-    // Use this method to prepare for the change in presentation style.
+    guard let conversation = activeConversation else {
+      fatalError("No active conversation or something")
+    }
+    presentVC(for: conversation, with: presentationStyle)
   }
   
   override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
@@ -71,4 +125,26 @@ class MessagesViewController: MSMessagesAppViewController {
     // Use this method to finalize any behaviors associated with the change in presentation style.
   }
   
+  override func didSelect(_ message: MSMessage, conversation: MSConversation) {
+    guard let conversation = activeConversation else {
+      fatalError("No active conversation or something")
+    }
+    presentVC(for: conversation, with: presentationStyle)
+  }
+  
+}
+
+extension MessagesViewController: ExpandViewDelegate {
+  func expand(toPresentationStyle presentationStyle: MSMessagesAppPresentationStyle) {
+    requestPresentationStyle(presentationStyle)
+  }
+  func getPresentationStyle() -> MSMessagesAppPresentationStyle {
+    return self.presentationStyle
+  }
+}
+
+extension MessagesViewController: ComposeMessageDelegate {
+  func compose(withMessage message: MSMessage) {
+    print("composing message")
+  }
 }

@@ -23,12 +23,12 @@ class WordsAPI {
     request.allHTTPHeaderFields = header
     request.httpMethod = "GET"
     NetworkRequest.get(withRequest: request, completion: { data -> String in
-      return self.getDefinition(fromData: data)!
+      return self.getDefinition(fromData: data, completion: nil)!
     })
     return nil
   }
   
-  private func getDefinition(fromData data: Data) -> String? {
+  private func getDefinition(fromData data: Data, completion: (() -> ())?) -> String? {
     // build a callback function in so we can set up views on the main thread
     // using this data
     if let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String:Any] {
@@ -36,6 +36,9 @@ class WordsAPI {
       for member in results {
         let definition = member["definition"] as? String
         return definition
+      }
+      if completion != nil {
+        completion!()
       }
     }
     return nil

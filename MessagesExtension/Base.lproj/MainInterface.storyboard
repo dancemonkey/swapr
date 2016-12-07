@@ -32,7 +32,7 @@
         <!--ExpandedVC-->
         <scene sceneID="une-hW-JYS">
             <objects>
-                <viewController id="1DJ-KS-MZC" customClass="ExpandedVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gameScreen" id="1DJ-KS-MZC" customClass="ExpandedVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ci8-fk-NnR"/>
                         <viewControllerLayoutGuide type="bottom" id="9oW-kb-4i6"/>
@@ -85,7 +85,7 @@
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8">
                                                 <rect key="frame" x="95" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -93,7 +93,7 @@
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-C3-Ve7">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-C3-Ve7">
                                                 <rect key="frame" x="141.5" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -101,7 +101,7 @@
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we2-DL-wr7">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we2-DL-wr7">
                                                 <rect key="frame" x="187.5" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -109,7 +109,7 @@
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1">
                                                 <rect key="frame" x="234" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -117,7 +117,7 @@
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL">
                                                 <rect key="frame" x="280.5" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -125,7 +125,7 @@
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wR-wR-Dwm">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wR-wR-Dwm">
                                                 <rect key="frame" x="327" y="0.0" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="fdo-kx-rhN"/>
@@ -180,6 +180,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVQ-un-S46">
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="seM-tx-MV4"/>
+                                </constraints>
+                                <state key="normal" title="End Turn"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.21180264261744966" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -188,19 +195,56 @@
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
                             <constraint firstAttribute="trailing" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="GRO-Yk-iK6"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="QH5-2z-cjw"/>
+                            <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="16" id="aFx-1f-ShK"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="dfW-Tn-vFE"/>
+                            <constraint firstItem="xVQ-un-S46" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="eQH-a0-Meo"/>
                             <constraint firstAttribute="trailing" secondItem="00Z-2y-ZQl" secondAttribute="trailing" constant="16" id="gIW-dB-llb"/>
+                            <constraint firstAttribute="trailing" secondItem="xVQ-un-S46" secondAttribute="trailing" constant="16" id="h51-4a-bwk"/>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="top" secondItem="P6z-kC-hP0" secondAttribute="bottom" constant="24" id="ifp-9p-Ime"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="top" secondItem="ci8-fk-NnR" secondAttribute="bottom" constant="8" id="jPW-8m-neL"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="oQF-ta-rNI"/>
                             <constraint firstAttribute="trailing" secondItem="P6z-kC-hP0" secondAttribute="trailing" constant="16" id="xbM-MY-FiX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bomb" destination="Axb-p9-7EL" id="Pdw-UL-kLG"/>
+                        <outlet property="definition" destination="vxu-SO-eoJ" id="N4i-hF-1g5"/>
+                        <outlet property="endTurn" destination="xVQ-un-S46" id="Jty-lm-U73"/>
+                        <outlet property="lock" destination="DgO-HL-3X8" id="S56-4c-aA6"/>
+                        <outlet property="pass" destination="cWz-hH-zdS" id="VUE-IM-6tx"/>
+                        <outlet property="swap" destination="DnE-xj-k2W" id="4u3-p9-NBt"/>
+                        <outletCollection property="addLetter" destination="nQg-eI-oAi" collectionClass="NSMutableArray" id="BYZ-Qk-m9Y"/>
+                        <outletCollection property="addLetter" destination="2wR-wR-Dwm" collectionClass="NSMutableArray" id="PBV-vg-KaS"/>
+                        <outletCollection property="letters" destination="unF-3i-s1p" collectionClass="NSMutableArray" id="wbc-Cf-S41"/>
+                        <outletCollection property="letters" destination="RdJ-qi-5g8" collectionClass="NSMutableArray" id="9UL-4j-09n"/>
+                        <outletCollection property="letters" destination="XXc-C3-Ve7" collectionClass="NSMutableArray" id="1Lr-Ic-ZzE"/>
+                        <outletCollection property="letters" destination="we2-DL-wr7" collectionClass="NSMutableArray" id="AS2-XT-he5"/>
+                        <outletCollection property="letters" destination="i4D-eh-jh1" collectionClass="NSMutableArray" id="NhU-RB-P6O"/>
+                        <outletCollection property="letters" destination="dGM-GS-JWL" collectionClass="NSMutableArray" id="Ryk-tO-Hf4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX5-P3-TM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="114.40000000000001" y="669.71514242878561"/>
+        </scene>
+        <!--CompactVC-->
+        <scene sceneID="d0c-px-u4f">
+            <objects>
+                <viewController storyboardIdentifier="CompactVC" id="Klb-e2-ptf" customClass="CompactVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D3B-iT-R6J"/>
+                        <viewControllerLayoutGuide type="bottom" id="UWf-gf-hdB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wx8-f6-dkz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uze-Il-oLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="668"/>
         </scene>
     </scenes>
     <resources>
