@@ -17,6 +17,7 @@
 		106A21F21DF621D000904258 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106A21F11DF621D000904258 /* Word.swift */; };
 		10775F5A1DF8C41200B20B98 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10775F591DF8C41200B20B98 /* CompactVC.swift */; };
 		10775F5D1DF8C4CD00B20B98 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10775F5C1DF8C4CD00B20B98 /* Protocols.swift */; };
+		108043FC1DF9BC91009220AD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108043FB1DF9BC91009220AD /* Game.swift */; };
 		1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */; };
 		109827831DF7163900D56002 /* starterWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109827821DF7163900D56002 /* starterWords.txt */; };
 		10B03FD81DF4859C0055DE8C /* WordsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B03FD71DF4859C0055DE8C /* WordsAPI.swift */; };
@@ -60,6 +61,7 @@
 		106A21F11DF621D000904258 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		10775F591DF8C41200B20B98 /* CompactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
 		10775F5C1DF8C4CD00B20B98 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		108043FB1DF9BC91009220AD /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		109827821DF7163900D56002 /* starterWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starterWords.txt; sourceTree = "<group>"; };
 		10B03FD71DF4859C0055DE8C /* WordsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsAPI.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				10B03FD71DF4859C0055DE8C /* WordsAPI.swift */,
 				106A21F11DF621D000904258 /* Word.swift */,
+				108043FB1DF9BC91009220AD /* Game.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				101A56271DF24A7800646B6D /* ExpandedVC.swift in Sources */,
 				10775F5A1DF8C41200B20B98 /* CompactVC.swift in Sources */,
 				1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */,
+				108043FC1DF9BC91009220AD /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

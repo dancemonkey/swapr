@@ -14,13 +14,15 @@ struct Word {
   var definition: String? {
     return self._definition
   }
+  private var _size: Int
+  var size: Int {
+    return _size
+  }
   
   init(word: String) {
     self.name = word
-    self.setDefinition(forWord: word)
+    self._size = word.characters.count
+    self._definition = WordsAPI().fetchDefinition(forWord: word)
   }
   
-  private mutating func setDefinition(forWord word: String) {
-    self._definition = WordsAPI().fetchDefinition(forWord: word)!
-  }
 }
