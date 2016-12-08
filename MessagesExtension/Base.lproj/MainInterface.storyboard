@@ -76,6 +76,9 @@
                                                     <constraint firstAttribute="height" constant="32" id="SWK-ra-HVc"/>
                                                 </constraints>
                                                 <state key="normal" image="AddLetterBtn"/>
+                                                <connections>
+                                                    <action selector="addLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="UsV-t2-rIn"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unF-3i-s1p">
                                                 <rect key="frame" x="48.5" y="0.0" width="30" height="32"/>
@@ -84,6 +87,9 @@
                                                 <state key="normal" title="S">
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="q4M-kP-Jr6"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8">
                                                 <rect key="frame" x="95" y="0.0" width="30" height="32"/>
@@ -92,6 +98,9 @@
                                                 <state key="normal" title="W">
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="VTF-li-vjY"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-C3-Ve7">
                                                 <rect key="frame" x="141.5" y="0.0" width="30" height="32"/>
@@ -100,6 +109,9 @@
                                                 <state key="normal" title="A">
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="NCc-gb-6xS"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we2-DL-wr7">
                                                 <rect key="frame" x="187.5" y="0.0" width="30" height="32"/>
@@ -108,6 +120,9 @@
                                                 <state key="normal" title="P">
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="cUu-Vb-Ppl"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1">
                                                 <rect key="frame" x="234" y="0.0" width="30" height="32"/>
@@ -116,6 +131,9 @@
                                                 <state key="normal" title="P">
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Aug-Eo-FgR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL">
                                                 <rect key="frame" x="280.5" y="0.0" width="30" height="32"/>
@@ -124,6 +142,9 @@
                                                 <state key="normal" title="R">
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="e2d-5X-Cil"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wR-wR-Dwm">
                                                 <rect key="frame" x="327" y="0.0" width="32" height="32"/>
@@ -132,6 +153,9 @@
                                                     <constraint firstAttribute="height" constant="32" id="wzK-1V-ygn"/>
                                                 </constraints>
                                                 <state key="normal" image="AddLetterBtn"/>
+                                                <connections>
+                                                    <action selector="addLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="918-gs-YQf"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -153,18 +177,30 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-p9-7EL">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Bomb"/>
+                                        <connections>
+                                            <action selector="bombPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="7Vf-Co-jDO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-HL-3X8">
                                         <rect key="frame" x="97.5" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Lock"/>
+                                        <connections>
+                                            <action selector="lockPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="GcQ-8Q-s5K"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS">
                                         <rect key="frame" x="195.5" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Pass"/>
+                                        <connections>
+                                            <action selector="passPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="GvJ-Oe-g9b"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W">
                                         <rect key="frame" x="293" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Swap"/>
+                                        <connections>
+                                            <action selector="swapPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="b7q-R5-Uen"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -186,6 +222,9 @@
                                     <constraint firstAttribute="height" constant="50" id="seM-tx-MV4"/>
                                 </constraints>
                                 <state key="normal" title="End Turn"/>
+                                <connections>
+                                    <action selector="endTurnPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="CoE-HF-x0e"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.21180264261744966" colorSpace="calibratedRGB"/>

@@ -20,13 +20,17 @@ class ExpandedVC: UIViewController {
   @IBOutlet var addLetter: [UIButton]!
   @IBOutlet var letters: [UIButton]!
   
-  var message: MSMessage!
+  var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
   var game: Game? = nil
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupNewGame()
+    if message == nil {
+      setupNewGame()
+    } else {
+      setupExistingGame(fromMessage: message!)
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -41,30 +45,42 @@ class ExpandedVC: UIViewController {
     // re-set helper buttons to active state
   }
   
+  func setupExistingGame(fromMessage message: MSMessage) {
+    // set scrores from message
+    // setup word from message
+    // setup current player helper button statuses
+  }
+  
   func setupWordView(forWord word: Word) {
     setupLetterView(forSize: word.size)
     setLettersInLetterView(forWord: word.name)
+    definition.text = word.name // temp for testing
+  }
+  
+  func getVisibleLetterCount() -> Int {
+    return letters.reduce(0, { (total, button) -> Int in
+      if button.isHidden == false {
+        return 1 + total
+      } else {
+        return total
+      }
+    })
   }
   
   func setupLetterView(forSize size: Int) {
-    print(size, letters.count)
-    if size < letters.count {
-      makeLettersSmaller(by: letters.count - size)
-    } else if size > letters.count {
-      makeLettersBigger(by: size - letters.count)
-    }
+    resizeLetters(toSize: size)
     setLetterViewOrder()
   }
   
-  func makeLettersSmaller(by diff: Int) {
-    for _ in 0...diff {
-      letters[letters.count-1].isHidden = true
-    }
-  }
-  
-  func makeLettersBigger(by diff: Int) {
-    for _ in 0...diff {
-      letters[letters.count-1].isHidden = false
+  func resizeLetters(toSize size: Int) {
+    if size < getVisibleLetterCount() {
+      for index in size..<getVisibleLetterCount() {
+        letters[index].isHidden = true
+      }
+    } else if size > getVisibleLetterCount() {
+      for index in getVisibleLetterCount()..<size {
+        letters[index].isHidden = false
+      }
     }
   }
   
@@ -80,6 +96,39 @@ class ExpandedVC: UIViewController {
     for (index, letter) in word.characters.enumerated() {
       letters[index].setTitle(String(letter), for: .normal)
     }
+    for letter in letters where letter.isHidden == false {
+      print(letter.tag)
+    }
+  }
+  
+  // IBACTIONS
+  
+  @IBAction func endTurnPressed(sender: UIButton) {
+    setupNewGame() // temp for testing
+  }
+  
+  @IBAction func bombPressed(sender:UIButton) {
+    
+  }
+  
+  @IBAction func lockPressed(sender:UIButton) {
+    
+  }
+  
+  @IBAction func passPressed(sender:UIButton) {
+    
+  }
+  
+  @IBAction func swapPressed(sender:UIButton) {
+    
+  }
+  
+  @IBAction func addLetterPressed(sender:UIButton) {
+    
+  }
+  
+  @IBAction func letterPressed(sender: UIButton) {
+    
   }
   
 }
