@@ -19,6 +19,7 @@ class ExpandedVC: UIViewController {
   @IBOutlet weak var definition: UITextView!
   @IBOutlet var addLetter: [UIButton]!
   @IBOutlet var letters: [UIButton]!
+  @IBOutlet var playerHand: [UIButton]!
   
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
@@ -40,7 +41,7 @@ class ExpandedVC: UIViewController {
   
   func setupNewGame() {
     // zero out any player scores
-    game = Game() // this will eventually be passed in from CompactVC based on player selection from starter words
+    game = Game(withMessage: message) // this will eventually be passed in from CompactVC based on player selection from starter words
     setupWordView(forWord: (game?.currentWord)!)
     // re-set helper buttons to active state
   }
@@ -50,6 +51,10 @@ class ExpandedVC: UIViewController {
     // setup word from message
     // setup current player helper button statuses
   }
+  
+//  func setupPlayerHand(forPlayer player: Player) {
+//    
+//  }
   
   func setupWordView(forWord word: Word) {
     setupLetterView(forSize: word.size)
@@ -108,27 +113,33 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func bombPressed(sender:UIButton) {
-    
+    // tap this to remove a letter from the word
+    // doing so must still leave you with a valid word
   }
   
   @IBAction func lockPressed(sender:UIButton) {
-    
+    // tap this to lock a letter forever in the word
   }
   
   @IBAction func passPressed(sender:UIButton) {
-    
+    // end turn, chain resets to 0
   }
   
   @IBAction func swapPressed(sender:UIButton) {
-    
+    // tap this then tap two letters in the word to swap them
   }
   
   @IBAction func addLetterPressed(sender:UIButton) {
-    
+    // this should only work if the word is shorter than the max letter count prop in game
   }
   
   @IBAction func letterPressed(sender: UIButton) {
-    
+    print(sender.tag)
+    print(sender.titleLabel?.text)
+  }
+  
+  @IBAction func playerHandLetterPressed(sender: UIButton) {
+    // tap this, then tap a letter in the word to replace it with this one
   }
   
 }

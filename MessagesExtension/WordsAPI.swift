@@ -50,7 +50,7 @@ class WordsAPI {
         let data = try String(contentsOfFile: path, encoding: .utf8)
         let allWords = data.components(separatedBy: .newlines)
         let random = Int(arc4random_uniform(UInt32(allWords.count)))
-        return Word(word: allWords[random-1])
+        return random != 0 ? Word(word: allWords[random-1]) : Word(word: allWords[0])
       } catch {
         print(error)
       }
@@ -60,6 +60,12 @@ class WordsAPI {
   
   func validate(word: String) -> Bool {
     return false
+  }
+  
+  func fetchRandomLetter() -> String {
+    let letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","qu","r","s","t","u","v","w","x","y","z"]
+    let random = Int(arc4random_uniform(25))
+    return letters[random]
   }
   
 }

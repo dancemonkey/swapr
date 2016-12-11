@@ -208,10 +208,10 @@
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Word definition." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-SO-eoJ">
-                                <rect key="frame" x="16" y="229" width="343" height="128"/>
+                                <rect key="frame" x="16" y="229" width="343" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="IUx-Mg-hdw"/>
+                                    <constraint firstAttribute="height" constant="60" id="IUx-Mg-hdw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -226,18 +226,114 @@
                                     <action selector="endTurnPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="CoE-HF-x0e"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv">
+                                <rect key="frame" x="16" y="305" width="343" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="aUC-cl-AMe"/>
+                                            <constraint firstAttribute="width" constant="50" id="w5n-af-7lq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="S">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="zzl-Iv-a7S"/>
+                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="wJS-y7-xTA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-Y3-nqx">
+                                        <rect key="frame" x="73.5" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="fdm-b1-pog"/>
+                                            <constraint firstAttribute="height" constant="50" id="fsp-Cb-vhD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="S">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="ovF-0u-MZx"/>
+                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Zgq-gX-XIa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-45-iki">
+                                        <rect key="frame" x="146.5" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="1u4-OL-OMk"/>
+                                            <constraint firstAttribute="width" constant="50" id="Yt1-Lf-HYq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="S">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="7JJ-9F-euI"/>
+                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Gwu-NX-vLU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-Co-jKe">
+                                        <rect key="frame" x="220" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="c7A-0t-uFe"/>
+                                            <constraint firstAttribute="width" constant="50" id="kmc-uG-QSQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="S">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="fwL-kF-Su8"/>
+                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="sWI-qa-ZE5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-Wp-Yao">
+                                        <rect key="frame" x="293" y="0.0" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="9Pk-BD-PJA"/>
+                                            <constraint firstAttribute="width" constant="50" id="XnY-JK-XHd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="S">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="VAv-8R-eQO"/>
+                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="ZRW-nO-NvS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Fti-fs-RAS"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.21180264261744966" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="3rf-I6-qrk"/>
                             <constraint firstAttribute="trailing" secondItem="6G2-jP-QvW" secondAttribute="trailing" id="4vK-L6-Q7I"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
+                            <constraint firstAttribute="trailing" secondItem="Jnm-jR-VMv" secondAttribute="trailing" constant="16" id="CtR-BM-75T"/>
                             <constraint firstAttribute="trailing" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="GRO-Yk-iK6"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="QH5-2z-cjw"/>
                             <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="16" id="aFx-1f-ShK"/>
+                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="top" secondItem="vxu-SO-eoJ" secondAttribute="bottom" constant="16" id="as4-CX-MDA"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="dfW-Tn-vFE"/>
                             <constraint firstItem="xVQ-un-S46" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="eQH-a0-Meo"/>
+                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="faC-4f-BwH"/>
                             <constraint firstAttribute="trailing" secondItem="00Z-2y-ZQl" secondAttribute="trailing" constant="16" id="gIW-dB-llb"/>
                             <constraint firstAttribute="trailing" secondItem="xVQ-un-S46" secondAttribute="trailing" constant="16" id="h51-4a-bwk"/>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="top" secondItem="P6z-kC-hP0" secondAttribute="bottom" constant="24" id="ifp-9p-Ime"/>
@@ -261,6 +357,11 @@
                         <outletCollection property="letters" destination="we2-DL-wr7" collectionClass="NSMutableArray" id="AS2-XT-he5"/>
                         <outletCollection property="letters" destination="i4D-eh-jh1" collectionClass="NSMutableArray" id="NhU-RB-P6O"/>
                         <outletCollection property="letters" destination="dGM-GS-JWL" collectionClass="NSMutableArray" id="Ryk-tO-Hf4"/>
+                        <outletCollection property="playerHand" destination="Xwk-LM-f8F" collectionClass="NSMutableArray" id="tCo-73-dD1"/>
+                        <outletCollection property="playerHand" destination="Vc4-Y3-nqx" collectionClass="NSMutableArray" id="ckJ-tl-ujH"/>
+                        <outletCollection property="playerHand" destination="4fB-45-iki" collectionClass="NSMutableArray" id="aIS-cp-SPD"/>
+                        <outletCollection property="playerHand" destination="wrW-Co-jKe" collectionClass="NSMutableArray" id="Rsp-D2-W9I"/>
+                        <outletCollection property="playerHand" destination="C8I-Wp-Yao" collectionClass="NSMutableArray" id="3Md-E0-Se5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX5-P3-TM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
