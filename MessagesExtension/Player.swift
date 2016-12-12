@@ -9,7 +9,7 @@
 import Foundation
 
 enum Helper: String {
-  case Bomb, Lock, Swap
+  case bomb, lock, swap
 }
 
 class Player {
@@ -34,11 +34,42 @@ class Player {
     return _chainScore
   }
   
-  init(hand: String, score: Int, helpers: [Helper], chainScore: Int) {
-    self._hand = hand
+  init(hand: String?, score: Int, helpers: String?, chainScore: Int) {
+    self._hand = hand ?? Player.getStartingHand()
     self._score = score
-    self._helpers = helpers
+    if helpers != nil {
+      self._helpers = Player.parseHelper(text: helpers!)
+    } else {
+      self._helpers = Player.parseHelper(text: "bsl")
+    }
     self._chainScore = chainScore
+  }
+  
+  static func parseHelper(text: String) -> [Helper] {
+    var helpers = [Helper]()
+    for letter in text.characters {
+      switch letter {
+      case "b":
+        helpers.append(.bomb)
+      case "l":
+        helpers.append(.lock)
+      case "s":
+        helpers.append(.swap)
+      default:
+        break
+      }
+    }
+    return helpers
+  }
+  
+  static func getStartingHand() -> String {
+    let HAND_SIZE = 5
+    var hand = ""
+    let wordList = WordsAPI()
+    for _ in 1...HAND_SIZE {
+      hand = hand + wordList.fetchRandomLetter()
+    }
+    return hand
   }
   
   func playFromHand(letter: String) -> Character {

@@ -19,7 +19,7 @@ struct Word {
     return _size
   }
   
-  init(word: String) {
+  init(fromText word: String) {
     self.name = word
     self._size = word.characters.count
     //self._definition = WordsAPI().fetchDefinition(forWord: word)

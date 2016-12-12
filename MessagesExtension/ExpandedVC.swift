@@ -25,6 +25,10 @@ class ExpandedVC: UIViewController {
   var composeDelegate: ComposeMessageDelegate!
   var game: Game? = nil
   
+  var bombing: Bool = false
+  var swapping: Bool = false
+  var locking: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     if message == nil {
@@ -40,13 +44,14 @@ class ExpandedVC: UIViewController {
   }
   
   func setupNewGame() {
-    // zero out any player scores
-    game = Game(withMessage: message) // this will eventually be passed in from CompactVC based on player selection from starter words
+    game = Game(withMessage: nil) // this will eventually be passed in from CompactVC based on player selection from starter words
+    game?.setCurrentWord(to: (WordsAPI().fetchRandomWord()?.name)!) // this is a patch, will go away once CompactVC is set up properly
     setupWordView(forWord: (game?.currentWord)!)
     // re-set helper buttons to active state
   }
   
   func setupExistingGame(fromMessage message: MSMessage) {
+    game = Game(withMessage: message)
     // set scrores from message
     // setup word from message
     // setup current player helper button statuses
@@ -115,10 +120,12 @@ class ExpandedVC: UIViewController {
   @IBAction func bombPressed(sender:UIButton) {
     // tap this to remove a letter from the word
     // doing so must still leave you with a valid word
+    bombing = true
   }
   
   @IBAction func lockPressed(sender:UIButton) {
     // tap this to lock a letter forever in the word
+    locking = true
   }
   
   @IBAction func passPressed(sender:UIButton) {
@@ -127,6 +134,7 @@ class ExpandedVC: UIViewController {
   
   @IBAction func swapPressed(sender:UIButton) {
     // tap this then tap two letters in the word to swap them
+    swapping = true
   }
   
   @IBAction func addLetterPressed(sender:UIButton) {
@@ -134,8 +142,25 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func letterPressed(sender: UIButton) {
-    print(sender.tag)
-    print(sender.titleLabel?.text)
+    if bombing {
+      sender.isHidden = true
+      // game should re-write currentWord to match visible letters in view
+      // player should lose this helper
+      bombing = false
+      bomb.isEnabled = false
+    } else if locking {
+      // game should lock letter in place
+      // player loses this helper
+      locking = false
+      lock.isEnabled = false
+    } else if swapping {
+      // game should let you tap two letters
+      // then lighting up swap button again
+      // then swap places 
+      // player loses helper
+      swapping = false
+      swap.isEnabled = false
+    }
   }
   
   @IBAction func playerHandLetterPressed(sender: UIButton) {

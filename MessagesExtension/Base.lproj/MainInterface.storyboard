@@ -242,7 +242,6 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="zzl-Iv-a7S"/>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="wJS-y7-xTA"/>
                                         </connections>
                                     </button>
@@ -259,7 +258,6 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="ovF-0u-MZx"/>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Zgq-gX-XIa"/>
                                         </connections>
                                     </button>
@@ -276,7 +274,6 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="7JJ-9F-euI"/>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Gwu-NX-vLU"/>
                                         </connections>
                                     </button>
@@ -293,7 +290,6 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="fwL-kF-Su8"/>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="sWI-qa-ZE5"/>
                                         </connections>
                                     </button>
@@ -310,7 +306,6 @@
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="VAv-8R-eQO"/>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="ZRW-nO-NvS"/>
                                         </connections>
                                     </button>

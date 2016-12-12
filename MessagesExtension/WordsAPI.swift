@@ -50,7 +50,7 @@ class WordsAPI {
         let data = try String(contentsOfFile: path, encoding: .utf8)
         let allWords = data.components(separatedBy: .newlines)
         let random = Int(arc4random_uniform(UInt32(allWords.count)))
-        return random != 0 ? Word(word: allWords[random-1]) : Word(word: allWords[0])
+        return random != 0 ? Word(fromText: allWords[random-1]) : Word(fromText: allWords[0])
       } catch {
         print(error)
       }

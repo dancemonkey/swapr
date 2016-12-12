@@ -16,85 +16,97 @@ enum PlayerTurn: Int {
   case playerFour = 3
 }
 
+struct TempPlayer {
+  var hand: String
+  var score: Int
+  var helpers: String
+  var chainScore: Int
+}
+
 class Game {
   
-  private var _priorPlayerPassed: Bool
+  let MAX_WORD_LENGTH = 6
+  let wordList = WordsAPI()
+  
+  private var _priorPlayerPassed: Bool = false
   var priorPlayerPassed: Bool {
     return _priorPlayerPassed
   }
   
   private var _currentPlayerPassed: Bool = false
   
-  private var _players: [Player]
-  var players: [Player] {
-    return _players
-  }
-  
   private var _currentPlayer: Player
   var currentPlayer: Player {
     return _currentPlayer
   }
   
-  let MAX_WORD_LENGTH = 6
+  private var _oppPlayer: Player
+  var oppPlayer: Player {
+    return _oppPlayer
+  }
   
-  private var _currentWord: Word
-  var currentWord: Word {
+  private var _currentWord: Word? = nil
+  var currentWord: Word? {
     return _currentWord
   }
   
   private var _wordSize: Int {
-    return _currentWord.size
+    return _currentWord != nil ? _currentWord!.size : 0
   }
-  
-  let wordList = WordsAPI()
   
   init(withMessage message: MSMessage?) {
     if let msg = message, let url = msg.url {
+      
+      var oppPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
+      var currentPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
+      
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
           for item in queryItems {
             if item.name == "currentWord" {
-              self._currentWord = Word(word: item.name)
-            }
-            if item.name == "oppPlayerIndex" {
-              
-            }
-            if item.name == "currentPlayerIndex" {
-              
+              self._currentWord = Word(fromText: item.name)
             }
             if item.name == "oppPlayerHand" {
-              
+              oppPlayer.hand = item.name
             }
             if item.name == "currentPlayerHand" {
-              
+              currentPlayer.hand = item.name
             }
             if item.name == "oppPlayerScore" {
-              
+              oppPlayer.score = Int(item.name)!
             }
             if item.name == "currentPlayerScore" {
-              
+              currentPlayer.score = Int(item.name)!
             }
             if item.name == "oppPlayerHelpers" {
-              
+              oppPlayer.helpers = item.name
             }
             if item.name == "currentPlayerHelpers" {
-              
+              currentPlayer.helpers = item.name
             }
             if item.name == "priorPlayerPassed" {
-              
+              self._priorPlayerPassed = NSString(string: item.name).boolValue
             }
             if item.name == "oppChainScore" {
-              
+              oppPlayer.chainScore = Int(item.name)!
             }
             if item.name == "currentChainScore" {
-              
+              currentPlayer.chainScore = Int(item.name)!
             }
           }
         }
       }
+      self._currentPlayer = Player(hand: currentPlayer.hand, score: currentPlayer.score, helpers: currentPlayer.helpers, chainScore: currentPlayer.chainScore)
+      self._oppPlayer = Player(hand: oppPlayer.hand, score: oppPlayer.score, helpers: oppPlayer.helpers, chainScore: oppPlayer.chainScore)
     } else {
-      // init game with new values, it's a brand new game
+      _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1)
+      _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1)
     }
+    setupRound(forPlayer: _currentPlayer)
+  }
+  
+  func setCurrentWord(to word: String) {
+    self._currentWord = Word(fromText: word)
   }
   
   func setupRound(forPlayer player: Player) {
@@ -118,15 +130,7 @@ class Game {
   }
   
   func winningPlayer() -> Player? {
-    var winningScore = 0
-    var winningPlayer: Player? = nil
-    _players.forEach { (player) in
-      if player.score > winningScore {
-        winningScore = player.score
-        winningPlayer = player
-      }
-    }
-    return winningPlayer
+    return currentPlayer.score > oppPlayer.score ? currentPlayer : oppPlayer
   }
   
   private func scoreRound(forPlayer player: Player) {
