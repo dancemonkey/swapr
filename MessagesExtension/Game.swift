@@ -110,7 +110,7 @@ class Game {
   }
   
   func setupRound(forPlayer player: Player) {
-    // move most of the garbage from init function into here
+    // setup the UI for the current player's score, hand, helpers, etc
   }
   
   func getNewWord() -> Word {
@@ -143,6 +143,12 @@ class Game {
     // be sure to encode currentPlayer as nextPlayer in url
     
     return MSMessage()
+  }
+  
+  func replaceLetter(atIndex index: Int, with letter: String) {
+    _currentPlayer.playFromHand(letter: letter)
+    _currentWord?.replaceLetter(at: index, with: letter)
+    _currentPlayer.addToHand(letter: wordList.fetchRandomLetter())
   }
   
 }

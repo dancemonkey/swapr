@@ -9,6 +9,7 @@
 import Foundation
 
 struct Word {
+  
   var name: String
   private var _definition: String? = nil
   var definition: String? {
@@ -22,7 +23,15 @@ struct Word {
   init(fromText word: String) {
     self.name = word
     self._size = word.characters.count
-    //self._definition = WordsAPI().fetchDefinition(forWord: word)
+  }
+  
+  mutating func replaceLetter(at index: Int, with letter: String) {
+    var chars = name.characters
+    let oldLetterIndex = chars.index(chars.startIndex, offsetBy: index)
+    chars.remove(at: oldLetterIndex)
+    chars.insert(Character(letter), at: oldLetterIndex)
+    name = String(chars)
+    self._size = name.characters.count
   }
   
 }

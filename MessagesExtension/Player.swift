@@ -72,9 +72,10 @@ class Player {
     return hand
   }
   
-  func playFromHand(letter: String) -> Character {
-    let index = _hand.characters.index(of: Character(letter))
-    return _hand.remove(at: index!)
+  func playFromHand(letter: String) {
+//    if let range = _hand.range(of: letter) {
+//      _hand.remove(at: range.lowerBound)
+//    }
   }
   
   func playHelper(ofType helper: Helper) -> Helper? {
@@ -86,7 +87,7 @@ class Player {
   }
   
   func addToHand(letter: String) {
-    self._hand.append(Character(letter))
+    //self._hand.append(Character(letter))
   }
   
   func increaseScore(by score: Int) {

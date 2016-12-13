@@ -28,6 +28,8 @@ class ExpandedVC: UIViewController {
   var bombing: Bool = false
   var swapping: Bool = false
   var locking: Bool = false
+  var playingLetter: Bool = false
+  var letterToPlay: String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,6 +49,7 @@ class ExpandedVC: UIViewController {
     game = Game(withMessage: nil) // this will eventually be passed in from CompactVC based on player selection from starter words
     game?.setCurrentWord(to: (WordsAPI().fetchRandomWord()?.name)!) // this is a patch, will go away once CompactVC is set up properly
     setupWordView(forWord: (game?.currentWord)!)
+    setupPlayerHand(withLetters: nil)
     // re-set helper buttons to active state
   }
   
@@ -57,14 +60,22 @@ class ExpandedVC: UIViewController {
     // setup current player helper button statuses
   }
   
-//  func setupPlayerHand(forPlayer player: Player) {
-//    
-//  }
-  
   func setupWordView(forWord word: Word) {
     setupLetterView(forSize: word.size)
     setLettersInLetterView(forWord: word.name)
-    definition.text = word.name // temp for testing
+  }
+  
+  func setupPlayerHand(withLetters letters: String?) {
+    var hand: Array<Character>
+    if let text = letters {
+      hand = Array(text.characters)
+    } else {
+      hand = Array(Player.getStartingHand().characters)
+    }
+    for (index, letter) in hand.enumerated() {
+      playerHand[index].setTitle(String(letter), for: .normal)
+    }
+    print("made it out of player hand setup")
   }
   
   func getVisibleLetterCount() -> Int {
@@ -78,8 +89,11 @@ class ExpandedVC: UIViewController {
   }
   
   func setupLetterView(forSize size: Int) {
+    for letter in letters {
+      letter.isHidden = false
+    }
+    //setLetterViewOrder()
     resizeLetters(toSize: size)
-    setLetterViewOrder()
   }
   
   func resizeLetters(toSize size: Int) {
@@ -88,6 +102,7 @@ class ExpandedVC: UIViewController {
         letters[index].isHidden = true
       }
     } else if size > getVisibleLetterCount() {
+      print("resizing bigger")
       for index in getVisibleLetterCount()..<size {
         letters[index].isHidden = false
       }
@@ -103,6 +118,7 @@ class ExpandedVC: UIViewController {
   }
   
   func setLettersInLetterView(forWord word: String) {
+    print(word)
     for (index, letter) in word.characters.enumerated() {
       letters[index].setTitle(String(letter), for: .normal)
     }
@@ -160,11 +176,17 @@ class ExpandedVC: UIViewController {
       // player loses helper
       swapping = false
       swap.isEnabled = false
+    } else if playingLetter {
+      game?.replaceLetter(atIndex: sender.tag, with: letterToPlay)
+      playingLetter = false
+      setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+      setupPlayerHand(withLetters: game?.currentPlayer.hand)
     }
   }
   
   @IBAction func playerHandLetterPressed(sender: UIButton) {
-    // tap this, then tap a letter in the word to replace it with this one
+    letterToPlay = (sender.titleLabel?.text)!
+    playingLetter = true
   }
   
 }
