@@ -49,7 +49,7 @@ class ExpandedVC: UIViewController {
     game = Game(withMessage: nil) // this will eventually be passed in from CompactVC based on player selection from starter words
     game?.setCurrentWord(to: (WordsAPI().fetchRandomWord()?.name)!) // this is a patch, will go away once CompactVC is set up properly
     setupWordView(forWord: (game?.currentWord)!)
-    setupPlayerHand(withLetters: nil)
+    setupPlayerHand(withLetters: game?.currentPlayer.hand)
     // re-set helper buttons to active state
   }
   
@@ -66,14 +66,19 @@ class ExpandedVC: UIViewController {
   }
   
   func setupPlayerHand(withLetters letters: String?) {
-    var hand: Array<Character>
+    print("entered player hand setup")
+    var hand: String
     if let text = letters {
-      hand = Array(text.characters)
+      print("hand passed in, value \(letters)")
+      hand = text
     } else {
-      hand = Array(Player.getStartingHand().characters)
+      print("getting new starting hand")
+      hand = (game?.currentPlayer.getStartingHand())!
     }
-    for (index, letter) in hand.enumerated() {
+    print(hand)
+    for (index, letter) in hand.characters.enumerated() {
       playerHand[index].setTitle(String(letter), for: .normal)
+      print(index,letter)
     }
     print("made it out of player hand setup")
   }
@@ -177,7 +182,7 @@ class ExpandedVC: UIViewController {
       swapping = false
       swap.isEnabled = false
     } else if playingLetter {
-      game?.replaceLetter(atIndex: sender.tag, with: letterToPlay)
+      game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
       playingLetter = false
       setLettersInLetterView(forWord: (game?.currentWord?.name)!)
       setupPlayerHand(withLetters: game?.currentPlayer.hand)

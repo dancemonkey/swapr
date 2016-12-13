@@ -19,8 +19,8 @@ class Player {
     return _score
   }
   
-  private var _hand: String
-  var hand: String {
+  private var _hand: String!
+  var hand: String! {
     return _hand
   }
   
@@ -35,7 +35,7 @@ class Player {
   }
   
   init(hand: String?, score: Int, helpers: String?, chainScore: Int) {
-    self._hand = hand ?? Player.getStartingHand()
+    self._hand = hand
     self._score = score
     if helpers != nil {
       self._helpers = Player.parseHelper(text: helpers!)
@@ -43,6 +43,9 @@ class Player {
       self._helpers = Player.parseHelper(text: "bsl")
     }
     self._chainScore = chainScore
+    if _hand == nil {
+      _hand = getStartingHand()
+    }
   }
   
   static func parseHelper(text: String) -> [Helper] {
@@ -62,20 +65,22 @@ class Player {
     return helpers
   }
   
-  static func getStartingHand() -> String {
+  func getStartingHand() -> String {
     let HAND_SIZE = 5
     var hand = ""
     let wordList = WordsAPI()
-    for _ in 1...HAND_SIZE {
+    for _ in 0..<HAND_SIZE {
       hand = hand + wordList.fetchRandomLetter()
     }
+    print("returned starting hand from player function")
     return hand
   }
   
   func playFromHand(letter: String) {
-//    if let range = _hand.range(of: letter) {
-//      _hand.remove(at: range.lowerBound)
-//    }
+    if let range = _hand.range(of: letter) {
+      print("removing letter \(letter) from hand")
+      _hand.remove(at: range.lowerBound)
+    }
   }
   
   func playHelper(ofType helper: Helper) -> Helper? {
@@ -86,8 +91,8 @@ class Player {
     return self._helpers.remove(at: index!)
   }
   
-  func addToHand(letter: String) {
-    //self._hand.append(Character(letter))
+  func drawNewLetter(fromList list: WordsAPI) {
+    self._hand.append(list.fetchRandomLetter())
   }
   
   func increaseScore(by score: Int) {

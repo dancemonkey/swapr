@@ -118,7 +118,7 @@ class Game {
   }
   
   func getNewLetter(forPlayer player: Player) {
-    player.addToHand(letter: wordList.fetchRandomLetter())
+    player.drawNewLetter(fromList: wordList)
   }
   
   func isValid(word: String) -> Bool {
@@ -145,10 +145,10 @@ class Game {
     return MSMessage()
   }
   
-  func replaceLetter(atIndex index: Int, with letter: String) {
+  func replaceLetter(atIndex index: Int, withPlayerLetter letter: String) {
     _currentPlayer.playFromHand(letter: letter)
     _currentWord?.replaceLetter(at: index, with: letter)
-    _currentPlayer.addToHand(letter: wordList.fetchRandomLetter())
+    getNewLetter(forPlayer: _currentPlayer)
   }
   
 }
