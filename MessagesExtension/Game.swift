@@ -151,4 +151,8 @@ class Game {
     getNewLetter(forPlayer: _currentPlayer)
   }
   
+  func playHelper(helper: Helper, forPlayer player: Player) {
+    player.playHelper(ofType: helper)
+  }
+  
 }

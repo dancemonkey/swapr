@@ -80,7 +80,7 @@
                                                     <action selector="addLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="UsV-t2-rIn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unF-3i-s1p">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unF-3i-s1p" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <rect key="frame" x="48.5" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -91,7 +91,7 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="q4M-kP-Jr6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <rect key="frame" x="95" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -102,7 +102,7 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="VTF-li-vjY"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-C3-Ve7">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-C3-Ve7" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <rect key="frame" x="141.5" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -113,7 +113,7 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="NCc-gb-6xS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we2-DL-wr7">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we2-DL-wr7" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <rect key="frame" x="187.5" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -124,7 +124,7 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="cUu-Vb-Ppl"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <rect key="frame" x="234" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -135,7 +135,7 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Aug-Eo-FgR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                                 <rect key="frame" x="280.5" y="0.0" width="30" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>

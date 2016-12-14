@@ -40,24 +40,20 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
   func setupNewGame() {
     game = Game(withMessage: nil) // this will eventually be passed in from CompactVC based on player selection from starter words
     game?.setCurrentWord(to: (WordsAPI().fetchRandomWord()?.name)!) // this is a patch, will go away once CompactVC is set up properly
     setupWordView(forWord: (game?.currentWord)!)
     setupPlayerHand(withLetters: game?.currentPlayer.hand)
-    // re-set helper buttons to active state
+    setupHelperViews(with: (game?.currentPlayer.helpers)!)
   }
   
   func setupExistingGame(fromMessage message: MSMessage) {
     game = Game(withMessage: message)
-    // set scrores from message
-    // setup word from message
-    // setup current player helper button statuses
+    setupWordView(forWord: (game?.currentWord)!)
+    setupPlayerHand(withLetters: game?.currentPlayer.hand)
+    setupHelperViews(with: (game?.currentPlayer.helpers)!)
+    // set scores from message
   }
   
   func setupWordView(forWord word: Word) {
@@ -66,21 +62,15 @@ class ExpandedVC: UIViewController {
   }
   
   func setupPlayerHand(withLetters letters: String?) {
-    print("entered player hand setup")
     var hand: String
     if let text = letters {
-      print("hand passed in, value \(letters)")
       hand = text
     } else {
-      print("getting new starting hand")
       hand = (game?.currentPlayer.getStartingHand())!
     }
-    print(hand)
     for (index, letter) in hand.characters.enumerated() {
       playerHand[index].setTitle(String(letter), for: .normal)
-      print(index,letter)
     }
-    print("made it out of player hand setup")
   }
   
   func getVisibleLetterCount() -> Int {
@@ -114,13 +104,25 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  func setLetterViewOrder() {
-    var tempLetters: [UIButton] = letters
-    for button in letters {
-      tempLetters[button.tag] = button
+  func setupHelperViews(with helpers: [Helper]) {
+    if helpers.contains(.bomb) {
+      bomb.isEnabled = true
     }
-    letters = tempLetters
+    if helpers.contains(.lock) {
+      lock.isEnabled = true
+    }
+    if helpers.contains(.swap) {
+      lock.isEnabled = true
+    }
   }
+  
+//  func setLetterViewOrder() {
+//    var tempLetters: [UIButton] = letters
+//    for button in letters {
+//      tempLetters[button.tag] = button
+//    }
+//    letters = tempLetters
+//  }
   
   func setLettersInLetterView(forWord word: String) {
     print(word)
@@ -162,25 +164,24 @@ class ExpandedVC: UIViewController {
     // this should only work if the word is shorter than the max letter count prop in game
   }
   
-  @IBAction func letterPressed(sender: UIButton) {
+  @IBAction func letterPressed(sender: LetterButton) {
     if bombing {
       sender.isHidden = true
-      // game should re-write currentWord to match visible letters in view
-      // player should lose this helper
       bombing = false
       bomb.isEnabled = false
+      game?.playHelper(helper: .bomb, forPlayer: (game?.currentPlayer)!)
     } else if locking {
-      // game should lock letter in place
-      // player loses this helper
+      sender.locked = true
       locking = false
       lock.isEnabled = false
+      game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
     } else if swapping {
       // game should let you tap two letters
       // then lighting up swap button again
       // then swap places 
-      // player loses helper
       swapping = false
       swap.isEnabled = false
+      game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
     } else if playingLetter {
       game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
       playingLetter = false

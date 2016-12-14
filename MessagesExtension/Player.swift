@@ -83,12 +83,9 @@ class Player {
     }
   }
   
-  func playHelper(ofType helper: Helper) -> Helper? {
-    guard self._helpers.contains(helper) else {
-      return nil
-    }
+  func playHelper(ofType helper: Helper) {
     let index = self._helpers.index(of: helper)
-    return self._helpers.remove(at: index!)
+    self._helpers.remove(at: index!)
   }
   
   func drawNewLetter(fromList list: WordsAPI) {

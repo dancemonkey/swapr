@@ -18,3 +18,8 @@ protocol ComposeMessageDelegate {
   func compose(withMessage message: MSMessage) 
 }
 
+protocol Lockable {
+  var locked: Bool { get set }
+}
+
+
