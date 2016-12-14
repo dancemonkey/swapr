@@ -18,7 +18,7 @@ class ExpandedVC: UIViewController {
   @IBOutlet weak var swap: UIButton!
   @IBOutlet weak var definition: UITextView!
   @IBOutlet var addLetter: [UIButton]!
-  @IBOutlet var letters: [UIButton]!
+  @IBOutlet var letters: [LetterButton]!
   @IBOutlet var playerHand: [UIButton]!
   
   var message: MSMessage? = nil
@@ -27,6 +27,7 @@ class ExpandedVC: UIViewController {
   
   var bombing: Bool = false
   var swapping: Bool = false
+  var firstLetter: LetterButton? = nil
   var locking: Bool = false
   var playingLetter: Bool = false
   var letterToPlay: String = ""
@@ -134,6 +135,21 @@ class ExpandedVC: UIViewController {
     }
   }
   
+  func swapLetters(first: LetterButton, with second: LetterButton) {
+    var firstIndex = 0
+    var secondIndex = 0
+    for (index, letter) in letters.enumerated() {
+      if letter == first {
+        firstIndex = index
+      }
+      if letter == second {
+        secondIndex = index
+      }
+    }
+    game?.swapLetters(first: first.currentTitle!, at: firstIndex, with: second.currentTitle!, at: secondIndex)
+    setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+  }
+  
   // IBACTIONS
   
   @IBAction func endTurnPressed(sender: UIButton) {
@@ -156,7 +172,6 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func swapPressed(sender:UIButton) {
-    // tap this then tap two letters in the word to swap them
     swapping = true
   }
   
@@ -179,9 +194,15 @@ class ExpandedVC: UIViewController {
       // game should let you tap two letters
       // then lighting up swap button again
       // then swap places 
-      swapping = false
-      swap.isEnabled = false
-      game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
+      if firstLetter != nil {
+        swapping = false
+        swap.isEnabled = false
+        swapLetters(first: firstLetter!, with: sender)
+        game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
+      }
+      if firstLetter == nil {
+        firstLetter = sender
+      }
     } else if playingLetter {
       game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
       playingLetter = false

@@ -155,4 +155,9 @@ class Game {
     player.playHelper(ofType: helper)
   }
   
+  func swapLetters(first: String, at index: Int, with second: String, at secondIndex: Int) {
+    _currentWord?.replaceLetter(at: index, with: second)
+    _currentWord?.replaceLetter(at: secondIndex, with: first)
+  }
+  
 }

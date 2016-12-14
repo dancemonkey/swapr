@@ -31,7 +31,6 @@ struct Word {
     chars.remove(at: oldLetterIndex)
     chars.insert(Character(letter), at: oldLetterIndex)
     name = String(chars)
-    self._size = name.characters.count
   }
   
 }
