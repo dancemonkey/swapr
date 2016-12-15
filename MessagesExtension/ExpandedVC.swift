@@ -48,29 +48,30 @@ class ExpandedVC: UIViewController {
   }
   
   func setupNewGame() {
-    game = Game(withMessage: nil) // this will eventually be passed in from CompactVC based on player selection from starter words
+    game = Game(withMessage: message) // this will eventually be passed in from CompactVC based on player selection from starter words
     game?.setCurrentWord(to: (WordsAPI().fetchRandomWord()?.name)!) // this is a patch, will go away once CompactVC is set up properly
-    setupWordView(forWord: (game?.currentWord)!)
-    setupPlayerHand(withLetters: game?.currentPlayer.hand)
-    setupHelperViews(with: (game?.currentPlayer.helpers)!)
+    setupWordView()
+    setupPlayerHand()
+    setupHelperViews()
   }
   
   func setupExistingGame(fromMessage message: MSMessage) {
     game = Game(withMessage: message)
-    setupWordView(forWord: (game?.currentWord)!)
-    setupPlayerHand(withLetters: game?.currentPlayer.hand)
-    setupHelperViews(with: (game?.currentPlayer.helpers)!)
+    setupWordView()
+    setupPlayerHand()
+    setupHelperViews()
     // set scores from message i.e. setupScores()
   }
   
-  func setupWordView(forWord word: Word) {
-    setupLetterView(forSize: word.size)
-    setLettersInLetterView(forWord: word.name)
+  func setupWordView() {
+    let word = game?.currentWord
+    setupLetterView()
+    setLettersInLetterView(forWord: (word?.name)!)
   }
   
-  func setupPlayerHand(withLetters letters: String?) {
+  func setupPlayerHand() {
     var hand: String
-    if let text = letters {
+    if let text = game?.currentPlayer.hand {
       hand = text
     } else {
       hand = (game?.currentPlayer.getStartingHand())!
@@ -90,11 +91,12 @@ class ExpandedVC: UIViewController {
     })
   }
   
-  func setupLetterView(forSize size: Int) {
+  func setupLetterView() {
+    let size = game?.currentWord?.size
     for letter in letters {
       letter.isHidden = false
     }
-    resizeLetters(toSize: size)
+    resizeLetters(toSize: size!)
   }
   
   func resizeLetters(toSize size: Int) { // WHY PASS IN VALUE, JUST CALL SIZE DIRECTLY?
@@ -109,7 +111,8 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  func setupHelperViews(with helpers: [Helper]) {
+  func setupHelperViews() {
+    let helpers = game!.currentPlayer.helpers
     if helpers.contains(.bomb) {
       bomb.isEnabled = true
     }
@@ -159,12 +162,20 @@ class ExpandedVC: UIViewController {
   @IBAction func bombPressed(sender:UIButton) {
     // tap this to remove a letter from the word
     // doing so must still leave you with a valid word
-    bombing = true
+    if !bombing {
+      bombing = true
+    } else {
+      bombing = false
+    }
   }
   
   @IBAction func lockPressed(sender:UIButton) {
     // tap this to lock a letter forever in the word
-    locking = true
+    if !locking {
+      locking = true
+    } else {
+      locking = false
+    }
   }
   
   @IBAction func passPressed(sender:UIButton) {
@@ -172,7 +183,11 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func swapPressed(sender:UIButton) {
-    swapping = true
+    if !swapping {
+      swapping = true
+    } else {
+      swapping = false
+    }
   }
   
   @IBAction func addLetterPressed(sender:UIButton) {
@@ -192,7 +207,7 @@ class ExpandedVC: UIViewController {
   
   func extendLetterView(direction: AddLetter) {
     game?.addNewLetterSpace(to: direction)
-    setupLetterView(forSize: (game?.currentWord?.size)!)
+    setupLetterView()
     setLettersInLetterView(forWord: (game?.currentWord?.name)!)
     if direction == .right {
       addLetterTarget = letters[getVisibleLetterCount()-1]
@@ -206,7 +221,7 @@ class ExpandedVC: UIViewController {
       game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
       playingLetter = false
       setLettersInLetterView(forWord: (game?.currentWord?.name)!)
-      setupPlayerHand(withLetters: game?.currentPlayer.hand)
+      setupPlayerHand()
     }
     if bombing && sender.locked == false {
       sender.isHidden = true
@@ -232,7 +247,7 @@ class ExpandedVC: UIViewController {
       game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
       playingLetter = false
       setLettersInLetterView(forWord: (game?.currentWord?.name)!)
-      setupPlayerHand(withLetters: game?.currentPlayer.hand)
+      setupPlayerHand()
     }
   }
   
