@@ -160,4 +160,13 @@ class Game {
     _currentWord?.replaceLetter(at: secondIndex, with: first)
   }
   
+  func addNewLetterSpace(to: AddLetter) {
+    let oldWord = _currentWord
+    if to == .left {
+      _currentWord = Word(fromText: "_\(oldWord!.name)")
+    } else {
+      _currentWord = Word(fromText: "\(oldWord!.name)_")
+    }
+  }
+  
 }

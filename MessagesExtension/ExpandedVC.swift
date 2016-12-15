@@ -9,6 +9,10 @@
 import UIKit
 import Messages
 
+enum AddLetter: Int {
+  case left = 0, right
+}
+
 class ExpandedVC: UIViewController {
   
   @IBOutlet weak var endTurn: UIButton!
@@ -31,6 +35,8 @@ class ExpandedVC: UIViewController {
   var locking: Bool = false
   var playingLetter: Bool = false
   var letterToPlay: String = ""
+  var addingLetter: Bool = false
+  var addLetterTarget: LetterButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,7 +60,7 @@ class ExpandedVC: UIViewController {
     setupWordView(forWord: (game?.currentWord)!)
     setupPlayerHand(withLetters: game?.currentPlayer.hand)
     setupHelperViews(with: (game?.currentPlayer.helpers)!)
-    // set scores from message
+    // set scores from message i.e. setupScores()
   }
   
   func setupWordView(forWord word: Word) {
@@ -88,17 +94,15 @@ class ExpandedVC: UIViewController {
     for letter in letters {
       letter.isHidden = false
     }
-    //setLetterViewOrder()
     resizeLetters(toSize: size)
   }
   
-  func resizeLetters(toSize size: Int) {
+  func resizeLetters(toSize size: Int) { // WHY PASS IN VALUE, JUST CALL SIZE DIRECTLY?
     if size < getVisibleLetterCount() {
       for index in size..<getVisibleLetterCount() {
         letters[index].isHidden = true
       }
     } else if size > getVisibleLetterCount() {
-      print("resizing bigger")
       for index in getVisibleLetterCount()..<size {
         letters[index].isHidden = false
       }
@@ -113,19 +117,15 @@ class ExpandedVC: UIViewController {
       lock.isEnabled = true
     }
     if helpers.contains(.swap) {
-      lock.isEnabled = true
+      swap.isEnabled = true
     }
+    addingLetter = false
+    swapping = false
+    bombing = false
+    locking = false
   }
   
-//  func setLetterViewOrder() {
-//    var tempLetters: [UIButton] = letters
-//    for button in letters {
-//      tempLetters[button.tag] = button
-//    }
-//    letters = tempLetters
-//  }
-  
-  func setLettersInLetterView(forWord word: String) {
+  func setLettersInLetterView(forWord word: String) { //  WHY PASS IN VALUE, JUST CALL WORD DIRECTLY?
     print(word)
     for (index, letter) in word.characters.enumerated() {
       letters[index].setTitle(String(letter), for: .normal)
@@ -176,24 +176,49 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func addLetterPressed(sender:UIButton) {
-    // this should only work if the word is shorter than the max letter count prop in game
+    if addingLetter == false {
+      addingLetter = true
+      if getVisibleLetterCount() == (game?.currentWord?.size)! {
+        switch sender.tag {
+        case AddLetter.left.rawValue:
+          extendLetterView(direction: .left)
+        case AddLetter.right.rawValue:
+          extendLetterView(direction: .right)
+        default: break
+        }
+      }
+    }
+  }
+  
+  func extendLetterView(direction: AddLetter) {
+    game?.addNewLetterSpace(to: direction)
+    setupLetterView(forSize: (game?.currentWord?.size)!)
+    setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+    if direction == .right {
+      addLetterTarget = letters[getVisibleLetterCount()-1]
+    } else {
+      addLetterTarget = letters[0]
+    }
   }
   
   @IBAction func letterPressed(sender: LetterButton) {
-    if bombing {
+    if addingLetter && playingLetter && sender == addLetterTarget {
+      game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
+      playingLetter = false
+      setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+      setupPlayerHand(withLetters: game?.currentPlayer.hand)
+    }
+    if bombing && sender.locked == false {
       sender.isHidden = true
       bombing = false
       bomb.isEnabled = false
       game?.playHelper(helper: .bomb, forPlayer: (game?.currentPlayer)!)
-    } else if locking {
+    } else if locking && sender.locked == false {
       sender.locked = true
       locking = false
       lock.isEnabled = false
       game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
-    } else if swapping {
-      // game should let you tap two letters
-      // then lighting up swap button again
-      // then swap places 
+    } else if swapping && sender.locked == false {
       if firstLetter != nil {
         swapping = false
         swap.isEnabled = false
@@ -203,7 +228,7 @@ class ExpandedVC: UIViewController {
       if firstLetter == nil {
         firstLetter = sender
       }
-    } else if playingLetter {
+    } else if playingLetter && sender.locked == false && !addingLetter {
       game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
       playingLetter = false
       setLettersInLetterView(forWord: (game?.currentWord?.name)!)
