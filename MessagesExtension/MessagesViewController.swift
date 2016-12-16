@@ -53,10 +53,13 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     if let message = conversation.selectedMessage, let url = message.url {
+      print("found message in convo and url in message")
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
+        print("found components in url")
         if let queryItems = components.queryItems {
           for item in queryItems {
             if item.name.contains("swapr") {
+              print("assigning message to expandedVC")
               vc.message = message
             }
           }
@@ -145,7 +148,6 @@ extension MessagesViewController: ExpandViewDelegate {
 
 extension MessagesViewController: ComposeMessageDelegate {
   func compose(fromGame game: Game) {
-    print("composing message")
     
     let convo = activeConversation ?? MSConversation()
     let session = convo.selectedMessage?.session ?? MSSession()
@@ -159,24 +161,24 @@ extension MessagesViewController: ComposeMessageDelegate {
     
     var components = URLComponents()
     let currentWord = URLQueryItem(name: "currentWord", value: "\(game.currentWord?.name)")
-    let queryItemTotalScore = URLQueryItem(name: "sccTotalScore", value: "\(game.totalScore)")
-    let queryItemOppScore = URLQueryItem(name: "sccOppScore", value: "\(game.opponentScore)")
-    let queryItemWins = URLQueryItem(name: "sccMyWins", value: "\(game.oppWins)")
-    let queryItemOppWins = URLQueryItem(name: "sccOppWins", value: "\(game.myWins)")
-    components.queryItems = [queryItemScore, queryItemTotalScore, queryItemOppScore, queryItemWins, queryItemOppWins]
+    let oppPlayerHand = URLQueryItem(name: "oppPlayerHand", value: "\(game.currentPlayer.hand)")
+    let currentPlayerHand = URLQueryItem(name: "currentPlayerHand", value: "\(game.oppPlayer.hand)")
+    let oppPlayerScore = URLQueryItem(name: "oppPlayerScore", value: "\(game.currentPlayer.score)")
+    let currentPlayerScore = URLQueryItem(name: "currentPlayerScore", value: "\(game.oppPlayer.score)")
+    let oppPlayerHelpers = URLQueryItem(name: "oppPlayerHelpers", value: "\(game.currentPlayer.helpers)")
+    let currentPlayerHelpers = URLQueryItem(name: "currentPlayerHelpers", value: "\(game.oppPlayer.helpers)")
+    let priorPlayerPassed = URLQueryItem(name: "priorPlayerPassed", value: "\(game.priorPlayerPassed.description)")
+    let oppChainScore = URLQueryItem(name: "oppChainScore", value: "\(game.currentPlayer.chainScore)")
+    let currentChainScore = URLQueryItem(name: "currentChainScore", value: "\(game.oppPlayer.chainScore)")
+
+
+    components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, priorPlayerPassed, oppChainScore, currentChainScore]
     
-    if hasWinner == true {
-      let queryItem = URLQueryItem(name: "sccWinner", value: "\(convo.selectedMessage?.senderParticipantIdentifier)")
-      components.queryItems?.append(queryItem)
-      message.summaryText = "$\(convo.localParticipantIdentifier) Won, with a score of \(game.totalScore)!"
-    } else {
-      message.summaryText = "$\(convo.localParticipantIdentifier) Scored \(game.score) points."
-    }
+    message.summaryText = "Your opponent made \(game.currentWord?.name)."
     
     message.url = components.url
     
     convo.insert(message) { (error) in
-      //self.requestPresentationStyle(.compact)
       guard error == nil else {
         fatalError("error in inserting message into conversation")
       }
