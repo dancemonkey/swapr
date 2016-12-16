@@ -15,7 +15,7 @@ protocol ExpandViewDelegate {
 }
 
 protocol ComposeMessageDelegate {
-  func compose(withMessage message: MSMessage) 
+  func compose(fromGame game: Game)
 }
 
 protocol Lockable {

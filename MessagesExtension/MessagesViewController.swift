@@ -144,7 +144,44 @@ extension MessagesViewController: ExpandViewDelegate {
 }
 
 extension MessagesViewController: ComposeMessageDelegate {
-  func compose(withMessage message: MSMessage) {
+  func compose(fromGame game: Game) {
     print("composing message")
+    
+    let convo = activeConversation ?? MSConversation()
+    let session = convo.selectedMessage?.session ?? MSSession()
+    
+    let layout = MSMessageTemplateLayout()
+    layout.caption = "SWAPR"
+    // layout.image = UIImage(named: "msgBackground")
+    
+    let message = MSMessage(session: session)
+    message.layout = layout
+    
+    var components = URLComponents()
+    let currentWord = URLQueryItem(name: "currentWord", value: "\(game.currentWord?.name)")
+    let queryItemTotalScore = URLQueryItem(name: "sccTotalScore", value: "\(game.totalScore)")
+    let queryItemOppScore = URLQueryItem(name: "sccOppScore", value: "\(game.opponentScore)")
+    let queryItemWins = URLQueryItem(name: "sccMyWins", value: "\(game.oppWins)")
+    let queryItemOppWins = URLQueryItem(name: "sccOppWins", value: "\(game.myWins)")
+    components.queryItems = [queryItemScore, queryItemTotalScore, queryItemOppScore, queryItemWins, queryItemOppWins]
+    
+    if hasWinner == true {
+      let queryItem = URLQueryItem(name: "sccWinner", value: "\(convo.selectedMessage?.senderParticipantIdentifier)")
+      components.queryItems?.append(queryItem)
+      message.summaryText = "$\(convo.localParticipantIdentifier) Won, with a score of \(game.totalScore)!"
+    } else {
+      message.summaryText = "$\(convo.localParticipantIdentifier) Scored \(game.score) points."
+    }
+    
+    message.url = components.url
+    
+    convo.insert(message) { (error) in
+      //self.requestPresentationStyle(.compact)
+      guard error == nil else {
+        fatalError("error in inserting message into conversation")
+      }
+    }
+    
+    dismiss()
   }
 }

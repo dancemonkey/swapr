@@ -48,7 +48,7 @@ class ExpandedVC: UIViewController {
   }
   
   func setupNewGame() {
-    game = Game(withMessage: message) // this will eventually be passed in from CompactVC based on player selection from starter words
+    game = Game(withMessage: message)
     game?.setCurrentWord(to: (WordsAPI().fetchRandomWord()?.name)!) // this is a patch, will go away once CompactVC is set up properly
     setupWordView()
     setupPlayerHand()
@@ -156,7 +156,7 @@ class ExpandedVC: UIViewController {
   // IBACTIONS
   
   @IBAction func endTurnPressed(sender: UIButton) {
-    setupNewGame() // temp for testing
+    composeDelegate.compose(fromGame: game!)
   }
   
   @IBAction func bombPressed(sender:UIButton) {
