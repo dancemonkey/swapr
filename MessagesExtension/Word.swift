@@ -15,14 +15,12 @@ struct Word {
   var definition: String? {
     return self._definition
   }
-  private var _size: Int
   var size: Int {
-    return _size
+    return name.characters.count
   }
   
   init(fromText word: String) {
     self.name = word
-    self._size = word.characters.count
   }
   
   mutating func replaceLetter(at index: Int, with letter: String) {
@@ -30,6 +28,13 @@ struct Word {
     let oldLetterIndex = chars.index(chars.startIndex, offsetBy: index)
     chars.remove(at: oldLetterIndex)
     chars.insert(Character(letter), at: oldLetterIndex)
+    name = String(chars)
+  }
+  
+  mutating func removeLetter(at index: Int) {
+    var chars = name.characters
+    let removeIndex = chars.index(chars.startIndex, offsetBy: index)
+    chars.remove(at: removeIndex)
     name = String(chars)
   }
   

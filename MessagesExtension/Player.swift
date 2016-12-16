@@ -34,6 +34,11 @@ class Player {
     return _chainScore
   }
   
+  private var _playedTurn: Bool = false
+  var didPlayTurn: Bool {
+    return _playedTurn
+  }
+  
   init(hand: String?, score: Int, helpers: String?, chainScore: Int) {
     self._hand = hand
     self._score = score
@@ -80,20 +85,23 @@ class Player {
     if let range = _hand.range(of: letter) {
       print("removing letter \(letter) from hand")
       _hand.remove(at: range.lowerBound)
+      self._playedTurn = true
     }
   }
   
   func playHelper(ofType helper: Helper) {
     let index = self._helpers.index(of: helper)
     self._helpers.remove(at: index!)
+    self._playedTurn = true
   }
   
   func drawNewLetter(fromList list: WordsAPI) {
     self._hand.append(list.fetchRandomLetter())
+    self._playedTurn = true
   }
   
-  func increaseScore(by score: Int) {
-    self._score = self._score + score
+  func increaseScore() {
+    self._score = self._score + self._chainScore
     self._chainScore = self._chainScore + 1
   }
   

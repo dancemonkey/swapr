@@ -24,6 +24,9 @@ class ExpandedVC: UIViewController {
   @IBOutlet var addLetter: [UIButton]!
   @IBOutlet var letters: [LetterButton]!
   @IBOutlet var playerHand: [UIButton]!
+  @IBOutlet weak var currentPlayerScore: UILabel!
+  @IBOutlet weak var oppPlayerScore: UILabel!
+  @IBOutlet weak var chainScore: UILabel!
   
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
@@ -53,6 +56,7 @@ class ExpandedVC: UIViewController {
     setupWordView()
     setupPlayerHand()
     setupHelperViews()
+    setupScoreViews()
   }
   
   func setupExistingGame(fromMessage message: MSMessage) {
@@ -60,12 +64,18 @@ class ExpandedVC: UIViewController {
     setupWordView()
     setupPlayerHand()
     setupHelperViews()
-    // set scores from message i.e. setupScores()
+    setupScoreViews()
+  }
+  
+  func setupScoreViews() {
+    currentPlayerScore.text = String(describing: game!.currentPlayer.score)
+    oppPlayerScore.text = String(describing: game!.oppPlayer.score)
+    chainScore.text = String(describing: game!.currentPlayer.chainScore)
   }
   
   func setupWordView() {
     let word = game?.currentWord
-    setupLetterView()
+    setupLetterViewSize()
     setLettersInLetterView(forWord: (word?.name)!)
   }
   
@@ -91,7 +101,7 @@ class ExpandedVC: UIViewController {
     })
   }
   
-  func setupLetterView() {
+  func setupLetterViewSize() {
     let size = game?.currentWord?.size
     for letter in letters {
       letter.isHidden = false
@@ -113,6 +123,9 @@ class ExpandedVC: UIViewController {
   
   func setupHelperViews() {
     let helpers = game!.currentPlayer.helpers
+    bomb.isEnabled = false
+    lock.isEnabled = false
+    swap.isEnabled = false
     if helpers.contains(.bomb) {
       bomb.isEnabled = true
     }
@@ -128,13 +141,9 @@ class ExpandedVC: UIViewController {
     locking = false
   }
   
-  func setLettersInLetterView(forWord word: String) { //  WHY PASS IN VALUE, JUST CALL WORD DIRECTLY?
-    print(word)
+  func setLettersInLetterView(forWord word: String) {
     for (index, letter) in word.characters.enumerated() {
       letters[index].setTitle(String(letter), for: .normal)
-    }
-    for letter in letters where letter.isHidden == false {
-      print(letter.tag)
     }
   }
   
@@ -156,6 +165,7 @@ class ExpandedVC: UIViewController {
   // IBACTIONS
   
   @IBAction func endTurnPressed(sender: UIButton) {
+    game?.endRound()
     composeDelegate.compose(fromGame: game!)
   }
   
@@ -179,7 +189,12 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func passPressed(sender:UIButton) {
-    // end turn, chain resets to 0
+    // confirm player wants to pass and drop chain to 0
+    // warn if this will end game
+    // maybe they lose the current chain points instead of just getting nothing?
+    game?.pass()
+    game?.endRound()
+    composeDelegate.compose(fromGame: game!)
   }
   
   @IBAction func swapPressed(sender:UIButton) {
@@ -207,7 +222,7 @@ class ExpandedVC: UIViewController {
   
   func extendLetterView(direction: AddLetter) {
     game?.addNewLetterSpace(to: direction)
-    setupLetterView()
+    setupLetterViewSize()
     setLettersInLetterView(forWord: (game?.currentWord?.name)!)
     if direction == .right {
       addLetterTarget = letters[getVisibleLetterCount()-1]
@@ -217,38 +232,54 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func letterPressed(sender: LetterButton) {
-    if addingLetter && playingLetter && sender == addLetterTarget {
-      game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
-      playingLetter = false
-      setLettersInLetterView(forWord: (game?.currentWord?.name)!)
-      setupPlayerHand()
+    
+    defer {
+      setupScoreViews()
     }
-    if bombing && sender.locked == false {
-      sender.isHidden = true
-      bombing = false
-      bomb.isEnabled = false
-      game?.playHelper(helper: .bomb, forPlayer: (game?.currentPlayer)!)
-    } else if locking && sender.locked == false {
-      sender.locked = true
-      locking = false
-      lock.isEnabled = false
-      game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
-    } else if swapping && sender.locked == false {
-      if firstLetter != nil {
-        swapping = false
-        swap.isEnabled = false
-        swapLetters(first: firstLetter!, with: sender)
-        game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
+    
+    if game?.playerPlayedTurn() == false {
+      if addingLetter && playingLetter && sender == addLetterTarget {
+        game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
+        playingLetter = false
+        setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+        setupPlayerHand()
       }
-      if firstLetter == nil {
-        firstLetter = sender
+      if bombing && sender.locked == false {
+        sender.isHidden = true
+        bombing = false
+        bomb.isEnabled = false
+        game?.playHelper(helper: .bomb, forPlayer: (game?.currentPlayer)!)
+        game?.rewriteWord(as: visibleWord())
+      } else if locking && sender.locked == false {
+        sender.locked = true
+        locking = false
+        lock.isEnabled = false
+        game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
+      } else if swapping && sender.locked == false {
+        if firstLetter != nil {
+          swapping = false
+          swap.isEnabled = false
+          swapLetters(first: firstLetter!, with: sender)
+          game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
+        }
+        if firstLetter == nil {
+          firstLetter = sender
+        }
+      } else if playingLetter && sender.locked == false && !addingLetter {
+        game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
+        playingLetter = false
+        setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+        setupPlayerHand()
       }
-    } else if playingLetter && sender.locked == false && !addingLetter {
-      game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
-      playingLetter = false
-      setLettersInLetterView(forWord: (game?.currentWord?.name)!)
-      setupPlayerHand()
     }
+  }
+  
+  func visibleWord() -> String {
+    var word = ""
+    for letter in letters where letter.isHidden == false {
+      word = word + (letter.titleLabel?.text)!
+    }
+    return word
   }
   
   @IBAction func playerHandLetterPressed(sender: UIButton) {

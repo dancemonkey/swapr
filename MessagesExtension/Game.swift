@@ -34,6 +34,9 @@ class Game {
   }
   
   private var _currentPlayerPassed: Bool = false
+  var currentPlayerPassed: Bool {
+    return _currentPlayerPassed
+  }
   
   private var _currentPlayer: Player
   var currentPlayer: Player {
@@ -56,61 +59,63 @@ class Game {
   
   init(withMessage message: MSMessage?) {
     if let msg = message, let url = msg.url {
+      print("-------PARSED MESSAGE--------")
+      print(url.dataRepresentation)
+      print(url.absoluteString)
       
       var oppPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
       var currentPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
       
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
+          print("got into query items")
           for item in queryItems {
             if item.name == "currentWord" {
-              self._currentWord = Word(fromText: item.name)
+              self._currentWord = Word(fromText: item.value!)
             }
             if item.name == "oppPlayerHand" {
-              oppPlayer.hand = item.name
+              oppPlayer.hand = item.value!
             }
             if item.name == "currentPlayerHand" {
-              currentPlayer.hand = item.name
+              currentPlayer.hand = item.value!
             }
             if item.name == "oppPlayerScore" {
-              oppPlayer.score = Int(item.name)!
+              oppPlayer.score = Int(item.value!)!
             }
             if item.name == "currentPlayerScore" {
-              currentPlayer.score = Int(item.name)!
+              currentPlayer.score = Int(item.value!)!
             }
             if item.name == "oppPlayerHelpers" {
-              oppPlayer.helpers = item.name
+              oppPlayer.helpers = item.value!
             }
             if item.name == "currentPlayerHelpers" {
-              currentPlayer.helpers = item.name
+              currentPlayer.helpers = item.value!
             }
             if item.name == "priorPlayerPassed" {
-              self._priorPlayerPassed = NSString(string: item.name).boolValue
+              self._priorPlayerPassed = NSString(string: item.value!).boolValue
             }
             if item.name == "oppChainScore" {
-              oppPlayer.chainScore = Int(item.name)!
+              oppPlayer.chainScore = Int(item.value!)!
             }
             if item.name == "currentChainScore" {
-              currentPlayer.chainScore = Int(item.name)!
+              currentPlayer.chainScore = Int(item.value!)!
             }
           }
+          print("got out of query items")
         }
       }
       self._currentPlayer = Player(hand: currentPlayer.hand, score: currentPlayer.score, helpers: currentPlayer.helpers, chainScore: currentPlayer.chainScore)
       self._oppPlayer = Player(hand: oppPlayer.hand, score: oppPlayer.score, helpers: oppPlayer.helpers, chainScore: oppPlayer.chainScore)
+      print("created both players from message")
     } else {
       _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1)
       _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1)
+      print("created new players for new game")
     }
-    setupRound(forPlayer: _currentPlayer)
   }
   
   func setCurrentWord(to word: String) {
     self._currentWord = Word(fromText: word)
-  }
-  
-  func setupRound(forPlayer player: Player) {
-    // setup the UI for the current player's score, hand, helpers, etc
   }
   
   func getNewWord() -> Word {
@@ -134,15 +139,11 @@ class Game {
   }
   
   private func scoreRound(forPlayer player: Player) {
-    player.increaseScore(by: player.chainScore)
+    player.increaseScore()
   }
   
-  func endRound(forPlayer player: Player) -> MSMessage {
-    scoreRound(forPlayer: player)
-    // parse all game data into MSMessage URL shits
-    // be sure to encode currentPlayer as nextPlayer in url
-    
-    return MSMessage()
+  func endRound() {
+    scoreRound(forPlayer: _currentPlayer)
   }
   
   func replaceLetter(atIndex index: Int, withPlayerLetter letter: String) {
@@ -153,6 +154,10 @@ class Game {
   
   func playHelper(helper: Helper, forPlayer player: Player) {
     player.playHelper(ofType: helper)
+  }
+  
+  func rewriteWord(as newWord: String) {
+    _currentWord?.name = newWord
   }
   
   func swapLetters(first: String, at index: Int, with second: String, at secondIndex: Int) {
@@ -167,6 +172,14 @@ class Game {
     } else {
       _currentWord = Word(fromText: "\(oldWord!.name)_")
     }
+  }
+  
+  func playerPlayedTurn() -> Bool {
+    return _currentPlayer.didPlayTurn
+  }
+  
+  func pass() {
+    _currentPlayerPassed = true
   }
   
 }
