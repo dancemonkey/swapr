@@ -70,6 +70,20 @@ class Player {
     return helpers
   }
   
+  func getHelperTextString() -> String {
+    var helperString = ""
+    if helpers.contains(.bomb) {
+      helperString = helperString + "b"
+    }
+    if helpers.contains(.lock) {
+      helperString = helperString + "l"
+    }
+    if helpers.contains(.swap) {
+      helperString = helperString + "s"
+    }
+    return helperString
+  }
+  
   func getStartingHand() -> String {
     let HAND_SIZE = 5
     var hand = ""
