@@ -23,7 +23,7 @@ class ExpandedVC: UIViewController {
   @IBOutlet weak var definition: UITextView!
   @IBOutlet var addLetter: [UIButton]!
   @IBOutlet var letters: [LetterButton]!
-  @IBOutlet var playerHand: [UIButton]!
+  @IBOutlet var playerHand: [LetterButton]!
   @IBOutlet weak var currentPlayerScore: UILabel!
   @IBOutlet weak var oppPlayerScore: UILabel!
   @IBOutlet weak var chainScore: UILabel!
@@ -77,6 +77,20 @@ class ExpandedVC: UIViewController {
     let word = game?.currentWord
     setupLetterViewSize()
     setLettersInLetterView(forWord: (word?.name)!)
+    if let lock1 = game!.currentWord?.locked1 {
+      lockLetterView(forTag: lock1)
+    }
+    if let lock2 = game!.currentWord?.locked2 {
+      lockLetterView(forTag: lock2)
+    }
+  }
+  
+  private func lockLetterView(forTag tag: Int) {
+    for letter in letters {
+      if letter.tag == tag {
+        letter.locked = true
+      }
+    }
   }
   
   func setupPlayerHand() {
@@ -144,6 +158,7 @@ class ExpandedVC: UIViewController {
   func setLettersInLetterView(forWord word: String) {
     for (index, letter) in word.characters.enumerated() {
       letters[index].setTitle(String(letter), for: .normal)
+      letters[index].tag = index
     }
   }
   
@@ -221,13 +236,15 @@ class ExpandedVC: UIViewController {
   }
   
   func extendLetterView(direction: AddLetter) {
-    game?.addNewLetterSpace(to: direction)
-    setupLetterViewSize()
-    setLettersInLetterView(forWord: (game?.currentWord?.name)!)
-    if direction == .right {
-      addLetterTarget = letters[getVisibleLetterCount()-1]
-    } else {
-      addLetterTarget = letters[0]
+    if game?.playerPlayedTurn() == false {
+      game?.addNewLetterSpace(to: direction)
+      setupLetterViewSize()
+      setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+      if direction == .right {
+        addLetterTarget = letters[getVisibleLetterCount()-1]
+      } else {
+        addLetterTarget = letters[0]
+      }
     }
   }
   
@@ -255,6 +272,7 @@ class ExpandedVC: UIViewController {
         locking = false
         lock.isEnabled = false
         game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
+        game?.lockLetterInWord(at: sender.tag)
       } else if swapping && sender.locked == false {
         if firstLetter != nil {
           swapping = false
@@ -282,9 +300,12 @@ class ExpandedVC: UIViewController {
     return word
   }
   
-  @IBAction func playerHandLetterPressed(sender: UIButton) {
-    letterToPlay = (sender.titleLabel?.text)!
-    playingLetter = true
+  @IBAction func playerHandLetterPressed(sender: LetterButton) {
+    if game?.playerPlayedTurn() == false {
+      sender.tap()
+      letterToPlay = (sender.titleLabel?.text)!
+      playingLetter = true
+    }
   }
   
 }

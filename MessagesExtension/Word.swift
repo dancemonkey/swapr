@@ -15,8 +15,18 @@ struct Word {
   var definition: String? {
     return self._definition
   }
+  
   var size: Int {
     return name.characters.count
+  }
+  
+  private var _locked1: Int? = nil
+  var locked1: Int? {
+    return _locked1
+  }
+  private var _locked2: Int? = nil
+  var locked2: Int? {
+    return _locked2
   }
   
   init(fromText word: String) {
@@ -36,6 +46,14 @@ struct Word {
     let removeIndex = chars.index(chars.startIndex, offsetBy: index)
     chars.remove(at: removeIndex)
     name = String(chars)
+  }
+  
+  mutating func lockLetter(at index: Int) {
+    if _locked1 != nil {
+      _locked2 = index
+    } else {
+      _locked1 = index
+    }
   }
   
 }

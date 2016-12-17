@@ -59,16 +59,12 @@ class Game {
   
   init(withMessage message: MSMessage?) {
     if let msg = message, let url = msg.url {
-      print("-------PARSED MESSAGE--------")
-      print(url.dataRepresentation)
-      print(url.absoluteString)
       
       var oppPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
       var currentPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
       
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
-          print("got into query items")
           for item in queryItems {
             if item.name == "currentWord" {
               self._currentWord = Word(fromText: item.value!)
@@ -100,17 +96,20 @@ class Game {
             if item.name == "currentChainScore" {
               currentPlayer.chainScore = Int(item.value!)!
             }
+            if item.name == "lockedLetterPos1" {
+              self._currentWord?.lockLetter(at: Int(item.value!)!)
+            }
+            if item.name == "lockedLetterPos2" {
+              self._currentWord?.lockLetter(at: Int(item.value!)!)
+            }
           }
-          print("got out of query items")
         }
       }
       self._currentPlayer = Player(hand: currentPlayer.hand, score: currentPlayer.score, helpers: currentPlayer.helpers, chainScore: currentPlayer.chainScore)
       self._oppPlayer = Player(hand: oppPlayer.hand, score: oppPlayer.score, helpers: oppPlayer.helpers, chainScore: oppPlayer.chainScore)
-      print("created both players from message")
     } else {
       _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1)
       _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1)
-      print("created new players for new game")
     }
   }
   
@@ -180,6 +179,10 @@ class Game {
   
   func pass() {
     _currentPlayerPassed = true
+  }
+  
+  func lockLetterInWord(at index: Int) {
+    _currentWord?.lockLetter(at: index)
   }
   
 }

@@ -172,17 +172,21 @@ extension MessagesViewController: ComposeMessageDelegate {
 
     components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, priorPlayerPassed, oppChainScore, currentChainScore]
     
+    if let lock1 = game.currentWord!.locked1 {
+      let lockedLetterPos1 = URLQueryItem(name: "lockedLetterPos1", value: "\(lock1)")
+      components.queryItems?.append(lockedLetterPos1)
+    }
+    if let lock2 = game.currentWord!.locked2 {
+      let lockedLetterPos2 = URLQueryItem(name: "lockedLetterPos1", value: "\(lock2)")
+      components.queryItems?.append(lockedLetterPos2)
+    }
+    
     message.summaryText = "Your opponent played \((game.currentWord!.name))."
     
     message.url = components.url
-    print("-------BUILT MESSAGE--------")
-    print(message.url?.dataRepresentation)
-    print(message.url?.absoluteString)
     
     convo.insert(message) { (error) in
       guard error == nil else {
-        print(error.debugDescription)
-        print(error?.localizedDescription)
         fatalError()
       }
     }
