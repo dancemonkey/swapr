@@ -36,13 +36,20 @@ class ExpandedVC: UIViewController {
   var swapping: Bool = false
   var firstLetter: LetterButton? = nil
   var locking: Bool = false
-  var playingLetter: Bool = false
+  var playingLetter: Bool = false {
+    didSet {
+      if playingLetter == false {
+        removeAllLetterHighlights()
+      }
+    }
+  }
   var letterToPlay: String = ""
   var addingLetter: Bool = false
   var addLetterTarget: LetterButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    endTurn.isEnabled = false
     if message == nil {
       setupNewGame()
     } else {
@@ -177,8 +184,6 @@ class ExpandedVC: UIViewController {
     setLettersInLetterView(forWord: (game?.currentWord?.name)!)
   }
   
-  // IBACTIONS
-  
   @IBAction func endTurnPressed(sender: UIButton) {
     game?.endRound()
     composeDelegate.compose(fromGame: game!)
@@ -208,8 +213,8 @@ class ExpandedVC: UIViewController {
     // warn if this will end game
     // maybe they lose the current chain points instead of just getting nothing?
     game?.pass()
-    game?.endRound()
-    composeDelegate.compose(fromGame: game!)
+    endTurn.isEnabled = true
+    setupScoreViews()
   }
   
   @IBAction func swapPressed(sender:UIButton) {
@@ -222,6 +227,7 @@ class ExpandedVC: UIViewController {
   
   @IBAction func addLetterPressed(sender:UIButton) {
     if addingLetter == false {
+      setupScoreViews()
       addingLetter = true
       if getVisibleLetterCount() == (game?.currentWord?.size)! {
         switch sender.tag {
@@ -252,6 +258,7 @@ class ExpandedVC: UIViewController {
     
     defer {
       setupScoreViews()
+      endTurn.isEnabled = true
     }
     
     if game?.playerPlayedTurn() == false {
@@ -305,6 +312,12 @@ class ExpandedVC: UIViewController {
       sender.tap()
       letterToPlay = (sender.titleLabel?.text)!
       playingLetter = true
+    }
+  }
+  
+  func removeAllLetterHighlights() {
+    for letter in playerHand {
+      letter.layer.borderColor = UIColor.black.cgColor
     }
   }
   

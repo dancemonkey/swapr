@@ -171,6 +171,7 @@ class Game {
     } else {
       _currentWord = Word(fromText: "\(oldWord!.name)_")
     }
+    _currentPlayer.incrementChainScore()
   }
   
   func playerPlayedTurn() -> Bool {
@@ -179,6 +180,7 @@ class Game {
   
   func pass() {
     _currentPlayerPassed = true
+    _currentPlayer.resetChainToZero()
   }
   
   func lockLetterInWord(at index: Int) {
