@@ -53,12 +53,9 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     if let message = conversation.selectedMessage, let url = message.url {
-      print("found message in convo and url in message")
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
-        print("found components in url")
         if let queryItems = components.queryItems {
           if queryItems[0].name.contains("currentWord") {
-            print("assigning message to expandedVC")
             vc.message = message
           }
         }

@@ -49,12 +49,16 @@ class ExpandedVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    let wordList = WordsAPI()
     endTurn.isEnabled = false
     if message == nil {
       setupNewGame()
     } else {
       setupExistingGame(fromMessage: message!)
     }
+    wordList.fetchDefinition(forWord: (game?.currentWord?.name)!, completion: {
+      
+    })
   }
   
   func setupNewGame() {

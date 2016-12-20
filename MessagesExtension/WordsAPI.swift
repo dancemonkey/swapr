@@ -16,16 +16,15 @@ class WordsAPI {
   
   var word: String? = nil
   
-  func fetchDefinition(forWord word: String) -> String? {
+  func fetchDefinition(forWord word: String, completion: @escaping () -> ()) {
     let endpoint = baseURL + word
     let wordsURL = URL(string: endpoint)!
     var request = URLRequest(url: wordsURL)
     request.allHTTPHeaderFields = header
     request.httpMethod = "GET"
     NetworkRequest.get(withRequest: request, completion: { data -> String in
-      return self.getDefinition(fromData: data, completion: nil)!
+      self.getDefinition(fromData: data, completion: completion)!
     })
-    return nil
   }
   
   private func getDefinition(fromData data: Data, completion: (() -> ())?) -> String? {

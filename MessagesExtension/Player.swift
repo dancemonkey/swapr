@@ -91,13 +91,11 @@ class Player {
     for _ in 0..<HAND_SIZE {
       hand = hand + wordList.fetchRandomLetter()
     }
-    print("returned starting hand from player function")
     return hand
   }
   
   func playFromHand(letter: String) {
     if let range = _hand.range(of: letter) {
-      print("removing letter \(letter) from hand")
       _hand.remove(at: range.lowerBound)
       self._playedTurn = true
     }
