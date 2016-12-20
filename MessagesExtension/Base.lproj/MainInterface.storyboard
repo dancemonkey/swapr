@@ -194,18 +194,18 @@
                                             <action selector="lockPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="GcQ-8Q-s5K"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS">
-                                        <rect key="frame" x="195.5" y="0.0" width="50" height="50"/>
-                                        <state key="normal" image="Pass"/>
-                                        <connections>
-                                            <action selector="passPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="GvJ-Oe-g9b"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W">
-                                        <rect key="frame" x="293" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="195.5" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Swap"/>
                                         <connections>
                                             <action selector="swapPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="b7q-R5-Uen"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS">
+                                        <rect key="frame" x="293" y="0.0" width="50" height="50"/>
+                                        <state key="normal" image="Pass"/>
+                                        <connections>
+                                            <action selector="passPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="GvJ-Oe-g9b"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -213,7 +213,7 @@
                                     <constraint firstAttribute="height" constant="50" id="qfM-zN-Sby"/>
                                 </constraints>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Word definition." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-SO-eoJ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No definition found." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-SO-eoJ">
                                 <rect key="frame" x="16" y="229" width="343" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -244,7 +244,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="S">
+                                        <state key="normal" title="s">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -260,7 +260,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="S">
+                                        <state key="normal" title="s">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -276,7 +276,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="S">
+                                        <state key="normal" title="s">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -292,7 +292,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="S">
+                                        <state key="normal" title="s">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -308,7 +308,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="S">
+                                        <state key="normal" title="s">
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -320,6 +320,12 @@
                                     <constraint firstAttribute="height" constant="50" id="Fti-fs-RAS"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strikes - 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
+                                <rect key="frame" x="147" y="363" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.21180264261744966" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -330,8 +336,10 @@
                             <constraint firstAttribute="trailing" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="GRO-Yk-iK6"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="QH5-2z-cjw"/>
                             <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
+                            <constraint firstItem="Ar6-2K-8vq" firstAttribute="centerX" secondItem="NIQ-8P-exv" secondAttribute="centerX" id="aD8-e6-RuX"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="16" id="aFx-1f-ShK"/>
                             <constraint firstItem="Jnm-jR-VMv" firstAttribute="top" secondItem="vxu-SO-eoJ" secondAttribute="bottom" constant="16" id="as4-CX-MDA"/>
+                            <constraint firstItem="Ar6-2K-8vq" firstAttribute="top" secondItem="Jnm-jR-VMv" secondAttribute="bottom" constant="8" id="cE7-UI-apo"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="dfW-Tn-vFE"/>
                             <constraint firstItem="xVQ-un-S46" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="eQH-a0-Meo"/>
                             <constraint firstItem="Jnm-jR-VMv" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="faC-4f-BwH"/>
@@ -352,6 +360,7 @@
                         <outlet property="lock" destination="DgO-HL-3X8" id="S56-4c-aA6"/>
                         <outlet property="oppPlayerScore" destination="Mn7-cj-K5s" id="49X-HY-3dJ"/>
                         <outlet property="pass" destination="cWz-hH-zdS" id="VUE-IM-6tx"/>
+                        <outlet property="strikeCount" destination="Ar6-2K-8vq" id="Xjf-4g-LdM"/>
                         <outlet property="swap" destination="DnE-xj-k2W" id="4u3-p9-NBt"/>
                         <outletCollection property="addLetter" destination="nQg-eI-oAi" collectionClass="NSMutableArray" id="BYZ-Qk-m9Y"/>
                         <outletCollection property="addLetter" destination="2wR-wR-Dwm" collectionClass="NSMutableArray" id="PBV-vg-KaS"/>

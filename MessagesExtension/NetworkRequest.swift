@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkRequest {
   
-  static func get(withRequest request: URLRequest, completion: @escaping (Data)->(String)) {
+  static func get(withRequest request: URLRequest, completion: @escaping (Data)->()) {
     let task = URLSession.shared.dataTask(with: request, completionHandler: {data , response, error in
       guard error == nil else {
         return

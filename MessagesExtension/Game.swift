@@ -21,22 +21,14 @@ struct TempPlayer {
   var score: Int
   var helpers: String
   var chainScore: Int
+  var strikes: Int
 }
 
 class Game {
   
   let MAX_WORD_LENGTH = 6
+  let MAX_STRIKES = 3
   let wordList = WordsAPI()
-  
-  private var _priorPlayerPassed: Bool = false
-  var priorPlayerPassed: Bool {
-    return _priorPlayerPassed
-  }
-  
-  private var _currentPlayerPassed: Bool = false
-  var currentPlayerPassed: Bool {
-    return _currentPlayerPassed
-  }
   
   private var _currentPlayer: Player
   var currentPlayer: Player {
@@ -60,8 +52,8 @@ class Game {
   init(withMessage message: MSMessage?) {
     if let msg = message, let url = msg.url {
       
-      var oppPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
-      var currentPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
+      var oppPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0, strikes: 0)
+      var currentPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0, strikes: 0)
       
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
@@ -87,9 +79,6 @@ class Game {
             if item.name == "currentPlayerHelpers" {
               currentPlayer.helpers = item.value!
             }
-            if item.name == "priorPlayerPassed" {
-              self._priorPlayerPassed = NSString(string: item.value!).boolValue
-            }
             if item.name == "oppChainScore" {
               oppPlayer.chainScore = Int(item.value!)!
             }
@@ -102,14 +91,20 @@ class Game {
             if item.name == "lockedLetterPos2" {
               self._currentWord?.lockLetter(at: Int(item.value!)!)
             }
+            if item.name == "currentPlayerStrikes" {
+              currentPlayer.strikes = Int(item.value!)!
+            }
+            if item.name == "oppPlayerStrikes" {
+              oppPlayer.strikes = Int(item.value!)!
+            }
           }
         }
       }
-      self._currentPlayer = Player(hand: currentPlayer.hand, score: currentPlayer.score, helpers: currentPlayer.helpers, chainScore: currentPlayer.chainScore)
-      self._oppPlayer = Player(hand: oppPlayer.hand, score: oppPlayer.score, helpers: oppPlayer.helpers, chainScore: oppPlayer.chainScore)
+      self._currentPlayer = Player(hand: currentPlayer.hand, score: currentPlayer.score, helpers: currentPlayer.helpers, chainScore: currentPlayer.chainScore, strikes: currentPlayer.strikes)
+      self._oppPlayer = Player(hand: oppPlayer.hand, score: oppPlayer.score, helpers: oppPlayer.helpers, chainScore: oppPlayer.chainScore, strikes: oppPlayer.strikes)
     } else {
-      _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1)
-      _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1)
+      _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1, strikes: 0)
+      _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1, strikes: 0)
     }
   }
   
@@ -130,7 +125,7 @@ class Game {
   }
   
   func gameIsOver() -> Bool {
-    return _currentPlayerPassed == true && _priorPlayerPassed == true
+    return _currentPlayer.strikes >= MAX_STRIKES
   }
   
   func winningPlayer() -> Player? {
@@ -148,7 +143,7 @@ class Game {
   func replaceLetter(atIndex index: Int, withPlayerLetter letter: String) {
     _currentPlayer.playFromHand(letter: letter)
     _currentWord?.replaceLetter(at: index, with: letter)
-    //getNewLetter(forPlayer: _currentPlayer)
+    getNewLetter(forPlayer: _currentPlayer)
   }
   
   func playHelper(helper: Helper, forPlayer player: Player) {
@@ -179,12 +174,11 @@ class Game {
   }
   
   func pass() {
-    _currentPlayerPassed = true
     _currentPlayer.resetChainToZero()
+    _currentPlayer.addStrike()
   }
   
   func lockLetterInWord(at index: Int) {
     _currentWord?.lockLetter(at: index)
   }
-  
 }

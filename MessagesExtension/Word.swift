@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Word {
+class Word {
   
   var name: String
   private var _definition: String? = nil
@@ -33,7 +33,7 @@ struct Word {
     self.name = word
   }
   
-  mutating func replaceLetter(at index: Int, with letter: String) {
+  func replaceLetter(at index: Int, with letter: String) {
     var chars = name.characters
     let oldLetterIndex = chars.index(chars.startIndex, offsetBy: index)
     chars.remove(at: oldLetterIndex)
@@ -41,19 +41,23 @@ struct Word {
     name = String(chars)
   }
   
-  mutating func removeLetter(at index: Int) {
+  func removeLetter(at index: Int) {
     var chars = name.characters
     let removeIndex = chars.index(chars.startIndex, offsetBy: index)
     chars.remove(at: removeIndex)
     name = String(chars)
   }
   
-  mutating func lockLetter(at index: Int) {
+  func lockLetter(at index: Int) {
     if _locked1 != nil {
       _locked2 = index
     } else {
       _locked1 = index
     }
+  }
+  
+  func setDefinition(to definition: String) {
+    self._definition = definition
   }
   
 }

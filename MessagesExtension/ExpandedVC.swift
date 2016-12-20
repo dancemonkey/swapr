@@ -27,6 +27,7 @@ class ExpandedVC: UIViewController {
   @IBOutlet weak var currentPlayerScore: UILabel!
   @IBOutlet weak var oppPlayerScore: UILabel!
   @IBOutlet weak var chainScore: UILabel!
+  @IBOutlet weak var strikeCount: UILabel!
   
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
@@ -51,14 +52,20 @@ class ExpandedVC: UIViewController {
     super.viewDidLoad()
     let wordList = WordsAPI()
     endTurn.isEnabled = false
+    
     if message == nil {
       setupNewGame()
     } else {
       setupExistingGame(fromMessage: message!)
     }
-    wordList.fetchDefinition(forWord: (game?.currentWord?.name)!, completion: {
-      
+    
+    wordList.fetchDefinition(forWord: (game?.currentWord)!, completion: {
+      DispatchQueue.main.async { [unowned self] in
+        self.definition.text = self.game?.currentWord?.definition
+      }
     })
+    
+    strikeCount.text = "Strikes - \(game!.currentPlayer.strikes)"
   }
   
   func setupNewGame() {

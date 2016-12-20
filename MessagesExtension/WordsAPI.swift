@@ -16,29 +16,23 @@ class WordsAPI {
   
   var word: String? = nil
   
-  func fetchDefinition(forWord word: String, completion: @escaping () -> ()) {
-    let endpoint = baseURL + word
+  func fetchDefinition(forWord word: Word, completion: @escaping () -> ()) {
+    let endpoint = baseURL + word.name
     let wordsURL = URL(string: endpoint)!
     var request = URLRequest(url: wordsURL)
     request.allHTTPHeaderFields = header
     request.httpMethod = "GET"
-    NetworkRequest.get(withRequest: request, completion: { data -> String in
-      self.getDefinition(fromData: data, completion: completion)!
+    NetworkRequest.get(withRequest: request, completion: { data in
+      word.setDefinition(to: self.getDefinition(fromData: data)!)
+      completion()
     })
   }
   
-  private func getDefinition(fromData data: Data, completion: (() -> ())?) -> String? {
-    // build a callback function in so we can set up views on the main thread
-    // using this data
+  private func getDefinition(fromData data: Data) -> String? {
     if let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String:Any] {
       let results = json["results"] as! [AnyObject]
-      for member in results {
-        let definition = member["definition"] as? String
-        return definition
-      }
-      if completion != nil {
-        completion!()
-      }
+      let member = results[0]
+      return member["definition"] as? String
     }
     return nil
   }
