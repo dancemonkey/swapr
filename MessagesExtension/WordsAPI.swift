@@ -62,9 +62,22 @@ class WordsAPI {
   }
   
   func fetchRandomLetter() -> String {
+    let randomConsonant = Int(arc4random_uniform(20))
+    let randomVowel = Int(arc4random_uniform(4))
+    var pullVowel: Bool {
+      return Int(arc4random_uniform(2)) < 1
+    }
+    
     let letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-    let random = Int(arc4random_uniform(25))
-    return letters[random]
+    let consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
+    let vowels = letters.filter { (letter) -> Bool in
+      return !consonants.contains(letter)
+    }
+    if pullVowel {
+      return vowels[randomVowel]
+    } else {
+      return consonants[randomConsonant]
+    }
   }
   
 }
