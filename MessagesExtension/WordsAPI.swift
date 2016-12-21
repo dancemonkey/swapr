@@ -23,16 +23,22 @@ class WordsAPI {
     request.allHTTPHeaderFields = header
     request.httpMethod = "GET"
     NetworkRequest.get(withRequest: request, completion: { data in
-      word.setDefinition(to: self.getDefinition(fromData: data)!)
+      if let definition = self.getDefinition(fromData: data) {
+        word.setDefinition(to: definition)
+      }
       completion()
     })
   }
   
   private func getDefinition(fromData data: Data) -> String? {
     if let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String:Any] {
-      let results = json["results"] as! [AnyObject]
-      let member = results[0]
-      return member["definition"] as? String
+      if let results = json["results"] {
+        if let definitions = results as? [AnyObject] {
+          let random = Int(arc4random_uniform(UInt32(definitions.count)))
+          let member = random != 0 ? definitions[random-1] : definitions[0]
+          return member["definition"] as? String
+        }
+      }
     }
     return nil
   }

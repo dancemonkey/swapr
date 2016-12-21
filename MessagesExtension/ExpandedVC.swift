@@ -50,7 +50,6 @@ class ExpandedVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let wordList = WordsAPI()
     endTurn.isEnabled = false
     
     if message == nil {
@@ -59,11 +58,8 @@ class ExpandedVC: UIViewController {
       setupExistingGame(fromMessage: message!)
     }
     
-    wordList.fetchDefinition(forWord: (game?.currentWord)!, completion: {
-      DispatchQueue.main.async { [unowned self] in
-        self.definition.text = self.game?.currentWord?.definition
-      }
-    })
+    setDefinitionView()
+    showAddLetterButtons()
     
     strikeCount.text = "Strikes - \(game!.currentPlayer.strikes)"
   }
@@ -83,6 +79,9 @@ class ExpandedVC: UIViewController {
     setupPlayerHand()
     setupHelperViews()
     setupScoreViews()
+    if wordIsMaxSize() {
+      hideAddLetterButtons()
+    }
   }
   
   func setupScoreViews() {
@@ -195,14 +194,25 @@ class ExpandedVC: UIViewController {
     setLettersInLetterView(forWord: (game?.currentWord?.name)!)
   }
   
+  func disableAllButtons() {
+    for letter in letters {
+      letter.isEnabled = false
+    }
+    for letter in playerHand {
+      letter.isEnabled = false
+    }
+    bomb.isEnabled = false
+    lock.isEnabled = false
+    swap.isEnabled = false
+    endTurn.isEnabled = false
+  }
+  
   @IBAction func endTurnPressed(sender: UIButton) {
     game?.endRound()
     composeDelegate.compose(fromGame: game!)
   }
   
   @IBAction func bombPressed(sender:UIButton) {
-    // tap this to remove a letter from the word
-    // doing so must still leave you with a valid word
     if !bombing {
       bombing = true
     } else {
@@ -220,11 +230,16 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func passPressed(sender:UIButton) {
-    // confirm player wants to pass and drop chain to 0
-    // warn if this will end game
-    // maybe they lose the current chain points instead of just getting nothing?
     game?.pass()
     endTurn.isEnabled = true
+    if game!.gameIsOver() {
+      print("game over, too many strikes")
+      disableAllButtons()
+      // show view with scores of both players, longest chain, etc.
+      // currentPlayer must send finished game to other player, regardless of who won or lost.
+      // change "send" button to "new game" button for second player, once they see results of game
+      // or add gameOver flag to model, and send RESULTS of old game along with the new game that's started
+    }
     setupScoreViews()
   }
   
@@ -250,6 +265,9 @@ class ExpandedVC: UIViewController {
         }
       }
     }
+    if wordIsMaxSize() {
+      hideAddLetterButtons()
+    }
   }
   
   func extendLetterView(direction: AddLetter) {
@@ -270,6 +288,8 @@ class ExpandedVC: UIViewController {
     defer {
       setupScoreViews()
       endTurn.isEnabled = true
+      setDefinitionView()
+      // check for word created being a real word, otherwise strikes++
     }
     
     if game?.playerPlayedTurn() == false {
@@ -329,6 +349,34 @@ class ExpandedVC: UIViewController {
   func removeAllLetterHighlights() {
     for letter in playerHand {
       letter.layer.borderColor = UIColor.black.cgColor
+    }
+  }
+  
+  func setDefinitionView() {
+    let wordList = WordsAPI()
+    wordList.fetchDefinition(forWord: (game?.currentWord)!, completion: {
+      DispatchQueue.main.async { [unowned self] in
+        self.definition.text = self.game?.currentWord?.definition
+      }
+    })
+  }
+  
+  func wordIsMaxSize() -> Bool {
+    if (game?.currentWord?.size)! >= (game?.MAX_WORD_LENGTH)! {
+      return true
+    }
+    return false
+  }
+  
+  func hideAddLetterButtons() {
+    for button in addLetter {
+      button.isHidden = true
+    }
+  }
+  
+  func showAddLetterButtons() {
+    for button in addLetter {
+      button.isHidden = false
     }
   }
   
