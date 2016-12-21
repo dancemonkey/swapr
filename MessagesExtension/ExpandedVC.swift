@@ -209,7 +209,7 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func endTurnPressed(sender: UIButton) {
-    game?.endRound()
+    game?.scoreRound() // this will move to happen after check for valid word is complete
     composeDelegate.compose(fromGame: game!)
   }
   
@@ -287,13 +287,19 @@ class ExpandedVC: UIViewController {
   @IBAction func letterPressed(sender: LetterButton) {
     
     defer {
+      let wordList = WordsAPI()
       setupScoreViews()
       setDefinitionView()
       if swapping != true {
         disableAllButtons()
       }
       endTurn.isEnabled = true
-      // check for word created being a real word, otherwise strikes++
+      game!.testIfValid(word: game!.currentWord!) { (validWord) in
+        print(validWord)
+        // if validWord, handle scoring
+        // if !validWord, add a strike
+        // either way enable endTurn button here
+      }
     }
     
     if game?.playerPlayedTurn() == false {

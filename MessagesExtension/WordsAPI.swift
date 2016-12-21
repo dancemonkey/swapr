@@ -22,7 +22,7 @@ class WordsAPI {
     var request = URLRequest(url: wordsURL)
     request.allHTTPHeaderFields = header
     request.httpMethod = "GET"
-    NetworkRequest.get(withRequest: request, completion: { data in
+    NetworkRequest.get(withRequest: request, completion: { data, response in
       if let definition = self.getDefinition(fromData: data) {
         word.setDefinition(to: definition)
       } else {
@@ -41,14 +41,6 @@ class WordsAPI {
           return def["definition"] as? String
         }
       }
-//      if let results = json["results"] {
-//        if let definitions = results as? [AnyObject] {
-//          print(definitions)
-//          let random = Int(arc4random_uniform(UInt32(definitions.count)))
-//          let member = random != 0 ? definitions[random-1] : definitions[0]
-//          return member["definition"] as? String
-//        }
-//      }
     }
     return nil
   }
@@ -67,8 +59,19 @@ class WordsAPI {
     return nil
   }
   
-  func validate(word: String) -> Bool {
-    return false
+  func isRealWord(word: Word, completion: @escaping (Bool) -> ()) {
+    let endPoint = baseURL + word.name
+    let wordsURL = URL(string: endPoint)!
+    var request = URLRequest(url: wordsURL)
+    request.allHTTPHeaderFields = header
+    request.httpMethod = "GET"
+    NetworkRequest.get(withRequest: request) { (data, response) in
+      if response.statusCode == 200 {
+        completion(true)
+      } else {
+        completion(false)
+      }
+    }
   }
   
   func fetchRandomLetter() -> String {

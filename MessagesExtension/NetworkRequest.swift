@@ -10,16 +10,16 @@ import Foundation
 
 class NetworkRequest {
   
-  static func get(withRequest request: URLRequest, completion: @escaping (Data)->()) {
+  static func get(withRequest request: URLRequest, completion: @escaping (Data, HTTPURLResponse)->()) {
     let task = URLSession.shared.dataTask(with: request, completionHandler: {data , response, error in
       guard error == nil else {
         return
       }
       if let data = data, let response = response as? HTTPURLResponse {
         if response.statusCode == 200 {
-          _ = completion(data)
+          _ = completion(data, response)
         } else {
-          // handle error here
+          _ = completion(data, response)
         }
       }
       

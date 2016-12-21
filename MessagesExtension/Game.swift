@@ -120,8 +120,8 @@ class Game {
     player.drawNewLetter(fromList: wordList)
   }
   
-  func isValid(word: String) -> Bool {
-    return wordList.validate(word: word)
+  func testIfValid(word: Word, completion: @escaping (Bool)->()) {
+    wordList.isRealWord(word: word, completion: completion)
   }
   
   func gameIsOver() -> Bool {
@@ -132,12 +132,8 @@ class Game {
     return currentPlayer.score > oppPlayer.score ? currentPlayer : oppPlayer
   }
   
-  private func scoreRound(forPlayer player: Player) {
-    player.increaseScore()
-  }
-  
-  func endRound() {
-    scoreRound(forPlayer: _currentPlayer)
+  func scoreRound() {
+    _currentPlayer.increaseScore()
   }
   
   func replaceLetter(atIndex index: Int, withPlayerLetter letter: String) {
