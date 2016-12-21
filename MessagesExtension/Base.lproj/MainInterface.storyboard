@@ -180,21 +180,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="00Z-2y-ZQl">
                                 <rect key="frame" x="16" y="163" width="343" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-p9-7EL">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-p9-7EL" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Bomb"/>
                                         <connections>
                                             <action selector="bombPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="7Vf-Co-jDO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-HL-3X8">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-HL-3X8" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="97.5" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Lock"/>
                                         <connections>
                                             <action selector="lockPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="GcQ-8Q-s5K"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="195.5" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Swap"/>
                                         <connections>
@@ -321,7 +321,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strikes - 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
-                                <rect key="frame" x="147" y="363" width="80" height="21"/>
+                                <rect key="frame" x="147.5" y="363" width="79.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

@@ -16,10 +16,10 @@ enum AddLetter: Int {
 class ExpandedVC: UIViewController {
   
   @IBOutlet weak var endTurn: UIButton!
-  @IBOutlet weak var bomb: UIButton!
-  @IBOutlet weak var lock: UIButton!
+  @IBOutlet weak var bomb: HelperButton!
+  @IBOutlet weak var lock: HelperButton!
   @IBOutlet weak var pass: UIButton!
-  @IBOutlet weak var swap: UIButton!
+  @IBOutlet weak var swap: HelperButton!
   @IBOutlet weak var definition: UITextView!
   @IBOutlet var addLetter: [UIButton]!
   @IBOutlet var letters: [LetterButton]!
@@ -205,6 +205,7 @@ class ExpandedVC: UIViewController {
     lock.isEnabled = false
     swap.isEnabled = false
     endTurn.isEnabled = false
+    pass.isEnabled = false
   }
   
   @IBAction func endTurnPressed(sender: UIButton) {
@@ -287,8 +288,9 @@ class ExpandedVC: UIViewController {
     
     defer {
       setupScoreViews()
-      endTurn.isEnabled = true
       setDefinitionView()
+      disableAllButtons()
+      endTurn.isEnabled = true
       // check for word created being a real word, otherwise strikes++
     }
     
@@ -340,7 +342,6 @@ class ExpandedVC: UIViewController {
   
   @IBAction func playerHandLetterPressed(sender: LetterButton) {
     if game?.playerPlayedTurn() == false {
-      sender.tap()
       letterToPlay = (sender.titleLabel?.text)!
       playingLetter = true
     }

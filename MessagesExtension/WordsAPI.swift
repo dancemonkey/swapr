@@ -25,6 +25,8 @@ class WordsAPI {
     NetworkRequest.get(withRequest: request, completion: { data in
       if let definition = self.getDefinition(fromData: data) {
         word.setDefinition(to: definition)
+      } else {
+        word.setDefinition(to: "Word not found.")
       }
       completion()
     })
