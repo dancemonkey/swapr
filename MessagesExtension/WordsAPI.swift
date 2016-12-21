@@ -17,7 +17,7 @@ class WordsAPI {
   var word: String? = nil
   
   func fetchDefinition(forWord word: Word, completion: @escaping () -> ()) {
-    let endpoint = baseURL + word.name
+    let endpoint = baseURL + word.name + "/definitions"
     let wordsURL = URL(string: endpoint)!
     var request = URLRequest(url: wordsURL)
     request.allHTTPHeaderFields = header
@@ -26,7 +26,7 @@ class WordsAPI {
       if let definition = self.getDefinition(fromData: data) {
         word.setDefinition(to: definition)
       } else {
-        word.setDefinition(to: "Word not found.")
+        word.setDefinition(to: "")
       }
       completion()
     })
@@ -34,13 +34,21 @@ class WordsAPI {
   
   private func getDefinition(fromData data: Data) -> String? {
     if let json = try? JSONSerialization.jsonObject(with: data, options: []) as! [String:Any] {
-      if let results = json["results"] {
-        if let definitions = results as? [AnyObject] {
-          let random = Int(arc4random_uniform(UInt32(definitions.count)))
-          let member = random != 0 ? definitions[random-1] : definitions[0]
-          return member["definition"] as? String
+      if let definitions = json["definitions"] as? [AnyObject] {
+        if definitions.count > 0 {
+          let random = Int(arc4random_uniform(UInt32(definitions.count-1)))
+          let def = definitions[random]
+          return def["definition"] as? String
         }
       }
+//      if let results = json["results"] {
+//        if let definitions = results as? [AnyObject] {
+//          print(definitions)
+//          let random = Int(arc4random_uniform(UInt32(definitions.count)))
+//          let member = random != 0 ? definitions[random-1] : definitions[0]
+//          return member["definition"] as? String
+//        }
+//      }
     }
     return nil
   }

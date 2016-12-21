@@ -289,7 +289,9 @@ class ExpandedVC: UIViewController {
     defer {
       setupScoreViews()
       setDefinitionView()
-      disableAllButtons()
+      if swapping != true {
+        disableAllButtons()
+      }
       endTurn.isEnabled = true
       // check for word created being a real word, otherwise strikes++
     }
