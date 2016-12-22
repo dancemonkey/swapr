@@ -239,12 +239,20 @@ class ExpandedVC: UIViewController {
   func endIfGameOver() {
     if game!.gameIsOver() {
       disableAllButtons()
-      // show view with scores of both players, longest chain, etc.
+      presentGameOver()
       // currentPlayer must send finished game to other player, regardless of who won or lost.
       // change "send" button to "new game" button for second player, once they see results of game
       // or add gameOver flag to model, and send RESULTS of old game along with the new game that's started
     }
     setupScoreViews()
+  }
+  
+  func presentGameOver() {
+    let gameOverView = Bundle.main.loadNibNamed("GameOver", owner: self, options: nil)?.last as! GameOverView
+    gameOverView.configureView(withGame: game!)
+    gameOverView.composeDelegate = self.composeDelegate!
+    self.view.addSubview(gameOverView)
+    gameOverView.center = view.convert(view.center, from: view.superview!)
   }
   
   @IBAction func swapPressed(sender:UIButton) {
