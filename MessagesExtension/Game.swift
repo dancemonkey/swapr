@@ -30,6 +30,11 @@ class Game {
   let MAX_STRIKES = 3
   let wordList = WordsAPI()
   
+  private var _gameOver: Bool = false
+  var gameOver: Bool {
+    return _gameOver
+  }
+  
   private var _currentPlayer: Player
   var currentPlayer: Player {
     return _currentPlayer
@@ -97,6 +102,9 @@ class Game {
             if item.name == "oppPlayerStrikes" {
               oppPlayer.strikes = Int(item.value!)!
             }
+            if item.name == "gameOver" {
+              self._gameOver = Bool("\(item.value!)")!
+            }
           }
         }
       }
@@ -125,7 +133,11 @@ class Game {
   }
   
   func gameIsOver() -> Bool {
-    return _currentPlayer.strikes >= MAX_STRIKES
+    if _currentPlayer.strikes >= MAX_STRIKES {
+      _gameOver = true
+      return true
+    }
+    return false
   }
   
   func winningPlayer() -> Player? {

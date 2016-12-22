@@ -167,6 +167,7 @@ extension MessagesViewController: ComposeMessageDelegate {
     let currentChainScore = URLQueryItem(name: "currentChainScore", value: "\(game.oppPlayer.chainScore)")
     let currentPlayerStrikes = URLQueryItem(name: "currentPlayerStrikes", value: "\(game.oppPlayer.strikes)")
     let oppPlayerStrikes = URLQueryItem(name: "oppPlayerStrikes", value: "\(game.currentPlayer.strikes)")
+    let gameOver = URLQueryItem(name: "gameOver", value: "\(game.gameOver)")
 
     components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, oppChainScore, currentChainScore, currentPlayerStrikes, oppPlayerStrikes]
     

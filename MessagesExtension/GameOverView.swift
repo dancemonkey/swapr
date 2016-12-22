@@ -17,24 +17,42 @@ class GameOverView: UIView {
   
   var composeDelegate: ComposeMessageDelegate!
   private var game: Game!
+  private var completionClosure: (()->())?
   
   @IBAction func sendResults(sender: UIButton!) {
-    // need a new flag in model for when you're just sending a game that's finished
-    // so the other player can see the results and start a new game
     composeDelegate.compose(fromGame: game)
   }
   
-  func configureView(withGame game: Game) {
+  @IBAction func startNewGame(sender: UIButton) {
+    if let completion = completionClosure {
+      completion()
+    }
+    self.removeFromSuperview()
+  }
+  
+  func configureView(withGame game: Game, allowNewGame: Bool) {
     self.game = game
     let winner = game.currentPlayer.score > game.oppPlayer.score ? game.currentPlayer : game.oppPlayer
     let loser = game.currentPlayer.score > game.oppPlayer.score ? game.oppPlayer : game.currentPlayer
     let winnerVerbiage = (winner === game.currentPlayer) ? "You " : "They "
+    
     if winner.score == loser.score {
       winOrLose.text = "We have a tie!"
     }
+    
     winOrLose.text = winnerVerbiage + "won!"
     winnerScore.text = "Winner - \(winner.score) points"
     loserScore.text = "Loser - \(loser.score) points"
+    
+    // need to change target of sendResults button depending on this value
+    if allowNewGame {
+      sendResults.setTitle("Start new game", for: .normal)
+      // run completion closure
+    } else {
+      sendResults.setTitle("Send results", for: .normal)
+      // no closure, run send results
+    }
+    
   }
   
 }

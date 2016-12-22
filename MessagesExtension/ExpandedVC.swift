@@ -75,6 +75,11 @@ class ExpandedVC: UIViewController {
   
   func setupExistingGame(fromMessage message: MSMessage) {
     game = Game(withMessage: message)
+    if game!.gameOver {
+      presentGameOver(allowNewGame: true, completion: {
+        self.setupNewGame()
+      })
+    }
     setupWordView()
     setupPlayerHand()
     setupHelperViews()
@@ -239,17 +244,16 @@ class ExpandedVC: UIViewController {
   func endIfGameOver() {
     if game!.gameIsOver() {
       disableAllButtons()
-      presentGameOver()
-      // currentPlayer must send finished game to other player, regardless of who won or lost.
+      presentGameOver(allowNewGame: false, completion: nil)
       // change "send" button to "new game" button for second player, once they see results of game
       // or add gameOver flag to model, and send RESULTS of old game along with the new game that's started
     }
     setupScoreViews()
   }
   
-  func presentGameOver() {
+  func presentGameOver(allowNewGame: Bool, completion: (()->())?) {
     let gameOverView = Bundle.main.loadNibNamed("GameOver", owner: self, options: nil)?.last as! GameOverView
-    gameOverView.configureView(withGame: game!)
+    gameOverView.configureView(withGame: game!, allowNewGame: allowNewGame)
     gameOverView.composeDelegate = self.composeDelegate!
     self.view.addSubview(gameOverView)
     gameOverView.center = view.convert(view.center, from: view.superview!)
