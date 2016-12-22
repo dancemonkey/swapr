@@ -17,10 +17,15 @@ class GameOverView: UIView {
   
   var composeDelegate: ComposeMessageDelegate!
   private var game: Game!
-  private var completionClosure: (()->())?
+  var completionClosure: (()->())?
   
   @IBAction func sendResults(sender: UIButton!) {
-    composeDelegate.compose(fromGame: game)
+    if let closure = completionClosure {
+      closure()
+      removeFromSuperview()
+    } else {
+      composeDelegate.compose(fromGame: game)
+    }
   }
   
   @IBAction func startNewGame(sender: UIButton) {
@@ -44,13 +49,10 @@ class GameOverView: UIView {
     winnerScore.text = "Winner - \(winner.score) points"
     loserScore.text = "Loser - \(loser.score) points"
     
-    // need to change target of sendResults button depending on this value
     if allowNewGame {
       sendResults.setTitle("Start new game", for: .normal)
-      // run completion closure
     } else {
       sendResults.setTitle("Send results", for: .normal)
-      // no closure, run send results
     }
     
   }

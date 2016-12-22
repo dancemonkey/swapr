@@ -60,13 +60,9 @@ class ExpandedVC: UIViewController {
     
     setDefinitionView()
     showAddLetterButtons()
-    
-    print(game!.currentPlayer.strikes)
   }
   
   func setupNewGame() {
-    game = Game(withMessage: message)
-    game?.setCurrentWord(to: (WordsAPI().fetchRandomWord()?.name)!) // this is a patch, will go away once CompactVC is set up properly
     setupWordView()
     setupPlayerHand()
     setupHelperViews()
@@ -77,6 +73,7 @@ class ExpandedVC: UIViewController {
     game = Game(withMessage: message)
     if game!.gameOver {
       presentGameOver(allowNewGame: true, completion: {
+        self.game!.resetForNewGame()
         self.setupNewGame()
       })
     }
@@ -255,8 +252,10 @@ class ExpandedVC: UIViewController {
     let gameOverView = Bundle.main.loadNibNamed("GameOver", owner: self, options: nil)?.last as! GameOverView
     gameOverView.configureView(withGame: game!, allowNewGame: allowNewGame)
     gameOverView.composeDelegate = self.composeDelegate!
+    gameOverView.completionClosure = completion
     self.view.addSubview(gameOverView)
-    gameOverView.center = view.convert(view.center, from: view.superview!)
+    //gameOverView.center = view.convert(view.center, from: view.superview!)
+    // THEN MAKE THE COMPLETION BLOCK THE FUNCTION FOR THE BUTTON ON THE GAME OVER VIEW
   }
   
   @IBAction func swapPressed(sender:UIButton) {
@@ -420,5 +419,4 @@ class ExpandedVC: UIViewController {
       button.isHidden = false
     }
   }
-  
 }

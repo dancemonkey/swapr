@@ -22,4 +22,8 @@ protocol Lockable {
   var locked: Bool { get set }
 }
 
+protocol StartNewGame {
+  func startNewGame(withWord word: Word)
+}
+
 

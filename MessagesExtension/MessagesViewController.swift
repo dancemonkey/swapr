@@ -11,6 +11,8 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
   
+  var startingGame: Game?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -64,6 +66,10 @@ class MessagesViewController: MSMessagesAppViewController {
     
     vc.composeDelegate = self
     
+    if let game = startingGame {
+      vc.game = game
+    }
+    
     return vc
   }
   
@@ -72,10 +78,9 @@ class MessagesViewController: MSMessagesAppViewController {
       fatalError("Can't make a CompactVC")
     }
     
-    compactVC.expandViewDelegate = self
+    compactVC.newGameDelegate = self
     return compactVC
   }
-
   
   // MARK: - Conversation Handling
   
@@ -169,7 +174,7 @@ extension MessagesViewController: ComposeMessageDelegate {
     let oppPlayerStrikes = URLQueryItem(name: "oppPlayerStrikes", value: "\(game.currentPlayer.strikes)")
     let gameOver = URLQueryItem(name: "gameOver", value: "\(game.gameOver)")
 
-    components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, oppChainScore, currentChainScore, currentPlayerStrikes, oppPlayerStrikes]
+    components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, oppChainScore, currentChainScore, currentPlayerStrikes, oppPlayerStrikes, gameOver]
     
     if let lock1 = game.currentWord!.locked1 {
       let lockedLetterPos1 = URLQueryItem(name: "lockedLetterPos1", value: "\(lock1)")
@@ -191,5 +196,13 @@ extension MessagesViewController: ComposeMessageDelegate {
     }
     
     dismiss()
+  }
+}
+
+extension MessagesViewController: StartNewGame {
+  func startNewGame(withWord word: Word) {
+    self.startingGame = Game(withMessage: nil)
+    startingGame?.setCurrentWord(to: word)
+    requestPresentationStyle(.expanded)
   }
 }

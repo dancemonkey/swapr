@@ -116,8 +116,8 @@ class Game {
     }
   }
   
-  func setCurrentWord(to word: String) {
-    self._currentWord = Word(fromText: word)
+  func setCurrentWord(to word: Word) {
+    self._currentWord = word
   }
   
   func getNewWord() -> Word {
@@ -188,5 +188,12 @@ class Game {
   
   func lockLetterInWord(at index: Int) {
     _currentWord?.lockLetter(at: index)
+  }
+  
+  func resetForNewGame() {
+    self._currentWord = wordList.fetchRandomWord()
+    _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
+    _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
+    self._gameOver = false
   }
 }
