@@ -61,7 +61,7 @@ class ExpandedVC: UIViewController {
     setDefinitionView()
     showAddLetterButtons()
     
-    strikeCount.text = "Strikes - \(game!.currentPlayer.strikes)"
+    print(game!.currentPlayer.strikes)
   }
   
   func setupNewGame() {
@@ -88,6 +88,7 @@ class ExpandedVC: UIViewController {
     currentPlayerScore.text = String(describing: game!.currentPlayer.score)
     oppPlayerScore.text = String(describing: game!.oppPlayer.score)
     chainScore.text = String(describing: game!.currentPlayer.chainScore)
+    strikeCount.text = "Strikes - \(game!.currentPlayer.strikes)"
   }
   
   func setupWordView() {
@@ -209,7 +210,6 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func endTurnPressed(sender: UIButton) {
-    game?.scoreRound() // this will move to happen after check for valid word is complete
     composeDelegate.compose(fromGame: game!)
   }
   
@@ -233,8 +233,11 @@ class ExpandedVC: UIViewController {
   @IBAction func passPressed(sender:UIButton) {
     game?.pass()
     endTurn.isEnabled = true
+    endIfGameOver()
+  }
+  
+  func endIfGameOver() {
     if game!.gameIsOver() {
-      print("game over, too many strikes")
       disableAllButtons()
       // show view with scores of both players, longest chain, etc.
       // currentPlayer must send finished game to other player, regardless of who won or lost.
@@ -287,19 +290,11 @@ class ExpandedVC: UIViewController {
   @IBAction func letterPressed(sender: LetterButton) {
     
     defer {
-      let wordList = WordsAPI()
-      setupScoreViews()
-      setDefinitionView()
-      if swapping != true {
+      if swapping == false {
         disableAllButtons()
       }
-      endTurn.isEnabled = true
-      game!.testIfValid(word: game!.currentWord!) { (validWord) in
-        print(validWord)
-        // if validWord, handle scoring
-        // if !validWord, add a strike
-        // either way enable endTurn button here
-      }
+      setupScoreViews()
+      setDefinitionView()
     }
     
     if game?.playerPlayedTurn() == false {
@@ -308,6 +303,7 @@ class ExpandedVC: UIViewController {
         playingLetter = false
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
         setupPlayerHand()
+        testIfValidWord()
       }
       if bombing && sender.locked == false {
         sender.isHidden = true
@@ -315,18 +311,21 @@ class ExpandedVC: UIViewController {
         bomb.isEnabled = false
         game?.playHelper(helper: .bomb, forPlayer: (game?.currentPlayer)!)
         game?.rewriteWord(as: visibleWord())
+        testIfValidWord()
       } else if locking && sender.locked == false {
         sender.locked = true
         locking = false
         lock.isEnabled = false
         game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
         game?.lockLetterInWord(at: sender.tag)
+        testIfValidWord()
       } else if swapping && sender.locked == false {
         if firstLetter != nil {
           swapping = false
           swap.isEnabled = false
           swapLetters(first: firstLetter!, with: sender)
           game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
+          testIfValidWord()
         }
         if firstLetter == nil {
           firstLetter = sender
@@ -336,6 +335,27 @@ class ExpandedVC: UIViewController {
         playingLetter = false
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
         setupPlayerHand()
+        testIfValidWord()
+      }
+    }
+  }
+  
+  func testIfValidWord() {
+    disableAllButtons()
+    game!.testIfValid(word: game!.currentWord!) { (validWord) in
+      if validWord {
+        DispatchQueue.main.async { [unowned self] in
+          self.game!.scoreRound()
+          self.endTurn.isEnabled = true
+          self.setupScoreViews()
+        }
+      } else if !validWord {
+        DispatchQueue.main.async { [unowned self] in
+          self.game!.pass()
+          self.endTurn.isEnabled = true
+          self.endIfGameOver()
+          self.setupScoreViews()
+        }
       }
     }
   }

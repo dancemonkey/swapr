@@ -103,8 +103,8 @@ class Game {
       self._currentPlayer = Player(hand: currentPlayer.hand, score: currentPlayer.score, helpers: currentPlayer.helpers, chainScore: currentPlayer.chainScore, strikes: currentPlayer.strikes)
       self._oppPlayer = Player(hand: oppPlayer.hand, score: oppPlayer.score, helpers: oppPlayer.helpers, chainScore: oppPlayer.chainScore, strikes: oppPlayer.strikes)
     } else {
-      _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1, strikes: 0)
-      _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 1, strikes: 0)
+      _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
+      _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
     }
   }
   

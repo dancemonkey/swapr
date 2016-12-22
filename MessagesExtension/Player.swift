@@ -119,8 +119,8 @@ class Player {
   }
   
   func increaseScore() {
-    self._score = self._score + self._chainScore
     incrementChainScore()
+    self._score = self._score + self._chainScore
   }
   
   func resetChainToZero() {
