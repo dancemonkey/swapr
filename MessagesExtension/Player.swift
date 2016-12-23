@@ -100,6 +100,10 @@ class Player {
     return hand
   }
   
+  func setStartingHand() {
+    _hand = getStartingHand()
+  }
+  
   func playFromHand(letter: String) {
     if let range = _hand.range(of: letter) {
       _hand.remove(at: range.lowerBound)

@@ -154,7 +154,7 @@ extension MessagesViewController: ComposeMessageDelegate {
     let session = convo.selectedMessage?.session ?? MSSession()
     
     let layout = MSMessageTemplateLayout()
-    layout.caption = "$\(convo.localParticipantIdentifier) played \((game.currentWord!.name))"
+    layout.caption = "$\(convo.localParticipantIdentifier)" + game.playMessage
     // layout.image = UIImage(named: "msgBackground")
     
     let message = MSMessage(session: session)

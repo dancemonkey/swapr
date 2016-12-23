@@ -27,7 +27,7 @@ struct TempPlayer {
 class Game {
   
   let MAX_WORD_LENGTH = 6
-  let MAX_STRIKES = 1
+  let MAX_STRIKES = 3
   let wordList = WordsAPI()
   
   private var _gameOver: Bool = false
@@ -52,6 +52,11 @@ class Game {
   
   private var _wordSize: Int {
     return _currentWord != nil ? _currentWord!.size : 0
+  }
+  
+  private var _playMessage: String = ""
+  var playMessage: String {
+    return _playMessage
   }
   
   init(withMessage message: MSMessage?) {
@@ -184,6 +189,7 @@ class Game {
   func pass() {
     _currentPlayer.resetChainToZero()
     _currentPlayer.addStrike()
+    _currentPlayer.setStartingHand()
   }
   
   func lockLetterInWord(at index: Int) {
@@ -195,5 +201,9 @@ class Game {
     _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
     _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
     self._gameOver = false
+  }
+  
+  func setPlayMessage(to message: String) {
+    _playMessage = message
   }
 }

@@ -13,6 +13,13 @@ enum AddLetter: Int {
   case left = 0, right
 }
 
+enum MoveType: String {
+  case bomb
+  case lock
+  case swap
+  case pass
+}
+
 class ExpandedVC: UIViewController {
   
   @IBOutlet weak var endTurn: UIButton!
@@ -47,6 +54,8 @@ class ExpandedVC: UIViewController {
   var letterToPlay: String = ""
   var addingLetter: Bool = false
   var addLetterTarget: LetterButton!
+  
+  var basePlayMessage: String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -212,6 +221,7 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func endTurnPressed(sender: UIButton) {
+    game!.setPlayMessage(to: basePlayMessage)
     composeDelegate.compose(fromGame: game!)
   }
   
@@ -297,14 +307,25 @@ class ExpandedVC: UIViewController {
     }
   }
   
+  func setPlayMessage(forHelper helper: Helper) -> String {
+    var playMessage = " used their " + helper.rawValue
+    if helper == .bomb || helper == .swap {
+      playMessage.append(", and they")
+      playMessage.append(setPlayMessage(forWord: (game!.currentWord)!))
+    }
+    return playMessage
+  }
+  
+  func setPlayMessage(forWord word: Word) -> String {
+    return " played \(word.name.uppercased())"
+  }
+  
   @IBAction func letterPressed(sender: LetterButton) {
     
     defer {
-      if swapping == false {
-        disableAllButtons()
-      }
       setupScoreViews()
       setDefinitionView()
+      print(basePlayMessage)
     }
     
     if game?.playerPlayedTurn() == false {
@@ -314,6 +335,8 @@ class ExpandedVC: UIViewController {
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
         setupPlayerHand()
         testIfValidWord()
+        basePlayMessage = setPlayMessage(forWord: (game!.currentWord)!)
+        disableAllButtons()
       }
       if bombing && sender.locked == false {
         sender.isHidden = true
@@ -322,6 +345,8 @@ class ExpandedVC: UIViewController {
         game?.playHelper(helper: .bomb, forPlayer: (game?.currentPlayer)!)
         game?.rewriteWord(as: visibleWord())
         testIfValidWord()
+        basePlayMessage = setPlayMessage(forHelper: .bomb)
+        disableAllButtons()
       } else if locking && sender.locked == false {
         sender.locked = true
         locking = false
@@ -329,6 +354,8 @@ class ExpandedVC: UIViewController {
         game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
         game?.lockLetterInWord(at: sender.tag)
         testIfValidWord()
+        basePlayMessage = setPlayMessage(forHelper: .lock)
+        disableAllButtons()
       } else if swapping && sender.locked == false {
         if firstLetter != nil {
           swapping = false
@@ -336,6 +363,8 @@ class ExpandedVC: UIViewController {
           swapLetters(first: firstLetter!, with: sender)
           game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
           testIfValidWord()
+          basePlayMessage = setPlayMessage(forHelper: .swap)
+          disableAllButtons()
         }
         if firstLetter == nil {
           firstLetter = sender
@@ -346,6 +375,8 @@ class ExpandedVC: UIViewController {
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
         setupPlayerHand()
         testIfValidWord()
+        basePlayMessage = setPlayMessage(forWord: game!.currentWord!)
+        disableAllButtons()
       }
     }
   }
