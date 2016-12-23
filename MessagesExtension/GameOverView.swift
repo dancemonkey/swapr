@@ -41,11 +41,11 @@ class GameOverView: UIView {
     let loser = game.currentPlayer.score > game.oppPlayer.score ? game.oppPlayer : game.currentPlayer
     let winnerVerbiage = (winner === game.currentPlayer) ? "You " : "They "
     
+    winOrLose.text = winnerVerbiage + "won!"
+    
     if winner.score == loser.score {
       winOrLose.text = "We have a tie!"
     }
-    
-    winOrLose.text = winnerVerbiage + "won!"
     winnerScore.text = "Winner - \(winner.score) points"
     loserScore.text = "Loser - \(loser.score) points"
     
@@ -55,6 +55,10 @@ class GameOverView: UIView {
       sendResults.setTitle("Send results", for: .normal)
     }
     
+  }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
   }
   
 }

@@ -27,7 +27,7 @@ struct TempPlayer {
 class Game {
   
   let MAX_WORD_LENGTH = 6
-  let MAX_STRIKES = 3
+  let MAX_STRIKES = 1
   let wordList = WordsAPI()
   
   private var _gameOver: Bool = false

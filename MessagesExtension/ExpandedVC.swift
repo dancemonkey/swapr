@@ -254,8 +254,7 @@ class ExpandedVC: UIViewController {
     gameOverView.composeDelegate = self.composeDelegate!
     gameOverView.completionClosure = completion
     self.view.addSubview(gameOverView)
-    //gameOverView.center = view.convert(view.center, from: view.superview!)
-    // THEN MAKE THE COMPLETION BLOCK THE FUNCTION FOR THE BUTTON ON THE GAME OVER VIEW
+    gameOverView.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.height/2)
   }
   
   @IBAction func swapPressed(sender:UIButton) {
