@@ -74,21 +74,25 @@
                                 <rect key="frame" x="0.0" y="77" width="375" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4gA-jm-vY9" userLabel="Letters">
-                                        <rect key="frame" x="8" y="8" width="359" height="54"/>
+                                        <rect key="frame" x="8" y="17.5" width="359" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-eI-oAi">
-                                                <rect key="frame" x="0.0" y="0.0" width="32" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="32" id="IjG-pq-8Z3"/>
-                                                    <constraint firstAttribute="height" constant="32" id="SWK-ra-HVc"/>
+                                                    <constraint firstAttribute="width" constant="35" id="IjG-pq-8Z3"/>
+                                                    <constraint firstAttribute="height" constant="35" id="SWK-ra-HVc"/>
                                                 </constraints>
                                                 <state key="normal" image="AddLetterBtn"/>
                                                 <connections>
                                                     <action selector="addLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="UsV-t2-rIn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unF-3i-s1p" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="0.0" width="25" height="54"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unF-3i-s1p" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="46.5" y="0.0" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="JW8-Pg-69Q"/>
+                                                    <constraint firstAttribute="width" constant="35" id="nfh-Xe-hhk"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" image="A">
@@ -98,8 +102,12 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="q4M-kP-Jr6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="57" y="0.0" width="54" height="54"/>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="92.5" y="0.0" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="4yU-9S-B08"/>
+                                                    <constraint firstAttribute="width" constant="35" id="Q0B-WG-JG2"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" image="A">
@@ -109,8 +117,12 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="VTF-li-vjY"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-C3-Ve7" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="111" y="0.0" width="54" height="54"/>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-C3-Ve7" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="139" y="0.0" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="1Ko-F3-WIb"/>
+                                                    <constraint firstAttribute="width" constant="35" id="gJc-Wq-4La"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" image="A">
@@ -120,8 +132,12 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="NCc-gb-6xS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we2-DL-wr7" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="165" y="0.0" width="54" height="54"/>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we2-DL-wr7" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="185" y="0.0" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="9Da-sA-PDD"/>
+                                                    <constraint firstAttribute="width" constant="35" id="lMN-pP-4t5"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" image="A">
@@ -131,8 +147,12 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="cUu-Vb-Ppl"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="219" y="0.0" width="54" height="54"/>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="231.5" y="0.0" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="taJ-lD-KDr"/>
+                                                    <constraint firstAttribute="width" constant="35" id="uQK-Cv-WrU"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" image="A">
@@ -142,8 +162,12 @@
                                                     <action selector="letterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Aug-Eo-FgR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="273" y="0.0" width="54" height="54"/>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="277.5" y="0.0" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Fny-d4-TiR"/>
+                                                    <constraint firstAttribute="width" constant="35" id="m9K-0M-8KE"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
                                                 <state key="normal" image="A">
@@ -154,10 +178,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wR-wR-Dwm">
-                                                <rect key="frame" x="327" y="0.0" width="32" height="54"/>
+                                                <rect key="frame" x="324" y="0.0" width="35" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="32" id="fdo-kx-rhN"/>
-                                                    <constraint firstAttribute="height" constant="32" id="wzK-1V-ygn"/>
+                                                    <constraint firstAttribute="width" constant="35" id="fdo-kx-rhN"/>
+                                                    <constraint firstAttribute="height" constant="35" id="wzK-1V-ygn"/>
                                                 </constraints>
                                                 <state key="normal" image="AddLetterBtn"/>
                                                 <connections>
@@ -166,7 +190,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="54" id="h2z-kC-HY7"/>
+                                            <constraint firstAttribute="height" constant="35" id="h2z-kC-HY7"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
