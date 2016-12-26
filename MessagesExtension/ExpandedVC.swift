@@ -233,8 +233,10 @@ class ExpandedVC: UIViewController {
   @IBAction func bombPressed(sender:UIButton) {
     if !bombing {
       bombing = true
+      disablePlayerHandLetters()
     } else {
       bombing = false
+      enablePlayerHandLetters()
     }
   }
   
@@ -242,8 +244,10 @@ class ExpandedVC: UIViewController {
     // tap this to lock a letter forever in the word
     if !locking {
       locking = true
+      disablePlayerHandLetters()
     } else {
       locking = false
+      enablePlayerHandLetters()
     }
   }
   
@@ -275,8 +279,22 @@ class ExpandedVC: UIViewController {
   @IBAction func swapPressed(sender:UIButton) {
     if !swapping {
       swapping = true
+      disablePlayerHandLetters()
     } else {
       swapping = false
+      enablePlayerHandLetters()
+    }
+  }
+  
+  func disablePlayerHandLetters() {
+    for letter in playerHand {
+      letter.isEnabled = false
+    }
+  }
+  
+  func enablePlayerHandLetters() {
+    for letter in playerHand {
+      letter.isEnabled = true
     }
   }
   

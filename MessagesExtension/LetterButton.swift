@@ -51,7 +51,9 @@ class LetterButton: UIButton, Lockable {
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesEnded(touches, with: event)
-    self.tap()
+    if !locked {
+      self.tap()
+    }
   }
   
   func rotate() {
