@@ -130,7 +130,10 @@ class ExpandedVC: UIViewController {
       hand = (game?.currentPlayer.getStartingHand())!
     }
     for (index, letter) in hand.characters.enumerated() {
-      playerHand[index].setTitle(String(letter), for: .normal)
+      playerHand[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
+    }
+    for letter in playerHand {
+      letter.rotate()
     }
   }
   

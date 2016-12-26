@@ -234,95 +234,72 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv">
-                                <rect key="frame" x="16" y="305" width="343" height="50"/>
+                                <rect key="frame" x="52.5" y="305" width="270" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="aUC-cl-AMe"/>
-                                            <constraint firstAttribute="width" constant="50" id="w5n-af-7lq"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="s">
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="A">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="wJS-y7-xTA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-Y3-nqx" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="73.5" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="fdm-b1-pog"/>
-                                            <constraint firstAttribute="height" constant="50" id="fsp-Cb-vhD"/>
-                                        </constraints>
+                                        <rect key="frame" x="54" y="0.0" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="s">
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="A">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Zgq-gX-XIa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-45-iki" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="146.5" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="1u4-OL-OMk"/>
-                                            <constraint firstAttribute="width" constant="50" id="Yt1-Lf-HYq"/>
-                                        </constraints>
+                                        <rect key="frame" x="108" y="0.0" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="s">
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="A">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Gwu-NX-vLU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-Co-jKe" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="220" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="c7A-0t-uFe"/>
-                                            <constraint firstAttribute="width" constant="50" id="kmc-uG-QSQ"/>
-                                        </constraints>
+                                        <rect key="frame" x="162" y="0.0" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="s">
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="A">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="sWI-qa-ZE5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-Wp-Yao" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="293" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="9Pk-BD-PJA"/>
-                                            <constraint firstAttribute="width" constant="50" id="XnY-JK-XHd"/>
-                                        </constraints>
+                                        <rect key="frame" x="216" y="0.0" width="54" height="54"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title="s">
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="A">
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="ZRW-nO-NvS"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Fti-fs-RAS"/>
-                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strikes - 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
-                                <rect key="frame" x="147.5" y="363" width="79.5" height="20.5"/>
+                                <rect key="frame" x="147.5" y="367" width="79.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -333,9 +310,9 @@
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="3rf-I6-qrk"/>
                             <constraint firstAttribute="trailing" secondItem="6G2-jP-QvW" secondAttribute="trailing" id="4vK-L6-Q7I"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
-                            <constraint firstAttribute="trailing" secondItem="Jnm-jR-VMv" secondAttribute="trailing" constant="16" id="CtR-BM-75T"/>
                             <constraint firstAttribute="trailing" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="GRO-Yk-iK6"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="QH5-2z-cjw"/>
+                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="centerX" secondItem="NIQ-8P-exv" secondAttribute="centerX" id="V8L-hS-GQv"/>
                             <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
                             <constraint firstItem="Ar6-2K-8vq" firstAttribute="centerX" secondItem="NIQ-8P-exv" secondAttribute="centerX" id="aD8-e6-RuX"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="16" id="aFx-1f-ShK"/>
@@ -343,7 +320,6 @@
                             <constraint firstItem="Ar6-2K-8vq" firstAttribute="top" secondItem="Jnm-jR-VMv" secondAttribute="bottom" constant="8" id="cE7-UI-apo"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="dfW-Tn-vFE"/>
                             <constraint firstItem="xVQ-un-S46" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="eQH-a0-Meo"/>
-                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="faC-4f-BwH"/>
                             <constraint firstAttribute="trailing" secondItem="00Z-2y-ZQl" secondAttribute="trailing" constant="16" id="gIW-dB-llb"/>
                             <constraint firstAttribute="trailing" secondItem="xVQ-un-S46" secondAttribute="trailing" constant="16" id="h51-4a-bwk"/>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="top" secondItem="P6z-kC-hP0" secondAttribute="bottom" constant="24" id="ifp-9p-Ime"/>
@@ -395,7 +371,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="sh3-gp-swI">
-                                <rect key="frame" x="32" y="318.5" width="311" height="30"/>
+                                <rect key="frame" x="32" y="319" width="311" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teY-Ni-LBS">
                                         <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
@@ -420,11 +396,41 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1H-pL-oEN">
+                                <rect key="frame" x="52" y="251" width="270" height="54"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S" translatesAutoresizingMaskIntoConstraints="NO" id="IpD-wS-C7g">
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="W" translatesAutoresizingMaskIntoConstraints="NO" id="eEG-IX-MmE">
+                                        <rect key="frame" x="54" y="0.0" width="54" height="54"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A" translatesAutoresizingMaskIntoConstraints="NO" id="dtv-wu-YnP">
+                                        <rect key="frame" x="108" y="0.0" width="54" height="54"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="P" translatesAutoresizingMaskIntoConstraints="NO" id="hAx-xj-gDk">
+                                        <rect key="frame" x="162" y="0.0" width="54" height="54"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="R" translatesAutoresizingMaskIntoConstraints="NO" id="GB9-J9-g1S">
+                                        <rect key="frame" x="216" y="0.0" width="54" height="54"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a word to start the game." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBY-38-wiw">
+                                <rect key="frame" x="59" y="357" width="256" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IBY-38-wiw" firstAttribute="centerX" secondItem="Wx8-f6-dkz" secondAttribute="centerX" id="3oU-kS-twW"/>
                             <constraint firstItem="sh3-gp-swI" firstAttribute="centerX" secondItem="Wx8-f6-dkz" secondAttribute="centerX" id="EW8-qD-hoR"/>
                             <constraint firstItem="sh3-gp-swI" firstAttribute="centerY" secondItem="Wx8-f6-dkz" secondAttribute="centerY" id="Fil-vU-iBW"/>
+                            <constraint firstItem="F1H-pL-oEN" firstAttribute="centerX" secondItem="Wx8-f6-dkz" secondAttribute="centerX" id="I0b-Y2-R0r"/>
+                            <constraint firstItem="IBY-38-wiw" firstAttribute="top" secondItem="sh3-gp-swI" secondAttribute="bottom" constant="8" id="IFV-Kw-vKU"/>
+                            <constraint firstItem="sh3-gp-swI" firstAttribute="top" secondItem="F1H-pL-oEN" secondAttribute="bottom" constant="14" id="RhZ-z7-wJi"/>
                             <constraint firstItem="sh3-gp-swI" firstAttribute="leading" secondItem="Wx8-f6-dkz" secondAttribute="leadingMargin" constant="16" id="hds-v9-DkF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sh3-gp-swI" secondAttribute="trailing" constant="16" id="nXc-Fd-nJG"/>
                         </constraints>
@@ -433,18 +439,28 @@
                         <outletCollection property="wordBtns" destination="teY-Ni-LBS" collectionClass="NSMutableArray" id="qUf-k8-13Z"/>
                         <outletCollection property="wordBtns" destination="HXg-yv-9im" collectionClass="NSMutableArray" id="AzW-Vj-SRq"/>
                         <outletCollection property="wordBtns" destination="aXZ-sl-fhE" collectionClass="NSMutableArray" id="9gF-Gv-Ql2"/>
+                        <outletCollection property="letters" destination="IpD-wS-C7g" collectionClass="NSMutableArray" id="9NG-y9-eiU"/>
+                        <outletCollection property="letters" destination="eEG-IX-MmE" collectionClass="NSMutableArray" id="dL9-FC-h8n"/>
+                        <outletCollection property="letters" destination="dtv-wu-YnP" collectionClass="NSMutableArray" id="dQ9-Cn-BQR"/>
+                        <outletCollection property="letters" destination="hAx-xj-gDk" collectionClass="NSMutableArray" id="JFU-Zq-GH7"/>
+                        <outletCollection property="letters" destination="GB9-J9-g1S" collectionClass="NSMutableArray" id="w74-Ed-KU1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uze-Il-oLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="668"/>
+            <point key="canvasLocation" x="788" y="667.91604197901052"/>
         </scene>
     </scenes>
     <resources>
+        <image name="A" width="54" height="54"/>
         <image name="AddLetterBtn" width="32" height="32"/>
         <image name="Bomb" width="50" height="50"/>
         <image name="Lock" width="50" height="50"/>
+        <image name="P" width="54" height="54"/>
         <image name="Pass" width="50" height="50"/>
+        <image name="R" width="54" height="54"/>
+        <image name="S" width="54" height="54"/>
         <image name="Swap" width="50" height="50"/>
+        <image name="W" width="54" height="54"/>
     </resources>
 </document>
