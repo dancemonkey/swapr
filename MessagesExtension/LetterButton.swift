@@ -30,6 +30,11 @@ class LetterButton: UIButton, Lockable {
     }
   }
   
+  private var _identity: String = ""
+  var identity: String {
+    return _identity
+  }
+  
   func tap() {
     if tapped {
       self.tapped = false
@@ -58,6 +63,10 @@ class LetterButton: UIButton, Lockable {
     } else {
       self.transform = CGAffineTransform(rotationAngle: CGFloat(radians))
     }
+  }
+  
+  func setidentity(to letter: String) {
+    _identity = letter
   }
   
 }

@@ -131,6 +131,7 @@ class ExpandedVC: UIViewController {
     }
     for (index, letter) in hand.characters.enumerated() {
       playerHand[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
+      playerHand[index].setidentity(to: String(letter))
     }
     for letter in playerHand {
       letter.rotate()
@@ -189,7 +190,8 @@ class ExpandedVC: UIViewController {
   
   func setLettersInLetterView(forWord word: String) {
     for (index, letter) in word.characters.enumerated() {
-      letters[index].setTitle(String(letter), for: .normal)
+      letters[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
+      letters[index].setidentity(to: String(letter))
       letters[index].tag = index
     }
   }
@@ -205,7 +207,7 @@ class ExpandedVC: UIViewController {
         secondIndex = index
       }
     }
-    game?.swapLetters(first: first.currentTitle!, at: firstIndex, with: second.currentTitle!, at: secondIndex)
+    game?.swapLetters(first: first.identity, at: firstIndex, with: second.identity, at: secondIndex)
     setLettersInLetterView(forWord: (game?.currentWord?.name)!)
   }
   
@@ -328,7 +330,6 @@ class ExpandedVC: UIViewController {
     defer {
       setupScoreViews()
       setDefinitionView()
-      print(basePlayMessage)
     }
     
     if game?.playerPlayedTurn() == false {
@@ -407,21 +408,21 @@ class ExpandedVC: UIViewController {
   func visibleWord() -> String {
     var word = ""
     for letter in letters where letter.isHidden == false {
-      word = word + (letter.titleLabel?.text)!
+      word = word + letter.identity
     }
     return word
   }
   
   @IBAction func playerHandLetterPressed(sender: LetterButton) {
     if game?.playerPlayedTurn() == false {
-      letterToPlay = (sender.titleLabel?.text)!
+      letterToPlay = sender.identity
       playingLetter = true
     }
   }
   
   func removeAllLetterHighlights() {
     for letter in playerHand {
-      letter.layer.borderColor = UIColor.black.cgColor
+      letter.layer.borderColor = UIColor.clear.cgColor
     }
   }
   
