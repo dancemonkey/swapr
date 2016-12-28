@@ -9,7 +9,7 @@
 import Foundation
 
 enum Helper: String {
-  case bomb, lock, swap
+  case bomb, lock, swap, pass
 }
 
 class Player {

@@ -168,7 +168,7 @@ class ExpandedVC: UIViewController {
     resizeLetters(toSize: size!)
   }
   
-  func resizeLetters(toSize size: Int) { // WHY PASS IN VALUE, JUST CALL SIZE DIRECTLY?
+  func resizeLetters(toSize size: Int) {
     if size < getVisibleLetterCount() {
       for index in size..<getVisibleLetterCount() {
         letters[index].isHidden = true
@@ -268,6 +268,7 @@ class ExpandedVC: UIViewController {
   @IBAction func passPressed(sender:UIButton) {
     game?.pass()
     endTurn.isEnabled = true
+    basePlayMessage = setPlayMessage(forHelper: .pass)
     endIfGameOver()
   }
   
