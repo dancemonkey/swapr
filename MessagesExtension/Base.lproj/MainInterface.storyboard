@@ -74,7 +74,7 @@
                                 <rect key="frame" x="0.0" y="77" width="375" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4gA-jm-vY9" userLabel="Letters">
-                                        <rect key="frame" x="8" y="17.5" width="359" height="35"/>
+                                        <rect key="frame" x="8" y="18" width="359" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-eI-oAi">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -330,27 +330,44 @@
                                     <constraint firstAttribute="height" constant="54" id="5Bt-xt-OiU"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strikes - 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
-                                <rect key="frame" x="147.5" y="367" width="79.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VHM-QR-6ku" userLabel="Strikes">
+                                <rect key="frame" x="146" y="367" width="83.5" height="26.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
+                                        <rect key="frame" x="0.0" y="0.0" width="14.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoU-uV-47h">
+                                        <rect key="frame" x="34.5" y="0.0" width="14.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlE-le-xbY">
+                                        <rect key="frame" x="69" y="0.0" width="14.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.21180264261744966" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Jnm-jR-VMv" secondAttribute="trailing" constant="16" id="3JG-xe-ru9"/>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="3rf-I6-qrk"/>
                             <constraint firstAttribute="trailing" secondItem="6G2-jP-QvW" secondAttribute="trailing" id="4vK-L6-Q7I"/>
+                            <constraint firstItem="VHM-QR-6ku" firstAttribute="centerX" secondItem="NIQ-8P-exv" secondAttribute="centerX" id="5nH-q4-jgu"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
                             <constraint firstAttribute="trailing" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="GRO-Yk-iK6"/>
+                            <constraint firstItem="VHM-QR-6ku" firstAttribute="top" secondItem="Jnm-jR-VMv" secondAttribute="bottom" constant="8" id="IGC-WI-YYv"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="QH5-2z-cjw"/>
                             <constraint firstItem="Jnm-jR-VMv" firstAttribute="centerX" secondItem="NIQ-8P-exv" secondAttribute="centerX" id="V8L-hS-GQv"/>
                             <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
-                            <constraint firstItem="Ar6-2K-8vq" firstAttribute="centerX" secondItem="NIQ-8P-exv" secondAttribute="centerX" id="aD8-e6-RuX"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="16" id="aFx-1f-ShK"/>
                             <constraint firstItem="Jnm-jR-VMv" firstAttribute="top" secondItem="vxu-SO-eoJ" secondAttribute="bottom" constant="16" id="as4-CX-MDA"/>
-                            <constraint firstItem="Ar6-2K-8vq" firstAttribute="top" secondItem="Jnm-jR-VMv" secondAttribute="bottom" constant="8" id="cE7-UI-apo"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="dfW-Tn-vFE"/>
                             <constraint firstItem="xVQ-un-S46" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="eQH-a0-Meo"/>
                             <constraint firstAttribute="trailing" secondItem="00Z-2y-ZQl" secondAttribute="trailing" constant="16" id="gIW-dB-llb"/>
@@ -371,7 +388,6 @@
                         <outlet property="lock" destination="DgO-HL-3X8" id="S56-4c-aA6"/>
                         <outlet property="oppPlayerScore" destination="Mn7-cj-K5s" id="49X-HY-3dJ"/>
                         <outlet property="pass" destination="cWz-hH-zdS" id="VUE-IM-6tx"/>
-                        <outlet property="strikeCount" destination="Ar6-2K-8vq" id="Xjf-4g-LdM"/>
                         <outlet property="swap" destination="DnE-xj-k2W" id="4u3-p9-NBt"/>
                         <outletCollection property="addLetter" destination="nQg-eI-oAi" collectionClass="NSMutableArray" id="BYZ-Qk-m9Y"/>
                         <outletCollection property="addLetter" destination="2wR-wR-Dwm" collectionClass="NSMutableArray" id="PBV-vg-KaS"/>
@@ -386,6 +402,9 @@
                         <outletCollection property="playerHand" destination="4fB-45-iki" collectionClass="NSMutableArray" id="aIS-cp-SPD"/>
                         <outletCollection property="playerHand" destination="wrW-Co-jKe" collectionClass="NSMutableArray" id="Rsp-D2-W9I"/>
                         <outletCollection property="playerHand" destination="C8I-Wp-Yao" collectionClass="NSMutableArray" id="3Md-E0-Se5"/>
+                        <outletCollection property="strikes" destination="Ar6-2K-8vq" collectionClass="NSMutableArray" id="A7k-IA-qxG"/>
+                        <outletCollection property="strikes" destination="DoU-uV-47h" collectionClass="NSMutableArray" id="EU3-f8-T7e"/>
+                        <outletCollection property="strikes" destination="wlE-le-xbY" collectionClass="NSMutableArray" id="qKB-h2-EaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX5-P3-TM9" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -34,7 +34,7 @@ class ExpandedVC: UIViewController {
   @IBOutlet weak var currentPlayerScore: UILabel!
   @IBOutlet weak var oppPlayerScore: UILabel!
   @IBOutlet weak var chainScore: UILabel!
-  @IBOutlet weak var strikeCount: UILabel!
+  @IBOutlet var strikes: [UILabel]!
   
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
@@ -99,7 +99,15 @@ class ExpandedVC: UIViewController {
     currentPlayerScore.text = String(describing: game!.currentPlayer.score)
     oppPlayerScore.text = String(describing: game!.oppPlayer.score)
     chainScore.text = String(describing: game!.currentPlayer.chainScore)
-    strikeCount.text = "Strikes - \(game!.currentPlayer.strikes)"
+    setupStrikeViews()
+  }
+  
+  func setupStrikeViews() {
+    for strike in strikes {
+      if strike.tag == (game!.currentPlayer.strikes - 1) {
+        strike.textColor = UIColor.red
+      }
+    }
   }
   
   func setupWordView() {
@@ -214,9 +222,11 @@ class ExpandedVC: UIViewController {
   func disableAllButtons() {
     for letter in letters {
       letter.isEnabled = false
+      letter.glowOff()
     }
     for letter in playerHand {
       letter.isEnabled = false
+      letter.glowOff()
     }
     bomb.isEnabled = false
     lock.isEnabled = false

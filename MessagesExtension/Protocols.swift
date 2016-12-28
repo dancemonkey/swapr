@@ -26,4 +26,21 @@ protocol StartNewGame {
   func startNewGame(withWord word: Word)
 }
 
+extension UIButton {
+  func glowOn(locked: Bool) {
+    if locked {
+      layer.shadowColor = UIColor.red.cgColor
+    } else {
+      layer.shadowColor = UIColor.green.cgColor
+    }
+    layer.shadowRadius = 4.0
+    layer.shadowOpacity = 0.9
+    layer.shadowOffset = CGSize.zero
+    layer.masksToBounds = false
+  }
+  
+  func glowOff() {
+    layer.shadowColor = UIColor.clear.cgColor
+  }
+}
 

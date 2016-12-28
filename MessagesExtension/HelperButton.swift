@@ -13,10 +13,9 @@ class HelperButton: UIButton {
   private var tapped: Bool = false {
     didSet {
       if tapped == true {
-        layer.borderColor = UIColor.green.cgColor
-        layer.borderWidth = 2.0
+        glowOn(locked: false)
       } else {
-        layer.borderColor = UIColor.clear.cgColor
+        glowOff()
       }
     }
   }

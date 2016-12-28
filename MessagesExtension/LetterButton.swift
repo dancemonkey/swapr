@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class LetterButton: UIButton, Lockable {
   
   var locked: Bool = false {
     didSet {
       if locked == true {
-        layer.borderColor = UIColor.red.cgColor
-        layer.borderWidth = 2.0
+        glowOn(locked: true)
       }
     }
   }
@@ -22,10 +22,9 @@ class LetterButton: UIButton, Lockable {
   private var tapped: Bool = false {
     didSet {
       if tapped == true {
-        layer.borderColor = UIColor.green.cgColor
-        layer.borderWidth = 2.0
+        glowOn(locked: false)
       } else {
-        layer.borderColor = UIColor.clear.cgColor
+        glowOff()
       }
     }
   }
@@ -45,8 +44,7 @@ class LetterButton: UIButton, Lockable {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    layer.borderColor = UIColor.clear.cgColor
-    layer.borderWidth = 2.0
+    glowOff()
   }
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -70,5 +68,4 @@ class LetterButton: UIButton, Lockable {
   func setidentity(to letter: String) {
     _identity = letter
   }
-  
 }
