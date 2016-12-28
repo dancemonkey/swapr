@@ -252,12 +252,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVQ-un-S46">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVQ-un-S46">
                                 <rect key="frame" x="16" y="597" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="seM-tx-MV4"/>
                                 </constraints>
-                                <state key="normal" title="SEND TURN"/>
+                                <state key="normal" title="SEND TURN" backgroundImage="Blank Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="endTurnPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="CoE-HF-x0e"/>
                                 </connections>
@@ -354,7 +356,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.21180264261744966" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Jnm-jR-VMv" secondAttribute="trailing" constant="16" id="3JG-xe-ru9"/>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="3rf-I6-qrk"/>
@@ -507,6 +509,7 @@
     <resources>
         <image name="A" width="54" height="54"/>
         <image name="AddLetterBtn" width="32" height="32"/>
+        <image name="Blank Button" width="12" height="13"/>
         <image name="Bomb" width="50" height="50"/>
         <image name="Lock" width="50" height="50"/>
         <image name="P" width="54" height="54"/>
