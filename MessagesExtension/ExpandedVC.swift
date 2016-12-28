@@ -76,6 +76,9 @@ class ExpandedVC: UIViewController {
     setupPlayerHand()
     setupHelperViews()
     setupScoreViews()
+    for strike in strikes {
+      strike.textColor = UIColor.lightGray
+    }
   }
   
   func setupExistingGame(fromMessage message: MSMessage) {
@@ -104,7 +107,7 @@ class ExpandedVC: UIViewController {
   
   func setupStrikeViews() {
     for strike in strikes {
-      if strike.tag == (game!.currentPlayer.strikes - 1) {
+      if game!.currentPlayer.strikes > strike.tag {
         strike.textColor = UIColor.red
       }
     }
