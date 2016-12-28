@@ -59,6 +59,7 @@ class ExpandedVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupBackgroundGradient()
     endTurn.isEnabled = false
     
     if message == nil {
@@ -483,5 +484,13 @@ class ExpandedVC: UIViewController {
     for button in addLetter {
       button.isHidden = false
     }
+  }
+  
+  func setupBackgroundGradient() {
+    let colors = ColorGradient()
+    view.backgroundColor = UIColor.clear
+    let backgroundLayer = colors.gl
+    backgroundLayer.frame = view.frame
+    view.layer.insertSublayer(backgroundLayer, at: 0)
   }
 }

@@ -22,6 +22,7 @@
 		10775F5A1DF8C41200B20B98 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10775F591DF8C41200B20B98 /* CompactVC.swift */; };
 		10775F5D1DF8C4CD00B20B98 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10775F5C1DF8C4CD00B20B98 /* Protocols.swift */; };
 		108043FC1DF9BC91009220AD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108043FB1DF9BC91009220AD /* Game.swift */; };
+		108DEF661E1408DF00FFCC52 /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DEF651E1408DF00FFCC52 /* ColorGradient.swift */; };
 		109136391E01926800F6CDFC /* LetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109136381E01926800F6CDFC /* LetterButton.swift */; };
 		1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */; };
 		109827831DF7163900D56002 /* starterWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109827821DF7163900D56002 /* starterWords.txt */; };
@@ -71,6 +72,7 @@
 		10775F591DF8C41200B20B98 /* CompactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
 		10775F5C1DF8C4CD00B20B98 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		108043FB1DF9BC91009220AD /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		108DEF651E1408DF00FFCC52 /* ColorGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorGradient.swift; sourceTree = "<group>"; };
 		109136381E01926800F6CDFC /* LetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterButton.swift; sourceTree = "<group>"; };
 		1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		109827821DF7163900D56002 /* starterWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starterWords.txt; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				109136381E01926800F6CDFC /* LetterButton.swift */,
 				104E0B6D1E0AB5AD00391AA7 /* HelperButton.swift */,
 				1064B07E1E0C62F70065E6C4 /* GameOver.xib */,
+				108DEF651E1408DF00FFCC52 /* ColorGradient.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				10775F5A1DF8C41200B20B98 /* CompactVC.swift in Sources */,
 				1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */,
 				104E0B6E1E0AB5AD00391AA7 /* HelperButton.swift in Sources */,
+				108DEF661E1408DF00FFCC52 /* ColorGradient.swift in Sources */,
 				109136391E01926800F6CDFC /* LetterButton.swift in Sources */,
 				103DF29A1DFDA94B00372998 /* Player.swift in Sources */,
 				1064B0811E0C690E0065E6C4 /* GameOverView.swift in Sources */,

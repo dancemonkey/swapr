@@ -333,7 +333,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VHM-QR-6ku" userLabel="Strikes">
-                                <rect key="frame" x="146" y="367" width="83.5" height="26.5"/>
+                                <rect key="frame" x="146" y="375" width="83.5" height="26.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
                                         <rect key="frame" x="0.0" y="0.0" width="14.5" height="26.5"/>
@@ -364,7 +364,7 @@
                             <constraint firstItem="VHM-QR-6ku" firstAttribute="centerX" secondItem="NIQ-8P-exv" secondAttribute="centerX" id="5nH-q4-jgu"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
                             <constraint firstAttribute="trailing" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="GRO-Yk-iK6"/>
-                            <constraint firstItem="VHM-QR-6ku" firstAttribute="top" secondItem="Jnm-jR-VMv" secondAttribute="bottom" constant="8" id="IGC-WI-YYv"/>
+                            <constraint firstItem="VHM-QR-6ku" firstAttribute="top" secondItem="Jnm-jR-VMv" secondAttribute="bottom" constant="16" id="IGC-WI-YYv"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="QH5-2z-cjw"/>
                             <constraint firstItem="Jnm-jR-VMv" firstAttribute="centerX" secondItem="NIQ-8P-exv" secondAttribute="centerX" id="V8L-hS-GQv"/>
                             <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
@@ -452,7 +452,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1H-pL-oEN">
-                                <rect key="frame" x="52" y="251" width="270" height="54"/>
+                                <rect key="frame" x="52" y="249" width="270" height="54"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S" translatesAutoresizingMaskIntoConstraints="NO" id="IpD-wS-C7g">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -472,7 +472,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a word to start the game." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBY-38-wiw">
-                                <rect key="frame" x="59.5" y="357" width="255.5" height="20.5"/>
+                                <rect key="frame" x="59.5" y="365" width="255.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -484,8 +484,8 @@
                             <constraint firstItem="sh3-gp-swI" firstAttribute="centerX" secondItem="Wx8-f6-dkz" secondAttribute="centerX" id="EW8-qD-hoR"/>
                             <constraint firstItem="sh3-gp-swI" firstAttribute="centerY" secondItem="Wx8-f6-dkz" secondAttribute="centerY" id="Fil-vU-iBW"/>
                             <constraint firstItem="F1H-pL-oEN" firstAttribute="centerX" secondItem="Wx8-f6-dkz" secondAttribute="centerX" id="I0b-Y2-R0r"/>
-                            <constraint firstItem="IBY-38-wiw" firstAttribute="top" secondItem="sh3-gp-swI" secondAttribute="bottom" constant="8" id="IFV-Kw-vKU"/>
-                            <constraint firstItem="sh3-gp-swI" firstAttribute="top" secondItem="F1H-pL-oEN" secondAttribute="bottom" constant="14" id="RhZ-z7-wJi"/>
+                            <constraint firstItem="IBY-38-wiw" firstAttribute="top" secondItem="sh3-gp-swI" secondAttribute="bottom" constant="16" id="IFV-Kw-vKU"/>
+                            <constraint firstItem="sh3-gp-swI" firstAttribute="top" secondItem="F1H-pL-oEN" secondAttribute="bottom" constant="16" id="RhZ-z7-wJi"/>
                             <constraint firstItem="sh3-gp-swI" firstAttribute="leading" secondItem="Wx8-f6-dkz" secondAttribute="leadingMargin" constant="16" id="hds-v9-DkF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sh3-gp-swI" secondAttribute="trailing" constant="16" id="nXc-Fd-nJG"/>
                         </constraints>
