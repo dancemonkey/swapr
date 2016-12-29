@@ -276,8 +276,6 @@ class ExpandedVC: UIViewController {
     if game!.gameIsOver() {
       disableAllButtons()
       presentGameOver(allowNewGame: false, completion: nil)
-      // change "send" button to "new game" button for second player, once they see results of game
-      // or add gameOver flag to model, and send RESULTS of old game along with the new game that's started
     }
     setupScoreViews()
   }
@@ -289,6 +287,8 @@ class ExpandedVC: UIViewController {
     gameOverView.completionClosure = completion
     self.view.addSubview(gameOverView)
     gameOverView.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.height/2)
+    gameOverView.frame.size = CGSize.zero
+    Utils.animateEndGame(gameOverView, withTiming: 0.1, completionClosure: nil)
   }
   
   @IBAction func swapPressed(sender:UIButton) {
@@ -487,11 +487,4 @@ class ExpandedVC: UIViewController {
     }
   }
   
-//  func setupBackgroundGradient() {
-//    let colors = ColorGradient()
-//    view.backgroundColor = UIColor.clear
-//    let backgroundLayer = colors.gl
-//    backgroundLayer.frame = view.frame
-//    view.layer.insertSublayer(backgroundLayer, at: 0)
-//  }
 }

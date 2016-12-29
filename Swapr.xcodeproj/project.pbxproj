@@ -22,6 +22,7 @@
 		10775F5A1DF8C41200B20B98 /* CompactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10775F591DF8C41200B20B98 /* CompactVC.swift */; };
 		10775F5D1DF8C4CD00B20B98 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10775F5C1DF8C4CD00B20B98 /* Protocols.swift */; };
 		108043FC1DF9BC91009220AD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108043FB1DF9BC91009220AD /* Game.swift */; };
+		10836C701E156CBF00517D2A /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10836C6F1E156CBF00517D2A /* utils.swift */; };
 		108DEF661E1408DF00FFCC52 /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DEF651E1408DF00FFCC52 /* ColorGradient.swift */; };
 		109136391E01926800F6CDFC /* LetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109136381E01926800F6CDFC /* LetterButton.swift */; };
 		1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */; };
@@ -72,6 +73,7 @@
 		10775F591DF8C41200B20B98 /* CompactVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompactVC.swift; sourceTree = "<group>"; };
 		10775F5C1DF8C4CD00B20B98 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		108043FB1DF9BC91009220AD /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		10836C6F1E156CBF00517D2A /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		108DEF651E1408DF00FFCC52 /* ColorGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorGradient.swift; sourceTree = "<group>"; };
 		109136381E01926800F6CDFC /* LetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterButton.swift; sourceTree = "<group>"; };
 		1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				10775F5C1DF8C4CD00B20B98 /* Protocols.swift */,
+				10836C6F1E156CBF00517D2A /* utils.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10B03FD81DF4859C0055DE8C /* WordsAPI.swift in Sources */,
+				10836C701E156CBF00517D2A /* utils.swift in Sources */,
 				106A21F21DF621D000904258 /* Word.swift in Sources */,
 				10775F5D1DF8C4CD00B20B98 /* Protocols.swift in Sources */,
 				101A56131DF24A3000646B6D /* MessagesViewController.swift in Sources */,

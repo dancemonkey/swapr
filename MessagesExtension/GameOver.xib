@@ -57,6 +57,11 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="sendResults" destination="0RQ-TE-BNJ" id="fkc-QB-P5e"/>
                 <outlet property="winOrLose" destination="SQh-Ag-i1m" id="RsN-bW-HVx"/>

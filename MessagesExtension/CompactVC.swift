@@ -49,7 +49,9 @@ class CompactVC: UIViewController {
   }
   
   @IBAction func wordButtonPressed(sender: UIButton) {
-    newGameDelegate.startNewGame(withWord: words[sender.tag])
+    Utils.animateButton(sender, withTiming: 0.05) { [unowned self] in
+      self.newGameDelegate.startNewGame(withWord: self.words[sender.tag])
+    }
   }
   
   func rotate(imageView: UIImageView, byAngle angle: Float) {
