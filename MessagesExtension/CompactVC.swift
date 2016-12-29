@@ -22,6 +22,7 @@ class CompactVC: UIViewController {
     super.viewDidLoad()
     getWords()
     configureViews()
+    let _ = ColorGradient(withView: self.view)
   }
   
   func configureViews() {

@@ -12,7 +12,6 @@ class GameOverView: UIView {
 
   @IBOutlet weak var winOrLose: UILabel!
   @IBOutlet weak var winnerScore: UILabel!
-  @IBOutlet weak var loserScore: UILabel!
   @IBOutlet weak var sendResults: UIButton!
   
   var composeDelegate: ComposeMessageDelegate!
@@ -46,8 +45,7 @@ class GameOverView: UIView {
     if winner.score == loser.score {
       winOrLose.text = "We have a tie!"
     }
-    winnerScore.text = "Winner - \(winner.score) points"
-    loserScore.text = "Loser - \(loser.score) points"
+    winnerScore.text = "\(winner.score) points to \(loser.score)."
     
     if allowNewGame {
       sendResults.setTitle("Start new game", for: .normal)

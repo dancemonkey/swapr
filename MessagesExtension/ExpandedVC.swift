@@ -59,7 +59,7 @@ class ExpandedVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupBackgroundGradient()
+    let _ = ColorGradient(withView: self.view)
     endTurn.isEnabled = false
     
     if message == nil {
@@ -487,11 +487,11 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  func setupBackgroundGradient() {
-    let colors = ColorGradient()
-    view.backgroundColor = UIColor.clear
-    let backgroundLayer = colors.gl
-    backgroundLayer.frame = view.frame
-    view.layer.insertSublayer(backgroundLayer, at: 0)
-  }
+//  func setupBackgroundGradient() {
+//    let colors = ColorGradient()
+//    view.backgroundColor = UIColor.clear
+//    let backgroundLayer = colors.gl
+//    backgroundLayer.frame = view.frame
+//    view.layer.insertSublayer(backgroundLayer, at: 0)
+//  }
 }

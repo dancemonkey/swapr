@@ -26,20 +26,16 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="4qs-57-PII"/>
                     </constraints>
-                    <state key="normal" title="Send Results"/>
+                    <state key="normal" title="Send Results" backgroundImage="Blank Button">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="sendResultsWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="c4L-Ny-EjW"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner - Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KID-8D-Fhl">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 to 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KID-8D-Fhl">
                     <rect key="frame" x="8" y="48" width="184" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loser - Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmi-S1-3HL">
-                    <rect key="frame" x="8" y="77" width="184" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -47,17 +43,14 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <accessibility key="accessibilityConfiguration" identifier="gameOver"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="jmi-S1-3HL" secondAttribute="trailing" constant="8" id="Clb-RO-ZO1"/>
+                <constraint firstAttribute="trailing" secondItem="KID-8D-Fhl" secondAttribute="trailing" constant="8" id="C8g-B4-wry"/>
                 <constraint firstItem="KID-8D-Fhl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="D1d-5d-wHA"/>
                 <constraint firstAttribute="bottom" secondItem="0RQ-TE-BNJ" secondAttribute="bottom" constant="8" id="ElM-kL-emx"/>
                 <constraint firstAttribute="trailing" secondItem="0RQ-TE-BNJ" secondAttribute="trailing" constant="8" id="QIH-hZ-ARh"/>
-                <constraint firstItem="jmi-S1-3HL" firstAttribute="top" secondItem="KID-8D-Fhl" secondAttribute="bottom" constant="8" id="Rpo-gW-PvO"/>
                 <constraint firstItem="KID-8D-Fhl" firstAttribute="top" secondItem="SQh-Ag-i1m" secondAttribute="bottom" constant="16" id="SvQ-xN-VV3"/>
                 <constraint firstItem="0RQ-TE-BNJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="YPR-Oq-IRF"/>
                 <constraint firstAttribute="trailing" secondItem="SQh-Ag-i1m" secondAttribute="trailing" constant="8" id="ZZJ-pe-Sec"/>
-                <constraint firstItem="jmi-S1-3HL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="gsz-E6-yRV"/>
                 <constraint firstItem="SQh-Ag-i1m" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="kqQ-6H-cag"/>
-                <constraint firstAttribute="trailing" secondItem="KID-8D-Fhl" secondAttribute="trailing" constant="8" id="q9R-yL-A8R"/>
                 <constraint firstItem="SQh-Ag-i1m" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="qnJ-Tl-2BP"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -65,11 +58,13 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="loserScore" destination="jmi-S1-3HL" id="Liu-jj-vI8"/>
                 <outlet property="sendResults" destination="0RQ-TE-BNJ" id="fkc-QB-P5e"/>
                 <outlet property="winOrLose" destination="SQh-Ag-i1m" id="RsN-bW-HVx"/>
                 <outlet property="winnerScore" destination="KID-8D-Fhl" id="VKO-Jb-UU8"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="Blank Button" width="12" height="13"/>
+    </resources>
 </document>

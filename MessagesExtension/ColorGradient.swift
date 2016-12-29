@@ -15,9 +15,12 @@ class ColorGradient {
   
   let gl: CAGradientLayer
   
-  init() {
+  init(withView view: UIView) {
     gl = CAGradientLayer()
     gl.colors = [colorBottom, colorTop]
     gl.locations = [0.0, 1.0]
+    view.backgroundColor = UIColor.clear
+    gl.frame = view.frame
+    view.layer.insertSublayer(gl, at: 0)
   }
 }
