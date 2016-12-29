@@ -358,6 +358,9 @@ class ExpandedVC: UIViewController {
     return " played \(word.name.uppercased())"
   }
   
+  // CLEAN UP BELOW: BUILD STRUCT IN THIS VC THAT CAN BE PASSED TO A VIEW MODEL. 
+  // VIEW MODEL PARSES STRUCT AND PASSES BACK WHAT NEEDS TO HAPPEN?
+  
   @IBAction func letterPressed(sender: LetterButton) {
     
     defer {
