@@ -78,7 +78,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
                                                 <rect key="frame" x="0.0" y="0.0" width="34.5" height="25"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoU-uV-47h">
                                                 <rect key="frame" x="34.5" y="0.0" width="35" height="25"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlE-le-xbY">
                                                 <rect key="frame" x="69.5" y="0.0" width="34.5" height="25"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -479,7 +479,7 @@
                                             <constraint firstAttribute="height" constant="40" id="qn7-kb-eBy"/>
                                         </constraints>
                                         <state key="normal" title="Word 1" backgroundImage="Blank Button">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="wordButtonPressedWithSender:" destination="Klb-e2-ptf" eventType="touchUpInside" id="tJl-Bq-IYo"/>
@@ -492,7 +492,7 @@
                                             <constraint firstAttribute="height" constant="40" id="ksW-Fe-cKy"/>
                                         </constraints>
                                         <state key="normal" title="Word 2" backgroundImage="Blank Button">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="wordButtonPressedWithSender:" destination="Klb-e2-ptf" eventType="touchUpInside" id="mXx-0k-dP5"/>
@@ -505,7 +505,7 @@
                                             <constraint firstAttribute="width" constant="60" id="J6t-zh-Rxl"/>
                                         </constraints>
                                         <state key="normal" title="Word 3" backgroundImage="Blank Button">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="wordButtonPressedWithSender:" destination="Klb-e2-ptf" eventType="touchUpInside" id="SHN-12-QcN"/>
@@ -514,7 +514,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1H-pL-oEN" userLabel="Title Letters">
-                                <rect key="frame" x="52" y="244" width="270" height="54"/>
+                                <rect key="frame" x="52" y="236" width="270" height="54"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S" translatesAutoresizingMaskIntoConstraints="NO" id="IpD-wS-C7g">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -535,7 +535,7 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a word to start the game." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBY-38-wiw">
                                 <rect key="frame" x="59.5" y="370" width="255.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -547,7 +547,7 @@
                             <constraint firstItem="sh3-gp-swI" firstAttribute="centerY" secondItem="Wx8-f6-dkz" secondAttribute="centerY" id="Fil-vU-iBW"/>
                             <constraint firstItem="F1H-pL-oEN" firstAttribute="centerX" secondItem="Wx8-f6-dkz" secondAttribute="centerX" id="I0b-Y2-R0r"/>
                             <constraint firstItem="IBY-38-wiw" firstAttribute="top" secondItem="sh3-gp-swI" secondAttribute="bottom" constant="16" id="IFV-Kw-vKU"/>
-                            <constraint firstItem="sh3-gp-swI" firstAttribute="top" secondItem="F1H-pL-oEN" secondAttribute="bottom" constant="16" id="RhZ-z7-wJi"/>
+                            <constraint firstItem="sh3-gp-swI" firstAttribute="top" secondItem="F1H-pL-oEN" secondAttribute="bottom" constant="24" id="RhZ-z7-wJi"/>
                             <constraint firstItem="sh3-gp-swI" firstAttribute="leading" secondItem="Wx8-f6-dkz" secondAttribute="leadingMargin" constant="16" id="hds-v9-DkF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sh3-gp-swI" secondAttribute="trailing" constant="16" id="nXc-Fd-nJG"/>
                         </constraints>

@@ -54,9 +54,7 @@ class ExpandedVC: UIViewController {
   var letterToPlay: String = ""
   var addingLetter: Bool = false
   var addLetterTarget: LetterButton!
-  
-  var basePlayMessage: String = ""
-  
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     let _ = ColorGradient(withView: self.view)
@@ -77,6 +75,7 @@ class ExpandedVC: UIViewController {
     setupPlayerHand()
     setupHelperViews()
     setupScoreViews()
+    removeAllLetterHighlights()
     for strike in strikes {
       strike.textColor = UIColor.lightGray
     }
@@ -94,7 +93,7 @@ class ExpandedVC: UIViewController {
     setupPlayerHand()
     setupHelperViews()
     setupScoreViews()
-    if wordIsMaxSize() {
+    if game!.wordIsMaxSize() {
       hideAddLetterButtons()
     }
   }
@@ -240,7 +239,6 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func endTurnPressed(sender: UIButton) {
-    game!.setPlayMessage(to: basePlayMessage)
     composeDelegate.compose(fromGame: game!)
   }
   
@@ -268,7 +266,7 @@ class ExpandedVC: UIViewController {
   @IBAction func passPressed(sender:UIButton) {
     game?.pass()
     endTurn.isEnabled = true
-    basePlayMessage = setPlayMessage(forHelper: .pass)
+    game!.setPlayMessage(forHelper: .pass)
     endIfGameOver()
   }
   
@@ -327,7 +325,7 @@ class ExpandedVC: UIViewController {
         }
       }
     }
-    if wordIsMaxSize() {
+    if game!.wordIsMaxSize() {
       hideAddLetterButtons()
     }
   }
@@ -345,20 +343,7 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  func setPlayMessage(forHelper helper: Helper) -> String {
-    var playMessage = " used their " + helper.rawValue
-    if helper == .bomb || helper == .swap {
-      playMessage.append(", and they")
-      playMessage.append(setPlayMessage(forWord: (game!.currentWord)!))
-    }
-    return playMessage
-  }
-  
-  func setPlayMessage(forWord word: Word) -> String {
-    return " played \(word.name.uppercased())"
-  }
-  
-  // CLEAN UP BELOW: BUILD STRUCT IN THIS VC THAT CAN BE PASSED TO A VIEW MODEL. 
+  // REFACTOR BELOW: BUILD STRUCT IN THIS VC THAT CAN BE PASSED TO A VIEW MODEL.
   // VIEW MODEL PARSES STRUCT AND PASSES BACK WHAT NEEDS TO HAPPEN?
   
   @IBAction func letterPressed(sender: LetterButton) {
@@ -375,7 +360,7 @@ class ExpandedVC: UIViewController {
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
         setupPlayerHand()
         testIfValidWord()
-        basePlayMessage = setPlayMessage(forWord: (game!.currentWord)!)
+        game!.setPlayMessage(forWord: (game!.currentWord)!)
         disableAllButtons()
       }
       if bombing && sender.locked == false {
@@ -385,7 +370,7 @@ class ExpandedVC: UIViewController {
         game?.playHelper(helper: .bomb, forPlayer: (game?.currentPlayer)!)
         game?.rewriteWord(as: visibleWord())
         testIfValidWord()
-        basePlayMessage = setPlayMessage(forHelper: .bomb)
+        game!.setPlayMessage(forHelper: .bomb)
         disableAllButtons()
       } else if locking && sender.locked == false {
         sender.locked = true
@@ -394,7 +379,7 @@ class ExpandedVC: UIViewController {
         game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
         game?.lockLetterInWord(at: sender.tag)
         testIfValidWord()
-        basePlayMessage = setPlayMessage(forHelper: .lock)
+        game!.setPlayMessage(forHelper: .lock)
         disableAllButtons()
       } else if swapping && sender.locked == false {
         if firstLetter != nil {
@@ -403,7 +388,7 @@ class ExpandedVC: UIViewController {
           swapLetters(first: firstLetter!, with: sender)
           game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
           testIfValidWord()
-          basePlayMessage = setPlayMessage(forHelper: .swap)
+          game!.setPlayMessage(forHelper: .swap)
           disableAllButtons()
         }
         if firstLetter == nil {
@@ -415,7 +400,7 @@ class ExpandedVC: UIViewController {
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
         setupPlayerHand()
         testIfValidWord()
-        basePlayMessage = setPlayMessage(forWord: game!.currentWord!)
+        game!.setPlayMessage(forWord: game!.currentWord!)
         disableAllButtons()
       }
     }
@@ -469,13 +454,6 @@ class ExpandedVC: UIViewController {
         self.definition.text = self.game?.currentWord?.definition
       }
     })
-  }
-  
-  func wordIsMaxSize() -> Bool {
-    if (game?.currentWord?.size)! >= (game?.MAX_WORD_LENGTH)! {
-      return true
-    }
-    return false
   }
   
   func hideAddLetterButtons() {

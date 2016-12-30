@@ -28,6 +28,7 @@ class CompactVC: UIViewController {
   func configureViews() {
     for button in wordBtns {
       button.setTitle(words[button.tag].name, for: .normal)
+      button.glowOn(locked: false)
     }
     for letter in letters {
       let random = Float(arc4random_uniform(16))

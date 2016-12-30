@@ -27,9 +27,9 @@ struct TempPlayer {
 class Game {
   
   let MAX_WORD_LENGTH = 6
-  let MAX_STRIKES = 1 //3
+  let MAX_STRIKES = 3
   let wordList = WordsAPI()
-  
+    
   private var _gameOver: Bool = false
   var gameOver: Bool {
     return _gameOver
@@ -203,7 +203,21 @@ class Game {
     self._gameOver = false
   }
   
-  func setPlayMessage(to message: String) {
-    _playMessage = message
+  func wordIsMaxSize() -> Bool {
+    return _currentWord!.size >= MAX_WORD_LENGTH
+  }
+  
+  func setPlayMessage(forHelper helper: Helper) {
+    var playMessage = " used their " + helper.rawValue
+    if helper == .bomb || helper == .swap {
+      playMessage.append(", and they")
+      playMessage.append(setPlayMessage(forWord: (self.currentWord)!))
+    }
+    self._playMessage = playMessage
+  }
+  
+  func setPlayMessage(forWord word: Word) -> String {
+    self._playMessage = " played \(word.name.uppercased())"
+    return " played \(word.name.uppercased())"
   }
 }
