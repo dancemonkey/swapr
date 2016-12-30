@@ -282,28 +282,28 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Bomb"/>
                                         <connections>
-                                            <action selector="bombPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="7Vf-Co-jDO"/>
+                                            <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="mfK-hD-vni"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-HL-3X8" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-HL-3X8" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="97.5" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Lock"/>
                                         <connections>
-                                            <action selector="lockPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="GcQ-8Q-s5K"/>
+                                            <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="cgE-cQ-eHC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="195.5" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Swap"/>
                                         <connections>
-                                            <action selector="swapPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="b7q-R5-Uen"/>
+                                            <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="1Fe-Os-paV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS">
                                         <rect key="frame" x="293" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Pass"/>
                                         <connections>
-                                            <action selector="passPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="GvJ-Oe-g9b"/>
+                                            <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Sbz-jQ-R3R"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -426,15 +426,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bomb" destination="Axb-p9-7EL" id="Pdw-UL-kLG"/>
+                        <outlet property="bomb" destination="Axb-p9-7EL" id="1mN-5Y-g51"/>
                         <outlet property="chainScore" destination="ekq-jn-i5A" id="Zq6-g1-Rnb"/>
                         <outlet property="currentPlayerScore" destination="agA-b8-Vau" id="zs6-Z9-zO9"/>
                         <outlet property="definition" destination="vxu-SO-eoJ" id="N4i-hF-1g5"/>
                         <outlet property="endTurn" destination="xVQ-un-S46" id="Jty-lm-U73"/>
-                        <outlet property="lock" destination="DgO-HL-3X8" id="S56-4c-aA6"/>
+                        <outlet property="lock" destination="DgO-HL-3X8" id="fLZ-ql-Ie0"/>
                         <outlet property="oppPlayerScore" destination="Mn7-cj-K5s" id="49X-HY-3dJ"/>
-                        <outlet property="pass" destination="cWz-hH-zdS" id="VUE-IM-6tx"/>
-                        <outlet property="swap" destination="DnE-xj-k2W" id="4u3-p9-NBt"/>
+                        <outlet property="pass" destination="cWz-hH-zdS" id="1qh-KR-U4T"/>
+                        <outlet property="swap" destination="DnE-xj-k2W" id="U4M-5k-M8m"/>
                         <outletCollection property="addLetter" destination="nQg-eI-oAi" collectionClass="NSMutableArray" id="BYZ-Qk-m9Y"/>
                         <outletCollection property="addLetter" destination="2wR-wR-Dwm" collectionClass="NSMutableArray" id="PBV-vg-KaS"/>
                         <outletCollection property="letters" destination="unF-3i-s1p" collectionClass="NSMutableArray" id="wbc-Cf-S41"/>

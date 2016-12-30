@@ -13,13 +13,6 @@ enum AddLetter: Int {
   case left = 0, right
 }
 
-enum MoveType: String {
-  case bomb
-  case lock
-  case swap
-  case pass
-}
-
 class ExpandedVC: UIViewController {
   
   @IBOutlet weak var endTurn: UIButton!
@@ -40,10 +33,22 @@ class ExpandedVC: UIViewController {
   var composeDelegate: ComposeMessageDelegate!
   var game: Game? = nil
   
-  var bombing: Bool = false
-  var swapping: Bool = false
+  var bombing: Bool = false {
+    didSet {
+      bombing == true ? bomb.glowOn(locked: false) : bomb.glowOff()
+    }
+  }
+  var swapping: Bool = false {
+    didSet {
+      swapping == true ? swap.glowOn(locked: false) : swap.glowOff()
+    }
+  }
+  var locking: Bool = false {
+    didSet {
+      locking == true ? lock.glowOn(locked: false) : lock.glowOff()
+    }
+  }
   var firstLetter: LetterButton? = nil
-  var locking: Bool = false
   var playingLetter: Bool = false {
     didSet {
       if playingLetter == false {
@@ -244,32 +249,52 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  @IBAction func bombPressed(sender:UIButton) {
-    if !bombing {
-      bombing = true
-      disablePlayerHandLetters()
-    } else {
-      bombing = false
-      enablePlayerHandLetters()
+  @IBAction func helperPressed(sender: UIButton) {
+    
+    let helper = HelperAsInt(rawValue: sender.tag)!
+    
+    Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
+      
+      switch helper {
+      case .bomb:
+        if !self.bombing {
+          self.bombing = true
+          self.swapping = false
+          self.locking = false
+          self.disablePlayerHandLetters()
+        } else {
+          self.bombing = false
+          self.enablePlayerHandLetters()
+        }
+      case .lock:
+        if !self.locking {
+          self.locking = true
+          self.bombing = false
+          self.swapping = false
+          self.disablePlayerHandLetters()
+        } else {
+          self.locking = false
+          self.enablePlayerHandLetters()
+        }
+      case .swap:
+        if !self.swapping {
+          self.swapping = true
+          self.bombing = false
+          self.locking = false
+          self.disablePlayerHandLetters()
+        } else {
+          self.swapping = false
+          self.enablePlayerHandLetters()
+        }
+      case .pass:
+        self.game?.pass()
+        self.disableAllButtons()
+        self.endTurn.isEnabled = true
+        self.game!.setPlayMessage(forHelper: .pass)
+        self.endIfGameOver()
+      }
     }
-  }
-  
-  @IBAction func lockPressed(sender:UIButton) {
-    // tap this to lock a letter forever in the word
-    if !locking {
-      locking = true
-      disablePlayerHandLetters()
-    } else {
-      locking = false
-      enablePlayerHandLetters()
-    }
-  }
-  
-  @IBAction func passPressed(sender:UIButton) {
-    game?.pass()
-    endTurn.isEnabled = true
-    game!.setPlayMessage(forHelper: .pass)
-    endIfGameOver()
+    
   }
   
   func endIfGameOver() {
@@ -289,16 +314,6 @@ class ExpandedVC: UIViewController {
     gameOverView.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.height/2)
     gameOverView.frame.size = CGSize.zero
     Utils.animateEndGame(gameOverView, withTiming: 0.1, completionClosure: nil)
-  }
-  
-  @IBAction func swapPressed(sender:UIButton) {
-    if !swapping {
-      swapping = true
-      disablePlayerHandLetters()
-    } else {
-      swapping = false
-      enablePlayerHandLetters()
-    }
   }
   
   func disablePlayerHandLetters() {

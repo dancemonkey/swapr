@@ -12,6 +12,10 @@ enum Helper: String {
   case bomb, lock, swap, pass
 }
 
+enum HelperAsInt: Int {
+  case bomb = 0, lock, swap, pass
+}
+
 class Player {
   
   private var _strikes: Int = 0
