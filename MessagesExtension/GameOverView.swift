@@ -28,10 +28,12 @@ class GameOverView: UIView {
   }
   
   @IBAction func startNewGame(sender: UIButton) {
-    if let completion = completionClosure {
-      completion()
+    Utils.animateButton(sender, withTiming: Utils.buttonTiming) {  [unowned self] in
+      if let completion = self.completionClosure {
+        completion()
+      }
+      self.removeFromSuperview()
     }
-    self.removeFromSuperview()
   }
   
   func configureView(withGame game: Game, allowNewGame: Bool) {

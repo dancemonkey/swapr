@@ -239,7 +239,9 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func endTurnPressed(sender: UIButton) {
-    composeDelegate.compose(fromGame: game!)
+    Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
+      self.composeDelegate.compose(fromGame: self.game!)
+    }
   }
   
   @IBAction func bombPressed(sender:UIButton) {
@@ -435,9 +437,14 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func playerHandLetterPressed(sender: LetterButton) {
-    if game?.playerPlayedTurn() == false {
-      letterToPlay = sender.identity
-      playingLetter = true
+    Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
+      for letter in self.playerHand where letter != sender {
+        letter.glowOff()
+      }
+      if self.game?.playerPlayedTurn() == false {
+        self.letterToPlay = sender.identity
+        self.playingLetter = true
+      }
     }
   }
   

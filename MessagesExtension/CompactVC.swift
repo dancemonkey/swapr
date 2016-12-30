@@ -50,7 +50,7 @@ class CompactVC: UIViewController {
   }
   
   @IBAction func wordButtonPressed(sender: UIButton) {
-    Utils.animateButton(sender, withTiming: 0.05) { [unowned self] in
+    Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
       self.newGameDelegate.startNewGame(withWord: self.words[sender.tag])
     }
   }

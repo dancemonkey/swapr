@@ -68,4 +68,8 @@ class LetterButton: UIButton, Lockable {
   func setidentity(to letter: String) {
     _identity = letter
   }
+  
+  func isTapped() -> Bool {
+    return tapped
+  }
 }
