@@ -92,6 +92,9 @@ class ExpandedVC: UIViewController {
       presentGameOver(allowNewGame: true, completion: {
         self.game!.resetForNewGame()
         self.setupNewGame()
+        for view in self.view.subviews where view is UIVisualEffectView {
+          view.removeFromSuperview()
+        }
       })
     }
     setupWordView()
@@ -306,6 +309,13 @@ class ExpandedVC: UIViewController {
   }
   
   func presentGameOver(allowNewGame: Bool, completion: (()->())?) {
+    UIView.animate(withDuration: 0.05) {
+      let blurEffect = UIBlurEffect(style: .light)
+      let blurEffectView = UIVisualEffectView(effect: blurEffect)
+      blurEffectView.frame = self.view.bounds
+      blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+      self.view.addSubview(blurEffectView)
+    }
     let gameOverView = Bundle.main.loadNibNamed("GameOver", owner: self, options: nil)?.last as! GameOverView
     gameOverView.configureView(withGame: game!, allowNewGame: allowNewGame)
     gameOverView.composeDelegate = self.composeDelegate!

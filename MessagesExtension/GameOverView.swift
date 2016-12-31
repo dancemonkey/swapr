@@ -27,14 +27,14 @@ class GameOverView: UIView {
     }
   }
   
-  @IBAction func startNewGame(sender: UIButton) {
-    Utils.animateButton(sender, withTiming: Utils.buttonTiming) {  [unowned self] in
-      if let completion = self.completionClosure {
-        completion()
-      }
-      self.removeFromSuperview()
-    }
-  }
+//  @IBAction func startNewGame(sender: UIButton) {
+//    Utils.animateButton(sender, withTiming: Utils.buttonTiming) {  [unowned self] in
+//      if let completion = self.completionClosure {
+//        completion()
+//      }
+//      self.removeFromSuperview()
+//    }
+//  }
   
   func configureView(withGame game: Game, allowNewGame: Bool) {
     self.game = game
