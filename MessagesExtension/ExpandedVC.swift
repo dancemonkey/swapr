@@ -93,7 +93,12 @@ class ExpandedVC: UIViewController {
         self.game!.resetForNewGame()
         self.setupNewGame()
         for view in self.view.subviews where view is UIVisualEffectView {
-          view.removeFromSuperview()
+          UIView.animate(withDuration: 0.75, animations: {
+            (view as! UIVisualEffectView).alpha = 0.0
+          }, completion: { (complete) in
+            view.removeFromSuperview()
+          })
+          //view.removeFromSuperview()
         }
       })
     }
