@@ -311,9 +311,8 @@ class ExpandedVC: UIViewController {
     gameOverView.composeDelegate = self.composeDelegate!
     gameOverView.completionClosure = completion
     self.view.addSubview(gameOverView)
-    gameOverView.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.height/2)
-    gameOverView.frame.size = CGSize.zero
-    Utils.animateEndGame(gameOverView, withTiming: 0.1, completionClosure: nil)
+    gameOverView.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.height*2)
+    Utils.animateEndGame(gameOverView, withTiming: 0.2, completionClosure: nil)
   }
   
   func disablePlayerHandLetters() {

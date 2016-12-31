@@ -39,6 +39,11 @@ extension UIButton {
     layer.masksToBounds = false
   }
   
+  func whiteGlowOn() {
+    glowOn(locked: false)
+    layer.shadowColor = UIColor.white.cgColor
+  }
+  
   func glowOff() {
     layer.shadowColor = UIColor.clear.cgColor
   }

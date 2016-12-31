@@ -36,7 +36,7 @@ class Utils {
   
   static func animateEndGame(_ view: UIView, withTiming timing: Double, completionClosure: (() -> ())?) {
     UIView.animate(withDuration: timing, delay: 0.0, options: .curveEaseOut, animations: {
-      view.frame.size = CGSize(width: 200, height: 200)
+      view.center = (view.superview?.center)!
     }) { (finished) in
       if let closure = completionClosure {
         closure()
