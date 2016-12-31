@@ -27,15 +27,6 @@ class GameOverView: UIView {
     }
   }
   
-//  @IBAction func startNewGame(sender: UIButton) {
-//    Utils.animateButton(sender, withTiming: Utils.buttonTiming) {  [unowned self] in
-//      if let completion = self.completionClosure {
-//        completion()
-//      }
-//      self.removeFromSuperview()
-//    }
-//  }
-  
   func configureView(withGame game: Game, allowNewGame: Bool) {
     self.game = game
     let winner = game.currentPlayer.score > game.oppPlayer.score ? game.currentPlayer : game.oppPlayer
@@ -59,6 +50,11 @@ class GameOverView: UIView {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    self.layer.shadowColor = UIColor.black.cgColor
+    self.layer.shadowRadius = 4.0
+    self.layer.shadowOffset = CGSize.zero
+    self.layer.shadowOpacity = 0.9
+    self.layer.masksToBounds = false
   }
   
 }

@@ -74,6 +74,7 @@ class MessagesViewController: MSMessagesAppViewController {
       let wordList = WordsAPI()
       self.startingGame = Game(withMessage: nil)
       startingGame?.setCurrentWord(to: wordList.fetchRandomWord()!)
+      vc.game = startingGame!
     }
     
     return vc
