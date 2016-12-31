@@ -34,8 +34,8 @@ class Utils {
     })
   }
   
-  static func animateEndGame(_ view: UIView, withTiming timing: Double, completionClosure: (() -> ())?) {
-    UIView.animate(withDuration: timing, delay: 0.0, options: .curveEaseOut, animations: {
+  static func animateEndWithSpring(_ view: UIView, withTiming timing: Double, completionClosure: (() -> ())?) {
+    UIView.animate(withDuration: timing, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5.0, options: [], animations: {
       view.center = (view.superview?.center)!
     }) { (finished) in
       if let closure = completionClosure {

@@ -64,16 +64,16 @@ class MessagesViewController: MSMessagesAppViewController {
           }
         }
       }
-    } else {
-      let wordList = WordsAPI()
-      self.startingGame = Game(withMessage: nil)
-      startingGame?.setCurrentWord(to: wordList.fetchRandomWord()!)
     }
     
     vc.composeDelegate = self
     
     if let game = startingGame {
       vc.game = game
+    } else {
+      let wordList = WordsAPI()
+      self.startingGame = Game(withMessage: nil)
+      startingGame?.setCurrentWord(to: wordList.fetchRandomWord()!)
     }
     
     return vc

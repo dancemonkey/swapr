@@ -316,13 +316,14 @@ class ExpandedVC: UIViewController {
       blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       self.view.addSubview(blurEffectView)
     }
+    
     let gameOverView = Bundle.main.loadNibNamed("GameOver", owner: self, options: nil)?.last as! GameOverView
     gameOverView.configureView(withGame: game!, allowNewGame: allowNewGame)
     gameOverView.composeDelegate = self.composeDelegate!
     gameOverView.completionClosure = completion
     self.view.addSubview(gameOverView)
     gameOverView.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.height*2)
-    Utils.animateEndGame(gameOverView, withTiming: 0.2, completionClosure: nil)
+    Utils.animateEndWithSpring(gameOverView, withTiming: 1.0, completionClosure: nil)
   }
   
   func disablePlayerHandLetters() {
