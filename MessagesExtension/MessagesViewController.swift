@@ -54,6 +54,8 @@ class MessagesViewController: MSMessagesAppViewController {
       fatalError("VC not found.")
     }
     
+    print("instantiating exp vc")
+    
     if let message = conversation.selectedMessage, let url = message.url {
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
@@ -62,6 +64,10 @@ class MessagesViewController: MSMessagesAppViewController {
           }
         }
       }
+    } else {
+      let wordList = WordsAPI()
+      self.startingGame = Game(withMessage: nil)
+      startingGame?.setCurrentWord(to: wordList.fetchRandomWord()!)
     }
     
     vc.composeDelegate = self
