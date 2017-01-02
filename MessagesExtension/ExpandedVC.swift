@@ -390,7 +390,7 @@ class ExpandedVC: UIViewController {
     
     defer {
       setupScoreViews()
-      setDefinitionView()
+//      setDefinitionView()
     }
     
     if game?.playerPlayedTurn() == false {
@@ -439,6 +439,7 @@ class ExpandedVC: UIViewController {
           firstLetter = sender
         }
       } else if playingLetter && sender.locked == false && !addingLetter {
+        soundPlayer.playSound(for: .select)
         game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay.identity)
         playingLetter = false
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
@@ -454,24 +455,46 @@ class ExpandedVC: UIViewController {
   
   func testIfValidWord() {
     disableAllButtons()
-    game!.testIfValid(word: game!.currentWord!) { (validWord) in
-      if validWord {
-        DispatchQueue.main.async { [unowned self] in
-          self.game!.scoreRound()
-          self.endTurn.isEnabled = true
-          self.setupScoreViews()
-          self.soundPlayer.playSound(for: .validWord)
-        }
-      } else if !validWord {
-        DispatchQueue.main.async { [unowned self] in
-          self.game!.pass()
-          self.endTurn.isEnabled = true
-          self.endIfGameOver()
-          self.setupScoreViews()
-          self.soundPlayer.playSound(for: .strike)
+    Utils.delay(1.5) { 
+      self.game!.testIfValid(word: self.game!.currentWord!) { (validWord) in
+        if validWord {
+          DispatchQueue.main.async { [unowned self] in
+            self.game!.scoreRound()
+            self.endTurn.isEnabled = true
+            self.setupScoreViews()
+            self.soundPlayer.playSound(for: .validWord)
+            self.setDefinitionView()
+          }
+        } else if !validWord {
+          DispatchQueue.main.async { [unowned self] in
+            self.game!.pass()
+            self.endTurn.isEnabled = true
+            self.endIfGameOver()
+            self.setupScoreViews()
+            self.soundPlayer.playSound(for: .strike)
+            self.setDefinitionView()
+          }
         }
       }
     }
+//    game!.testIfValid(word: game!.currentWord!) { (validWord) in
+//      if validWord {
+//        DispatchQueue.main.async { [unowned self] in
+//          self.game!.scoreRound()
+//          self.endTurn.isEnabled = true
+//          self.setupScoreViews()
+//          self.soundPlayer.playSound(for: .validWord)
+//        }
+//      } else if !validWord {
+//        DispatchQueue.main.async { [unowned self] in
+//          self.game!.pass()
+//          self.endTurn.isEnabled = true
+//          self.endIfGameOver()
+//          self.setupScoreViews()
+//          self.soundPlayer.playSound(for: .strike)
+//        }
+//      }
+//    }
   }
   
   func visibleWord() -> String {
