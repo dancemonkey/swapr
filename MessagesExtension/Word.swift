@@ -60,4 +60,8 @@ class Word {
     self._definition = definition
   }
   
+  func unlockAll() {
+    _locked1 = nil
+    _locked2 = nil
+  }
 }

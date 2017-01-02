@@ -254,7 +254,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="00Z-2y-ZQl" userLabel="Helpers">
-                                <rect key="frame" x="16" y="245" width="343" height="50"/>
+                                <rect key="frame" x="16" y="229" width="343" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-p9-7EL" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -302,7 +302,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv" userLabel="Player Hand">
-                                <rect key="frame" x="8" y="327" width="359" height="54"/>
+                                <rect key="frame" x="8" y="303" width="359" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -367,9 +367,9 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No definition found." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-SO-eoJ">
-                                <rect key="frame" x="16" y="165" width="343" height="48"/>
+                                <rect key="frame" x="16" y="165" width="343" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="9aO-ng-2yr"/>
+                                    <constraint firstAttribute="height" constant="40" id="9aO-ng-2yr"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
@@ -397,13 +397,13 @@
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
                             <constraint firstItem="Jnm-jR-VMv" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="8" id="BHx-f7-5iX"/>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="top" secondItem="ihw-k7-0cb" secondAttribute="bottom" constant="8" id="DVO-Fx-IRa"/>
-                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="32" id="GEb-nb-8Y6"/>
+                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="24" id="GEb-nb-8Y6"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="Ma4-Uk-SNF"/>
                             <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
                             <constraint firstAttribute="trailing" secondItem="Jnm-jR-VMv" secondAttribute="trailing" constant="8" id="am5-sz-lMI"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="dEp-a1-4JZ"/>
                             <constraint firstAttribute="trailing" secondItem="ihw-k7-0cb" secondAttribute="trailing" id="eBU-30-C08"/>
-                            <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="vxu-SO-eoJ" secondAttribute="bottom" constant="32" id="eIv-mp-Y7x"/>
+                            <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="vxu-SO-eoJ" secondAttribute="bottom" constant="24" id="eIv-mp-Y7x"/>
                             <constraint firstItem="xVQ-un-S46" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="eQH-a0-Meo"/>
                             <constraint firstAttribute="trailing" secondItem="00Z-2y-ZQl" secondAttribute="trailing" constant="16" id="gIW-dB-llb"/>
                             <constraint firstAttribute="trailing" secondItem="xVQ-un-S46" secondAttribute="trailing" constant="16" id="h51-4a-bwk"/>
