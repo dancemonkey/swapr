@@ -273,6 +273,7 @@ class ExpandedVC: UIViewController {
           self.swapping = false
           self.locking = false
           self.disablePlayerHandLetters()
+          self.soundPlayer.playSound(for: .select)
         } else {
           self.bombing = false
           self.enablePlayerHandLetters()
@@ -283,6 +284,7 @@ class ExpandedVC: UIViewController {
           self.bombing = false
           self.swapping = false
           self.disablePlayerHandLetters()
+          self.soundPlayer.playSound(for: .select)
         } else {
           self.locking = false
           self.enablePlayerHandLetters()
@@ -293,6 +295,7 @@ class ExpandedVC: UIViewController {
           self.bombing = false
           self.locking = false
           self.disablePlayerHandLetters()
+          self.soundPlayer.playSound(for: .select)
         } else {
           self.swapping = false
           self.enablePlayerHandLetters()
@@ -303,6 +306,7 @@ class ExpandedVC: UIViewController {
         self.endTurn.isEnabled = true
         self.game!.setPlayMessage(forHelper: .pass)
         self.endIfGameOver()
+        self.soundPlayer.playSound(for: .strike)
       }
     }
     
@@ -348,6 +352,7 @@ class ExpandedVC: UIViewController {
   
   @IBAction func addLetterPressed(sender:UIButton) {
     if addingLetter == false {
+      soundPlayer.playSound(for: .select)
       setupScoreViews()
       addingLetter = true
       if getVisibleLetterCount() == (game?.currentWord?.size)! {
@@ -399,6 +404,7 @@ class ExpandedVC: UIViewController {
         disableAllButtons()
       }
       if bombing && sender.locked == false {
+        soundPlayer.playSound(for: .explosion)
         sender.isHidden = true
         bombing = false
         bomb.isEnabled = false
@@ -408,6 +414,7 @@ class ExpandedVC: UIViewController {
         game!.setPlayMessage(forHelper: .bomb)
         disableAllButtons()
       } else if locking && sender.locked == false {
+        soundPlayer.playSound(for: .lock)
         sender.locked = true
         locking = false
         lock.isEnabled = false
@@ -418,6 +425,7 @@ class ExpandedVC: UIViewController {
         disableAllButtons()
       } else if swapping && sender.locked == false {
         if firstLetter != nil {
+          soundPlayer.playSound(for: .swap)
           swapping = false
           swap.isEnabled = false
           swapLetters(first: firstLetter!, with: sender)
@@ -427,6 +435,7 @@ class ExpandedVC: UIViewController {
           disableAllButtons()
         }
         if firstLetter == nil {
+          soundPlayer.playSound(for: .swap)
           firstLetter = sender
         }
       } else if playingLetter && sender.locked == false && !addingLetter {
@@ -437,6 +446,8 @@ class ExpandedVC: UIViewController {
         testIfValidWord()
         game!.setPlayMessage(forWord: game!.currentWord!)
         disableAllButtons()
+      } else {
+        soundPlayer.playSound(for: .select)
       }
     }
   }
@@ -449,6 +460,7 @@ class ExpandedVC: UIViewController {
           self.game!.scoreRound()
           self.endTurn.isEnabled = true
           self.setupScoreViews()
+          self.soundPlayer.playSound(for: .validWord)
         }
       } else if !validWord {
         DispatchQueue.main.async { [unowned self] in
@@ -456,6 +468,7 @@ class ExpandedVC: UIViewController {
           self.endTurn.isEnabled = true
           self.endIfGameOver()
           self.setupScoreViews()
+          self.soundPlayer.playSound(for: .strike)
         }
       }
     }
