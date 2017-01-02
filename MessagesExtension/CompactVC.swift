@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CompactVC: UIViewController {
   
@@ -18,11 +19,30 @@ class CompactVC: UIViewController {
   var words = [Word]()
   let STARTING_WORDS = 3
   
+  var player: AVAudioPlayer!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     getWords()
     configureViews()
     let _ = ColorGradient(withView: self.view)
+    
+    DispatchQueue.global(qos: .background).async {
+      do {
+        if let path = Bundle.main.path(forResource: "Explosion1.wav", ofType: nil) {
+          print("Found explosion1.wav")
+          let url = URL(fileURLWithPath: path)
+          print(url)
+          self.player = try AVAudioPlayer(contentsOf: url)
+          self.player.prepareToPlay()
+          self.player.play()
+          print("playing?")
+        }
+      } catch {
+        print("error \(error)")
+      }
+    }
+    
   }
   
   func configureViews() {
