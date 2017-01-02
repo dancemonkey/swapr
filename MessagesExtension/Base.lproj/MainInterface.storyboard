@@ -46,10 +46,10 @@
                                 <rect key="frame" x="16" y="28" width="343" height="25"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-nj-Cfb" userLabel="Scores">
-                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agA-b8-Vau">
-                                                <rect key="frame" x="0.0" y="0.0" width="52" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
@@ -61,7 +61,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mn7-cj-K5s">
-                                                <rect key="frame" x="52" y="0.0" width="51.5" height="25"/>
+                                                <rect key="frame" x="82" y="0.0" width="81.5" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -74,10 +74,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VHM-QR-6ku" userLabel="Strikes">
-                                        <rect key="frame" x="119.5" y="0.0" width="104" height="25"/>
+                                        <rect key="frame" x="179.5" y="0.0" width="163.5" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
-                                                <rect key="frame" x="0.0" y="0.0" width="34.5" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="54.5" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -89,7 +89,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoU-uV-47h">
-                                                <rect key="frame" x="34.5" y="0.0" width="35" height="25"/>
+                                                <rect key="frame" x="54.5" y="0.0" width="54.5" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -101,32 +101,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlE-le-xbY">
-                                                <rect key="frame" x="69.5" y="0.0" width="34.5" height="25"/>
+                                                <rect key="frame" x="109" y="0.0" width="54.5" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k6D-tx-1Nr" userLabel="Chain">
-                                        <rect key="frame" x="239.5" y="0.0" width="103.5" height="25"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="Chain" translatesAutoresizingMaskIntoConstraints="NO" id="IPo-t4-0V9">
-                                                <rect key="frame" x="0.0" y="0.0" width="72" height="25"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekq-jn-i5A">
-                                                <rect key="frame" x="72" y="2" width="31.5" height="21.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="PSh-XA-MSK"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" red="0.027450980392156862" green="0.74509803921568629" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -144,7 +122,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6G2-jP-QvW">
-                                <rect key="frame" x="0.0" y="77" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="79" width="375" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4gA-jm-vY9" userLabel="Letters">
                                         <rect key="frame" x="8" y="18" width="359" height="35"/>
@@ -276,7 +254,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="00Z-2y-ZQl" userLabel="Helpers">
-                                <rect key="frame" x="16" y="211" width="343" height="50"/>
+                                <rect key="frame" x="16" y="245" width="343" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-p9-7EL" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -324,7 +302,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv" userLabel="Player Hand">
-                                <rect key="frame" x="8" y="277" width="359" height="54"/>
+                                <rect key="frame" x="8" y="327" width="359" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -389,9 +367,9 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No definition found." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-SO-eoJ">
-                                <rect key="frame" x="16" y="155" width="343" height="40"/>
+                                <rect key="frame" x="16" y="165" width="343" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="9aO-ng-2yr"/>
+                                    <constraint firstAttribute="height" constant="48" id="9aO-ng-2yr"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
@@ -402,24 +380,33 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ihw-k7-0cb" userLabel="Chains">
+                                <rect key="frame" x="0.0" y="61" width="375" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="n02-Xk-kMQ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="0T2-A0-Ztp"/>
+                            <constraint firstItem="ihw-k7-0cb" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="1hR-Jy-hFB"/>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="3rf-I6-qrk"/>
                             <constraint firstAttribute="trailing" secondItem="6G2-jP-QvW" secondAttribute="trailing" id="4vK-L6-Q7I"/>
+                            <constraint firstItem="ihw-k7-0cb" firstAttribute="top" secondItem="P6z-kC-hP0" secondAttribute="bottom" constant="8" id="84e-Cv-gAL"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
                             <constraint firstItem="Jnm-jR-VMv" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="8" id="BHx-f7-5iX"/>
-                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="16" id="GEb-nb-8Y6"/>
-                            <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="8" id="Ma4-Uk-SNF"/>
+                            <constraint firstItem="6G2-jP-QvW" firstAttribute="top" secondItem="ihw-k7-0cb" secondAttribute="bottom" constant="8" id="DVO-Fx-IRa"/>
+                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="32" id="GEb-nb-8Y6"/>
+                            <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="Ma4-Uk-SNF"/>
                             <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
                             <constraint firstAttribute="trailing" secondItem="Jnm-jR-VMv" secondAttribute="trailing" constant="8" id="am5-sz-lMI"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="dEp-a1-4JZ"/>
-                            <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="vxu-SO-eoJ" secondAttribute="bottom" constant="16" id="eIv-mp-Y7x"/>
+                            <constraint firstAttribute="trailing" secondItem="ihw-k7-0cb" secondAttribute="trailing" id="eBU-30-C08"/>
+                            <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="vxu-SO-eoJ" secondAttribute="bottom" constant="32" id="eIv-mp-Y7x"/>
                             <constraint firstItem="xVQ-un-S46" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="eQH-a0-Meo"/>
                             <constraint firstAttribute="trailing" secondItem="00Z-2y-ZQl" secondAttribute="trailing" constant="16" id="gIW-dB-llb"/>
                             <constraint firstAttribute="trailing" secondItem="xVQ-un-S46" secondAttribute="trailing" constant="16" id="h51-4a-bwk"/>
-                            <constraint firstItem="6G2-jP-QvW" firstAttribute="top" secondItem="P6z-kC-hP0" secondAttribute="bottom" constant="24" id="ifp-9p-Ime"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="top" secondItem="ci8-fk-NnR" secondAttribute="bottom" constant="8" id="jPW-8m-neL"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="oQF-ta-rNI"/>
                             <constraint firstAttribute="trailing" secondItem="P6z-kC-hP0" secondAttribute="trailing" constant="16" id="xbM-MY-FiX"/>
@@ -427,7 +414,7 @@
                     </view>
                     <connections>
                         <outlet property="bomb" destination="Axb-p9-7EL" id="1mN-5Y-g51"/>
-                        <outlet property="chainScore" destination="ekq-jn-i5A" id="Zq6-g1-Rnb"/>
+                        <outlet property="chainStack" destination="ihw-k7-0cb" id="1ZO-hK-xEB"/>
                         <outlet property="currentPlayerScore" destination="agA-b8-Vau" id="zs6-Z9-zO9"/>
                         <outlet property="definition" destination="vxu-SO-eoJ" id="N4i-hF-1g5"/>
                         <outlet property="endTurn" destination="xVQ-un-S46" id="Jty-lm-U73"/>
@@ -573,7 +560,6 @@
         <image name="AddLetterBtn" width="32" height="32"/>
         <image name="Blank Button" width="12" height="13"/>
         <image name="Bomb" width="50" height="50"/>
-        <image name="Chain" width="25" height="25"/>
         <image name="Lock" width="50" height="50"/>
         <image name="P" width="54" height="54"/>
         <image name="Pass" width="50" height="50"/>

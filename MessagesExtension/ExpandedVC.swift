@@ -26,8 +26,8 @@ class ExpandedVC: UIViewController {
   @IBOutlet var playerHand: [LetterButton]!
   @IBOutlet weak var currentPlayerScore: UILabel!
   @IBOutlet weak var oppPlayerScore: UILabel!
-  @IBOutlet weak var chainScore: UILabel!
   @IBOutlet var strikes: [UILabel]!
+  @IBOutlet weak var chainStack: UIStackView!
   
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
@@ -116,7 +116,7 @@ class ExpandedVC: UIViewController {
   func setupScoreViews() {
     currentPlayerScore.text = String(describing: game!.currentPlayer.score)
     oppPlayerScore.text = String(describing: game!.oppPlayer.score)
-    chainScore.text = String(describing: game!.currentPlayer.chainScore)
+    addChainsToStack()
     setupStrikeViews()
   }
   
@@ -505,6 +505,23 @@ class ExpandedVC: UIViewController {
   func showAddLetterButtons() {
     for button in addLetter {
       button.isHidden = false
+    }
+  }
+  
+  func addChainsToStack() {
+    for chain in chainStack.subviews {
+      chain.removeFromSuperview()
+    }
+    let totalChainsToFit = (Double(view.bounds.width)/16).rounded()
+    for index in 0 ..< Int(totalChainsToFit) {
+      let chain: UIImageView
+      if game!.currentPlayer.chainScore > index {
+        chain = UIImageView(image: #imageLiteral(resourceName: "Chain"))
+      } else {
+        chain = UIImageView(image: #imageLiteral(resourceName: "GrayChain"))
+      }
+      chain.tag = index
+      chainStack.addArrangedSubview(chain)
     }
   }
   
