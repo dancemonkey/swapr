@@ -86,6 +86,7 @@ class ExpandedVC: UIViewController {
     for strike in strikes {
       strike.textColor = UIColor.lightGray
     }
+    game!.currentWord?.unlockAll()
   }
   
   func setupExistingGame(fromMessage message: MSMessage) {
@@ -100,16 +101,16 @@ class ExpandedVC: UIViewController {
           }, completion: { (complete) in
             view.removeFromSuperview()
           })
-          //view.removeFromSuperview()
         }
       })
-    }
-    setupWordView()
-    setupPlayerHand()
-    setupHelperViews()
-    setupScoreViews()
-    if game!.wordIsMaxSize() {
-      hideAddLetterButtons()
+    } else {
+      setupWordView()
+      setupPlayerHand()
+      setupHelperViews()
+      setupScoreViews()
+      if game!.wordIsMaxSize() {
+        hideAddLetterButtons()
+      }
     }
   }
   
