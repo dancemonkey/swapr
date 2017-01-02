@@ -12,11 +12,10 @@ import Messages
 class MessagesViewController: MSMessagesAppViewController {
   
   var startingGame: Game?
+  var soundPlayer = Sound()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
   }
   
   private func presentVC(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
@@ -53,9 +52,7 @@ class MessagesViewController: MSMessagesAppViewController {
     guard let vc = storyboard?.instantiateViewController(withIdentifier: "gameScreen") as? ExpandedVC else {
       fatalError("VC not found.")
     }
-    
-    print("instantiating exp vc")
-    
+        
     if let message = conversation.selectedMessage, let url = message.url {
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
@@ -76,6 +73,7 @@ class MessagesViewController: MSMessagesAppViewController {
       startingGame?.setCurrentWord(to: wordList.fetchRandomWord()!)
       vc.game = startingGame!
     }
+    vc.soundPlayer = soundPlayer
     
     return vc
   }
@@ -86,6 +84,7 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     compactVC.newGameDelegate = self
+    compactVC.soundPlayer = soundPlayer
     return compactVC
   }
   

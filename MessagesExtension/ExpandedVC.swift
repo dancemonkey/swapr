@@ -32,6 +32,7 @@ class ExpandedVC: UIViewController {
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
   var game: Game? = nil
+  var soundPlayer: Sound!
   
   var bombing: Bool = false {
     didSet {
@@ -56,7 +57,7 @@ class ExpandedVC: UIViewController {
       }
     }
   }
-  var letterToPlay: String = ""
+  var letterToPlay: LetterButton!
   var addingLetter: Bool = false
   var addLetterTarget: LetterButton!
     
@@ -73,6 +74,7 @@ class ExpandedVC: UIViewController {
     
     setDefinitionView()
     showAddLetterButtons()
+    
   }
   
   func setupNewGame() {
@@ -387,7 +389,7 @@ class ExpandedVC: UIViewController {
     
     if game?.playerPlayedTurn() == false {
       if addingLetter && playingLetter && sender == addLetterTarget {
-        game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
+        game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay.identity)
         playingLetter = false
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
         setupPlayerHand()
@@ -427,7 +429,7 @@ class ExpandedVC: UIViewController {
           firstLetter = sender
         }
       } else if playingLetter && sender.locked == false && !addingLetter {
-        game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay)
+        game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay.identity)
         playingLetter = false
         setLettersInLetterView(forWord: (game?.currentWord?.name)!)
         setupPlayerHand()
@@ -467,12 +469,13 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func playerHandLetterPressed(sender: LetterButton) {
+    soundPlayer.playSound(for: .select)
     Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
-      for letter in self.playerHand where letter != sender {
-        letter.glowOff()
+      if let currentLetter = self.letterToPlay {
+        currentLetter.glowOff()
       }
       if self.game?.playerPlayedTurn() == false {
-        self.letterToPlay = sender.identity
+        self.letterToPlay = sender
         self.playingLetter = true
       }
     }

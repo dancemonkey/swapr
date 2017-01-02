@@ -19,30 +19,13 @@ class CompactVC: UIViewController {
   var words = [Word]()
   let STARTING_WORDS = 3
   
-  var player: AVAudioPlayer!
-  
+  var soundPlayer: Sound!
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     getWords()
     configureViews()
-    let _ = ColorGradient(withView: self.view)
-    
-    DispatchQueue.global(qos: .background).async {
-      do {
-        if let path = Bundle.main.path(forResource: "Explosion1.wav", ofType: nil) {
-          print("Found explosion1.wav")
-          let url = URL(fileURLWithPath: path)
-          print(url)
-          self.player = try AVAudioPlayer(contentsOf: url)
-          self.player.prepareToPlay()
-          self.player.play()
-          print("playing?")
-        }
-      } catch {
-        print("error \(error)")
-      }
-    }
-    
+    let _ = ColorGradient(withView: self.view)    
   }
   
   func configureViews() {
@@ -70,6 +53,7 @@ class CompactVC: UIViewController {
   }
   
   @IBAction func wordButtonPressed(sender: UIButton) {
+    soundPlayer.playSound(for: .validWord)
     Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
       self.newGameDelegate.startNewGame(withWord: self.words[sender.tag])
     }
