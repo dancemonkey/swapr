@@ -59,6 +59,32 @@
 		109136391E01926800F6CDFC /* LetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109136381E01926800F6CDFC /* LetterButton.swift */; };
 		1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */; };
 		109827831DF7163900D56002 /* starterWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109827821DF7163900D56002 /* starterWords.txt */; };
+		109A20F71E1BFBB100A77FCD /* A Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20DD1E1BFBB100A77FCD /* A Words.txt */; };
+		109A20F81E1BFBB100A77FCD /* B Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20DE1E1BFBB100A77FCD /* B Words.txt */; };
+		109A20F91E1BFBB100A77FCD /* C Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20DF1E1BFBB100A77FCD /* C Words.txt */; };
+		109A20FA1E1BFBB100A77FCD /* D Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E01E1BFBB100A77FCD /* D Words.txt */; };
+		109A20FB1E1BFBB100A77FCD /* E Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E11E1BFBB100A77FCD /* E Words.txt */; };
+		109A20FC1E1BFBB100A77FCD /* F Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E21E1BFBB100A77FCD /* F Words.txt */; };
+		109A20FD1E1BFBB100A77FCD /* G Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E31E1BFBB100A77FCD /* G Words.txt */; };
+		109A20FE1E1BFBB100A77FCD /* H Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E41E1BFBB100A77FCD /* H Words.txt */; };
+		109A20FF1E1BFBB100A77FCD /* I Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E51E1BFBB100A77FCD /* I Words.txt */; };
+		109A21001E1BFBB100A77FCD /* J Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E61E1BFBB100A77FCD /* J Words.txt */; };
+		109A21011E1BFBB100A77FCD /* K Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E71E1BFBB100A77FCD /* K Words.txt */; };
+		109A21021E1BFBB100A77FCD /* L Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E81E1BFBB100A77FCD /* L Words.txt */; };
+		109A21031E1BFBB100A77FCD /* M Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20E91E1BFBB100A77FCD /* M Words.txt */; };
+		109A21041E1BFBB100A77FCD /* N Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20EA1E1BFBB100A77FCD /* N Words.txt */; };
+		109A21051E1BFBB100A77FCD /* O Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20EB1E1BFBB100A77FCD /* O Words.txt */; };
+		109A21061E1BFBB100A77FCD /* P Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20EC1E1BFBB100A77FCD /* P Words.txt */; };
+		109A21071E1BFBB100A77FCD /* Q Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20ED1E1BFBB100A77FCD /* Q Words.txt */; };
+		109A21081E1BFBB100A77FCD /* R Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20EE1E1BFBB100A77FCD /* R Words.txt */; };
+		109A21091E1BFBB100A77FCD /* S Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20EF1E1BFBB100A77FCD /* S Words.txt */; };
+		109A210A1E1BFBB100A77FCD /* T Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F01E1BFBB100A77FCD /* T Words.txt */; };
+		109A210B1E1BFBB100A77FCD /* U Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F11E1BFBB100A77FCD /* U Words.txt */; };
+		109A210C1E1BFBB100A77FCD /* V Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F21E1BFBB100A77FCD /* V Words.txt */; };
+		109A210D1E1BFBB100A77FCD /* W Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F31E1BFBB100A77FCD /* W Words.txt */; };
+		109A210E1E1BFBB100A77FCD /* X Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F41E1BFBB100A77FCD /* X Words.txt */; };
+		109A210F1E1BFBB100A77FCD /* Y Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F51E1BFBB100A77FCD /* Y Words.txt */; };
+		109A21101E1BFBB100A77FCD /* Z Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F61E1BFBB100A77FCD /* Z Words.txt */; };
 		10B03FD81DF4859C0055DE8C /* WordsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B03FD71DF4859C0055DE8C /* WordsAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +168,32 @@
 		109136381E01926800F6CDFC /* LetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterButton.swift; sourceTree = "<group>"; };
 		1098277E1DF6FEDA00D56002 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		109827821DF7163900D56002 /* starterWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starterWords.txt; sourceTree = "<group>"; };
+		109A20DD1E1BFBB100A77FCD /* A Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "A Words.txt"; sourceTree = "<group>"; };
+		109A20DE1E1BFBB100A77FCD /* B Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "B Words.txt"; sourceTree = "<group>"; };
+		109A20DF1E1BFBB100A77FCD /* C Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "C Words.txt"; sourceTree = "<group>"; };
+		109A20E01E1BFBB100A77FCD /* D Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "D Words.txt"; sourceTree = "<group>"; };
+		109A20E11E1BFBB100A77FCD /* E Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "E Words.txt"; sourceTree = "<group>"; };
+		109A20E21E1BFBB100A77FCD /* F Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "F Words.txt"; sourceTree = "<group>"; };
+		109A20E31E1BFBB100A77FCD /* G Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "G Words.txt"; sourceTree = "<group>"; };
+		109A20E41E1BFBB100A77FCD /* H Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "H Words.txt"; sourceTree = "<group>"; };
+		109A20E51E1BFBB100A77FCD /* I Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "I Words.txt"; sourceTree = "<group>"; };
+		109A20E61E1BFBB100A77FCD /* J Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "J Words.txt"; sourceTree = "<group>"; };
+		109A20E71E1BFBB100A77FCD /* K Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "K Words.txt"; sourceTree = "<group>"; };
+		109A20E81E1BFBB100A77FCD /* L Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "L Words.txt"; sourceTree = "<group>"; };
+		109A20E91E1BFBB100A77FCD /* M Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "M Words.txt"; sourceTree = "<group>"; };
+		109A20EA1E1BFBB100A77FCD /* N Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "N Words.txt"; sourceTree = "<group>"; };
+		109A20EB1E1BFBB100A77FCD /* O Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "O Words.txt"; sourceTree = "<group>"; };
+		109A20EC1E1BFBB100A77FCD /* P Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "P Words.txt"; sourceTree = "<group>"; };
+		109A20ED1E1BFBB100A77FCD /* Q Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Q Words.txt"; sourceTree = "<group>"; };
+		109A20EE1E1BFBB100A77FCD /* R Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "R Words.txt"; sourceTree = "<group>"; };
+		109A20EF1E1BFBB100A77FCD /* S Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "S Words.txt"; sourceTree = "<group>"; };
+		109A20F01E1BFBB100A77FCD /* T Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "T Words.txt"; sourceTree = "<group>"; };
+		109A20F11E1BFBB100A77FCD /* U Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "U Words.txt"; sourceTree = "<group>"; };
+		109A20F21E1BFBB100A77FCD /* V Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "V Words.txt"; sourceTree = "<group>"; };
+		109A20F31E1BFBB100A77FCD /* W Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "W Words.txt"; sourceTree = "<group>"; };
+		109A20F41E1BFBB100A77FCD /* X Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "X Words.txt"; sourceTree = "<group>"; };
+		109A20F51E1BFBB100A77FCD /* Y Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Y Words.txt"; sourceTree = "<group>"; };
+		109A20F61E1BFBB100A77FCD /* Z Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Z Words.txt"; sourceTree = "<group>"; };
 		10B03FD71DF4859C0055DE8C /* WordsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +248,7 @@
 		101A56111DF24A3000646B6D /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				109A20DC1E1BFB8500A77FCD /* Words */,
 				101A91FF1E1A04AA00327632 /* Sounds */,
 				10775F5B1DF8C4BF00B20B98 /* utils */,
 				10B03FD61DF4858A0055DE8C /* Network */,
@@ -204,7 +257,6 @@
 				101A56231DF24A5800646B6D /* Controller */,
 				101A56141DF24A3000646B6D /* MainInterface.storyboard */,
 				101A56171DF24A3000646B6D /* Assets.xcassets */,
-				109827821DF7163900D56002 /* starterWords.txt */,
 				101A56191DF24A3000646B6D /* Info.plist */,
 			);
 			path = MessagesExtension;
@@ -289,6 +341,40 @@
 				10457C5A1E1A9A16001E3B94 /* Sound Extension.swift */,
 			);
 			name = utils;
+			sourceTree = "<group>";
+		};
+		109A20DC1E1BFB8500A77FCD /* Words */ = {
+			isa = PBXGroup;
+			children = (
+				109A20DD1E1BFBB100A77FCD /* A Words.txt */,
+				109A20DE1E1BFBB100A77FCD /* B Words.txt */,
+				109A20DF1E1BFBB100A77FCD /* C Words.txt */,
+				109A20E01E1BFBB100A77FCD /* D Words.txt */,
+				109A20E11E1BFBB100A77FCD /* E Words.txt */,
+				109A20E21E1BFBB100A77FCD /* F Words.txt */,
+				109A20E31E1BFBB100A77FCD /* G Words.txt */,
+				109A20E41E1BFBB100A77FCD /* H Words.txt */,
+				109A20E51E1BFBB100A77FCD /* I Words.txt */,
+				109A20E61E1BFBB100A77FCD /* J Words.txt */,
+				109A20E71E1BFBB100A77FCD /* K Words.txt */,
+				109A20E81E1BFBB100A77FCD /* L Words.txt */,
+				109A20E91E1BFBB100A77FCD /* M Words.txt */,
+				109A20EA1E1BFBB100A77FCD /* N Words.txt */,
+				109A20EB1E1BFBB100A77FCD /* O Words.txt */,
+				109A20EC1E1BFBB100A77FCD /* P Words.txt */,
+				109A20ED1E1BFBB100A77FCD /* Q Words.txt */,
+				109A20EE1E1BFBB100A77FCD /* R Words.txt */,
+				109A20EF1E1BFBB100A77FCD /* S Words.txt */,
+				109A20F01E1BFBB100A77FCD /* T Words.txt */,
+				109A20F11E1BFBB100A77FCD /* U Words.txt */,
+				109A20F21E1BFBB100A77FCD /* V Words.txt */,
+				109A20F31E1BFBB100A77FCD /* W Words.txt */,
+				109A20F41E1BFBB100A77FCD /* X Words.txt */,
+				109A20F51E1BFBB100A77FCD /* Y Words.txt */,
+				109A20F61E1BFBB100A77FCD /* Z Words.txt */,
+				109827821DF7163900D56002 /* starterWords.txt */,
+			);
+			name = Words;
 			sourceTree = "<group>";
 		};
 		10B03FD61DF4858A0055DE8C /* Network */ = {
@@ -394,35 +480,61 @@
 				101A56181DF24A3000646B6D /* Assets.xcassets in Resources */,
 				10457C621E1A9ABB001E3B94 /* strike2.wav in Resources */,
 				10457C4F1E1A99C7001E3B94 /* select5.wav in Resources */,
+				109A210E1E1BFBB100A77FCD /* X Words.txt in Resources */,
 				101A56161DF24A3000646B6D /* MainInterface.storyboard in Resources */,
+				109A21091E1BFBB100A77FCD /* S Words.txt in Resources */,
+				109A21031E1BFBB100A77FCD /* M Words.txt in Resources */,
+				109A210A1E1BFBB100A77FCD /* T Words.txt in Resources */,
+				109A20F71E1BFBB100A77FCD /* A Words.txt in Resources */,
 				10457C651E1A9ABB001E3B94 /* strike5.wav in Resources */,
 				10457C3A1E1A99C7001E3B94 /* explosion5.wav in Resources */,
+				109A21051E1BFBB100A77FCD /* O Words.txt in Resources */,
+				109A20FE1E1BFBB100A77FCD /* H Words.txt in Resources */,
 				109827831DF7163900D56002 /* starterWords.txt in Resources */,
 				10457C4D1E1A99C7001E3B94 /* select3.wav in Resources */,
 				1064B07F1E0C62F70065E6C4 /* GameOver.xib in Resources */,
+				109A20FD1E1BFBB100A77FCD /* G Words.txt in Resources */,
 				10457C441E1A99C7001E3B94 /* lock4.wav in Resources */,
 				10457C361E1A99C7001E3B94 /* explosion1.wav in Resources */,
+				109A21071E1BFBB100A77FCD /* Q Words.txt in Resources */,
 				10457C371E1A99C7001E3B94 /* explosion2.wav in Resources */,
 				10457C561E1A99C7001E3B94 /* validWord2.wav in Resources */,
+				109A20F91E1BFBB100A77FCD /* C Words.txt in Resources */,
+				109A21041E1BFBB100A77FCD /* N Words.txt in Resources */,
 				10457C631E1A9ABB001E3B94 /* strike3.wav in Resources */,
 				10457C541E1A99C7001E3B94 /* swap5.wav in Resources */,
 				10457C551E1A99C7001E3B94 /* validWord1.wav in Resources */,
+				109A20FF1E1BFBB100A77FCD /* I Words.txt in Resources */,
+				109A210F1E1BFBB100A77FCD /* Y Words.txt in Resources */,
+				109A21001E1BFBB100A77FCD /* J Words.txt in Resources */,
+				109A21101E1BFBB100A77FCD /* Z Words.txt in Resources */,
 				10457C381E1A99C7001E3B94 /* explosion3.wav in Resources */,
 				10457C591E1A99C7001E3B94 /* validWord5.wav in Resources */,
+				109A21061E1BFBB100A77FCD /* P Words.txt in Resources */,
 				10457C451E1A99C7001E3B94 /* lock5.wav in Resources */,
+				109A20FC1E1BFBB100A77FCD /* F Words.txt in Resources */,
 				10457C511E1A99C7001E3B94 /* swap2.wav in Resources */,
 				10457C4E1E1A99C7001E3B94 /* select4.wav in Resources */,
+				109A21021E1BFBB100A77FCD /* L Words.txt in Resources */,
 				10457C531E1A99C7001E3B94 /* swap4.wav in Resources */,
+				109A20FA1E1BFBB100A77FCD /* D Words.txt in Resources */,
 				10457C501E1A99C7001E3B94 /* swap1.wav in Resources */,
 				10457C391E1A99C7001E3B94 /* explosion4.wav in Resources */,
+				109A210D1E1BFBB100A77FCD /* W Words.txt in Resources */,
 				10457C611E1A9ABB001E3B94 /* strike1.wav in Resources */,
+				109A20FB1E1BFBB100A77FCD /* E Words.txt in Resources */,
 				10457C641E1A9ABB001E3B94 /* strike4.wav in Resources */,
 				10457C431E1A99C7001E3B94 /* lock3.wav in Resources */,
+				109A20F81E1BFBB100A77FCD /* B Words.txt in Resources */,
 				10457C3B1E1A99C7001E3B94 /* explosion6.wav in Resources */,
 				10457C4B1E1A99C7001E3B94 /* select1.wav in Resources */,
+				109A21081E1BFBB100A77FCD /* R Words.txt in Resources */,
 				10457C421E1A99C7001E3B94 /* lock2.wav in Resources */,
+				109A21011E1BFBB100A77FCD /* K Words.txt in Resources */,
 				10457C411E1A99C7001E3B94 /* lock1.wav in Resources */,
 				10457C521E1A99C7001E3B94 /* swap3.wav in Resources */,
+				109A210B1E1BFBB100A77FCD /* U Words.txt in Resources */,
+				109A210C1E1BFBB100A77FCD /* V Words.txt in Resources */,
 				10457C4C1E1A99C7001E3B94 /* select2.wav in Resources */,
 				10457C571E1A99C7001E3B94 /* validWord3.wav in Resources */,
 			);
