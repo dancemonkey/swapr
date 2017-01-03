@@ -65,13 +65,33 @@ class WordsAPI {
     var request = URLRequest(url: wordsURL)
     request.allHTTPHeaderFields = header
     request.httpMethod = "GET"
-    NetworkRequest.get(withRequest: request) { (data, response) in
-      if response.statusCode == 200 {
-        completion(true)
-      } else {
-        completion(false)
+    if isInTextDictionary(word: word) {
+      completion(true)
+    } else {
+      NetworkRequest.get(withRequest: request) { (data, response) in
+        if response.statusCode == 200 {
+          completion(true)
+        } else {
+          completion(false)
+        }
       }
     }
+  }
+  
+  private func isInTextDictionary(word: Word) -> Bool {
+    let baseSuffix = " Words"
+    let basePrefix = (word.name).uppercased().characters.first!
+    if let path = Bundle.main.path(forResource: "\(basePrefix)" + baseSuffix, ofType: ".txt") {
+      do {
+        let data = try String(contentsOfFile: path, encoding: .utf8)
+        if data.contains(word.name) {
+          return true
+        }
+      } catch {
+        print(error)
+      }
+    }
+    return false
   }
   
   func fetchRandomLetter() -> String {
