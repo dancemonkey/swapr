@@ -80,11 +80,11 @@ class ExpandedVC: UIViewController {
   }
   
   func setupNewGame() {
-    setupWordView()
-    setupPlayerHand()
-    setupHelperViews()
-    setupScoreViews()
-    removeAllLetterHighlights()
+    setupWordView()                       // consolidate this into a function, used again in below
+    setupPlayerHand()                     //
+    setupHelperViews()                    //
+    setupScoreViews()                     //
+    removeAllLetterHighlights()           //
     for strike in strikes {
       strike.textColor = UIColor.lightGray
     }
@@ -151,6 +151,7 @@ class ExpandedVC: UIViewController {
     }
   }
   
+  // create playerHand as a class and let it do this itself?
   func setupPlayerHand() {
     var hand: String
     if let text = game?.currentPlayer.hand {
@@ -185,6 +186,7 @@ class ExpandedVC: UIViewController {
     resizeLetters(toSize: size!)
   }
   
+  // bad name, resize word display or resize letter display or something
   func resizeLetters(toSize size: Int) {
     if size < getVisibleLetterCount() {
       for index in size..<getVisibleLetterCount() {
@@ -249,7 +251,7 @@ class ExpandedVC: UIViewController {
       letter.isEnabled = false
       letter.glowOff()
     }
-    bomb.isEnabled = false
+    bomb.isEnabled = false  // "disableHelpers" function
     lock.isEnabled = false
     swap.isEnabled = false
     endTurn.isEnabled = false
@@ -262,6 +264,9 @@ class ExpandedVC: UIViewController {
     }
   }
   
+  // consolidate this
+  // what can be mvoed into helper class?
+  // what is redundant?
   @IBAction func helperPressed(sender: UIButton) {
     
     let helper = HelperAsInt(rawValue: sender.tag)!
@@ -345,6 +350,7 @@ class ExpandedVC: UIViewController {
     Utils.animateEndWithSpring(gameOverView, withTiming: 1.0, completionClosure: nil)
   }
   
+  // subclass player hand and move into there?
   func disablePlayerHandLetters() {
     for letter in playerHand {
       letter.isEnabled = false
@@ -390,15 +396,9 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  // REFACTOR BELOW: BUILD STRUCT IN THIS VC THAT CAN BE PASSED TO A VIEW MODEL.
-  // VIEW MODEL PARSES STRUCT AND PASSES BACK WHAT NEEDS TO HAPPEN?
-  
+  // consolidate redundant into functions
+  // move any into helper subclass?
   @IBAction func letterPressed(sender: LetterButton) {
-    
-    defer {
-      setupScoreViews()
-//      setDefinitionView()
-    }
     
     if game?.playerPlayedTurn() == false {
       if addingLetter && playingLetter && sender == addLetterTarget {
@@ -460,6 +460,8 @@ class ExpandedVC: UIViewController {
     }
   }
   
+  // move most of this into game?
+  // will still need closure, but this is being passed almost directly into game anyway
   func testIfValidWord() {
     disableAllButtons()
     Utils.delay(1.5) { 
@@ -511,10 +513,6 @@ class ExpandedVC: UIViewController {
         self.letterToPlay = sender
         self.playingLetter = true
       }
-//      if self.game?.playerPlayedTurn() == false {
-//        self.letterToPlay = sender
-//        self.playingLetter = true
-//      }
     }
   }
   
@@ -546,6 +544,8 @@ class ExpandedVC: UIViewController {
     }
   }
   
+  // subclass entire chain as a UIView with UIImage subview?
+  // let it handle this shit
   func addChainsToStack() {
     for chain in chainStack.subviews {
       chain.removeFromSuperview()

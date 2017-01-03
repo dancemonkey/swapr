@@ -27,7 +27,7 @@
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "iPad-Settings-29pt@2x.png",
+      "filename" : "iPhone-settings-29pt@2x.png",
       "scale" : "2x"
     },
     {
@@ -73,7 +73,7 @@
     {
       "size" : "1024x768",
       "idiom" : "ios-marketing",
-      "filename" : "AppStoreIcon.png",
+      "filename" : "Messages-App-Store-1024x768pt.png",
       "scale" : "1x",
       "platform" : "ios"
     }
