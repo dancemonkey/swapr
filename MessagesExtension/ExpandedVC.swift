@@ -54,6 +54,8 @@ class ExpandedVC: UIViewController {
     didSet {
       if playingLetter == false {
         removeAllLetterHighlights()
+      } else if playingLetter == true {
+        letterGlowOn()
       }
     }
   }
@@ -239,9 +241,9 @@ class ExpandedVC: UIViewController {
   }
   
   func disableAllButtons() {
+    letterGlowOff()
     for letter in letters {
       letter.isEnabled = false
-      letter.glowOff()
     }
     for letter in playerHand {
       letter.isEnabled = false
@@ -264,6 +266,8 @@ class ExpandedVC: UIViewController {
     
     let helper = HelperAsInt(rawValue: sender.tag)!
     
+    letterGlowOn()
+    
     Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
       
       switch helper {
@@ -277,6 +281,7 @@ class ExpandedVC: UIViewController {
         } else {
           self.bombing = false
           self.enablePlayerHandLetters()
+          self.letterGlowOff()
         }
       case .lock:
         if !self.locking {
@@ -288,6 +293,7 @@ class ExpandedVC: UIViewController {
         } else {
           self.locking = false
           self.enablePlayerHandLetters()
+          self.letterGlowOff()
         }
       case .swap:
         if !self.swapping {
@@ -299,6 +305,7 @@ class ExpandedVC: UIViewController {
         } else {
           self.swapping = false
           self.enablePlayerHandLetters()
+          self.letterGlowOff()
         }
       case .pass:
         self.game?.pass()
@@ -477,24 +484,6 @@ class ExpandedVC: UIViewController {
         }
       }
     }
-//    game!.testIfValid(word: game!.currentWord!) { (validWord) in
-//      if validWord {
-//        DispatchQueue.main.async { [unowned self] in
-//          self.game!.scoreRound()
-//          self.endTurn.isEnabled = true
-//          self.setupScoreViews()
-//          self.soundPlayer.playSound(for: .validWord)
-//        }
-//      } else if !validWord {
-//        DispatchQueue.main.async { [unowned self] in
-//          self.game!.pass()
-//          self.endTurn.isEnabled = true
-//          self.endIfGameOver()
-//          self.setupScoreViews()
-//          self.soundPlayer.playSound(for: .strike)
-//        }
-//      }
-//    }
   }
   
   func visibleWord() -> String {
@@ -507,14 +496,25 @@ class ExpandedVC: UIViewController {
   
   @IBAction func playerHandLetterPressed(sender: LetterButton) {
     soundPlayer.playSound(for: .select)
+    
     Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
       if let currentLetter = self.letterToPlay {
-        currentLetter.glowOff()
-      }
-      if self.game?.playerPlayedTurn() == false {
+        if currentLetter == sender {
+          currentLetter.glowOff()
+          self.playingLetter = false
+        } else {
+          currentLetter.glowOff()
+          self.letterToPlay = sender
+          self.playingLetter = true
+        }
+      } else {
         self.letterToPlay = sender
         self.playingLetter = true
       }
+//      if self.game?.playerPlayedTurn() == false {
+//        self.letterToPlay = sender
+//        self.playingLetter = true
+//      }
     }
   }
   
@@ -522,6 +522,7 @@ class ExpandedVC: UIViewController {
     for letter in playerHand {
       letter.layer.borderColor = UIColor.clear.cgColor
     }
+    letterGlowOff()
   }
   
   func setDefinitionView() {
@@ -559,6 +560,18 @@ class ExpandedVC: UIViewController {
       }
       chain.tag = index
       chainStack.addArrangedSubview(chain)
+    }
+  }
+  
+  func letterGlowOn() {
+    for letter in letters where letter.locked == false {
+      letter.whiteGlowOn()
+    }
+  }
+  
+  func letterGlowOff() {
+    for letter in letters where letter.locked == false {
+      letter.glowOff()
     }
   }
   
