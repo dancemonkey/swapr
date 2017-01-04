@@ -175,7 +175,7 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  // create playerHand as a class and let it do this itself?
+  // create playerHand as a player function and let it do this itself?
   func setupPlayerHand() {
     var hand: String
     if let text = game?.currentPlayer.hand {
@@ -287,10 +287,7 @@ class ExpandedVC: UIViewController {
       self.composeDelegate.compose(fromGame: self.game!)
     }
   }
-  
-  // consolidate this
-  // what can be mvoed into helper class?
-  // what is redundant?
+
   @IBAction func helperPressed(sender: UIButton) {
     
     let helper = HelperAsInt(rawValue: sender.tag)!
