@@ -84,7 +84,8 @@ class WordsAPI {
     if let path = Bundle.main.path(forResource: "\(basePrefix)" + baseSuffix, ofType: ".txt") {
       do {
         let data = try String(contentsOfFile: path, encoding: .utf8)
-        if data.contains(word.name) {
+        let wordArray: [String] = data.components(separatedBy: NSCharacterSet.newlines)
+        if wordArray.contains(word.name) {
           return true
         }
       } catch {
