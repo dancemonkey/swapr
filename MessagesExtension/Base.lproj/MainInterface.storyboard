@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ObA-dk-sSI">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -39,17 +39,17 @@
                         <viewControllerLayoutGuide type="bottom" id="9oW-kb-4i6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NIQ-8P-exv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="P6z-kC-hP0" userLabel="Scores">
-                                <rect key="frame" x="16" y="28" width="343" height="25"/>
+                                <rect key="frame" x="16" y="28" width="382" height="25"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-nj-Cfb" userLabel="Scores">
-                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="183" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agA-b8-Vau">
-                                                <rect key="frame" x="0.0" y="0.0" width="82" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
@@ -61,7 +61,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mn7-cj-K5s">
-                                                <rect key="frame" x="82" y="0.0" width="81.5" height="25"/>
+                                                <rect key="frame" x="91.666666666666686" y="0.0" width="91.333333333333314" height="25"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -74,10 +74,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VHM-QR-6ku" userLabel="Strikes">
-                                        <rect key="frame" x="179.5" y="0.0" width="163.5" height="25"/>
+                                        <rect key="frame" x="199" y="0.0" width="183" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
-                                                <rect key="frame" x="0.0" y="0.0" width="54.5" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="61" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -89,7 +89,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoU-uV-47h">
-                                                <rect key="frame" x="54.5" y="0.0" width="54.5" height="25"/>
+                                                <rect key="frame" x="61" y="0.0" width="61" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -101,7 +101,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlE-le-xbY">
-                                                <rect key="frame" x="109" y="0.0" width="54.5" height="25"/>
+                                                <rect key="frame" x="122" y="0.0" width="61" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -122,10 +122,10 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6G2-jP-QvW">
-                                <rect key="frame" x="0.0" y="79" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="79" width="414" height="70"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4gA-jm-vY9" userLabel="Letters">
-                                        <rect key="frame" x="8" y="18" width="359" height="35"/>
+                                        <rect key="frame" x="8" y="18" width="398" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-eI-oAi">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -139,7 +139,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unF-3i-s1p" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="46.5" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="52" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="JW8-Pg-69Q"/>
                                                     <constraint firstAttribute="width" constant="35" id="nfh-Xe-hhk"/>
@@ -154,7 +154,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="92.5" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="103.66666666666666" y="0.0" width="34.999999999999972" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="4yU-9S-B08"/>
                                                     <constraint firstAttribute="width" constant="35" id="Q0B-WG-JG2"/>
@@ -169,7 +169,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-C3-Ve7" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="139" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="155.66666666666666" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="1Ko-F3-WIb"/>
                                                     <constraint firstAttribute="width" constant="35" id="gJc-Wq-4La"/>
@@ -184,7 +184,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we2-DL-wr7" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="185" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="207.33333333333334" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="9Da-sA-PDD"/>
                                                     <constraint firstAttribute="width" constant="35" id="lMN-pP-4t5"/>
@@ -199,7 +199,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="231.5" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="259.33333333333331" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="taJ-lD-KDr"/>
                                                     <constraint firstAttribute="width" constant="35" id="uQK-Cv-WrU"/>
@@ -214,7 +214,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="277.5" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="311" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Fny-d4-TiR"/>
                                                     <constraint firstAttribute="width" constant="35" id="m9K-0M-8KE"/>
@@ -229,7 +229,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wR-wR-Dwm">
-                                                <rect key="frame" x="324" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="363" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="fdo-kx-rhN"/>
                                                     <constraint firstAttribute="height" constant="35" id="wzK-1V-ygn"/>
@@ -254,7 +254,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="00Z-2y-ZQl" userLabel="Helpers">
-                                <rect key="frame" x="16" y="229" width="343" height="50"/>
+                                <rect key="frame" x="16" y="229" width="382" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-p9-7EL" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -264,21 +264,21 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-HL-3X8" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="97.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="110.66666666666666" y="0.0" width="49.999999999999972" height="50"/>
                                         <state key="normal" image="Lock"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="cgE-cQ-eHC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="195.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="221.33333333333331" y="0.0" width="49.999999999999943" height="50"/>
                                         <state key="normal" image="Swap"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="1Fe-Os-paV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS">
-                                        <rect key="frame" x="293" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="332" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="Pass"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Sbz-jQ-R3R"/>
@@ -290,7 +290,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVQ-un-S46">
-                                <rect key="frame" x="16" y="597" width="343" height="50"/>
+                                <rect key="frame" x="16" y="666" width="382" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="seM-tx-MV4"/>
                                 </constraints>
@@ -302,7 +302,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv" userLabel="Player Hand">
-                                <rect key="frame" x="8" y="303" width="359" height="54"/>
+                                <rect key="frame" x="8" y="303" width="398" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -317,7 +317,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-Y3-nqx" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="76.5" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="86" y="0.0" width="54" height="54"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -329,7 +329,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-45-iki" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="152.5" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="172" y="0.0" width="54" height="54"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -341,7 +341,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-Co-jKe" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="229" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="258" y="0.0" width="54" height="54"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -353,7 +353,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-Wp-Yao" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="305" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="344" y="0.0" width="54" height="54"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <size key="titleShadowOffset" width="1" height="1"/>
@@ -367,7 +367,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No definition found." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-SO-eoJ">
-                                <rect key="frame" x="16" y="165" width="343" height="40"/>
+                                <rect key="frame" x="16" y="165" width="382" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9aO-ng-2yr"/>
                                 </constraints>
@@ -381,7 +381,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ihw-k7-0cb" userLabel="Chains">
-                                <rect key="frame" x="0.0" y="61" width="375" height="10"/>
+                                <rect key="frame" x="0.0" y="61" width="414" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="n02-Xk-kMQ"/>
                                 </constraints>
@@ -453,11 +453,11 @@
                         <viewControllerLayoutGuide type="bottom" id="UWf-gf-hdB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Wx8-f6-dkz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="sh3-gp-swI" userLabel="Words">
-                                <rect key="frame" x="32" y="314" width="311" height="40"/>
+                                <rect key="frame" x="36" y="348" width="342" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teY-Ni-LBS">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
@@ -473,7 +473,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXg-yv-9im">
-                                        <rect key="frame" x="125.5" y="0.0" width="60" height="40"/>
+                                        <rect key="frame" x="141" y="0.0" width="60" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="ODN-bw-eUf"/>
                                             <constraint firstAttribute="height" constant="40" id="ksW-Fe-cKy"/>
@@ -486,7 +486,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXZ-sl-fhE">
-                                        <rect key="frame" x="251" y="0.0" width="60" height="40"/>
+                                        <rect key="frame" x="282" y="0.0" width="60" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9ft-Wd-B84"/>
                                             <constraint firstAttribute="width" constant="60" id="J6t-zh-Rxl"/>
@@ -501,7 +501,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1H-pL-oEN" userLabel="Title Letters">
-                                <rect key="frame" x="52" y="236" width="270" height="54"/>
+                                <rect key="frame" x="72" y="270" width="270" height="54"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="S" translatesAutoresizingMaskIntoConstraints="NO" id="IpD-wS-C7g">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -521,7 +521,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a word to start the game." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBY-38-wiw">
-                                <rect key="frame" x="59.5" y="370" width="255.5" height="20.5"/>
+                                <rect key="frame" x="79.333333333333343" y="404" width="255.66666666666666" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
