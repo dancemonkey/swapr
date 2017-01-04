@@ -57,6 +57,7 @@ class ExpandedVC: UIViewController {
       } else {
         swap.glowOff()
         letterGlowOff()
+        firstLetter = nil
       }
     }
   }
@@ -393,6 +394,7 @@ class ExpandedVC: UIViewController {
     if addingLetter == false {
       soundPlayer.playSound(for: .select)
       setupScoreViews()
+      disableHelpers()
       addingLetter = true
       if getVisibleLetterCount() == (game?.currentWord?.size)! {
         switch sender.tag {
@@ -407,6 +409,13 @@ class ExpandedVC: UIViewController {
     if game!.wordIsMaxSize() {
       hideAddLetterButtons()
     }
+  }
+  
+  func disableHelpers() {
+    bomb.isEnabled = false
+    lock.isEnabled = false
+    swap.isEnabled = false
+    pass.isEnabled = false
   }
   
   func extendLetterView(direction: AddLetter) {
@@ -565,8 +574,10 @@ class ExpandedVC: UIViewController {
   }
   
   func showAddLetterButtons() {
-    for button in addLetter {
-      button.isHidden = false
+    if game!.wordIsMaxSize() == false {
+      for button in addLetter {
+        button.isHidden = false
+      }
     }
   }
   
