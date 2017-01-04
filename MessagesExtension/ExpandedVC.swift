@@ -36,17 +36,35 @@ class ExpandedVC: UIViewController {
   
   var bombing: Bool = false {
     didSet {
-      bombing == true ? bomb.glowOn(locked: false) : bomb.glowOff()
+      if bombing {
+        self.swapping = false
+        self.locking = false
+        bomb.glowOn(locked: false)
+      } else {
+        bomb.glowOff()
+      }
     }
   }
   var swapping: Bool = false {
     didSet {
-      swapping == true ? swap.glowOn(locked: false) : swap.glowOff()
+      if swapping {
+        self.bombing = false
+        self.locking = false
+        swap.glowOn(locked: false)
+      } else {
+        swap.glowOff()
+      }
     }
   }
   var locking: Bool = false {
     didSet {
-      locking == true ? lock.glowOn(locked: false) : lock.glowOff()
+      if locking {
+        self.bombing = false
+        self.swapping = false
+        lock.glowOn(locked: false)
+      } else {
+        lock.glowOff()
+      }
     }
   }
   var firstLetter: LetterButton? = nil
@@ -270,19 +288,21 @@ class ExpandedVC: UIViewController {
   @IBAction func helperPressed(sender: UIButton) {
     
     let helper = HelperAsInt(rawValue: sender.tag)!
-    
     letterGlowOn()
     
     Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
+      if helper != .pass {
+        self.soundPlayer.playSound(for: .select)
+      } else {
+        self.soundPlayer.playSound(for: .strike)
+      }
       
       switch helper {
       case .bomb:
         if !self.bombing {
           self.bombing = true
-          self.swapping = false
-          self.locking = false
           self.disablePlayerHandLetters()
-          self.soundPlayer.playSound(for: .select)
+//          self.soundPlayer.playSound(for: .select)
         } else {
           self.bombing = false
           self.enablePlayerHandLetters()
@@ -291,10 +311,8 @@ class ExpandedVC: UIViewController {
       case .lock:
         if !self.locking {
           self.locking = true
-          self.bombing = false
-          self.swapping = false
           self.disablePlayerHandLetters()
-          self.soundPlayer.playSound(for: .select)
+//          self.soundPlayer.playSound(for: .select)
         } else {
           self.locking = false
           self.enablePlayerHandLetters()
@@ -303,10 +321,8 @@ class ExpandedVC: UIViewController {
       case .swap:
         if !self.swapping {
           self.swapping = true
-          self.bombing = false
-          self.locking = false
           self.disablePlayerHandLetters()
-          self.soundPlayer.playSound(for: .select)
+//          self.soundPlayer.playSound(for: .select)
         } else {
           self.swapping = false
           self.enablePlayerHandLetters()
@@ -318,7 +334,7 @@ class ExpandedVC: UIViewController {
         self.endTurn.isEnabled = true
         self.game!.setPlayMessage(forHelper: .pass)
         self.endIfGameOver()
-        self.soundPlayer.playSound(for: .strike)
+//        self.soundPlayer.playSound(for: .strike)
       }
     }
     
