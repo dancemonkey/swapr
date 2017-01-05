@@ -86,7 +86,6 @@ class WordsAPI {
         let data = try String(contentsOfFile: path, encoding: .utf8)
         let wordArray: [String] = data.components(separatedBy: NSCharacterSet.newlines)
         return wordArray.contains(where: { (string) -> Bool in
-          print(word)
           return string == word.name
         })
       } catch {

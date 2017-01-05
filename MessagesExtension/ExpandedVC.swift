@@ -157,13 +157,13 @@ class ExpandedVC: UIViewController {
   }
   
   func setupWordView() {
-    let word = game?.currentWord
+    let word = game!.currentWord!
     setupLetterViewSize()
-    setLettersInLetterView(forWord: (word?.name)!)
-    if let lock1 = game!.currentWord?.locked1 {
+    setLettersInLetterView()
+    if let lock1 = word.locked1 {
       lockLetterView(forTag: lock1)
     }
-    if let lock2 = game!.currentWord?.locked2 {
+    if let lock2 = word.locked2 {
       lockLetterView(forTag: lock2)
     }
   }
@@ -244,7 +244,8 @@ class ExpandedVC: UIViewController {
     locking = false
   }
   
-  func setLettersInLetterView(forWord word: String) {
+  func setLettersInLetterView() {
+    let word = game!.currentWord!.name
     for (index, letter) in word.characters.enumerated() {
       letters[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       letters[index].setidentity(to: String(letter))
@@ -264,7 +265,9 @@ class ExpandedVC: UIViewController {
       }
     }
     game?.swapLetters(first: first.identity, at: firstIndex, with: second.identity, at: secondIndex)
-    setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+    setLettersInLetterView()
+    swapping = false
+    swap.isEnabled = false
   }
   
   func disableAllButtons() {
@@ -303,7 +306,6 @@ class ExpandedVC: UIViewController {
       
       if let helper = self.helperFromInt(int: helper.rawValue) {
         self.switchState(to: helper)
-        print(helper)
       }
     }
     
@@ -422,7 +424,7 @@ class ExpandedVC: UIViewController {
     if game?.playerPlayedTurn() == false {
       game?.addNewLetterSpace(to: direction)
       setupLetterViewSize()
-      setLettersInLetterView(forWord: (game?.currentWord?.name)!)
+      setLettersInLetterView()
       if direction == .right {
         addLetterTarget = letters[getVisibleLetterCount()-1]
       } else {
@@ -431,67 +433,79 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  // consolidate redundant into functions
-  // move any into helper subclass?
+  func playLetter(letter: LetterButton, withLetter replacementLetter: LetterButton) {
+    game?.replaceLetter(atIndex: letter.tag, withPlayerLetter: replacementLetter.identity)
+    playingLetter = false
+    cleanupDisplayAndTestForEnd()
+    let _ = game!.setPlayMessage(forWord: (game!.currentWord)!)
+  }
+  
   @IBAction func letterPressed(sender: LetterButton) {
     
     if game?.playerPlayedTurn() == false {
       if addingLetter && playingLetter && sender == addLetterTarget {
-        game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay.identity)
-        playingLetter = false
-        setLettersInLetterView(forWord: (game?.currentWord?.name)!)
-        setupPlayerHand()
-        testIfValidWord()
-        game!.setPlayMessage(forWord: (game!.currentWord)!)
-        disableAllButtons()
+        self.playLetter(letter: sender, withLetter: self.letterToPlay)
       }
-      if bombing && sender.locked == false {
-        soundPlayer.playSound(for: .explosion)
-        sender.isHidden = true
-        bombing = false
-        bomb.isEnabled = false
-        game?.playHelper(helper: .bomb, forPlayer: (game?.currentPlayer)!)
-        game?.rewriteWord(as: visibleWord())
-        testIfValidWord()
-        game!.setPlayMessage(forHelper: .bomb)
-        disableAllButtons()
-      } else if locking && sender.locked == false {
-        soundPlayer.playSound(for: .lock)
-        sender.locked = true
-        locking = false
-        lock.isEnabled = false
-        game?.playHelper(helper: .lock, forPlayer: (game?.currentPlayer)!)
-        game?.lockLetterInWord(at: sender.tag)
-        testIfValidWord()
-        game!.setPlayMessage(forHelper: .lock)
-        disableAllButtons()
-      } else if swapping && sender.locked == false {
-        if firstLetter != nil {
-          soundPlayer.playSound(for: .swap)
-          swapping = false
-          swap.isEnabled = false
-          swapLetters(first: firstLetter!, with: sender)
-          game?.playHelper(helper: .swap, forPlayer: (game?.currentPlayer)!)
-          testIfValidWord()
-          game!.setPlayMessage(forHelper: .swap)
-          disableAllButtons()
+      if sender.locked == false {
+        if bombing {
+          self.playhelper(helper: .bomb, onLetter: sender)
+        } else if locking {
+          self.playhelper(helper: .lock, onLetter: sender)
+        } else if swapping {
+          self.playhelper(helper: .swap, onLetter: sender)
+        } else if playingLetter && !addingLetter {
+          soundPlayer.playSound(for: .select)
+          game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay.identity)
+          playingLetter = false
+          cleanupDisplayAndTestForEnd()
+          let _ = game!.setPlayMessage(forWord: game!.currentWord!)
+        } else {
+          soundPlayer.playSound(for: .select)
         }
-        if firstLetter == nil {
-          soundPlayer.playSound(for: .swap)
-          firstLetter = sender
-        }
-      } else if playingLetter && sender.locked == false && !addingLetter {
-        soundPlayer.playSound(for: .select)
-        game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay.identity)
-        playingLetter = false
-        setLettersInLetterView(forWord: (game?.currentWord?.name)!)
-        setupPlayerHand()
-        testIfValidWord()
-        game!.setPlayMessage(forWord: game!.currentWord!)
-        disableAllButtons()
+      }
+    }
+  }
+  
+  func cleanupDisplayAndTestForEnd() {
+    setLettersInLetterView()
+    setupPlayerHand()
+    testIfValidWord()
+  }
+  
+  func playhelper(helper: Helper, onLetter letter: LetterButton?) {
+    switch helper {
+    case .bomb:
+      soundPlayer.playSound(for: .explosion)
+      letter?.isHidden = true
+      bombing = false
+      game?.rewriteWord(as: visibleWord())
+      bomb.isEnabled = false
+      cleanupDisplayAndTestForEnd()
+      game!.playHelper(helper: helper, forPlayer: game!.currentPlayer)
+      game!.setPlayMessage(forHelper: helper)
+    case .lock:
+      soundPlayer.playSound(for: .lock)
+      letter?.locked = true
+      locking = false
+      lock.isEnabled = false
+      game?.lockLetterInWord(at: letter!.tag)
+      cleanupDisplayAndTestForEnd()
+      game!.playHelper(helper: helper, forPlayer: game!.currentPlayer)
+      game!.setPlayMessage(forHelper: helper)
+    case .swap:
+      soundPlayer.playSound(for: .swap)
+      if firstLetter == nil {
+        letterGlowOff()
+        firstLetter = letter
+        firstLetter?.glowOn(locked: false)
       } else {
-        soundPlayer.playSound(for: .select)
+        swapLetters(first: firstLetter!, with: letter!)
+        cleanupDisplayAndTestForEnd()
+        game!.playHelper(helper: helper, forPlayer: game!.currentPlayer)
+        game!.setPlayMessage(forHelper: helper)
       }
+    case .pass:
+      break
     }
   }
   
