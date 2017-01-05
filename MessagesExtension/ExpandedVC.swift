@@ -77,9 +77,9 @@ class ExpandedVC: UIViewController {
   var firstLetter: LetterButton? = nil
   var playingLetter: Bool = false {
     didSet {
-      if playingLetter == false {
-        removeAllLetterHighlights()
-      } else if playingLetter == true {
+      if playingLetter == false && !addingLetter {
+        letterGlowOff()
+      } else if playingLetter == true && !addingLetter {
         letterGlowOn()
       }
     }
@@ -109,7 +109,6 @@ class ExpandedVC: UIViewController {
     setupPlayerHand()                     //
     setupHelperViews()                    //
     setupScoreViews()                     //
-    removeAllLetterHighlights()           //
     for strike in strikes {
       strike.textColor = UIColor.lightGray
     }
@@ -190,6 +189,7 @@ class ExpandedVC: UIViewController {
     }
     for letter in playerHand {
       letter.rotate()
+      letter.glowOn(locked: false)
     }
   }
   
@@ -395,6 +395,7 @@ class ExpandedVC: UIViewController {
   @IBAction func addLetterPressed(sender:UIButton) {
     if addingLetter == false {
       soundPlayer.playSound(for: .select)
+      letterGlowOff()
       setupScoreViews()
       disableHelpers()
       addingLetter = true
@@ -430,6 +431,8 @@ class ExpandedVC: UIViewController {
       } else {
         addLetterTarget = letters[0]
       }
+      addLetterTarget.whiteGlowOn()
+      addLetterTarget.disableTap()
     }
   }
   
@@ -457,11 +460,11 @@ class ExpandedVC: UIViewController {
           self.playLetter(letter: sender, withLetter: self.letterToPlay)
           let _ = game!.setPlayMessage(forWord: game!.currentWord!)
         } else {
+          sender.tap()
           soundPlayer.playSound(for: .select)
         }
       }
     }
-    sender.tap()
   }
   
   func cleanupDisplayAndTestForEnd() {
@@ -495,7 +498,7 @@ class ExpandedVC: UIViewController {
       if firstLetter == nil {
         letterGlowOff()
         firstLetter = letter
-        firstLetter?.glowOn(locked: false)
+        firstLetter?.tap()
       } else {
         swapLetters(first: firstLetter!, with: letter!)
         cleanupDisplayAndTestForEnd()
@@ -545,29 +548,36 @@ class ExpandedVC: UIViewController {
   
   @IBAction func playerHandLetterPressed(sender: LetterButton) {
     soundPlayer.playSound(for: .select)
-    
     Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
       if let currentLetter = self.letterToPlay {
         if currentLetter == sender {
-          currentLetter.glowOff()
+          self.playerHandGlow(all: true, letterToHighlight: nil)
           self.playingLetter = false
+          self.letterToPlay = nil
         } else {
-          currentLetter.glowOff()
+          self.playerHandGlow(all: false, letterToHighlight: sender)
           self.letterToPlay = sender
           self.playingLetter = true
         }
       } else {
+        self.playerHandGlow(all: false, letterToHighlight: sender)
         self.letterToPlay = sender
         self.playingLetter = true
       }
     }
   }
   
-  func removeAllLetterHighlights() {
-    for letter in playerHand {
-      letter.layer.borderColor = UIColor.clear.cgColor
+  func playerHandGlow(all: Bool, letterToHighlight: LetterButton?) {
+    if all {
+      for letter in playerHand {
+        letter.glowOn(locked: false)
+      }
+    } else {
+      for letter in playerHand {
+        letter.glowOff()
+        letterToHighlight?.glowOn(locked: false)
+      }
     }
-    letterGlowOff()
   }
   
   func setDefinitionView() {

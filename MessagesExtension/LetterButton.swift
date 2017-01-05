@@ -19,6 +19,11 @@ class LetterButton: UIButton, Lockable {
     }
   }
   
+  private var _tapDisabled: Bool = false
+  var tapDisabled: Bool {
+    return _tapDisabled
+  }
+  
   private var tapped: Bool = false {
     didSet {
       if tapped == true {
@@ -35,10 +40,12 @@ class LetterButton: UIButton, Lockable {
   }
   
   func tap() {
-    if tapped {
-      self.tapped = false
-    } else {
-      self.tapped = true
+    if !tapDisabled {
+      if tapped {
+        self.tapped = false
+      } else {
+        self.tapped = true
+      }
     }
   }
   
@@ -49,9 +56,17 @@ class LetterButton: UIButton, Lockable {
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesEnded(touches, with: event)
-    if !locked {
+    if !locked && tapDisabled == false {
       self.tap()
     }
+  }
+  
+  func disableTap() {
+    _tapDisabled = true
+  }
+  
+  func enableTap() {
+    _tapDisabled = false
   }
   
   func rotate() {
