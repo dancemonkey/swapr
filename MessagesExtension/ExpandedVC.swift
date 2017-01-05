@@ -441,7 +441,6 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func letterPressed(sender: LetterButton) {
-    
     if game?.playerPlayedTurn() == false {
       if addingLetter && playingLetter && sender == addLetterTarget {
         self.playLetter(letter: sender, withLetter: self.letterToPlay)
@@ -455,15 +454,14 @@ class ExpandedVC: UIViewController {
           self.playhelper(helper: .swap, onLetter: sender)
         } else if playingLetter && !addingLetter {
           soundPlayer.playSound(for: .select)
-          game?.replaceLetter(atIndex: sender.tag, withPlayerLetter: letterToPlay.identity)
-          playingLetter = false
-          cleanupDisplayAndTestForEnd()
+          self.playLetter(letter: sender, withLetter: self.letterToPlay)
           let _ = game!.setPlayMessage(forWord: game!.currentWord!)
         } else {
           soundPlayer.playSound(for: .select)
         }
       }
     }
+    sender.tap()
   }
   
   func cleanupDisplayAndTestForEnd() {
