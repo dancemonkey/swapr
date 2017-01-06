@@ -19,7 +19,7 @@ class CompactVC: UIViewController {
   var words = [Word]()
   let STARTING_WORDS = 3
   
-  var soundPlayer: Sound!
+  weak var soundPlayer: Sound!
     
   override func viewDidLoad() {
     super.viewDidLoad()

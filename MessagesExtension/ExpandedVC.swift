@@ -32,7 +32,7 @@ class ExpandedVC: UIViewController {
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
   var game: Game? = nil
-  var soundPlayer: Sound!
+  weak var soundPlayer: Sound!
   
   var bombing: Bool = false {
     didSet {

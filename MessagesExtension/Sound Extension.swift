@@ -13,6 +13,7 @@ enum SoundFile: String {
 }
 
 class Sound {
+  
   static let shared = Sound()
   
   var player: AVAudioPlayer!
@@ -35,24 +36,3 @@ class Sound {
   }
   
 }
-
-//extension CompactVC {
-//  
-//  func playSound(for type: SoundFile) {
-//    let random = arc4random_uniform(6)
-//    let sound = random != 0 ? random : 1
-//    DispatchQueue.global(qos: .background).async {
-//      do {
-//        if let path = Bundle.main.path(forResource: type.rawValue + "\(sound).wav", ofType: nil) {
-//          let url = URL(fileURLWithPath: path)
-//          self.player = try AVAudioPlayer(contentsOf: url)
-//          self.player.prepareToPlay()
-//          self.player.play()
-//        }
-//      } catch {
-//        print("error \(error)")
-//      }
-//    }
-//  }
-//  
-//}
