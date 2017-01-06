@@ -254,31 +254,31 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="00Z-2y-ZQl" userLabel="Helpers">
-                                <rect key="frame" x="16" y="229" width="382" height="50"/>
+                                <rect key="frame" x="16" y="229" width="382" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axb-p9-7EL" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
                                         <state key="normal" image="Bomb"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="mfK-hD-vni"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-HL-3X8" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="110.66666666666666" y="0.0" width="49.999999999999972" height="50"/>
+                                        <rect key="frame" x="109.33333333333334" y="0.0" width="54.000000000000028" height="54"/>
                                         <state key="normal" image="Lock"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="cgE-cQ-eHC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="221.33333333333331" y="0.0" width="49.999999999999943" height="50"/>
+                                        <rect key="frame" x="218.66666666666669" y="0.0" width="54.000000000000057" height="54"/>
                                         <state key="normal" image="Swap"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="1Fe-Os-paV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS">
-                                        <rect key="frame" x="332" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="328" y="0.0" width="54" height="54"/>
                                         <state key="normal" image="Pass"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Sbz-jQ-R3R"/>
@@ -286,7 +286,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="qfM-zN-Sby"/>
+                                    <constraint firstAttribute="height" constant="54" id="qfM-zN-Sby"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVQ-un-S46">
@@ -302,7 +302,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv" userLabel="Player Hand">
-                                <rect key="frame" x="8" y="303" width="398" height="54"/>
+                                <rect key="frame" x="8" y="307" width="398" height="54"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
@@ -559,13 +559,13 @@
         <image name="A" width="54" height="54"/>
         <image name="AddLetterBtn" width="32" height="32"/>
         <image name="Blank Button" width="12" height="13"/>
-        <image name="Bomb" width="50" height="50"/>
-        <image name="Lock" width="50" height="50"/>
+        <image name="Bomb" width="54" height="54"/>
+        <image name="Lock" width="54" height="54"/>
         <image name="P" width="54" height="54"/>
-        <image name="Pass" width="50" height="50"/>
+        <image name="Pass" width="54" height="54"/>
         <image name="R" width="54" height="54"/>
         <image name="S" width="54" height="54"/>
-        <image name="Swap" width="50" height="50"/>
+        <image name="Swap" width="54" height="54"/>
         <image name="W" width="54" height="54"/>
     </resources>
 </document>

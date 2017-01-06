@@ -175,7 +175,6 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  // create playerHand as a player function and let it do this itself?
   func setupPlayerHand() {
     var hand: String
     if let text = game?.currentPlayer.hand {
@@ -247,6 +246,7 @@ class ExpandedVC: UIViewController {
   func setLettersInLetterView() {
     let word = game!.currentWord!.name
     for (index, letter) in word.characters.enumerated() {
+      print(index, letter)
       letters[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       letters[index].setidentity(to: String(letter))
       letters[index].tag = index
@@ -379,7 +379,6 @@ class ExpandedVC: UIViewController {
     Utils.animateEndWithSpring(gameOverView, withTiming: 1.0, completionClosure: nil)
   }
   
-  // subclass player hand and move into there?
   func disablePlayerHandLetters() {
     for letter in playerHand {
       letter.isEnabled = false
@@ -447,6 +446,7 @@ class ExpandedVC: UIViewController {
     if game?.playerPlayedTurn() == false {
       if addingLetter && playingLetter && sender == addLetterTarget {
         self.playLetter(letter: sender, withLetter: self.letterToPlay)
+        setLettersInLetterView()
       }
       if sender.locked == false {
         if bombing {
@@ -458,6 +458,7 @@ class ExpandedVC: UIViewController {
         } else if playingLetter && !addingLetter {
           soundPlayer.playSound(for: .select)
           self.playLetter(letter: sender, withLetter: self.letterToPlay)
+          setLettersInLetterView()
           let _ = game!.setPlayMessage(forWord: game!.currentWord!)
         } else {
           sender.tap()
@@ -468,7 +469,6 @@ class ExpandedVC: UIViewController {
   }
   
   func cleanupDisplayAndTestForEnd() {
-    setLettersInLetterView()
     setupPlayerHand()
     testIfValidWord()
   }
@@ -479,8 +479,8 @@ class ExpandedVC: UIViewController {
       soundPlayer.playSound(for: .explosion)
       letter?.isHidden = true
       bombing = false
-      game?.rewriteWord(as: visibleWord())
       bomb.isEnabled = false
+      game?.rewriteWord(as: visibleWord())
       cleanupDisplayAndTestForEnd()
       game!.playHelper(helper: helper, forPlayer: game!.currentPlayer)
       game!.setPlayMessage(forHelper: helper)
@@ -498,7 +498,6 @@ class ExpandedVC: UIViewController {
       if firstLetter == nil {
         letterGlowOff()
         firstLetter = letter
-        firstLetter?.tap()
       } else {
         swapLetters(first: firstLetter!, with: letter!)
         cleanupDisplayAndTestForEnd()
@@ -540,7 +539,7 @@ class ExpandedVC: UIViewController {
   
   func visibleWord() -> String {
     var word = ""
-    for letter in letters where letter.isHidden == false {
+    for (index, letter) in letters.enumerated() where letter.isHidden == false {
       word = word + letter.identity
     }
     return word

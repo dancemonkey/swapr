@@ -91,7 +91,6 @@ dog
 cup
 box
 lay
-sex
 one
 act
 ten
