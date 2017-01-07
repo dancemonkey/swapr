@@ -26,7 +26,7 @@ class PlayerHand: UIView {
       playerHand[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       playerHand[index].setidentity(to: String(letter))
     }
-    Utils.delay(1.5) { 
+    Utils.delay(1.0) {
       for (index, letter) in self.playerHand.enumerated() {
         let delay = Double(index) * 0.25
         UIView.animate(withDuration: 0.5, delay: delay, options: [], animations: {

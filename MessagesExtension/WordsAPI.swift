@@ -26,7 +26,7 @@ class WordsAPI {
       if let definition = self.getDefinition(fromData: data) {
         word.setDefinition(to: definition)
       } else {
-        word.setDefinition(to: "")
+        word.setDefinition(to: self.wiseAssRemark())
       }
       completion()
     })
@@ -43,6 +43,20 @@ class WordsAPI {
       }
     }
     return nil
+  }
+  
+  func wiseAssRemark() -> String {
+    if let path = Bundle.main.path(forResource: "noDefResponses", ofType: ".txt") {
+      do {
+        let data = try String(contentsOfFile: path, encoding: .utf8)
+        let phrases = data.components(separatedBy: .newlines)
+        let random = Int(arc4random_uniform(UInt32(phrases.count)))
+        return random != 0 ? phrases[random-1] : phrases[0]
+      } catch {
+        print("error getting wise-ass remark")
+      }
+    }
+    return "No definition found"
   }
   
   func fetchRandomWord() -> Word? {

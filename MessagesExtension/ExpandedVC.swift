@@ -99,7 +99,12 @@ class ExpandedVC: UIViewController {
       setupExistingGame(fromMessage: message!)
     }
     
-    setDefinitionView()
+    game!.testIfValid(word: game!.currentWord!) { (valid) in
+      if valid {
+        self.setDefinitionView()
+      }
+    }
+    
     showAddLetterButtons()
     
   }
@@ -235,7 +240,6 @@ class ExpandedVC: UIViewController {
   func setLettersInLetterView() {
     let word = game!.currentWord!.name
     for (index, letter) in word.characters.enumerated() {
-      print(index, letter)
       letters[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       letters[index].setidentity(to: String(letter))
       letters[index].tag = index
@@ -493,7 +497,7 @@ class ExpandedVC: UIViewController {
   
   func testIfValidWord() {
     disableAllButtons()
-    Utils.delay(1.5) { 
+    Utils.delay(1.0) {
       self.game!.testIfValid(word: self.game!.currentWord!) { (validWord) in
         if validWord {
           DispatchQueue.main.async { [unowned self] in
@@ -510,7 +514,7 @@ class ExpandedVC: UIViewController {
             self.endIfGameOver()
             self.setupScoreViews()
             self.soundPlayer.playSound(for: .strike)
-            self.setDefinitionView()
+            //self.setDefinitionView()
           }
         }
       }
