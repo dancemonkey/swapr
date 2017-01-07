@@ -20,6 +20,21 @@ class HelperButton: UIButton {
     }
   }
   
+  var identity: Helper? {
+    switch self.tag {
+    case 0:
+      return .bomb
+    case 1:
+      return .lock
+    case 2:
+      return .swap
+    case 3:
+      return .pass
+    default:
+      return nil
+    }
+  }
+  
   func tap() {
     if tapped {
       self.tapped = false

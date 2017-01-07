@@ -277,7 +277,7 @@
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="1Fe-Os-paV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWz-hH-zdS" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
                                         <rect key="frame" x="328" y="0.0" width="54" height="54"/>
                                         <state key="normal" image="Pass"/>
                                         <connections>

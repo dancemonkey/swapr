@@ -282,7 +282,7 @@ class ExpandedVC: UIViewController {
     }
   }
 
-  @IBAction func helperPressed(sender: UIButton) {
+  @IBAction func helperPressed(sender: HelperButton) {
     
     let helper = HelperAsInt(rawValue: sender.tag)!
     
@@ -294,7 +294,7 @@ class ExpandedVC: UIViewController {
         self.soundPlayer.playSound(for: .strike)
       }
       
-      if let helper = self.helperFromInt(int: helper.rawValue) {
+      if let helper = sender.identity {
         self.switchState(to: helper)
       }
     }
@@ -340,7 +340,6 @@ class ExpandedVC: UIViewController {
       enablePlayerHandLetters()
       letterGlowOff()
     }
-    
   }
   
   func endIfGameOver() {
@@ -582,21 +581,6 @@ class ExpandedVC: UIViewController {
   func letterGlowOff() {
     for letter in letters where letter.locked == false {
       letter.glowOff()
-    }
-  }
-  
-  func helperFromInt(int: Int) -> Helper? {
-    switch int {
-    case 0:
-      return .bomb
-    case 1:
-      return .lock
-    case 2:
-      return .swap
-    case 3:
-      return .pass
-    default:
-      return nil
     }
   }
   
