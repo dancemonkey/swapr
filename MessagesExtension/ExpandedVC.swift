@@ -23,11 +23,11 @@ class ExpandedVC: UIViewController {
   @IBOutlet weak var definition: UITextView!
   @IBOutlet var addLetter: [UIButton]!
   @IBOutlet var letters: [LetterButton]!
-  @IBOutlet var playerHand: [LetterButton]!
+  @IBOutlet var playerHand: PlayerHand!
   @IBOutlet weak var currentPlayerScore: UILabel!
   @IBOutlet weak var oppPlayerScore: UILabel!
   @IBOutlet var strikes: [UILabel]!
-  @IBOutlet weak var chainStack: UIStackView!
+  @IBOutlet weak var chainView: ChainView!
   
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
@@ -105,10 +105,7 @@ class ExpandedVC: UIViewController {
   }
   
   func setupNewGame() {
-    setupWordView()                       // consolidate this into a function, used again in below
-    setupPlayerHand()                     //
-    setupHelperViews()                    //
-    setupScoreViews()                     //
+    setupWordAndScoreViews()
     for strike in strikes {
       strike.textColor = UIColor.lightGray
     }
@@ -130,20 +127,24 @@ class ExpandedVC: UIViewController {
         }
       })
     } else {
-      setupWordView()
-      setupPlayerHand()
-      setupHelperViews()
-      setupScoreViews()
+      setupWordAndScoreViews()
       if game!.wordIsMaxSize() {
         hideAddLetterButtons()
       }
     }
   }
   
+  func setupWordAndScoreViews() {
+    setupWordView()
+    setupPlayerHand()
+    setupHelperViews()
+    setupScoreViews()
+  }
+  
   func setupScoreViews() {
     currentPlayerScore.text = String(describing: game!.currentPlayer.score)
     oppPlayerScore.text = String(describing: game!.oppPlayer.score)
-    addChainsToStack()
+    chainView.addChainsToStack(forScore: game!.currentPlayer.chainScore)
     setupStrikeViews()
   }
   
@@ -176,20 +177,8 @@ class ExpandedVC: UIViewController {
   }
   
   func setupPlayerHand() {
-    var hand: String
-    if let text = game?.currentPlayer.hand {
-      hand = text
-    } else {
-      hand = (game?.currentPlayer.getStartingHand())!
-    }
-    for (index, letter) in hand.characters.enumerated() {
-      playerHand[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
-      playerHand[index].setidentity(to: String(letter))
-    }
-    for letter in playerHand {
-      letter.rotate()
-      letter.glowOn(locked: false)
-    }
+    playerHand.player = game!.currentPlayer
+    playerHand.setupPlayerHand()
   }
   
   func getVisibleLetterCount() -> Int {
@@ -275,10 +264,7 @@ class ExpandedVC: UIViewController {
     for letter in letters {
       letter.isEnabled = false
     }
-    for letter in playerHand {
-      letter.isEnabled = false
-      letter.glowOff()
-    }
+    playerHand.disableAndGlowOff()
     bomb.isEnabled = false  // "disableHelpers" function
     lock.isEnabled = false
     swap.isEnabled = false
@@ -380,15 +366,11 @@ class ExpandedVC: UIViewController {
   }
   
   func disablePlayerHandLetters() {
-    for letter in playerHand {
-      letter.isEnabled = false
-    }
+    playerHand.disableAndGlowOff()
   }
   
   func enablePlayerHandLetters() {
-    for letter in playerHand {
-      letter.isEnabled = true
-    }
+    playerHand.enableAll()
   }
   
   @IBAction func addLetterPressed(sender:UIButton) {
@@ -509,8 +491,6 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  // move most of this into game?
-  // will still need closure, but this is being passed almost directly into game anyway
   func testIfValidWord() {
     disableAllButtons()
     Utils.delay(1.5) { 
@@ -539,7 +519,7 @@ class ExpandedVC: UIViewController {
   
   func visibleWord() -> String {
     var word = ""
-    for (index, letter) in letters.enumerated() where letter.isHidden == false {
+    for (_, letter) in letters.enumerated() where letter.isHidden == false {
       word = word + letter.identity
     }
     return word
@@ -550,31 +530,18 @@ class ExpandedVC: UIViewController {
     Utils.animateButton(sender, withTiming: Utils.buttonTiming) { [unowned self] in
       if let currentLetter = self.letterToPlay {
         if currentLetter == sender {
-          self.playerHandGlow(all: true, letterToHighlight: nil)
+          self.playerHand.glow(all: true, letterToHighlight: nil)
           self.playingLetter = false
           self.letterToPlay = nil
         } else {
-          self.playerHandGlow(all: false, letterToHighlight: sender)
+          self.playerHand.glow(all: false, letterToHighlight: sender)
           self.letterToPlay = sender
           self.playingLetter = true
         }
       } else {
-        self.playerHandGlow(all: false, letterToHighlight: sender)
+        self.playerHand.glow(all: false, letterToHighlight: sender)
         self.letterToPlay = sender
         self.playingLetter = true
-      }
-    }
-  }
-  
-  func playerHandGlow(all: Bool, letterToHighlight: LetterButton?) {
-    if all {
-      for letter in playerHand {
-        letter.glowOn(locked: false)
-      }
-    } else {
-      for letter in playerHand {
-        letter.glowOff()
-        letterToHighlight?.glowOn(locked: false)
       }
     }
   }
@@ -599,25 +566,6 @@ class ExpandedVC: UIViewController {
       for button in addLetter {
         button.isHidden = false
       }
-    }
-  }
-  
-  // subclass entire chain as a UIView with UIImage subview?
-  // let it handle this shit
-  func addChainsToStack() {
-    for chain in chainStack.subviews {
-      chain.removeFromSuperview()
-    }
-    let totalChainsToFit = (Double(view.bounds.width)/16).rounded()
-    for index in 0 ..< Int(totalChainsToFit) {
-      let chain: UIImageView
-      if game!.currentPlayer.chainScore > index {
-        chain = UIImageView(image: #imageLiteral(resourceName: "Chain"))
-      } else {
-        chain = UIImageView(image: #imageLiteral(resourceName: "GrayChain"))
-      }
-      chain.tag = index
-      chainStack.addArrangedSubview(chain)
     }
   }
   

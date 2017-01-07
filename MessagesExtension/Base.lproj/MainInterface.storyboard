@@ -301,71 +301,6 @@
                                     <action selector="endTurnPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="CoE-HF-x0e"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv" userLabel="Player Hand">
-                                <rect key="frame" x="8" y="307" width="398" height="54"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" image="A">
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="wJS-y7-xTA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-Y3-nqx" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="86" y="0.0" width="54" height="54"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" image="A">
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Zgq-gX-XIa"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-45-iki" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="172" y="0.0" width="54" height="54"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" image="A">
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Gwu-NX-vLU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-Co-jKe" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="258" y="0.0" width="54" height="54"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" image="A">
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="sWI-qa-ZE5"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-Wp-Yao" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="344" y="0.0" width="54" height="54"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" image="A">
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="ZRW-nO-NvS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No definition found." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxu-SO-eoJ">
                                 <rect key="frame" x="16" y="165" width="382" height="40"/>
                                 <constraints>
@@ -380,47 +315,147 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ihw-k7-0cb" userLabel="Chains">
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQg-pO-GbS" customClass="ChainView" customModule="MessagesExtension" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="61" width="414" height="10"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ihw-k7-0cb" userLabel="Chains">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="n02-Xk-kMQ"/>
+                                    <constraint firstItem="ihw-k7-0cb" firstAttribute="centerY" secondItem="cQg-pO-GbS" secondAttribute="centerY" id="WdF-i9-ihj"/>
+                                    <constraint firstAttribute="height" constant="10" id="mYz-r9-CRM"/>
+                                    <constraint firstItem="ihw-k7-0cb" firstAttribute="height" secondItem="cQg-pO-GbS" secondAttribute="height" id="rxv-OP-EUf"/>
+                                    <constraint firstItem="ihw-k7-0cb" firstAttribute="width" secondItem="cQg-pO-GbS" secondAttribute="width" id="sSP-l8-RkR"/>
+                                    <constraint firstItem="ihw-k7-0cb" firstAttribute="centerX" secondItem="cQg-pO-GbS" secondAttribute="centerX" id="wYg-AE-wcc"/>
                                 </constraints>
-                            </stackView>
+                                <connections>
+                                    <outlet property="chainStack" destination="ihw-k7-0cb" id="Sll-aA-xb5"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTa-md-nzt" customClass="PlayerHand" customModule="MessagesExtension" customModuleProvider="target">
+                                <rect key="frame" x="8" y="307" width="398" height="54"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv" userLabel="Player Hand">
+                                        <rect key="frame" x="8" y="0.0" width="382" height="54"/>
+                                        <subviews>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <size key="titleShadowOffset" width="1" height="1"/>
+                                                <state key="normal" image="A">
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="wJS-y7-xTA"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-Y3-nqx" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="82" y="0.0" width="54" height="54"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <size key="titleShadowOffset" width="1" height="1"/>
+                                                <state key="normal" image="A">
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Zgq-gX-XIa"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-45-iki" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="164" y="0.0" width="54" height="54"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <size key="titleShadowOffset" width="1" height="1"/>
+                                                <state key="normal" image="A">
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Gwu-NX-vLU"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-Co-jKe" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="246" y="0.0" width="54" height="54"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <size key="titleShadowOffset" width="1" height="1"/>
+                                                <state key="normal" image="A">
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="sWI-qa-ZE5"/>
+                                                </connections>
+                                            </button>
+                                            <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-Wp-Yao" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="328" y="0.0" width="54" height="54"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <size key="titleShadowOffset" width="1" height="1"/>
+                                                <state key="normal" image="A">
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="ZRW-nO-NvS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Jnm-jR-VMv" firstAttribute="leading" secondItem="PTa-md-nzt" secondAttribute="leading" constant="8" id="MRr-94-l1V"/>
+                                    <constraint firstItem="Jnm-jR-VMv" firstAttribute="centerY" secondItem="PTa-md-nzt" secondAttribute="centerY" id="TpW-K9-PvA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jnm-jR-VMv" secondAttribute="trailing" constant="8" id="WLr-Ib-qmq"/>
+                                    <constraint firstItem="Jnm-jR-VMv" firstAttribute="centerX" secondItem="PTa-md-nzt" secondAttribute="centerX" id="cde-V4-L0y"/>
+                                    <constraint firstAttribute="height" secondItem="Jnm-jR-VMv" secondAttribute="height" id="uqZ-n2-y9e"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="tileStack" destination="Jnm-jR-VMv" id="kNk-zK-vrE"/>
+                                    <outletCollection property="playerHand" destination="Xwk-LM-f8F" collectionClass="NSMutableArray" id="K37-pK-Ccz"/>
+                                    <outletCollection property="playerHand" destination="Vc4-Y3-nqx" collectionClass="NSMutableArray" id="ts3-eH-aog"/>
+                                    <outletCollection property="playerHand" destination="4fB-45-iki" collectionClass="NSMutableArray" id="Sem-b9-N5U"/>
+                                    <outletCollection property="playerHand" destination="wrW-Co-jKe" collectionClass="NSMutableArray" id="s8F-5D-zJK"/>
+                                    <outletCollection property="playerHand" destination="C8I-Wp-Yao" collectionClass="NSMutableArray" id="kfW-Rg-MtW"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="0T2-A0-Ztp"/>
-                            <constraint firstItem="ihw-k7-0cb" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="1hR-Jy-hFB"/>
+                            <constraint firstItem="PTa-md-nzt" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="8" id="28L-Xg-1PY"/>
                             <constraint firstItem="6G2-jP-QvW" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="3rf-I6-qrk"/>
                             <constraint firstAttribute="trailing" secondItem="6G2-jP-QvW" secondAttribute="trailing" id="4vK-L6-Q7I"/>
-                            <constraint firstItem="ihw-k7-0cb" firstAttribute="top" secondItem="P6z-kC-hP0" secondAttribute="bottom" constant="8" id="84e-Cv-gAL"/>
+                            <constraint firstItem="PTa-md-nzt" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="24" id="5SZ-5N-HD9"/>
+                            <constraint firstItem="cQg-pO-GbS" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="71h-j5-XG9"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
-                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="8" id="BHx-f7-5iX"/>
-                            <constraint firstItem="6G2-jP-QvW" firstAttribute="top" secondItem="ihw-k7-0cb" secondAttribute="bottom" constant="8" id="DVO-Fx-IRa"/>
-                            <constraint firstItem="Jnm-jR-VMv" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="24" id="GEb-nb-8Y6"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="top" secondItem="6G2-jP-QvW" secondAttribute="bottom" constant="16" id="Ma4-Uk-SNF"/>
                             <constraint firstItem="9oW-kb-4i6" firstAttribute="top" secondItem="xVQ-un-S46" secondAttribute="bottom" constant="20" id="Wmc-LO-3IP"/>
-                            <constraint firstAttribute="trailing" secondItem="Jnm-jR-VMv" secondAttribute="trailing" constant="8" id="am5-sz-lMI"/>
+                            <constraint firstAttribute="trailing" secondItem="PTa-md-nzt" secondAttribute="trailing" constant="8" id="aUn-XZ-Hz8"/>
                             <constraint firstItem="vxu-SO-eoJ" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="dEp-a1-4JZ"/>
-                            <constraint firstAttribute="trailing" secondItem="ihw-k7-0cb" secondAttribute="trailing" id="eBU-30-C08"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="top" secondItem="vxu-SO-eoJ" secondAttribute="bottom" constant="24" id="eIv-mp-Y7x"/>
                             <constraint firstItem="xVQ-un-S46" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="eQH-a0-Meo"/>
                             <constraint firstAttribute="trailing" secondItem="00Z-2y-ZQl" secondAttribute="trailing" constant="16" id="gIW-dB-llb"/>
+                            <constraint firstAttribute="trailing" secondItem="cQg-pO-GbS" secondAttribute="trailing" id="gh4-bM-Pcc"/>
                             <constraint firstAttribute="trailing" secondItem="xVQ-un-S46" secondAttribute="trailing" constant="16" id="h51-4a-bwk"/>
+                            <constraint firstItem="6G2-jP-QvW" firstAttribute="top" secondItem="cQg-pO-GbS" secondAttribute="bottom" constant="8" id="iOk-a9-KRc"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="top" secondItem="ci8-fk-NnR" secondAttribute="bottom" constant="8" id="jPW-8m-neL"/>
+                            <constraint firstItem="cQg-pO-GbS" firstAttribute="top" secondItem="P6z-kC-hP0" secondAttribute="bottom" constant="8" id="mNz-u9-pvf"/>
                             <constraint firstItem="00Z-2y-ZQl" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="oQF-ta-rNI"/>
                             <constraint firstAttribute="trailing" secondItem="P6z-kC-hP0" secondAttribute="trailing" constant="16" id="xbM-MY-FiX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bomb" destination="Axb-p9-7EL" id="1mN-5Y-g51"/>
-                        <outlet property="chainStack" destination="ihw-k7-0cb" id="1ZO-hK-xEB"/>
+                        <outlet property="chainView" destination="cQg-pO-GbS" id="lmY-bq-cxf"/>
                         <outlet property="currentPlayerScore" destination="agA-b8-Vau" id="zs6-Z9-zO9"/>
                         <outlet property="definition" destination="vxu-SO-eoJ" id="N4i-hF-1g5"/>
                         <outlet property="endTurn" destination="xVQ-un-S46" id="Jty-lm-U73"/>
                         <outlet property="lock" destination="DgO-HL-3X8" id="fLZ-ql-Ie0"/>
                         <outlet property="oppPlayerScore" destination="Mn7-cj-K5s" id="49X-HY-3dJ"/>
                         <outlet property="pass" destination="cWz-hH-zdS" id="1qh-KR-U4T"/>
+                        <outlet property="playerHand" destination="PTa-md-nzt" id="C6p-Pb-i1K"/>
                         <outlet property="swap" destination="DnE-xj-k2W" id="U4M-5k-M8m"/>
                         <outletCollection property="addLetter" destination="nQg-eI-oAi" collectionClass="NSMutableArray" id="BYZ-Qk-m9Y"/>
                         <outletCollection property="addLetter" destination="2wR-wR-Dwm" collectionClass="NSMutableArray" id="PBV-vg-KaS"/>
@@ -430,11 +465,6 @@
                         <outletCollection property="letters" destination="we2-DL-wr7" collectionClass="NSMutableArray" id="AS2-XT-he5"/>
                         <outletCollection property="letters" destination="i4D-eh-jh1" collectionClass="NSMutableArray" id="NhU-RB-P6O"/>
                         <outletCollection property="letters" destination="dGM-GS-JWL" collectionClass="NSMutableArray" id="Ryk-tO-Hf4"/>
-                        <outletCollection property="playerHand" destination="Xwk-LM-f8F" collectionClass="NSMutableArray" id="tCo-73-dD1"/>
-                        <outletCollection property="playerHand" destination="Vc4-Y3-nqx" collectionClass="NSMutableArray" id="ckJ-tl-ujH"/>
-                        <outletCollection property="playerHand" destination="4fB-45-iki" collectionClass="NSMutableArray" id="aIS-cp-SPD"/>
-                        <outletCollection property="playerHand" destination="wrW-Co-jKe" collectionClass="NSMutableArray" id="Rsp-D2-W9I"/>
-                        <outletCollection property="playerHand" destination="C8I-Wp-Yao" collectionClass="NSMutableArray" id="3Md-E0-Se5"/>
                         <outletCollection property="strikes" destination="Ar6-2K-8vq" collectionClass="NSMutableArray" id="A7k-IA-qxG"/>
                         <outletCollection property="strikes" destination="DoU-uV-47h" collectionClass="NSMutableArray" id="EU3-f8-T7e"/>
                         <outletCollection property="strikes" destination="wlE-le-xbY" collectionClass="NSMutableArray" id="qKB-h2-EaC"/>
@@ -442,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX5-P3-TM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114.40000000000001" y="669.71514242878561"/>
+            <point key="canvasLocation" x="113.04347826086958" y="669.29347826086962"/>
         </scene>
         <!--CompactVC-->
         <scene sceneID="d0c-px-u4f">
