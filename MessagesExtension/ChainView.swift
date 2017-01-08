@@ -22,7 +22,7 @@ class ChainView: UIView {
       if score > index {
         chain = UIImageView(image: #imageLiteral(resourceName: "Chain"))
       } else {
-        chain = UIImageView(image: #imageLiteral(resourceName: "GrayChain"))
+        chain = UIImageView(image: nil)
       }
       chain.tag = index
       chainStack.addArrangedSubview(chain)

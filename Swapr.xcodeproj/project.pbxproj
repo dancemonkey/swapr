@@ -89,6 +89,8 @@
 		109A210F1E1BFBB100A77FCD /* Y Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F51E1BFBB100A77FCD /* Y Words.txt */; };
 		109A21101E1BFBB100A77FCD /* Z Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F61E1BFBB100A77FCD /* Z Words.txt */; };
 		10B03FD81DF4859C0055DE8C /* WordsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B03FD71DF4859C0055DE8C /* WordsAPI.swift */; };
+		10E435091E22B61300AA2E61 /* PassConfirmation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E435081E22B61300AA2E61 /* PassConfirmation.xib */; };
+		10E4350B1E22B7D000AA2E61 /* PassConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +203,8 @@
 		109A20F51E1BFBB100A77FCD /* Y Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Y Words.txt"; sourceTree = "<group>"; };
 		109A20F61E1BFBB100A77FCD /* Z Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Z Words.txt"; sourceTree = "<group>"; };
 		10B03FD71DF4859C0055DE8C /* WordsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsAPI.swift; sourceTree = "<group>"; };
+		10E435081E22B61300AA2E61 /* PassConfirmation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PassConfirmation.xib; sourceTree = "<group>"; };
+		10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassConfirmation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +279,7 @@
 				101A56121DF24A3000646B6D /* MessagesViewController.swift */,
 				101A56261DF24A7800646B6D /* ExpandedVC.swift */,
 				10775F591DF8C41200B20B98 /* CompactVC.swift */,
+				10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				108DEF651E1408DF00FFCC52 /* ColorGradient.swift */,
 				102278111E217DF000FEC950 /* ChainView.swift */,
 				102278131E21821300FEC950 /* PlayerHand.swift */,
+				10E435081E22B61300AA2E61 /* PassConfirmation.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -522,6 +528,7 @@
 				10457C591E1A99C7001E3B94 /* validWord5.wav in Resources */,
 				109A21061E1BFBB100A77FCD /* P Words.txt in Resources */,
 				10457C451E1A99C7001E3B94 /* lock5.wav in Resources */,
+				10E435091E22B61300AA2E61 /* PassConfirmation.xib in Resources */,
 				109A20FC1E1BFBB100A77FCD /* F Words.txt in Resources */,
 				10457C511E1A99C7001E3B94 /* swap2.wav in Resources */,
 				10457C4E1E1A99C7001E3B94 /* select4.wav in Resources */,
@@ -560,6 +567,7 @@
 				102278141E21821300FEC950 /* PlayerHand.swift in Sources */,
 				10B03FD81DF4859C0055DE8C /* WordsAPI.swift in Sources */,
 				10836C701E156CBF00517D2A /* utils.swift in Sources */,
+				10E4350B1E22B7D000AA2E61 /* PassConfirmation.swift in Sources */,
 				106A21F21DF621D000904258 /* Word.swift in Sources */,
 				10775F5D1DF8C4CD00B20B98 /* Protocols.swift in Sources */,
 				101A56131DF24A3000646B6D /* MessagesViewController.swift in Sources */,

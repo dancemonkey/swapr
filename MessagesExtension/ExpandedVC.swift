@@ -290,12 +290,20 @@ class ExpandedVC: UIViewController {
       
       if helper != .pass {
         self.soundPlayer.playSound(for: .select)
+        if let helper = sender.identity {
+          self.switchState(to: helper)
+        }
       } else {
-        self.soundPlayer.playSound(for: .strike)
-      }
-      
-      if let helper = sender.identity {
-        self.switchState(to: helper)
+        self.presentPassConfirmation(withCompletion: { 
+          self.soundPlayer.playSound(for: .strike)
+          self.disableAllButtons()
+          self.switchState(to: .pass)
+          self.removeBlurEffect()
+          
+        }, cancellation: { 
+          self.removeBlurEffect()
+          self.pass.glowOff()
+        })
       }
     }
     
@@ -351,14 +359,7 @@ class ExpandedVC: UIViewController {
   }
   
   func presentGameOver(allowNewGame: Bool, completion: (()->())?) {
-    UIView.animate(withDuration: 0.05) {
-      let blurEffect = UIBlurEffect(style: .light)
-      let blurEffectView = UIVisualEffectView(effect: blurEffect)
-      blurEffectView.frame = self.view.bounds
-      blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-      self.view.addSubview(blurEffectView)
-    }
-    
+    self.addBlurEffect()
     let gameOverView = Bundle.main.loadNibNamed("GameOver", owner: self, options: nil)?.last as! GameOverView
     gameOverView.configureView(withGame: game!, allowNewGame: allowNewGame)
     gameOverView.composeDelegate = self.composeDelegate!
@@ -366,6 +367,32 @@ class ExpandedVC: UIViewController {
     self.view.addSubview(gameOverView)
     gameOverView.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.height*2)
     Utils.animateEndWithSpring(gameOverView, withTiming: 1.0, completionClosure: nil)
+  }
+  
+  func presentPassConfirmation(withCompletion completion: @escaping () -> (), cancellation: @escaping () -> ()) {
+    self.addBlurEffect()
+    let passConfirmationView = Bundle.main.loadNibNamed("PassConfirmation", owner: self, options: nil)?.last as! PassConfirmation
+    passConfirmationView.completionClosure = completion
+    passConfirmationView.cancelClosure = cancellation
+    self.view.addSubview(passConfirmationView)
+    passConfirmationView.center = CGPoint(x: view.bounds.size.width/2, y: view.bounds.height*2)
+    Utils.animateEndWithSpring(passConfirmationView, withTiming: 1.0, completionClosure: nil)
+  }
+  
+  func addBlurEffect() {
+    UIView.animate(withDuration: 0.05) {
+      let blurEffect = UIBlurEffect(style: .light)
+      let blurEffectView = UIVisualEffectView(effect: blurEffect)
+      blurEffectView.frame = self.view.bounds
+      blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+      self.view.addSubview(blurEffectView)
+    }
+  }
+  
+  func removeBlurEffect() {
+    for subview in view.subviews where subview is UIVisualEffectView {
+      subview.removeFromSuperview()
+    }
   }
   
   func disablePlayerHandLetters() {

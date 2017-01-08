@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PassConfirmation" customModule="MessagesExtension" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tDv-v7-Cbc">
+                    <rect key="frame" x="8" y="102" width="184" height="90"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuo-oA-hkS">
+                            <rect key="frame" x="0.0" y="0.0" width="184" height="41"/>
+                            <state key="normal" title="Nevermind" backgroundImage="Blank Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelPressedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="PjS-hY-G4o"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjB-so-aeB">
+                            <rect key="frame" x="0.0" y="49" width="184" height="41"/>
+                            <state key="normal" title="Go for it!" backgroundImage="Blank Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="confirmPressedWithSender:" destination="iN0-l3-epB" eventType="touchUpInside" id="9wf-jQ-drS"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="GHQ-8B-dwQ"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bk-uc-g30">
+                    <rect key="frame" x="8" y="8" width="184" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be given a strike and a full hand of new letters." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7h-4I-gf7">
+                    <rect key="frame" x="8" y="34" width="184" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <accessibility key="accessibilityConfiguration" identifier="passConfirmation"/>
+            <constraints>
+                <constraint firstItem="4bk-uc-g30" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="27U-iB-9Dq"/>
+                <constraint firstAttribute="trailing" secondItem="G7h-4I-gf7" secondAttribute="trailing" constant="8" id="5P1-wW-DXv"/>
+                <constraint firstAttribute="trailing" secondItem="tDv-v7-Cbc" secondAttribute="trailing" constant="8" id="EpN-GO-Azg"/>
+                <constraint firstItem="4bk-uc-g30" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="IuO-Lr-EaO"/>
+                <constraint firstItem="G7h-4I-gf7" firstAttribute="top" secondItem="4bk-uc-g30" secondAttribute="bottom" constant="8" id="PCD-KI-NeR"/>
+                <constraint firstItem="G7h-4I-gf7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Xj8-nK-29n"/>
+                <constraint firstItem="tDv-v7-Cbc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="qa3-un-tst"/>
+                <constraint firstAttribute="bottom" secondItem="tDv-v7-Cbc" secondAttribute="bottom" constant="8" id="vQQ-lV-X1v"/>
+                <constraint firstAttribute="trailing" secondItem="4bk-uc-g30" secondAttribute="trailing" constant="8" id="wi8-1M-5CT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Blank Button" width="12" height="13"/>
+    </resources>
+</document>
