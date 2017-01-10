@@ -13,13 +13,18 @@ class ColorGradient {
   let colorTop = UIColor.white.cgColor
   let colorBottom = UIColor(red: 113.0/255.0, green: 192.0/255.0, blue: 240.0/255.0, alpha: 1.0).cgColor
   
-  let gl: CAGradientLayer
+  var gl: CAGradientLayer!
   
   init(withView view: UIView) {
+    setGradient(withView: view)
+  }
+  
+  func setGradient(withView view: UIView) {
     gl = CAGradientLayer()
     gl.colors = [colorBottom, colorTop]
     gl.locations = [0.0, 1.0]
     view.backgroundColor = UIColor.clear
+    let largestDim = view.frame.height > view.frame.width ? view.frame.height : view.frame.width
     gl.frame = view.frame
     view.layer.insertSublayer(gl, at: 0)
   }
