@@ -87,10 +87,11 @@ class ExpandedVC: UIViewController {
   var letterToPlay: LetterButton!
   var addingLetter: Bool = false
   var addLetterTarget: LetterButton!
+  var backgroundGradient: ColorGradient!
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    let _ = ColorGradient(withView: self.view)
+    backgroundGradient = ColorGradient(withView: self.view)
     endTurn.isEnabled = false
     
     if message == nil {
@@ -112,7 +113,7 @@ class ExpandedVC: UIViewController {
   func setupNewGame() {
     setupWordAndScoreViews()
     for strike in strikes {
-      strike.textColor = UIColor.lightGray
+      strike.textColor = UIColor.clear
     }
     game!.currentWord?.unlockAll()
   }
@@ -609,6 +610,10 @@ class ExpandedVC: UIViewController {
     for letter in letters where letter.locked == false {
       letter.glowOff()
     }
+  }
+  
+  override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+    backgroundGradient.gl.frame = self.view.bounds
   }
   
 }

@@ -58,7 +58,7 @@ class Player {
     }
     self._chainScore = chainScore
     if _hand == nil {
-      _hand = getStartingHand()
+      getStartingHand()
     }
     self._strikes = strikes
   }
@@ -94,18 +94,18 @@ class Player {
     return helperString
   }
   
-  func getStartingHand() -> String {
+  func getStartingHand() {
     let HAND_SIZE = 5
-    var hand = ""
     let wordList = WordsAPI()
+    self._hand = ""
     for _ in 0..<HAND_SIZE {
-      hand = hand + wordList.fetchRandomLetter()
+      drawNewLetter(fromList: wordList)
     }
-    return hand
+    self._playedTurn = false
   }
   
   func setStartingHand() {
-    _hand = getStartingHand()
+    getStartingHand()
   }
   
   func playFromHand(letter: String) {
@@ -122,8 +122,13 @@ class Player {
   }
   
   func drawNewLetter(fromList list: WordsAPI) {
-    self._hand.append(list.fetchRandomLetter())
-    self._playedTurn = true
+    let newLetter = list.fetchRandomLetter()
+    if isUnique(letter: newLetter) {
+      self._hand.append(newLetter)
+      self._playedTurn = true
+    } else {
+      drawNewLetter(fromList: list)
+    }
   }
   
   func increaseScore() {
@@ -145,6 +150,10 @@ class Player {
   
   func resetStrikes() {
     _strikes = 0
+  }
+  
+  func isUnique(letter: String) -> Bool {
+    return self.hand.contains(letter) == false
   }
   
 }

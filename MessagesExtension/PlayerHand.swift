@@ -16,16 +16,16 @@ class PlayerHand: UIView {
   weak var player: Player?
   
   func setupPlayerHand() {
-    var hand: String
-    if let text = player!.hand {
-      hand = text
-    } else {
-      hand = (player?.getStartingHand())!
+    
+    if player!.hand == nil {
+      player?.getStartingHand()
     }
-    for (index, letter) in hand.characters.enumerated() {
+
+    for (index, letter) in player!.hand.characters.enumerated() {
       playerHand[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       playerHand[index].setidentity(to: String(letter))
     }
+    
     Utils.delay(1.0) {
       for (index, letter) in self.playerHand.enumerated() {
         let delay = Double(index) * 0.25

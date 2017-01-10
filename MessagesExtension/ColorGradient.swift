@@ -28,4 +28,5 @@ class ColorGradient {
     gl.frame = view.frame
     view.layer.insertSublayer(gl, at: 0)
   }
+  
 }
