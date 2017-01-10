@@ -179,6 +179,12 @@ class Game {
     } else {
       _currentWord = Word(fromText: "\(oldWord!.name)_")
     }
+    if let lock1 = oldWord?.locked1 {
+      _currentWord?.lockLetter(at: lock1)
+    }
+    if let lock2 = oldWord?.locked2 {
+      _currentWord?.lockLetter(at: lock2)
+    }
     _currentPlayer.incrementChainScore()
   }
   

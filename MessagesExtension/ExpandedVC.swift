@@ -239,11 +239,17 @@ class ExpandedVC: UIViewController {
   }
   
   func setLettersInLetterView() {
-    let word = game!.currentWord!.name
-    for (index, letter) in word.characters.enumerated() {
+    let word = game!.currentWord!
+    for (index, letter) in word.name.characters.enumerated() {
       letters[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       letters[index].setidentity(to: String(letter))
       letters[index].tag = index
+      if let lock1 = word.locked1, lock1 == index {
+        letters[index].locked = true
+      }
+      if let lock2 = word.locked2, lock2 == index {
+        letters[index].locked = true
+      }
     }
   }
   
@@ -541,7 +547,6 @@ class ExpandedVC: UIViewController {
             self.endIfGameOver()
             self.setupScoreViews()
             self.soundPlayer.playSound(for: .strike)
-            //self.setDefinitionView()
           }
         }
       }
