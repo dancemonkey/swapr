@@ -17,14 +17,31 @@ class PassConfirmation: UIView {
     if let closure = cancelClosure {
       closure()
     }
-    self.removeFromSuperview()
+    outAnimation(up: false)
   }
   
   @IBAction func confirmPressed(sender: UIButton) {
     if let closure = completionClosure {
       closure()
+      outAnimation(up: true)
+    }
+  }
+  
+  func outAnimation(up: Bool) {
+    var frame = CGRect()
+    let size = self.frame.size
+    
+    if up {
+      frame = CGRect(x: self.superview!.bounds.width/2-self.bounds.width/2, y: 0 - self.bounds.height, width: size.width, height: size.height)
+    } else {
+      frame = CGRect(x: self.superview!.bounds.width/2-self.bounds.width/2, y: self.superview!.bounds.height*2, width: size.width, height: size.height)
+    }
+    
+    UIView.animate(withDuration: 0.5, animations: {
+      self.frame = frame
+    }) { (complete) in
       self.removeFromSuperview()
     }
   }
-
+  
 }

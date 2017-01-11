@@ -35,7 +35,7 @@ class Utils {
   }
   
   static func animateEndWithSpring(_ view: UIView, withTiming timing: Double, completionClosure: (() -> ())?) {
-    UIView.animate(withDuration: timing, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
+    UIView.animate(withDuration: timing, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
       view.center = (view.superview?.center)!
     }) { (finished) in
       if let closure = completionClosure {

@@ -25,7 +25,6 @@ class ExpandedVC: UIViewController {
   @IBOutlet var letters: [LetterButton]!
   @IBOutlet var playerHand: PlayerHand!
   @IBOutlet weak var currentPlayerScore: ScoreIndicator!
-//  @IBOutlet weak var oppPlayerScore: ScoreIndicator!
   @IBOutlet var strikes: [UILabel]!
   @IBOutlet weak var chainView: ChainView!
   
