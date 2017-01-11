@@ -21,7 +21,7 @@ class GameOverView: UIView {
   @IBAction func sendResults(sender: UIButton!) {
     if let closure = completionClosure {
       closure()
-      removeFromSuperview()
+      outAnimation(up: true)
     } else {
       composeDelegate.compose(fromGame: game)
     }

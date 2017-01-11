@@ -59,5 +59,23 @@ extension UIView {
       layer.masksToBounds = newValue > 0
     }
   }
+  
+  func outAnimation(up: Bool) {
+    var frame = CGRect()
+    let size = self.frame.size
+    
+    if up {
+      frame = CGRect(x: self.superview!.bounds.width/2-self.bounds.width/2, y: 0 - self.bounds.height, width: size.width, height: size.height)
+    } else {
+      frame = CGRect(x: self.superview!.bounds.width/2-self.bounds.width/2, y: self.superview!.bounds.height*2, width: size.width, height: size.height)
+    }
+    
+    UIView.animate(withDuration: 0.5, animations: {
+      self.frame = frame
+    }) { (complete) in
+      self.removeFromSuperview()
+    }
+  }
+  
 }
 
