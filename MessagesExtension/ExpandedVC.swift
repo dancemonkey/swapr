@@ -24,8 +24,8 @@ class ExpandedVC: UIViewController {
   @IBOutlet var addLetter: [UIButton]!
   @IBOutlet var letters: [LetterButton]!
   @IBOutlet var playerHand: PlayerHand!
-  @IBOutlet weak var currentPlayerScore: UILabel!
-  @IBOutlet weak var oppPlayerScore: UILabel!
+  @IBOutlet weak var currentPlayerScore: ScoreIndicator!
+//  @IBOutlet weak var oppPlayerScore: ScoreIndicator!
   @IBOutlet var strikes: [UILabel]!
   @IBOutlet weak var chainView: ChainView!
   
@@ -148,8 +148,8 @@ class ExpandedVC: UIViewController {
   }
   
   func setupScoreViews() {
-    currentPlayerScore.text = String(describing: game!.currentPlayer.score)
-    oppPlayerScore.text = String(describing: game!.oppPlayer.score)
+    currentPlayerScore.text = String(describing: game!.currentPlayer.score) + currentPlayerScore.setIndicatorText(forPlayerScore: game!.currentPlayer.score, andOpponentScore: game!.oppPlayer.score)
+//    oppPlayerScore.setIndicatorText(forPlayerScore: game!.currentPlayer.score, andOpponentScore: game!.oppPlayer.score)
     chainView.addChainsToStack(forScore: game!.currentPlayer.chainScore)
     setupStrikeViews()
   }

@@ -89,6 +89,7 @@
 		109A210F1E1BFBB100A77FCD /* Y Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F51E1BFBB100A77FCD /* Y Words.txt */; };
 		109A21101E1BFBB100A77FCD /* Z Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 109A20F61E1BFBB100A77FCD /* Z Words.txt */; };
 		10B03FD81DF4859C0055DE8C /* WordsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B03FD71DF4859C0055DE8C /* WordsAPI.swift */; };
+		10D0B6CD1E266D1400458D0D /* ScoreIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */; };
 		10E435091E22B61300AA2E61 /* PassConfirmation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E435081E22B61300AA2E61 /* PassConfirmation.xib */; };
 		10E4350B1E22B7D000AA2E61 /* PassConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */; };
 /* End PBXBuildFile section */
@@ -203,6 +204,7 @@
 		109A20F51E1BFBB100A77FCD /* Y Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Y Words.txt"; sourceTree = "<group>"; };
 		109A20F61E1BFBB100A77FCD /* Z Words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Z Words.txt"; sourceTree = "<group>"; };
 		10B03FD71DF4859C0055DE8C /* WordsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordsAPI.swift; sourceTree = "<group>"; };
+		10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreIndicator.swift; sourceTree = "<group>"; };
 		10E435081E22B61300AA2E61 /* PassConfirmation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PassConfirmation.xib; sourceTree = "<group>"; };
 		10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassConfirmation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,6 +296,7 @@
 				102278111E217DF000FEC950 /* ChainView.swift */,
 				102278131E21821300FEC950 /* PlayerHand.swift */,
 				10E435081E22B61300AA2E61 /* PassConfirmation.xib */,
+				10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				102278121E217DF000FEC950 /* ChainView.swift in Sources */,
 				104E0B6E1E0AB5AD00391AA7 /* HelperButton.swift in Sources */,
 				108DEF661E1408DF00FFCC52 /* ColorGradient.swift in Sources */,
+				10D0B6CD1E266D1400458D0D /* ScoreIndicator.swift in Sources */,
 				10457C5B1E1A9A16001E3B94 /* Sound Extension.swift in Sources */,
 				109136391E01926800F6CDFC /* LetterButton.swift in Sources */,
 				103DF29A1DFDA94B00372998 /* Player.swift in Sources */,

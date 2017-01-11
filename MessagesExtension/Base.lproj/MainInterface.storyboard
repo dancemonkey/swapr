@@ -45,24 +45,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="P6z-kC-hP0" userLabel="Scores">
                                 <rect key="frame" x="16" y="28" width="343" height="25"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-nj-Cfb" userLabel="Scores">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-nj-Cfb" userLabel="Scores">
                                         <rect key="frame" x="0.0" y="0.0" width="163.5" height="25"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agA-b8-Vau">
-                                                <rect key="frame" x="0.0" y="0.0" width="82" height="25"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mn7-cj-K5s">
-                                                <rect key="frame" x="82" y="0.0" width="81.5" height="25"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agA-b8-Vau" customClass="ScoreIndicator" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="25"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
@@ -627,7 +616,6 @@
                         <outlet property="definition" destination="vxu-SO-eoJ" id="N4i-hF-1g5"/>
                         <outlet property="endTurn" destination="xVQ-un-S46" id="Jty-lm-U73"/>
                         <outlet property="lock" destination="DgO-HL-3X8" id="fLZ-ql-Ie0"/>
-                        <outlet property="oppPlayerScore" destination="Mn7-cj-K5s" id="49X-HY-3dJ"/>
                         <outlet property="pass" destination="cWz-hH-zdS" id="1qh-KR-U4T"/>
                         <outlet property="playerHand" destination="PTa-md-nzt" id="C6p-Pb-i1K"/>
                         <outlet property="swap" destination="DnE-xj-k2W" id="U4M-5k-M8m"/>
