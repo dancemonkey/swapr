@@ -68,6 +68,11 @@
                 <constraint firstAttribute="trailing" secondItem="4bk-uc-g30" secondAttribute="trailing" constant="8" id="wi8-1M-5CT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
         </view>
     </objects>
     <resources>
