@@ -137,6 +137,7 @@ class ExpandedVC: UIViewController {
         hideAddLetterButtons()
       }
     }
+    backgroundGradient.setBottomLocation(forValue: Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
   }
   
   func setupWordAndScoreViews() {
@@ -148,7 +149,6 @@ class ExpandedVC: UIViewController {
   
   func setupScoreViews() {
     currentPlayerScore.text = String(describing: game!.currentPlayer.score) + currentPlayerScore.setIndicatorText(forPlayerScore: game!.currentPlayer.score, andOpponentScore: game!.oppPlayer.score)
-//    oppPlayerScore.setIndicatorText(forPlayerScore: game!.currentPlayer.score, andOpponentScore: game!.oppPlayer.score)
     chainView.addChainsToStack(forScore: game!.currentPlayer.chainScore)
     setupStrikeViews()
   }
@@ -455,6 +455,7 @@ class ExpandedVC: UIViewController {
   
   func playLetter(letter: LetterButton, withLetter replacementLetter: LetterButton) {
     game?.replaceLetter(atIndex: letter.tag, withPlayerLetter: replacementLetter.identity)
+    backgroundGradient.setBottomLocation(forValue: Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
     playingLetter = false
     cleanupDisplayAndTestForEnd()
     let _ = game!.setPlayMessage(forWord: (game!.currentWord)!)

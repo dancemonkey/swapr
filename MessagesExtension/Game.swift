@@ -28,11 +28,17 @@ class Game {
   
   let MAX_WORD_LENGTH = 6
   let MAX_STRIKES = 3
+  let MAX_TILES_TO_DRAW = 10
   let wordList = WordsAPI()
     
   private var _gameOver: Bool = false
   var gameOver: Bool {
     return _gameOver
+  }
+  
+  private var _tilesDrawn: Int = 0
+  var tilesDrawn: Int {
+    return _tilesDrawn
   }
   
   private var _currentPlayer: Player
@@ -110,6 +116,9 @@ class Game {
             if item.name == "gameOver" {
               self._gameOver = Bool("\(item.value!)")!
             }
+            if item.name == "drawnTiles" {
+              self._tilesDrawn = Int(item.value!)!
+            }
           }
         }
       }
@@ -130,6 +139,7 @@ class Game {
   }
   
   func getNewLetter(forPlayer player: Player) {
+    _tilesDrawn = _tilesDrawn + 1
     player.drawNewLetter(fromList: wordList)
   }
   
@@ -226,4 +236,5 @@ class Game {
     self._playMessage = " played \(word.name.uppercased())"
     return " played \(word.name.uppercased())"
   }
+  
 }

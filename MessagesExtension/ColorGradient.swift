@@ -22,11 +22,15 @@ class ColorGradient {
   func setGradient(withView view: UIView) {
     gl = CAGradientLayer()
     gl.colors = [colorBottom, colorTop]
-    gl.locations = [0.0, 1.0]
+    gl.locations = [0.0, 0.0]
     view.backgroundColor = UIColor.clear
-    let largestDim = view.frame.height > view.frame.width ? view.frame.height : view.frame.width
+//    let largestDim = view.frame.height > view.frame.width ? view.frame.height : view.frame.width
     gl.frame = view.frame
     view.layer.insertSublayer(gl, at: 0)
+  }
+  
+  func setBottomLocation(forValue value: Float) {
+    self.gl.locations = [0.0, NSNumber(value: value)]
   }
   
 }

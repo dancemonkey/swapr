@@ -179,8 +179,9 @@ extension MessagesViewController: ComposeMessageDelegate {
     let currentPlayerStrikes = URLQueryItem(name: "currentPlayerStrikes", value: "\(game.oppPlayer.strikes)")
     let oppPlayerStrikes = URLQueryItem(name: "oppPlayerStrikes", value: "\(game.currentPlayer.strikes)")
     let gameOver = URLQueryItem(name: "gameOver", value: "\(game.gameOver)")
+    let drawnTiles = URLQueryItem(name: "drawnTiles", value: "\(game.tilesDrawn)")
 
-    components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, oppChainScore, currentChainScore, currentPlayerStrikes, oppPlayerStrikes, gameOver]
+    components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, oppChainScore, currentChainScore, currentPlayerStrikes, oppPlayerStrikes, gameOver, drawnTiles]
     
     if let lock1 = game.currentWord!.locked1 {
       print("writing lock letter 1")
