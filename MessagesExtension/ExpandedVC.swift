@@ -458,7 +458,7 @@ class ExpandedVC: UIViewController {
     game?.replaceLetter(atIndex: letter.tag, withPlayerLetter: replacementLetter.identity)
     backgroundGradient.setBottomLocation(forValue: Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
     playingLetter = false
-    cleanupDisplayAndTestForEnd(withScoring: true)
+    cleanupDisplayAndTestForEnd(withScoring: letter.identity != replacementLetter.identity)
     let _ = game!.setPlayMessage(forWord: (game!.currentWord)!)
   }
   
