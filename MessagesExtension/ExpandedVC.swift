@@ -118,7 +118,7 @@ class ExpandedVC: UIViewController {
     for strike in strikes {
       strike.textColor = UIColor.clear
     }
-    game!.currentWord?.unlockAll()
+    game!.initNewGame()
     backgroundGradient.setBottomLocation(forValue: 0.0)
   }
   

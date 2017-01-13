@@ -217,6 +217,7 @@ class Game {
     _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
     _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
     self._gameOver = false
+    initNewGame()
   }
   
   func wordIsMaxSize() -> Bool {
@@ -235,6 +236,11 @@ class Game {
   func setPlayMessage(forWord word: Word) -> String {
     self._playMessage = " played \(word.name.uppercased())"
     return " played \(word.name.uppercased())"
+  }
+  
+  func initNewGame() {
+    _currentWord?.unlockAll()
+    _tilesDrawn = 0
   }
   
 }
