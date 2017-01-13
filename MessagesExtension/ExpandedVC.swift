@@ -115,6 +115,7 @@ class ExpandedVC: UIViewController {
       strike.textColor = UIColor.clear
     }
     game!.currentWord?.unlockAll()
+    backgroundGradient.setBottomLocation(forValue: 0.0)
   }
   
   func setupExistingGame(fromMessage message: MSMessage) {
@@ -457,7 +458,7 @@ class ExpandedVC: UIViewController {
     game?.replaceLetter(atIndex: letter.tag, withPlayerLetter: replacementLetter.identity)
     backgroundGradient.setBottomLocation(forValue: Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
     playingLetter = false
-    cleanupDisplayAndTestForEnd()
+    cleanupDisplayAndTestForEnd(withScoring: true)
     let _ = game!.setPlayMessage(forWord: (game!.currentWord)!)
   }
   
@@ -487,9 +488,9 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  func cleanupDisplayAndTestForEnd() {
+  func cleanupDisplayAndTestForEnd(withScoring scoring: Bool) {
     setupPlayerHand()
-    testIfValidWord()
+    testIfValidWord(withScoring: scoring)
   }
   
   func playhelper(helper: Helper, onLetter letter: LetterButton?) {
@@ -500,7 +501,7 @@ class ExpandedVC: UIViewController {
       bombing = false
       bomb.isEnabled = false
       game?.rewriteWord(as: visibleWord())
-      cleanupDisplayAndTestForEnd()
+      cleanupDisplayAndTestForEnd(withScoring: true)
       game!.playHelper(helper: helper, forPlayer: game!.currentPlayer)
       game!.setPlayMessage(forHelper: helper)
     case .lock:
@@ -509,7 +510,7 @@ class ExpandedVC: UIViewController {
       locking = false
       lock.isEnabled = false
       game?.lockLetterInWord(at: letter!.tag)
-      cleanupDisplayAndTestForEnd()
+      cleanupDisplayAndTestForEnd(withScoring: false)
       game!.playHelper(helper: helper, forPlayer: game!.currentPlayer)
       game!.setPlayMessage(forHelper: helper)
     case .swap:
@@ -519,7 +520,7 @@ class ExpandedVC: UIViewController {
         firstLetter = letter
       } else {
         swapLetters(first: firstLetter!, with: letter!)
-        cleanupDisplayAndTestForEnd()
+        cleanupDisplayAndTestForEnd(withScoring: true)
         game!.playHelper(helper: helper, forPlayer: game!.currentPlayer)
         game!.setPlayMessage(forHelper: helper)
       }
@@ -528,13 +529,15 @@ class ExpandedVC: UIViewController {
     }
   }
   
-  func testIfValidWord() {
+  func testIfValidWord(withScoring scoring: Bool) {
     disableAllButtons()
     Utils.delay(1.0) {
       self.game!.testIfValid(word: self.game!.currentWord!) { (validWord) in
         if validWord {
           DispatchQueue.main.async { [unowned self] in
-            self.game!.scoreRound()
+            if scoring {
+              self.game!.scoreRound()
+            }
             self.endTurn.isEnabled = true
             self.setupScoreViews()
             self.soundPlayer.playSound(for: .validWord)

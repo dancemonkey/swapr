@@ -148,7 +148,7 @@ class Game {
   }
   
   func gameIsOver() -> Bool {
-    if _currentPlayer.strikes >= MAX_STRIKES {
+    if _currentPlayer.strikes >= MAX_STRIKES || tilesDrawn >= MAX_TILES_TO_DRAW {
       _gameOver = true
       return true
     }
@@ -160,7 +160,7 @@ class Game {
   }
   
   func scoreRound() {
-    _currentPlayer.increaseScore()
+    _currentPlayer.increaseScore(by: _currentWord!.name.characters.count)
   }
   
   func replaceLetter(atIndex index: Int, withPlayerLetter letter: String) {

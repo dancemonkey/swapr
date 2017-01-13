@@ -24,7 +24,6 @@ class ColorGradient {
     gl.colors = [colorBottom, colorTop]
     gl.locations = [0.0, 0.0]
     view.backgroundColor = UIColor.clear
-//    let largestDim = view.frame.height > view.frame.width ? view.frame.height : view.frame.width
     gl.frame = view.frame
     view.layer.insertSublayer(gl, at: 0)
   }
