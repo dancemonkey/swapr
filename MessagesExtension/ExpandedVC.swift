@@ -99,6 +99,10 @@ class ExpandedVC: UIViewController {
       setupExistingGame(fromMessage: message!)
     }
     
+    // testing
+    print("tiles drawn \(game!.tilesDrawn)")
+    print("tiles max \(game!.MAX_TILES_TO_DRAW)")
+    
     game!.testIfValid(word: game!.currentWord!) { (valid) in
       if valid {
         self.setDefinitionView()
@@ -542,6 +546,7 @@ class ExpandedVC: UIViewController {
             self.setupScoreViews()
             self.soundPlayer.playSound(for: .validWord)
             self.setDefinitionView()
+            self.endIfGameOver()
           }
         } else if !validWord {
           DispatchQueue.main.async { [unowned self] in
