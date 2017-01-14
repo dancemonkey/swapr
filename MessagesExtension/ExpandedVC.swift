@@ -467,6 +467,7 @@ class ExpandedVC: UIViewController {
   }
   
   @IBAction func letterPressed(sender: LetterButton) {
+    
     if game?.playerPlayedTurn() == false {
       if addingLetter && playingLetter && sender == addLetterTarget {
         self.playLetter(letter: sender, withLetter: self.letterToPlay)
@@ -508,6 +509,7 @@ class ExpandedVC: UIViewController {
       cleanupDisplayAndTestForEnd(withScoring: true)
       game!.playHelper(helper: helper, forPlayer: game!.currentPlayer)
       game!.setPlayMessage(forHelper: helper)
+      explodeLetter(sender: letter!)
     case .lock:
       soundPlayer.playSound(for: .lock)
       letter?.locked = true
@@ -531,6 +533,12 @@ class ExpandedVC: UIViewController {
     case .pass:
       break
     }
+  }
+  
+  func explodeLetter(sender: LetterButton) {
+    let explode = ExplodeView(frame:CGRect(x: sender.center.x, y: sender.center.y, width: 10, height: 10))
+    sender.superview?.addSubview(explode)
+    sender.superview?.sendSubview(toBack: explode)
   }
   
   func testIfValidWord(withScoring scoring: Bool) {

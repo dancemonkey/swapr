@@ -226,6 +226,9 @@ class Game {
   
   func setPlayMessage(forHelper helper: Helper) {
     var playMessage = " used their " + helper.rawValue
+    if helper == .pass {
+      playMessage = " got a fresh hand of new letters."
+    }
     if helper == .bomb || helper == .swap {
       playMessage.append(", and they")
       playMessage.append(setPlayMessage(forWord: (self.currentWord)!))
