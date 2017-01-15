@@ -18,11 +18,6 @@ enum HelperAsInt: Int {
 
 class Player {
   
-  private var _strikes: Int = 0
-  var strikes: Int {
-    return _strikes
-  }
-  
   private var _score: Int
   var score: Int {
     return _score
@@ -53,7 +48,7 @@ class Player {
     return _turnBonus
   }
   
-  init(hand: String?, score: Int, helpers: String?, chainScore: Int, strikes: Int) {
+  init(hand: String?, score: Int, helpers: String?, chainScore: Int) {
     self._hand = hand
     self._score = score
     if helpers != nil {
@@ -65,7 +60,6 @@ class Player {
     if _hand == nil {
       getStartingHand()
     }
-    self._strikes = strikes
   }
   
   static func parseHelper(text: String) -> [Helper] {
@@ -148,14 +142,6 @@ class Player {
   
   func incrementChainScore() {
     self._chainScore = self._chainScore + 1
-  }
-  
-  func addStrike() {
-    _strikes = _strikes + 1
-  }
-  
-  func resetStrikes() {
-    _strikes = 0
   }
   
   func isUnique(letter: String) -> Bool {

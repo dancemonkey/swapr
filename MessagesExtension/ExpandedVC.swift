@@ -25,7 +25,6 @@ class ExpandedVC: UIViewController {
   @IBOutlet var letters: [LetterButton]!
   @IBOutlet var playerHand: PlayerHand!
   @IBOutlet weak var currentPlayerScore: ScoreIndicator!
-  @IBOutlet var strikes: [UILabel]!
   @IBOutlet weak var chainView: ChainView!
   
   var message: MSMessage? = nil
@@ -90,7 +89,7 @@ class ExpandedVC: UIViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    backgroundGradient = ColorGradient(withView: self.view)
+    setupInitialGradients()
     endTurn.isEnabled = false
     
     if message == nil {
@@ -99,27 +98,25 @@ class ExpandedVC: UIViewController {
       setupExistingGame(fromMessage: message!)
     }
     
-    // testing
-    print("tiles drawn \(game!.tilesDrawn)")
-    print("tiles max \(game!.MAX_TILES_TO_DRAW)")
-    
     game!.testIfValid(word: game!.currentWord!) { (valid) in
       if valid {
         self.setDefinitionView()
       }
     }
-    
     showAddLetterButtons()
-    
+  }
+  
+  func setupInitialGradients() {
+    backgroundGradient = ColorGradient(withView: self.view)
+    backgroundGradient.setBottomLocation(forValue: 1.0)
+    backgroundGradient.setTopLocation(forValue: 0.0)
+    backgroundGradient.setColor(top: nil, bottom: .white)
   }
   
   func setupNewGame() {
     setupWordAndScoreViews()
-    for strike in strikes {
-      strike.textColor = UIColor.clear
-    }
     game!.initNewGame()
-    backgroundGradient.setBottomLocation(forValue: 0.0)
+    backgroundGradient.drain(bottomValue: 1.0)
   }
   
   func setupExistingGame(fromMessage message: MSMessage) {
@@ -142,7 +139,7 @@ class ExpandedVC: UIViewController {
         hideAddLetterButtons()
       }
     }
-    backgroundGradient.setBottomLocation(forValue: Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
+    backgroundGradient.drain(bottomValue: 1 - Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
   }
   
   func setupWordAndScoreViews() {
@@ -155,15 +152,6 @@ class ExpandedVC: UIViewController {
   func setupScoreViews() {
     currentPlayerScore.text = String(describing: game!.currentPlayer.score) + currentPlayerScore.setIndicatorText(forPlayerScore: game!.currentPlayer.score, andOpponentScore: game!.oppPlayer.score)
     chainView.addChainsToStack(forScore: game!.currentPlayer.chainScore)
-    setupStrikeViews()
-  }
-  
-  func setupStrikeViews() {
-    for strike in strikes {
-      if game!.currentPlayer.strikes > strike.tag {
-        strike.textColor = UIColor.red
-      }
-    }
   }
   
   func setupWordView() {
@@ -460,7 +448,8 @@ class ExpandedVC: UIViewController {
   
   func playLetter(letter: LetterButton, withLetter replacementLetter: LetterButton) {
     game?.replaceLetter(atIndex: letter.tag, withPlayerLetter: replacementLetter.identity)
-    backgroundGradient.setBottomLocation(forValue: Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
+//    backgroundGradient.setBottomLocation(forValue: Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
+    backgroundGradient.drain(bottomValue: 1 - Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
     playingLetter = false
     cleanupDisplayAndTestForEnd(withScoring: letter.identity != replacementLetter.identity)
     let _ = game!.setPlayMessage(forWord: (game!.currentWord)!)

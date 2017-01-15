@@ -46,54 +46,13 @@
                                 <rect key="frame" x="16" y="28" width="343" height="25"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-nj-Cfb" userLabel="Scores">
-                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agA-b8-Vau" customClass="ScoreIndicator" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="25"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
                                                 <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VHM-QR-6ku" userLabel="Strikes">
-                                        <rect key="frame" x="179.5" y="0.0" width="163.5" height="25"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ar6-2K-8vq">
-                                                <rect key="frame" x="0.0" y="0.0" width="54.5" height="25"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoU-uV-47h">
-                                                <rect key="frame" x="54.5" y="0.0" width="54.5" height="25"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlE-le-xbY">
-                                                <rect key="frame" x="109" y="0.0" width="54.5" height="25"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -627,9 +586,6 @@
                         <outletCollection property="letters" destination="we2-DL-wr7" collectionClass="NSMutableArray" id="AS2-XT-he5"/>
                         <outletCollection property="letters" destination="i4D-eh-jh1" collectionClass="NSMutableArray" id="NhU-RB-P6O"/>
                         <outletCollection property="letters" destination="dGM-GS-JWL" collectionClass="NSMutableArray" id="Ryk-tO-Hf4"/>
-                        <outletCollection property="strikes" destination="Ar6-2K-8vq" collectionClass="NSMutableArray" id="A7k-IA-qxG"/>
-                        <outletCollection property="strikes" destination="DoU-uV-47h" collectionClass="NSMutableArray" id="EU3-f8-T7e"/>
-                        <outletCollection property="strikes" destination="wlE-le-xbY" collectionClass="NSMutableArray" id="qKB-h2-EaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX5-P3-TM9" userLabel="First Responder" sceneMemberID="firstResponder"/>

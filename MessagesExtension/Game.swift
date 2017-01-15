@@ -21,13 +21,11 @@ struct TempPlayer {
   var score: Int
   var helpers: String
   var chainScore: Int
-  var strikes: Int
 }
 
 class Game {
   
   let MAX_WORD_LENGTH = 6
-  let MAX_STRIKES = 3
   let MAX_TILES_TO_DRAW = 10
   let wordList = WordsAPI()
     
@@ -68,8 +66,8 @@ class Game {
   init(withMessage message: MSMessage?) {
     if let msg = message, let url = msg.url {
       
-      var oppPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0, strikes: 0)
-      var currentPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0, strikes: 0)
+      var oppPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
+      var currentPlayer = TempPlayer(hand: "", score: 0, helpers: "", chainScore: 0)
       
       if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false) {
         if let queryItems = components.queryItems {
@@ -107,12 +105,6 @@ class Game {
             if item.name == "lockedLetterPos2" {
               self._currentWord?.lockLetter(at: Int(item.value!)!)
             }
-            if item.name == "currentPlayerStrikes" {
-              currentPlayer.strikes = Int(item.value!)!
-            }
-            if item.name == "oppPlayerStrikes" {
-              oppPlayer.strikes = Int(item.value!)!
-            }
             if item.name == "gameOver" {
               self._gameOver = Bool("\(item.value!)")!
             }
@@ -122,11 +114,11 @@ class Game {
           }
         }
       }
-      self._currentPlayer = Player(hand: currentPlayer.hand, score: currentPlayer.score, helpers: currentPlayer.helpers, chainScore: currentPlayer.chainScore, strikes: currentPlayer.strikes)
-      self._oppPlayer = Player(hand: oppPlayer.hand, score: oppPlayer.score, helpers: oppPlayer.helpers, chainScore: oppPlayer.chainScore, strikes: oppPlayer.strikes)
+      self._currentPlayer = Player(hand: currentPlayer.hand, score: currentPlayer.score, helpers: currentPlayer.helpers, chainScore: currentPlayer.chainScore)
+      self._oppPlayer = Player(hand: oppPlayer.hand, score: oppPlayer.score, helpers: oppPlayer.helpers, chainScore: oppPlayer.chainScore)
     } else {
-      _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
-      _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
+      _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0)
+      _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0)
     }
   }
   
@@ -148,7 +140,7 @@ class Game {
   }
   
   func gameIsOver() -> Bool {
-    if _currentPlayer.strikes >= MAX_STRIKES || tilesDrawn >= MAX_TILES_TO_DRAW {
+    if tilesDrawn >= MAX_TILES_TO_DRAW {
       _gameOver = true
       return true
     }
@@ -205,7 +197,6 @@ class Game {
   
   func pass() {
     _currentPlayer.resetChainToZero()
-    _currentPlayer.addStrike()
     _currentPlayer.setStartingHand()
   }
   
@@ -215,8 +206,8 @@ class Game {
   
   func resetForNewGame() {
     self._currentWord = wordList.fetchRandomWord()
-    _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
-    _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0, strikes: 0)
+    _oppPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0)
+    _currentPlayer = Player(hand: nil, score: 0, helpers: nil, chainScore: 0)
     self._gameOver = false
     initNewGame()
   }
