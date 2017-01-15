@@ -48,6 +48,11 @@ class Player {
     return _playedTurn
   }
   
+  private var _turnBonus: Int = 0
+  var turnBonus: Int {
+    return _turnBonus
+  }
+  
   init(hand: String?, score: Int, helpers: String?, chainScore: Int, strikes: Int) {
     self._hand = hand
     self._score = score
@@ -133,7 +138,8 @@ class Player {
   
   func increaseScore(by score: Int) {
     incrementChainScore()
-    self._score = self._score + self._chainScore + score
+    self._score = self._score + self._chainScore + self.turnBonus + score
+    self._turnBonus = 0
   }
   
   func resetChainToZero() {
@@ -154,6 +160,10 @@ class Player {
   
   func isUnique(letter: String) -> Bool {
     return self.hand.contains(letter) == false
+  }
+  
+  func increaseTurnBonus(by bonus: Int) {
+    _turnBonus = _turnBonus + bonus
   }
   
 }

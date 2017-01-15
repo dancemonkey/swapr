@@ -180,6 +180,7 @@ class Game {
   func swapLetters(first: String, at index: Int, with second: String, at secondIndex: Int) {
     _currentWord?.replaceLetter(at: index, with: second)
     _currentWord?.replaceLetter(at: secondIndex, with: first)
+    _currentPlayer.increaseTurnBonus(by: 1)
   }
   
   func addNewLetterSpace(to: AddLetter) {
@@ -195,7 +196,7 @@ class Game {
     if let lock2 = oldWord?.locked2 {
       _currentWord?.lockLetter(at: lock2)
     }
-    _currentPlayer.incrementChainScore()
+    _currentPlayer.increaseTurnBonus(by: 1)
   }
   
   func playerPlayedTurn() -> Bool {
