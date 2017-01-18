@@ -192,7 +192,7 @@ extension MessagesViewController: ComposeMessageDelegate {
       components.queryItems?.append(lockedLetterPos2)
     }
     
-    message.summaryText = "$\(convo.localParticipantIdentifier) played \((game.currentWord!.name))."
+    message.summaryText = "$\(convo.localParticipantIdentifier)" + game.playMessage
     
     message.url = components.url
     
