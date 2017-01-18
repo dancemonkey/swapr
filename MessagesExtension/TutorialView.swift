@@ -14,6 +14,7 @@ class TutorialView: UIView {
   
   func showOverlay(forSection section: TutorialSection) {
     // initialize and show a view here that has verbiage from the tutorial model
+    // also dim main view and highlight the element being explained?
     // this view should only be initialized if the player requests it (via switch on compact view?)
   }
 

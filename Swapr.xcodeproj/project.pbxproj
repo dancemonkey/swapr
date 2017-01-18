@@ -58,7 +58,7 @@
 		10775F5D1DF8C4CD00B20B98 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10775F5C1DF8C4CD00B20B98 /* Protocols.swift */; };
 		108043FC1DF9BC91009220AD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108043FB1DF9BC91009220AD /* Game.swift */; };
 		1081B2B31E30219100C51B38 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081B2B21E30219100C51B38 /* Tutorial.swift */; };
-		1081B2B51E30257000C51B38 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081B2B41E30257000C51B38 /* TutorialView.swift */; };
+		1081B2B71E30277400C51B38 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1081B2B61E30277400C51B38 /* TutorialVC.swift */; };
 		10836C701E156CBF00517D2A /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10836C6F1E156CBF00517D2A /* utils.swift */; };
 		108DEF661E1408DF00FFCC52 /* ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108DEF651E1408DF00FFCC52 /* ColorGradient.swift */; };
 		109136391E01926800F6CDFC /* LetterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109136381E01926800F6CDFC /* LetterButton.swift */; };
@@ -176,7 +176,7 @@
 		10775F5C1DF8C4CD00B20B98 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		108043FB1DF9BC91009220AD /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		1081B2B21E30219100C51B38 /* Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
-		1081B2B41E30257000C51B38 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		1081B2B61E30277400C51B38 /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		10836C6F1E156CBF00517D2A /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		108DEF651E1408DF00FFCC52 /* ColorGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorGradient.swift; sourceTree = "<group>"; };
 		109136381E01926800F6CDFC /* LetterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterButton.swift; sourceTree = "<group>"; };
@@ -288,6 +288,7 @@
 				101A56261DF24A7800646B6D /* ExpandedVC.swift */,
 				10775F591DF8C41200B20B98 /* CompactVC.swift */,
 				10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */,
+				1081B2B61E30277400C51B38 /* TutorialVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -304,7 +305,6 @@
 				10E435081E22B61300AA2E61 /* PassConfirmation.xib */,
 				10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */,
 				10C4B84A1E2A837F00672615 /* ExplodeView.swift */,
-				1081B2B41E30257000C51B38 /* TutorialView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -586,6 +586,7 @@
 				101A56271DF24A7800646B6D /* ExpandedVC.swift in Sources */,
 				10775F5A1DF8C41200B20B98 /* CompactVC.swift in Sources */,
 				1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */,
+				1081B2B71E30277400C51B38 /* TutorialVC.swift in Sources */,
 				102278121E217DF000FEC950 /* ChainView.swift in Sources */,
 				104E0B6E1E0AB5AD00391AA7 /* HelperButton.swift in Sources */,
 				108DEF661E1408DF00FFCC52 /* ColorGradient.swift in Sources */,
@@ -594,7 +595,6 @@
 				109136391E01926800F6CDFC /* LetterButton.swift in Sources */,
 				10C4B84B1E2A837F00672615 /* ExplodeView.swift in Sources */,
 				103DF29A1DFDA94B00372998 /* Player.swift in Sources */,
-				1081B2B51E30257000C51B38 /* TutorialView.swift in Sources */,
 				1064B0811E0C690E0065E6C4 /* GameOverView.swift in Sources */,
 				1081B2B31E30219100C51B38 /* Tutorial.swift in Sources */,
 				108043FC1DF9BC91009220AD /* Game.swift in Sources */,
