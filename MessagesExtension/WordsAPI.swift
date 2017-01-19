@@ -65,7 +65,7 @@ class WordsAPI {
     var request = URLRequest(url: wordsURL)
     request.allHTTPHeaderFields = header
     request.httpMethod = "GET"
-    if isInTextDictionary(word: word) {
+    if isInTextDictionary(word: word) || isInCustomDictionary(word: word) {
       completion(true)
     } else {
       NetworkRequest.get(withRequest: request) { (data, response) in
@@ -80,9 +80,9 @@ class WordsAPI {
   }
   
   func writeToLocalList(word: Word) {
-    let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last! 
+    let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last!
     let fileURL = dir.appendingPathComponent("customWords.txt")
-  
+    
     let string = word.name + "\n"
     let data = string.data(using: String.Encoding.utf8, allowLossyConversion: false)!
     
@@ -105,13 +105,30 @@ class WordsAPI {
   }
   
   private func isInTextDictionary(word: Word) -> Bool {
-    // also test customWords.txt for the word and return true if found
     let baseSuffix = " Words"
     let basePrefix = (word.name).uppercased().characters.first!
     if let path = Bundle.main.path(forResource: "\(basePrefix)" + baseSuffix, ofType: ".txt") {
       do {
         let data = try String(contentsOfFile: path, encoding: .utf8)
         let wordArray: [String] = data.components(separatedBy: NSCharacterSet.newlines)
+        return wordArray.contains(where: { (string) -> Bool in
+          return string == word.name
+        })
+      } catch {
+        print(error)
+      }
+    }
+    return false
+  }
+  
+  private func isInCustomDictionary(word: Word) -> Bool {
+    let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last!
+    let fileURL = dir.appendingPathComponent("customWords.txt")
+    let dataURL = URL(fileURLWithPath: fileURL.path)
+    if FileManager.default.fileExists(atPath: fileURL.path) {
+      do {
+        let data = try (String(contentsOf: dataURL, encoding: .utf8))
+        let wordArray: [String] = data.components(separatedBy: .newlines)
         return wordArray.contains(where: { (string) -> Bool in
           return string == word.name
         })
