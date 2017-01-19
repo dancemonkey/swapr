@@ -95,6 +95,7 @@
 		10D0B6CD1E266D1400458D0D /* ScoreIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */; };
 		10E435091E22B61300AA2E61 /* PassConfirmation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E435081E22B61300AA2E61 /* PassConfirmation.xib */; };
 		10E4350B1E22B7D000AA2E61 /* PassConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */; };
+		10FE596C1E3108CA00E5091B /* customWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 10FE596B1E3108CA00E5091B /* customWords.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,7 @@
 		10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreIndicator.swift; sourceTree = "<group>"; };
 		10E435081E22B61300AA2E61 /* PassConfirmation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PassConfirmation.xib; sourceTree = "<group>"; };
 		10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassConfirmation.swift; sourceTree = "<group>"; };
+		10FE596B1E3108CA00E5091B /* customWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = customWords.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +402,7 @@
 				109A20F61E1BFBB100A77FCD /* Z Words.txt */,
 				109827821DF7163900D56002 /* starterWords.txt */,
 				102278151E218F2900FEC950 /* noDefResponses.txt */,
+				10FE596B1E3108CA00E5091B /* customWords.txt */,
 			);
 			name = Words;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				109A210E1E1BFBB100A77FCD /* X Words.txt in Resources */,
 				101A56161DF24A3000646B6D /* MainInterface.storyboard in Resources */,
 				109A21091E1BFBB100A77FCD /* S Words.txt in Resources */,
+				10FE596C1E3108CA00E5091B /* customWords.txt in Resources */,
 				109A21031E1BFBB100A77FCD /* M Words.txt in Resources */,
 				109A210A1E1BFBB100A77FCD /* T Words.txt in Resources */,
 				109A20F71E1BFBB100A77FCD /* A Words.txt in Resources */,

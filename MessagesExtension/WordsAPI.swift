@@ -80,36 +80,32 @@ class WordsAPI {
   }
   
   func writeToLocalList(word: Word) {
+    let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last! 
+    let fileURL = dir.appendingPathComponent("customWords.txt")
+  
+    let string = word.name + "\n"
+    let data = string.data(using: String.Encoding.utf8, allowLossyConversion: false)!
     
-    let fileName = "\((word.name).uppercased().characters.first!) Words.txt"
-    print(fileName)
-    let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last!
-    print(dir)
-    let fileURL = dir.appendingPathComponent(fileName)
-    print(fileURL)
-    let stringToAdd = word.name
-    let data = stringToAdd.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-    
-    if FileManager.default.fileExists(atPath: (fileURL.path)) {
+    if FileManager.default.fileExists(atPath: fileURL.path) {
       do {
         let fileHandle = try FileHandle(forWritingTo: fileURL)
         fileHandle.seekToEndOfFile()
         fileHandle.write(data)
         fileHandle.closeFile()
       } catch {
-        print("Can't open fileHandle \(error)")
+        print(error)
       }
     } else {
       do {
-        try data.write(to: fileURL, options: Data.WritingOptions.atomic)
+        try data.write(to: fileURL, options: .atomic)
       } catch {
-        print("Can't write \(error)")
+        print(error)
       }
     }
-    
   }
   
   private func isInTextDictionary(word: Word) -> Bool {
+    // also test customWords.txt for the word and return true if found
     let baseSuffix = " Words"
     let basePrefix = (word.name).uppercased().characters.first!
     if let path = Bundle.main.path(forResource: "\(basePrefix)" + baseSuffix, ofType: ".txt") {
@@ -145,8 +141,19 @@ class WordsAPI {
     }
   }
   
-  func printWordList(forLetter letter: String) {
-    
+  private func printWordList() {
+    // temp helper just to see word list after writing to file
+    let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last!
+    let fileURL = dir.appendingPathComponent("customWords.txt")
+    if FileManager.default.fileExists(atPath: fileURL.path) {
+      do {
+        let data = try String(contentsOfFile: fileURL.path, encoding: .utf8)
+        let wordArray: [String] = data.components(separatedBy: NSCharacterSet.newlines)
+        print(wordArray)
+      } catch {
+        print(error)
+      }
+    }
   }
   
 }

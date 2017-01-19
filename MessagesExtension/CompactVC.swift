@@ -27,20 +27,6 @@ class CompactVC: UIViewController {
     configureViews()
     let gradient = ColorGradient(withView: self.view)
     gradient.setBottomLocation(forValue: 0.5)
-    
-    // testing
-    
-    let wordList = WordsAPI()
-    
-    wordList.writeToLocalList(word: Word(fromText: "abcdefg"))
-    wordList.writeToLocalList(word: Word(fromText: "zyx"))
-    wordList.writeToLocalList(word: Word(fromText: "helloMyFRIENDS"))
-    
-    wordList.printWordList(forLetter: "a")
-    wordList.printWordList(forLetter: "h")
-    wordList.printWordList(forLetter: "z")
-
-    // end testing
   }
   
   func configureViews() {
