@@ -82,14 +82,17 @@ class WordsAPI {
   func writeToLocalList(word: Word) {
     
     let fileName = "\((word.name).uppercased().characters.first!) Words.txt"
+    print(fileName)
     let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last!
-    let fileURL = dir.baseURL?.appendingPathComponent(fileName)
+    print(dir)
+    let fileURL = dir.appendingPathComponent(fileName)
+    print(fileURL)
     let stringToAdd = word.name
     let data = stringToAdd.data(using: String.Encoding.utf8, allowLossyConversion: false)!
     
-    if FileManager.default.fileExists(atPath: (fileURL?.path)!) {
+    if FileManager.default.fileExists(atPath: (fileURL.path)) {
       do {
-        let fileHandle = try FileHandle(forWritingTo: fileURL!)
+        let fileHandle = try FileHandle(forWritingTo: fileURL)
         fileHandle.seekToEndOfFile()
         fileHandle.write(data)
         fileHandle.closeFile()
@@ -98,7 +101,7 @@ class WordsAPI {
       }
     } else {
       do {
-        try data.write(to: fileURL!, options: Data.WritingOptions.atomic)
+        try data.write(to: fileURL, options: Data.WritingOptions.atomic)
       } catch {
         print("Can't write \(error)")
       }
@@ -140,6 +143,10 @@ class WordsAPI {
     } else {
       return consonants[randomConsonant]
     }
+  }
+  
+  func printWordList(forLetter letter: String) {
+    
   }
   
 }
