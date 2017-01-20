@@ -13,32 +13,42 @@ class TutorialVC: UIViewController {
   var tutorial: Tutorial!
   var currentSection: TutorialSection!
   
+  @IBOutlet weak var tutorialView: TutorialView!
+  
+  var tutorialSections: [TutorialSection]!
+  
   override func viewDidLoad() {
     
-    // this VC should only be initialized if the player requests it (via switch on compact view?)
-
+    // TODO: initialize this VC from main screen if requested
+    // use static image of game as background for each view (and just fill the screen?)
+    
     super.viewDidLoad()
+    
+    // TODO: decide order of messages
+    tutorialSections = [.launch, .letter, .bomb, .lock, .swap, .score, .chain, .word]
     tutorial = Tutorial()
     currentSection = .launch
+    showTutorialMessage()
   }
   
-  func startTutorial() {
-    removeOverlays()
-    currentSection = nextSection(fromSection: currentSection)
+  func showTutorialMessage() {
     showOverlay(forSection: currentSection)
   }
   
   func removeOverlays() {
     // remove all existing overlays
+    // maybe not needed, using only one
   }
   
   func nextSection(fromSection section: TutorialSection) -> TutorialSection {
-    // return the next section that should be displayed here
-    return .letter // temp, obv
+    let nextIndex = tutorialSections.index(after: tutorialSections.index(of: section)!)
+    return tutorialSections[nextIndex]
   }
   
   func showOverlay(forSection section: TutorialSection) {
-    // initialize and show a view here that has verbiage from the tutorial model
-    // also dim main view and highlight the element being explained?  
+    tutorialView.initView(forSection: section, forTutorial: tutorial, action: {
+      self.currentSection = self.nextSection(fromSection: section)
+      self.showTutorialMessage()
+    })
   }
 }

@@ -95,6 +95,7 @@
 		10D0B6CD1E266D1400458D0D /* ScoreIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */; };
 		10E435091E22B61300AA2E61 /* PassConfirmation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E435081E22B61300AA2E61 /* PassConfirmation.xib */; };
 		10E4350B1E22B7D000AA2E61 /* PassConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */; };
+		10EDF5F81E324901002A1B74 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EDF5F71E324901002A1B74 /* TutorialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,7 @@
 		10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreIndicator.swift; sourceTree = "<group>"; };
 		10E435081E22B61300AA2E61 /* PassConfirmation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PassConfirmation.xib; sourceTree = "<group>"; };
 		10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassConfirmation.swift; sourceTree = "<group>"; };
+		10EDF5F71E324901002A1B74 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				10E435081E22B61300AA2E61 /* PassConfirmation.xib */,
 				10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */,
 				10C4B84A1E2A837F00672615 /* ExplodeView.swift */,
+				10EDF5F71E324901002A1B74 /* TutorialView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				101A56131DF24A3000646B6D /* MessagesViewController.swift in Sources */,
 				101A56271DF24A7800646B6D /* ExpandedVC.swift in Sources */,
 				10775F5A1DF8C41200B20B98 /* CompactVC.swift in Sources */,
+				10EDF5F81E324901002A1B74 /* TutorialView.swift in Sources */,
 				1098277F1DF6FEDA00D56002 /* NetworkRequest.swift in Sources */,
 				1081B2B71E30277400C51B38 /* TutorialVC.swift in Sources */,
 				102278121E217DF000FEC950 /* ChainView.swift in Sources */,

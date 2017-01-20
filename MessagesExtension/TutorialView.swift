@@ -10,12 +10,32 @@ import UIKit
 
 class TutorialView: UIView {
 
-  let tutorial = Tutorial()
+  var section: TutorialSection!
+  var tutorial: Tutorial!
+  var nextButtonAction: (() -> ())!
   
-  func showOverlay(forSection section: TutorialSection) {
-    // initialize and show a view here that has verbiage from the tutorial model
-    // also dim main view and highlight the element being explained?
-    // this view should only be initialized if the player requests it (via switch on compact view?)
+  @IBOutlet weak var tutorialMessage: UILabel!
+  @IBOutlet weak var nextButton: UIButton!
+  
+  func initView(forSection section: TutorialSection, forTutorial tutorial: Tutorial, action: @escaping () -> ()) {
+    self.section = section
+    self.tutorial = tutorial
+    self.tutorialMessage.text = tutorial.getPhrase(forSection: section)
+    nextButtonAction = action
+    placeView()
+  }
+  
+  private func placeView() {
+    self.frame = tutorial.getLocation(forSection: section)
+    self.isHidden = false
+  }
+  
+  override func awakeFromNib() {
+    // TODO: create NIB
+  }
+  
+  @IBAction func nextButtonPressed(sender: UIButton!) {
+    nextButtonAction()
   }
 
 }
