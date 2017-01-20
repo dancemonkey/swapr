@@ -15,10 +15,11 @@ class TutorialView: UIView {
   
   @IBOutlet weak var tutorialMessage: UILabel!
   
-  func initView(forSection section: TutorialSection, forTutorial tutorial: Tutorial) {
+  func initView(forSection section: TutorialSection, forTutorial tutorial: Tutorial, forSize size: CGRect) {
     self.section = section
     self.tutorial = tutorial
     self.tutorialMessage.text = tutorial.getPhrase(forSection: section)
+    self.bounds = size
     placeView()
   }
   

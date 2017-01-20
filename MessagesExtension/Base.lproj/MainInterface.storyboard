@@ -92,7 +92,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unF-3i-s1p" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="46.5" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="46" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="JW8-Pg-69Q"/>
                                                     <constraint firstAttribute="width" constant="35" id="nfh-Xe-hhk"/>
@@ -107,7 +107,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-qi-5g8" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="92.5" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="93" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="4yU-9S-B08"/>
                                                     <constraint firstAttribute="width" constant="35" id="Q0B-WG-JG2"/>
@@ -152,7 +152,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-eh-jh1" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="231.5" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="231" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="taJ-lD-KDr"/>
                                                     <constraint firstAttribute="width" constant="35" id="uQK-Cv-WrU"/>
@@ -167,7 +167,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGM-GS-JWL" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="277.5" y="0.0" width="35" height="35"/>
+                                                <rect key="frame" x="278" y="0.0" width="35" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="Fny-d4-TiR"/>
                                                     <constraint firstAttribute="width" constant="35" id="m9K-0M-8KE"/>
@@ -316,14 +316,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgO-HL-3X8" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="96.5" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="96" y="0.0" width="54" height="54"/>
                                         <state key="normal" image="Lock"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="cgE-cQ-eHC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnE-xj-k2W" customClass="HelperButton" customModule="MessagesExtension" customModuleProvider="target">
-                                        <rect key="frame" x="192.5" y="0.0" width="54" height="54"/>
+                                        <rect key="frame" x="193" y="0.0" width="54" height="54"/>
                                         <state key="normal" image="Swap"/>
                                         <connections>
                                             <action selector="helperPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="1Fe-Os-paV"/>
@@ -349,8 +349,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jnm-jR-VMv" userLabel="Player Hand">
                                         <rect key="frame" x="8" y="0.0" width="343" height="54"/>
                                         <subviews>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xwk-LM-f8F" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="-16" y="-307" width="0.0" height="54"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -361,8 +361,8 @@
                                                     <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="wJS-y7-xTA"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-Y3-nqx" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="72.5" y="0.0" width="54" height="54"/>
+                                            <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vc4-Y3-nqx" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="-16" y="-307" width="0.0" height="54"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -373,8 +373,8 @@
                                                     <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Zgq-gX-XIa"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-45-iki" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="144.5" y="0.0" width="54" height="54"/>
+                                            <button hidden="YES" opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-45-iki" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="-16" y="-307" width="0.0" height="54"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -385,8 +385,8 @@
                                                     <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="Gwu-NX-vLU"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-Co-jKe" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="217" y="0.0" width="54" height="54"/>
+                                            <button hidden="YES" opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-Co-jKe" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="-16" y="-307" width="0.0" height="54"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -397,8 +397,8 @@
                                                     <action selector="playerHandLetterPressedWithSender:" destination="1DJ-KS-MZC" eventType="touchUpInside" id="sWI-qa-ZE5"/>
                                                 </connections>
                                             </button>
-                                            <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-Wp-Yao" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
-                                                <rect key="frame" x="289" y="0.0" width="54" height="54"/>
+                                            <button hidden="YES" opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8I-Wp-Yao" customClass="LetterButton" customModule="MessagesExtension" customModuleProvider="target">
+                                                <rect key="frame" x="-16" y="-307" width="0.0" height="54"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -622,51 +622,8 @@
                     <view key="view" contentMode="scaleToFill" id="eu1-ol-TRJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xA-bV-2ai">
-                                <rect key="frame" x="16" y="571" width="56" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="ElQ-cl-nud"/>
-                                    <constraint firstAttribute="height" constant="40" id="cyp-eg-a8U"/>
-                                </constraints>
-                                <state key="normal" title="SKIP" backgroundImage="Blank Button">
-                                    <color key="titleColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="skipPressedWithSender:" destination="crG-Z8-scV" eventType="touchUpInside" id="bnZ-0d-Vgu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QxO-xa-uAa">
-                                <rect key="frame" x="303" y="571" width="56" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="HKw-hf-2ha"/>
-                                    <constraint firstAttribute="height" constant="40" id="Ul0-w8-h8F"/>
-                                </constraints>
-                                <state key="normal" title="NEXT" backgroundImage="Blank Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextPressedWithSender:" destination="crG-Z8-scV" eventType="touchUpInside" id="NzC-il-rXi"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="QxO-xa-uAa" secondAttribute="trailing" constant="16" id="WxN-BK-TgG"/>
-                            <constraint firstItem="D2G-ir-KRC" firstAttribute="top" secondItem="4xA-bV-2ai" secondAttribute="bottom" constant="56" id="xIL-hy-uqw"/>
-                            <constraint firstItem="4xA-bV-2ai" firstAttribute="leading" secondItem="eu1-ol-TRJ" secondAttribute="leading" constant="16" id="xIx-U8-z2R"/>
-                            <constraint firstItem="D2G-ir-KRC" firstAttribute="top" secondItem="QxO-xa-uAa" secondAttribute="bottom" constant="56" id="xZX-se-qHD"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="nextButton" destination="QxO-xa-uAa" id="LEh-vO-SVa"/>
-                        <outlet property="skipButton" destination="4xA-bV-2ai" id="f5q-8k-NDZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVa-y2-pda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

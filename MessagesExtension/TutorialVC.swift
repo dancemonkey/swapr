@@ -14,14 +14,13 @@ class TutorialVC: UIViewController {
   var currentSection: TutorialSection!
   
   @IBOutlet weak var tutorialView: TutorialView!
-  @IBOutlet weak var skipButton: UIButton!
-  @IBOutlet weak var nextButton: UIButton!
   
   var tutorialSections: [TutorialSection]!
   
   override func viewDidLoad() {
     
-    // use static image of game as background for each view (and just fill the screen?)
+    // TODO: screenshot game screen and use as background image for tutorialVC
+    // QUESTION: how to handle iPad sizes? Just show iPhone background? or multiple for each device?
     
     super.viewDidLoad()
     
@@ -30,6 +29,7 @@ class TutorialVC: UIViewController {
     tutorial = Tutorial()
     currentSection = .launch
     initTutorial()
+
   }
   
   func showTutorialMessage() {
@@ -45,25 +45,63 @@ class TutorialVC: UIViewController {
     return nextIndex != 9 ? tutorialSections[nextIndex] : nil
   }
   
+  func previousSection(fromSection section: TutorialSection) -> TutorialSection? {
+    let previousIndex = tutorialSections.index(before: tutorialSections.index(of: section)!)
+    return previousIndex != 0 ? tutorialSections[previousIndex] : nil
+  }
+  
   func showOverlay(forSection section: TutorialSection) {
-    tutorialView.initView(forSection: section, forTutorial: tutorial)
+    tutorialView.initView(forSection: section, forTutorial: tutorial, forSize: view.bounds)
   }
   
   func initTutorial() {
     tutorialView = Bundle.main.loadNibNamed("TutorialView", owner: self, options: nil)?.last as! TutorialView
     self.view.addSubview(tutorialView)
-    tutorialView.initView(forSection: .launch, forTutorial: tutorial)
+    tutorialView.initView(forSection: .launch, forTutorial: tutorial, forSize: view.bounds)
     tutorialView.center = view.center
     Utils.animateEndWithSpring(tutorialView, withTiming: 1.0, completionClosure: nil)
+    addSwipes()
   }
   
-  @IBAction func skipPressed(sender: UIButton) {
+  private func previousScreen() {
+    currentSection = previousSection(fromSection: currentSection)
+    self.showTutorialMessage()
+  }
+  
+  private func nextScreen() {
+    currentSection = nextSection(fromSection: currentSection)
+    self.showTutorialMessage()
+  }
+  
+  private func dismissTutorial() {
     self.dismiss(animated: true, completion: nil)
   }
   
-  @IBAction func nextPressed(sender: UIButton!) {
-    currentSection = nextSection(fromSection: currentSection)
-    self.showTutorialMessage()
+  func addSwipes() {
+    let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipe(gesture:)))
+    swipeRight.direction = .right
+    self.view.addGestureRecognizer(swipeRight)
+    let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipe(gesture:)))
+    swipeLeft.direction = .left
+    self.view.addGestureRecognizer(swipeLeft)
+    let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipe(gesture:)))
+    swipeDown.direction = .down
+    self.view.addGestureRecognizer(swipeDown)
+  }
+  
+  func respondToSwipe(gesture: UIGestureRecognizer) {
+    if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+      switch swipeGesture.direction {
+      case UISwipeGestureRecognizerDirection.left:
+        nextScreen()
+      case UISwipeGestureRecognizerDirection.right:
+        previousScreen()
+      case UISwipeGestureRecognizerDirection.down:
+        dismissTutorial()
+      default:
+        break
+      }
+    }
   }
   
 }
