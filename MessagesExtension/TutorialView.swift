@@ -13,23 +13,41 @@ class TutorialView: UIView {
   var section: TutorialSection!
   var tutorial: Tutorial!
   
-  @IBOutlet weak var tutorialMessage: UILabel!
+  @IBOutlet weak var tutorialMessage: UITextView!
   
   func initView(forSection section: TutorialSection, forTutorial tutorial: Tutorial, forSize size: CGRect) {
     self.section = section
     self.tutorial = tutorial
     self.tutorialMessage.text = tutorial.getPhrase(forSection: section)
     self.bounds = size
-    placeView()
+    placeTextView()
   }
   
-  private func placeView() {
-    // TODO: place view at locations based on message
-    self.center = (superview?.center)!
-  }
-  
-  override func awakeFromNib() {
-    // TODO: create NIB
+  private func placeTextView() {
+    // TODO: place view at locations based on section
+    let superWidth = superview!.bounds.width
+    let superHeight = superview!.bounds.height
+    switch section! {
+    case .launch:
+      tutorialMessage.frame = CGRect(x: 0.0, y: 0.0, width: superWidth - 50.0, height: superHeight - 300.0)
+      tutorialMessage.center = self.center
+    case.bomb:
+      tutorialMessage.center = self.center
+    case.chain:
+      tutorialMessage.center = self.center
+    case .letter:
+      tutorialMessage.center = self.center
+    case .lock:
+      tutorialMessage.center = self.center
+    case .swap:
+      tutorialMessage.center = self.center
+    case .score:
+      tutorialMessage.center = self.center
+    case .done:
+      tutorialMessage.center = self.center
+    case .word:
+      tutorialMessage.center = self.center
+    }
   }
 
 }

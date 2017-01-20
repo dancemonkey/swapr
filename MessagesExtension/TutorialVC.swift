@@ -18,14 +18,9 @@ class TutorialVC: UIViewController {
   var tutorialSections: [TutorialSection]!
   
   override func viewDidLoad() {
-    
-    // TODO: screenshot game screen and use as background image for tutorialVC
-    // QUESTION: how to handle iPad sizes? Just show iPhone background? or multiple for each device?
-    
     super.viewDidLoad()
     
-    // TODO: decide order of messages
-    tutorialSections = [.launch, .letter, .bomb, .lock, .swap, .score, .chain, .word, .done]
+    tutorialSections = [.launch, .letter, .word, .bomb, .lock, .swap, .score, .chain, .done]
     tutorial = Tutorial()
     currentSection = .launch
     initTutorial()
@@ -47,7 +42,7 @@ class TutorialVC: UIViewController {
   
   func previousSection(fromSection section: TutorialSection) -> TutorialSection? {
     let previousIndex = tutorialSections.index(before: tutorialSections.index(of: section)!)
-    return previousIndex != 0 ? tutorialSections[previousIndex] : nil
+    return tutorialSections.index(of: section)! != 0 ? tutorialSections[previousIndex] : nil
   }
   
   func showOverlay(forSection section: TutorialSection) {
@@ -57,8 +52,8 @@ class TutorialVC: UIViewController {
   func initTutorial() {
     tutorialView = Bundle.main.loadNibNamed("TutorialView", owner: self, options: nil)?.last as! TutorialView
     self.view.addSubview(tutorialView)
-    tutorialView.initView(forSection: .launch, forTutorial: tutorial, forSize: view.bounds)
     tutorialView.center = view.center
+    tutorialView.initView(forSection: .launch, forTutorial: tutorial, forSize: view.bounds)
     Utils.animateEndWithSpring(tutorialView, withTiming: 1.0, completionClosure: nil)
     addSwipes()
   }
