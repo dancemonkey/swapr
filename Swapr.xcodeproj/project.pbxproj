@@ -96,6 +96,7 @@
 		10E435091E22B61300AA2E61 /* PassConfirmation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10E435081E22B61300AA2E61 /* PassConfirmation.xib */; };
 		10E4350B1E22B7D000AA2E61 /* PassConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */; };
 		10EDF5F81E324901002A1B74 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EDF5F71E324901002A1B74 /* TutorialView.swift */; };
+		10EDF5FC1E325B77002A1B74 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EDF5FB1E325B77002A1B74 /* TutorialView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +216,7 @@
 		10E435081E22B61300AA2E61 /* PassConfirmation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PassConfirmation.xib; sourceTree = "<group>"; };
 		10E4350A1E22B7D000AA2E61 /* PassConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassConfirmation.swift; sourceTree = "<group>"; };
 		10EDF5F71E324901002A1B74 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		10EDF5FB1E325B77002A1B74 /* TutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 				10D0B6CC1E266D1400458D0D /* ScoreIndicator.swift */,
 				10C4B84A1E2A837F00672615 /* ExplodeView.swift */,
 				10EDF5F71E324901002A1B74 /* TutorialView.swift */,
+				10EDF5FB1E325B77002A1B74 /* TutorialView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				10457C391E1A99C7001E3B94 /* explosion4.wav in Resources */,
 				109A210D1E1BFBB100A77FCD /* W Words.txt in Resources */,
 				10457C611E1A9ABB001E3B94 /* strike1.wav in Resources */,
+				10EDF5FC1E325B77002A1B74 /* TutorialView.xib in Resources */,
 				109A20FB1E1BFBB100A77FCD /* E Words.txt in Resources */,
 				10457C641E1A9ABB001E3B94 /* strike4.wav in Resources */,
 				10457C431E1A99C7001E3B94 /* lock3.wav in Resources */,

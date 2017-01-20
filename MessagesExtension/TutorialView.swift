@@ -24,7 +24,7 @@ class TutorialView: UIView {
   
   private func placeView() {
     // TODO: place view at locations based on message
-    self.frame.origin = (superview?.center)!
+    self.center = (superview?.center)!
   }
   
   override func awakeFromNib() {

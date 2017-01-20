@@ -21,7 +21,6 @@ class TutorialVC: UIViewController {
   
   override func viewDidLoad() {
     
-    // TODO: initialize this VC from main screen if requested
     // use static image of game as background for each view (and just fill the screen?)
     
     super.viewDidLoad()
@@ -30,7 +29,7 @@ class TutorialVC: UIViewController {
     tutorialSections = [.launch, .letter, .bomb, .lock, .swap, .score, .chain, .word, .done]
     tutorial = Tutorial()
     currentSection = .launch
-    showTutorialMessage()
+    initTutorial()
   }
   
   func showTutorialMessage() {
@@ -39,11 +38,6 @@ class TutorialVC: UIViewController {
     } else {
       self.dismiss(animated: true, completion: nil)
     }
-  }
-  
-  func removeOverlays() {
-    // remove all existing overlays
-    // maybe not needed, using only one
   }
   
   func nextSection(fromSection section: TutorialSection) -> TutorialSection? {
@@ -55,6 +49,14 @@ class TutorialVC: UIViewController {
     tutorialView.initView(forSection: section, forTutorial: tutorial)
   }
   
+  func initTutorial() {
+    tutorialView = Bundle.main.loadNibNamed("TutorialView", owner: self, options: nil)?.last as! TutorialView
+    self.view.addSubview(tutorialView)
+    tutorialView.initView(forSection: .launch, forTutorial: tutorial)
+    tutorialView.center = view.center
+    Utils.animateEndWithSpring(tutorialView, withTiming: 1.0, completionClosure: nil)
+  }
+  
   @IBAction func skipPressed(sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
   }
@@ -63,4 +65,5 @@ class TutorialVC: UIViewController {
     currentSection = nextSection(fromSection: currentSection)
     self.showTutorialMessage()
   }
+  
 }
