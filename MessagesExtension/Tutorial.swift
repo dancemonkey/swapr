@@ -9,7 +9,7 @@
 import UIKit
 
 enum TutorialSection: String {
-  case launch, letter, bomb, lock, swap, score, chain, word
+  case launch, letter, bomb, lock, swap, score, chain, word, done
 }
 
 class Tutorial {
@@ -22,27 +22,16 @@ class Tutorial {
     TutorialSection.swap: "swap phrase",
     TutorialSection.score: "score phrase",
     TutorialSection.chain: "chain phrase",
-    TutorialSection.word: "word phrase"
+    TutorialSection.word: "word phrase",
+    TutorialSection.done: "done phrase"
   ]
   
   // TODO: CGRects for placement of different messages
-  let locations = [
-    TutorialSection.launch: CGRect.zero,
-    TutorialSection.letter: CGRect.zero,
-    TutorialSection.bomb: CGRect.zero,
-    TutorialSection.lock: CGRect.zero,
-    TutorialSection.swap: CGRect.zero,
-    TutorialSection.score: CGRect.zero,
-    TutorialSection.chain: CGRect.zero,
-    TutorialSection.word: CGRect.zero
-  ]
+  let testFrame = CGRect(x: 0, y: 0, width: 250, height: 50)
+  var locations: [TutorialSection: CGRect]!
   
   func getPhrase(forSection section: TutorialSection) -> String {
     return phrases[section]!
-  }
-  
-  func getLocation(forSection section: TutorialSection) -> CGRect {
-    return locations[section]!
   }
   
 }

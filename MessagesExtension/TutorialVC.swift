@@ -14,6 +14,8 @@ class TutorialVC: UIViewController {
   var currentSection: TutorialSection!
   
   @IBOutlet weak var tutorialView: TutorialView!
+  @IBOutlet weak var skipButton: UIButton!
+  @IBOutlet weak var nextButton: UIButton!
   
   var tutorialSections: [TutorialSection]!
   
@@ -25,14 +27,18 @@ class TutorialVC: UIViewController {
     super.viewDidLoad()
     
     // TODO: decide order of messages
-    tutorialSections = [.launch, .letter, .bomb, .lock, .swap, .score, .chain, .word]
+    tutorialSections = [.launch, .letter, .bomb, .lock, .swap, .score, .chain, .word, .done]
     tutorial = Tutorial()
     currentSection = .launch
     showTutorialMessage()
   }
   
   func showTutorialMessage() {
-    showOverlay(forSection: currentSection)
+    if let section = currentSection {
+      showOverlay(forSection: section)
+    } else {
+      self.dismiss(animated: true, completion: nil)
+    }
   }
   
   func removeOverlays() {
@@ -40,15 +46,21 @@ class TutorialVC: UIViewController {
     // maybe not needed, using only one
   }
   
-  func nextSection(fromSection section: TutorialSection) -> TutorialSection {
+  func nextSection(fromSection section: TutorialSection) -> TutorialSection? {
     let nextIndex = tutorialSections.index(after: tutorialSections.index(of: section)!)
-    return tutorialSections[nextIndex]
+    return nextIndex != 9 ? tutorialSections[nextIndex] : nil
   }
   
   func showOverlay(forSection section: TutorialSection) {
-    tutorialView.initView(forSection: section, forTutorial: tutorial, action: {
-      self.currentSection = self.nextSection(fromSection: section)
-      self.showTutorialMessage()
-    })
+    tutorialView.initView(forSection: section, forTutorial: tutorial)
+  }
+  
+  @IBAction func skipPressed(sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func nextPressed(sender: UIButton!) {
+    currentSection = nextSection(fromSection: currentSection)
+    self.showTutorialMessage()
   }
 }
