@@ -29,6 +29,8 @@ class Sound {
           self.player.prepareToPlay()
           self.player.play()
         }
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setCategory(AVAudioSessionCategoryPlayback, with: .duckOthers)
       } catch {
         print("error \(error)")
       }

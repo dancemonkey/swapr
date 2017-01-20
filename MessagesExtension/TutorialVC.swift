@@ -10,6 +10,8 @@ import UIKit
 
 class TutorialVC: UIViewController {
   
+  // TODO: landscape image telling you to rotate to portrait
+  
   var tutorial: Tutorial!
   var currentSection: TutorialSection!
   

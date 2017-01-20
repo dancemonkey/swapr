@@ -22,13 +22,12 @@ class Tutorial {
     TutorialSection.swap: "The Swap is a special one: after tapping this you can choose TWO letters in the word, and they will switch places. \n\nIf this makes a valid word then you get a bonus point on top of your word score, for using the Swap.",
     TutorialSection.score: "Scoring is simple: 1 point per letter in the word (plus a bonus point if you used the Swap). \n\nThere's another aspect to scoring, and that is the...",
     TutorialSection.chain: "Chain! For every turn that you manage to score a new word, your chain GROWS. \n\nThe  chain gives you bonus points each time you form a word, the longer the chain the more points you get. \n\nSo your score can get pretty big pretty fast if you keep making valid words.\n\nOh and if you make a word that isn't, you know, a real word? Your chain breaks and drops back to zero.",
-    TutorialSection.word: "... you tap on a letter in this word, replacing the letter in the word with the letter in your hand. Create a new word, and you score points!\n\nSee the buttons with the '+' signs on them beside the word? Tapping one of those lets you add a blank letter to the front or back of the word, so you can make the word longer\n\nInstead of playing a letter from your hand to form a new word, you can also...",
+    TutorialSection.word: "... you tap on a letter in this word, replacing the letter in the word with the letter in your hand. Create a new word, and you score points!\n\nSee the buttons with the '+' signs on them beside the word? Tapping one of those lets you add a blank letter to the front or back of the word, so you can make the word longer.\n\nInstead of playing a letter from your hand to form a new word, you can also...",
     TutorialSection.done: "That's it! Now swipe left or down to get rid of this tutorial, and go play!"
   ]
   
-  // TODO: CGRects for placement of different messages
-  let testFrame = CGRect(x: 0, y: 0, width: 250, height: 50)
-  var locations: [TutorialSection: CGRect]!
+//  let testFrame = CGRect(x: 0, y: 0, width: 250, height: 50)
+//  var locations: [TutorialSection: CGRect]!
   
   func getPhrase(forSection section: TutorialSection) -> String {
     return phrases[section]!

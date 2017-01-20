@@ -34,6 +34,9 @@
                             <real key="value" value="4"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    </variation>
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,6 +48,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="gameImage" destination="9r5-01-2gP" id="0ts-aZ-Ki6"/>
                 <outlet property="tutorialMessage" destination="nJp-km-TWP" id="XTh-IB-LBI"/>
             </connections>
         </view>

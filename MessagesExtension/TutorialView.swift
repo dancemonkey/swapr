@@ -14,6 +14,10 @@ class TutorialView: UIView {
   var tutorial: Tutorial!
   
   @IBOutlet weak var tutorialMessage: UITextView!
+  @IBOutlet weak var gameImage: UIImageView!
+  
+  // TODO: image for each section, highlighted what's being talked about
+  // TODO: switch image in imageView
   
   func initView(forSection section: TutorialSection, forTutorial tutorial: Tutorial, forSize size: CGRect) {
     self.section = section
@@ -24,12 +28,14 @@ class TutorialView: UIView {
   }
   
   private func placeTextView() {
+    // TODO: CGRects for placement of different messages
     // TODO: place view at locations based on section
+    
     let superWidth = superview!.bounds.width
     let superHeight = superview!.bounds.height
     switch section! {
     case .launch:
-      tutorialMessage.frame = CGRect(x: 0.0, y: 0.0, width: superWidth - 50.0, height: superHeight - 300.0)
+      tutorialMessage.frame = CGRect(x: 0.0, y: 0.0, width: superWidth - 50.0, height: superHeight - 250.0)
       tutorialMessage.center = self.center
     case.bomb:
       tutorialMessage.center = self.center
@@ -48,6 +54,7 @@ class TutorialView: UIView {
     case .word:
       tutorialMessage.center = self.center
     }
+    
   }
 
 }
