@@ -622,7 +622,28 @@
                     <view key="view" contentMode="scaleToFill" id="eu1-ol-TRJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutScreenie" translatesAutoresizingMaskIntoConstraints="NO" id="1Co-Oa-kjc">
+                                <rect key="frame" x="63" y="134" width="250" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="FSY-eb-eXG"/>
+                                    <constraint firstAttribute="width" constant="250" id="ttF-Zk-AJD"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rh0-BT-hJ6">
+                                <rect key="frame" x="68" y="175" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Co-Oa-kjc" firstAttribute="centerY" secondItem="eu1-ol-TRJ" secondAttribute="centerY" id="4S0-IW-FPU"/>
+                            <constraint firstItem="1Co-Oa-kjc" firstAttribute="centerX" secondItem="eu1-ol-TRJ" secondAttribute="centerX" id="rrE-Y9-vDR"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVa-y2-pda" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -752,5 +773,6 @@
         <image name="S" width="54" height="54"/>
         <image name="Swap" width="54" height="54"/>
         <image name="W" width="54" height="54"/>
+        <image name="tutScreenie" width="1242" height="1797"/>
     </resources>
 </document>

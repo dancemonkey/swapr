@@ -15,11 +15,15 @@
             <rect key="frame" x="0.0" y="0.0" width="250" height="400"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TutorialScreenShot" translatesAutoresizingMaskIntoConstraints="NO" id="9r5-01-2gP">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutScreenie" translatesAutoresizingMaskIntoConstraints="NO" id="9r5-01-2gP">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="400"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="400" id="wax-NN-Qj7"/>
+                        <constraint firstAttribute="width" constant="250" id="wua-Th-uR8"/>
+                    </constraints>
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJp-km-TWP">
-                    <rect key="frame" x="8" y="150" width="234" height="100"/>
+                    <rect key="frame" x="8" y="232" width="234" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.4431372549" green="0.75294117650000003" blue="0.94117647059999998" alpha="0.94999999999999996" colorSpace="calibratedRGB"/>
                     <accessibility key="accessibilityConfiguration">
@@ -34,17 +38,12 @@
                             <real key="value" value="4"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    </variation>
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="9r5-01-2gP" secondAttribute="bottom" id="Fod-lq-8fP"/>
-                <constraint firstAttribute="trailing" secondItem="9r5-01-2gP" secondAttribute="trailing" id="dCX-lc-mqf"/>
-                <constraint firstItem="9r5-01-2gP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pzo-wx-8dF"/>
-                <constraint firstItem="9r5-01-2gP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wVd-qQ-rZi"/>
+                <constraint firstItem="9r5-01-2gP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LvR-ZQ-G0Z"/>
+                <constraint firstItem="9r5-01-2gP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ROO-sK-yBK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -54,6 +53,6 @@
         </view>
     </objects>
     <resources>
-        <image name="TutorialScreenShot" width="375" height="667"/>
+        <image name="tutScreenie" width="1242" height="1797"/>
     </resources>
 </document>

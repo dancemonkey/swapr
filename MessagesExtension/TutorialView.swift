@@ -15,9 +15,7 @@ class TutorialView: UIView {
   
   @IBOutlet weak var tutorialMessage: UITextView!
   @IBOutlet weak var gameImage: UIImageView!
-  
-  // TODO: image for each section, highlighted what's being talked about
-  // TODO: switch image in imageView
+  // TODO: change background image to highlight tutorial message
   
   func initView(forSection section: TutorialSection, forTutorial tutorial: Tutorial, forSize size: CGRect) {
     self.section = section
@@ -28,33 +26,35 @@ class TutorialView: UIView {
   }
   
   private func placeTextView() {
-    // TODO: CGRects for placement of different messages
-    // TODO: place view at locations based on section
+    let messagePosition: [TutorialSection: CGPoint] = [
+      .launch: self.center,
+      .letter: CGPoint(x: self.center.x, y: 400.0),
+      .word: CGPoint(x: self.center.x, y: 230.0),
+      .bomb: CGPoint(x: self.center.x-10, y: 335.0),
+      .lock: CGPoint(x: self.center.x+20, y: 335.0),
+      .swap: CGPoint(x: self.center.x+40, y: 335.0),
+      .score: CGPoint(x: self.center.x, y: 175.0),
+      .chain: CGPoint(x: self.center.x, y: 175.0),
+      .done: self.center
+    ]
     
-    let superWidth = superview!.bounds.width
-    let superHeight = superview!.bounds.height
-    switch section! {
-    case .launch:
-      tutorialMessage.frame = CGRect(x: 0.0, y: 0.0, width: superWidth - 50.0, height: superHeight - 250.0)
-      tutorialMessage.center = self.center
-    case.bomb:
-      tutorialMessage.center = self.center
-    case.chain:
-      tutorialMessage.center = self.center
-    case .letter:
-      tutorialMessage.center = self.center
-    case .lock:
-      tutorialMessage.center = self.center
-    case .swap:
-      tutorialMessage.center = self.center
-    case .score:
-      tutorialMessage.center = self.center
-    case .done:
-      tutorialMessage.center = self.center
-    case .word:
-      tutorialMessage.center = self.center
+    let messageSize: [TutorialSection: CGSize] = [
+      .launch: CGSize(width: 220.0, height: 250.0),
+      .letter: CGSize(width: 220.0, height: 110.0),
+      .word: CGSize(width: 220.0, height: 250.0),
+      .bomb: CGSize(width: 220.0, height: 93.0),
+      .lock: CGSize(width: 220.0, height: 110.0),
+      .swap: CGSize(width: 220.0, height: 160.0),
+      .score: CGSize(width: 220.0, height: 160.0),
+      .chain: CGSize(width: 220.0, height: 250.0),
+      .done: CGSize(width: 220.0, height: 180.0)
+    ]
+    tutorialMessage.frame.size = messageSize[section!]!
+    tutorialMessage.center.x = messagePosition[section!]!.x
+    tutorialMessage.frame.origin.y = messagePosition[section!]!.y
+    if section! == .launch || section! == .done {
+      tutorialMessage.center.y = messagePosition[section!]!.y
     }
-    
   }
 
 }
