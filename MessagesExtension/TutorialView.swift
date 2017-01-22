@@ -12,6 +12,8 @@ class TutorialView: UIView {
 
   var section: TutorialSection!
   var tutorial: Tutorial!
+  var backgroundGradient: ColorGradient! = nil
+  
   let tutorialImage: [TutorialSection: UIImage] = [
     .launch: UIImage(named: "tutScreenie")!,
     .letter: UIImage(named: "tutLetters")!,
@@ -26,7 +28,7 @@ class TutorialView: UIView {
   
   @IBOutlet weak var tutorialMessage: UITextView!
   @IBOutlet weak var gameImage: UIImageView!
-  // TODO: change background image to highlight tutorial message
+  @IBOutlet weak var landscapeMessage: UITextView!
   
   func initView(forSection section: TutorialSection, forTutorial tutorial: Tutorial, forSize size: CGRect) {
     self.section = section
@@ -68,6 +70,34 @@ class TutorialView: UIView {
       tutorialMessage.center.y = messagePosition[section!]!.y
     }
     gameImage.image = tutorialImage[section!]!
+  }
+  
+  private func showLandscapeMessage() {
+    landscapeMessage.isHidden = false
+  }
+  
+  private func hideLandscapeMessage() {
+    landscapeMessage.isHidden = true
+  }
+  
+  func rotated(toOrientation orientation: UIInterfaceOrientation) {
+    if orientation == .portrait {
+      backgroundGradient = nil
+      tutorialMessage.isHidden = false
+      gameImage.isHidden = false
+      hideLandscapeMessage()
+    } else if orientation == .landscapeLeft || orientation == .landscapeRight { 
+      showLandscapeMessage()
+      if let gradient = backgroundGradient {
+        gradient.gl.frame = self.bounds
+        tutorialMessage.isHidden = true
+        gameImage.isHidden = true
+      } else {
+        backgroundGradient = ColorGradient(withView: self)
+        tutorialMessage.isHidden = true
+        gameImage.isHidden = true
+      }
+    }
   }
 
 }

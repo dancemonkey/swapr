@@ -9,9 +9,7 @@
 import UIKit
 
 class TutorialVC: UIViewController {
-  
-  // TODO: landscape image telling you to rotate to portrait
-  
+    
   var tutorial: Tutorial!
   var currentSection: TutorialSection!
   
@@ -26,7 +24,11 @@ class TutorialVC: UIViewController {
     tutorial = Tutorial()
     currentSection = .launch
     initTutorial()
-
+    
+    if UIDevice.current.orientation.isLandscape {
+      // TODO: get landscape message to show if tutorial is in landscape view when initially launched
+      tutorialView.rotated(toOrientation: .landscapeRight)
+    }
   }
   
   func showTutorialMessage() {
@@ -99,6 +101,10 @@ class TutorialVC: UIViewController {
         break
       }
     }
+  }
+  
+  override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+    tutorialView.rotated(toOrientation: toInterfaceOrientation)
   }
   
 }
