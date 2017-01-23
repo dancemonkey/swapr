@@ -26,6 +26,7 @@ class ExpandedVC: UIViewController {
   @IBOutlet var playerHand: PlayerHand!
   @IBOutlet weak var currentPlayerScore: ScoreIndicator!
   @IBOutlet weak var chainView: ChainView!
+  @IBOutlet weak var help: UIButton!
   
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!

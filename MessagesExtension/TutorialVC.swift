@@ -25,10 +25,6 @@ class TutorialVC: UIViewController {
     currentSection = .launch
     initTutorial()
     
-    if UIDevice.current.orientation.isLandscape {
-      // TODO: get landscape message to show if tutorial is in landscape view when initially launched
-      tutorialView.rotated(toOrientation: .landscapeRight)
-    }
   }
   
   func showTutorialMessage() {

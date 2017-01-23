@@ -26,7 +26,7 @@ class WordsAPI {
       if let definition = self.getDefinition(fromData: data) {
         word.setDefinition(to: definition)
       } else {
-        word.setDefinition(to: "")
+        word.setDefinition(to: "No definition found.")
       }
       completion()
     })

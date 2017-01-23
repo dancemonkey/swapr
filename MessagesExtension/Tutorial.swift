@@ -9,7 +9,7 @@
 import UIKit
 
 enum TutorialSection: String {
-  case launch, letter, bomb, lock, swap, score, chain, word, done
+  case launch, letter, bomb, lock, swap, score, chain, word, addLetter, done
 }
 
 class Tutorial {

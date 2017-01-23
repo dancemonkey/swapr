@@ -466,8 +466,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="meM-DU-0vF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Help?" backgroundImage="Blank Button">
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="?" backgroundImage="Blank Button">
                                     <color key="titleColor" red="0.99607843139999996" green="0.18039215689999999" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -489,7 +489,7 @@
                             <constraint firstItem="PTa-md-nzt" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="24" id="5SZ-5N-HD9">
                                 <variation key="heightClass=compact-widthClass=regular" constant="8"/>
                             </constraint>
-                            <constraint firstItem="CLn-0h-mOf" firstAttribute="leading" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="5kY-zv-Cet"/>
+                            <constraint firstItem="CLn-0h-mOf" firstAttribute="leading" secondItem="vxu-SO-eoJ" secondAttribute="trailing" constant="16" id="67L-gY-4YA"/>
                             <constraint firstItem="cQg-pO-GbS" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" id="71h-j5-XG9"/>
                             <constraint firstItem="P6z-kC-hP0" firstAttribute="leading" secondItem="NIQ-8P-exv" secondAttribute="leading" constant="16" id="92x-Tw-0yL"/>
                             <constraint firstItem="PTa-md-nzt" firstAttribute="top" secondItem="00Z-2y-ZQl" secondAttribute="bottom" constant="8" id="Fhc-zR-8Eo"/>
@@ -546,6 +546,7 @@
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="subviews">
                                 <exclude reference="P6z-kC-hP0"/>
+                                <exclude reference="CLn-0h-mOf"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="mNz-u9-pvf"/>
@@ -580,6 +581,9 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="CLn-0h-mOf"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="UoM-Oz-ZJC"/>
                                 <exclude reference="gIW-dB-llb"/>
@@ -593,6 +597,7 @@
                         <outlet property="currentPlayerScore" destination="agA-b8-Vau" id="zs6-Z9-zO9"/>
                         <outlet property="definition" destination="vxu-SO-eoJ" id="N4i-hF-1g5"/>
                         <outlet property="endTurn" destination="xVQ-un-S46" id="Jty-lm-U73"/>
+                        <outlet property="help" destination="CLn-0h-mOf" id="VOS-Br-eyz"/>
                         <outlet property="lock" destination="DgO-HL-3X8" id="fLZ-ql-Ie0"/>
                         <outlet property="pass" destination="cWz-hH-zdS" id="1qh-KR-U4T"/>
                         <outlet property="playerHand" destination="PTa-md-nzt" id="C6p-Pb-i1K"/>
@@ -609,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OX5-P3-TM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111.2" y="666.11694152923542"/>
+            <point key="canvasLocation" x="110.32863849765259" y="665.88579795021963"/>
         </scene>
         <!--TutorialVC-->
         <scene sceneID="3OP-U7-Pc6">
@@ -624,20 +629,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutScreenie" translatesAutoresizingMaskIntoConstraints="NO" id="1Co-Oa-kjc">
-                                <rect key="frame" x="63" y="134" width="250" height="400"/>
+                                <rect key="frame" x="62.5" y="133.5" width="250" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="FSY-eb-eXG"/>
                                     <constraint firstAttribute="width" constant="250" id="ttF-Zk-AJD"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rh0-BT-hJ6">
-                                <rect key="frame" x="68" y="175" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -773,6 +770,6 @@
         <image name="S" width="54" height="54"/>
         <image name="Swap" width="54" height="54"/>
         <image name="W" width="54" height="54"/>
-        <image name="tutScreenie" width="1242" height="1797"/>
+        <image name="tutScreenie" width="720" height="1030"/>
     </resources>
 </document>
