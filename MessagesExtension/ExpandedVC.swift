@@ -237,6 +237,7 @@ class ExpandedVC: UIViewController {
       letters[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       letters[index].setidentity(to: String(letter))
       letters[index].tag = index
+      letters[index].locked = false
       if let lock1 = word.locked1, lock1 == index {
         letters[index].locked = true
       }

@@ -15,6 +15,8 @@ class LetterButton: UIButton, Lockable {
     didSet {
       if locked == true {
         glowOn(locked: true)
+      } else {
+        glowOff()
       }
     }
   }

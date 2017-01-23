@@ -177,16 +177,18 @@ class Game {
   
   func addNewLetterSpace(to: AddLetter) {
     let oldWord = _currentWord
+    var lockMod = 0
     if to == .left {
       _currentWord = Word(fromText: "_\(oldWord!.name)")
+      lockMod = 1
     } else {
       _currentWord = Word(fromText: "\(oldWord!.name)_")
     }
     if let lock1 = oldWord?.locked1 {
-      _currentWord?.lockLetter(at: lock1)
+      _currentWord?.lockLetter(at: lock1 + lockMod)
     }
     if let lock2 = oldWord?.locked2 {
-      _currentWord?.lockLetter(at: lock2)
+      _currentWord?.lockLetter(at: lock2 + lockMod)
     }
     _currentPlayer.increaseTurnBonus(by: 1)
   }
