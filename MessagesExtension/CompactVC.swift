@@ -27,6 +27,7 @@ class CompactVC: UIViewController {
     configureViews()
     let gradient = ColorGradient(withView: self.view)
     gradient.setBottomLocation(forValue: 0.5)
+
   }
   
   func configureViews() {

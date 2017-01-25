@@ -68,18 +68,19 @@ class WordsAPI {
     if isInTextDictionary(word: word) || isInCustomDictionary(word: word) {
       completion(true)
     } else {
-      NetworkRequest.get(withRequest: request) { (data, response) in
-        if response.statusCode == 200 {
-          completion(true)
-          self.writeToLocalList(word: word)
-        } else {
-          completion(false)
-        }
-      }
+      completion(false)
+//      NetworkRequest.get(withRequest: request) { (data, response) in
+//        if response.statusCode == 200 {
+//          completion(true)
+//          self.writeToLocalList(word: word)
+//        } else {
+//          completion(false)
+//        }
+//      }
     }
   }
   
-  func writeToLocalList(word: Word) {
+  private func writeToLocalList(word: Word) {
     let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last!
     let fileURL = dir.appendingPathComponent("customWords.txt")
     
