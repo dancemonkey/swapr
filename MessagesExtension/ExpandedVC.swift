@@ -468,7 +468,7 @@ class ExpandedVC: UIViewController {
           self.playhelper(helper: .bomb, onLetter: sender)
         } else if locking {
           self.playhelper(helper: .lock, onLetter: sender)
-        } else if swapping {
+        } else if swapping && sender != firstLetter {
           self.playhelper(helper: .swap, onLetter: sender)
         } else if playingLetter && !addingLetter {
           soundPlayer.playSound(for: .select)
