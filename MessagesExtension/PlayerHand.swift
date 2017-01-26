@@ -9,7 +9,7 @@
 import UIKit
 
 class PlayerHand: UIView {
-
+  
   @IBOutlet weak var tileStack: UIStackView!
   @IBOutlet var playerHand: [LetterButton]!
   
@@ -21,15 +21,14 @@ class PlayerHand: UIView {
       player?.getStartingHand()
     }
     
-    for button in playerHand {
-      button.isHidden = true
-    }
-
+    let handSize = player!.hand.characters.count
+    
     for (index, letter) in player!.hand.characters.enumerated() {
       playerHand[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       playerHand[index].setidentity(to: String(letter))
-      playerHand[index].isHidden = false
     }
+    
+  removeExtraLetterButtons(forHandSize: handSize)
     
     Utils.delay(1.0) {
       for (index, letter) in self.playerHand.enumerated() {
@@ -39,6 +38,14 @@ class PlayerHand: UIView {
           letter.glowOn(locked: false)
           letter.isHidden = false
         }, completion: nil)
+      }
+    }
+  }
+  
+  private func removeExtraLetterButtons(forHandSize size: Int) {
+    for (index, button) in playerHand.enumerated() {
+      if index >= size {
+        button.removeFromSuperview()
       }
     }
   }
@@ -68,5 +75,5 @@ class PlayerHand: UIView {
       }
     }
   }
-
+  
 }

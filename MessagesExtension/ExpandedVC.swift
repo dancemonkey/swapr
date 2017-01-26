@@ -449,6 +449,7 @@ class ExpandedVC: UIViewController {
   }
   
   func playLetter(letter: LetterButton, withLetter replacementLetter: LetterButton) {
+    replacementLetter.removeFromSuperview()
     game?.replaceLetter(atIndex: letter.tag, withPlayerLetter: replacementLetter.identity)
     backgroundGradient.drain(bottomValue: 1 - Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
     playingLetter = false
