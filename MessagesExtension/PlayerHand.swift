@@ -20,10 +20,15 @@ class PlayerHand: UIView {
     if player!.hand == nil {
       player?.getStartingHand()
     }
+    
+    for button in playerHand {
+      button.isHidden = true
+    }
 
     for (index, letter) in player!.hand.characters.enumerated() {
       playerHand[index].setImage(UIImage(named: "\(String(letter).uppercased())"), for: .normal)
       playerHand[index].setidentity(to: String(letter))
+      playerHand[index].isHidden = false
     }
     
     Utils.delay(1.0) {

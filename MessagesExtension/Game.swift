@@ -158,7 +158,7 @@ class Game {
   func replaceLetter(atIndex index: Int, withPlayerLetter letter: String) {
     _currentPlayer.playFromHand(letter: letter)
     _currentWord?.replaceLetter(at: index, with: letter)
-    getNewLetter(forPlayer: _currentPlayer)
+    //getNewLetter(forPlayer: _currentPlayer)
   }
   
   func playHelper(helper: Helper, forPlayer player: Player) {
