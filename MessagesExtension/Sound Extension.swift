@@ -24,7 +24,7 @@ class Sound {
     DispatchQueue.global(qos: .background).async {
       do {
         let audioSession = AVAudioSession.sharedInstance()
-        try! audioSession.setCategory(AVAudioSessionCategoryPlayback, with: .duckOthers)
+        try! audioSession.setCategory(AVAudioSessionCategoryAmbient, with: .duckOthers)
         if let path = Bundle.main.path(forResource: type.rawValue + "\(sound).wav", ofType: nil) {
           let url = URL(fileURLWithPath: path)
           self.player = try AVAudioPlayer(contentsOf: url)
