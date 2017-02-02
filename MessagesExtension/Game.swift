@@ -63,6 +63,11 @@ class Game {
     return _playMessage
   }
   
+  private var _lastUserToOpen: String? = nil
+  var lastUserToOpen: String? {
+    return _lastUserToOpen
+  }
+  
   init(withMessage message: MSMessage?) {
     if let msg = message, let url = msg.url {
       
@@ -110,6 +115,9 @@ class Game {
             }
             if item.name == "drawnTiles" {
               self._tilesDrawn = Int(item.value!)!
+            }
+            if item.name == "lastUserToOpen" {
+              self._lastUserToOpen = item.value!
             }
           }
         }
@@ -238,6 +246,14 @@ class Game {
   func initNewGame() {
     _currentWord?.unlockAll()
     _tilesDrawn = 0
+  }
+  
+  func isCheating(player: String) -> Bool {
+    if let last = lastUserToOpen {
+      return last == player
+    } else {
+      return false
+    }
   }
   
 }

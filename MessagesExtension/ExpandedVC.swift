@@ -31,6 +31,7 @@ class ExpandedVC: UIViewController {
   var message: MSMessage? = nil
   var composeDelegate: ComposeMessageDelegate!
   var game: Game? = nil
+  var currentUser: String?
   weak var soundPlayer: Sound!
   
   var bombing: Bool = false {
@@ -87,9 +88,10 @@ class ExpandedVC: UIViewController {
   var addingLetter: Bool = false
   var addLetterTarget: LetterButton!
   var backgroundGradient: ColorGradient!
-    
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     setupInitialGradients()
     endTurn.isEnabled = false
     
@@ -138,6 +140,9 @@ class ExpandedVC: UIViewController {
       setupWordAndScoreViews()
       if game!.wordIsMaxSize() {
         hideAddLetterButtons()
+      }
+      if game!.isCheating(player: currentUser!) {
+        disableAllButtons()
       }
     }
     backgroundGradient.drain(bottomValue: 1 - Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))
@@ -275,6 +280,7 @@ class ExpandedVC: UIViewController {
     swap.isEnabled = false
     endTurn.isEnabled = false
     pass.isEnabled = false
+    help.isEnabled = false
   }
   
   @IBAction func endTurnPressed(sender: UIButton) {
@@ -282,7 +288,7 @@ class ExpandedVC: UIViewController {
       self.composeDelegate.compose(fromGame: self.game!)
     }
   }
-
+  
   @IBAction func helperPressed(sender: HelperButton) {
     
     let helper = HelperAsInt(rawValue: sender.tag)!
@@ -295,13 +301,13 @@ class ExpandedVC: UIViewController {
           self.switchState(to: helper)
         }
       } else {
-        self.presentPassConfirmation(withCompletion: { 
+        self.presentPassConfirmation(withCompletion: {
           self.soundPlayer.playSound(for: .strike)
           self.disableAllButtons()
           self.switchState(to: .pass)
           self.removeBlurEffect()
           
-        }, cancellation: { 
+        }, cancellation: {
           self.removeBlurEffect()
           self.pass.glowOff()
         })

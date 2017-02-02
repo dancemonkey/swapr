@@ -58,6 +58,7 @@ class MessagesViewController: MSMessagesAppViewController {
         if let queryItems = components.queryItems {
           if queryItems[0].name.contains("currentWord") {
             vc.message = message
+            vc.currentUser = conversation.localParticipantIdentifier.uuidString
           }
         }
       }
@@ -178,8 +179,9 @@ extension MessagesViewController: ComposeMessageDelegate {
     let currentChainScore = URLQueryItem(name: "currentChainScore", value: "\(game.oppPlayer.chainScore)")
     let gameOver = URLQueryItem(name: "gameOver", value: "\(game.gameOver)")
     let drawnTiles = URLQueryItem(name: "drawnTiles", value: "\(game.tilesDrawn)")
+    let lastUserToOpen = URLQueryItem(name: "lastUserToOpen", value: convo.localParticipantIdentifier.uuidString)
 
-    components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, oppChainScore, currentChainScore, gameOver, drawnTiles]
+    components.queryItems = [currentWord, oppPlayerHand, currentPlayerHand, oppPlayerScore, currentPlayerScore, oppPlayerHelpers, currentPlayerHelpers, oppChainScore, currentChainScore, gameOver, drawnTiles, lastUserToOpen]
     
     if let lock1 = game.currentWord!.locked1 {
       print("writing lock letter 1")
