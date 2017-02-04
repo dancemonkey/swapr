@@ -143,6 +143,7 @@ class ExpandedVC: UIViewController {
       }
       if game!.isCheating(player: currentUser!) {
         disableAllButtons()
+        playerHand.obscureLetters()
       }
     }
     backgroundGradient.drain(bottomValue: 1 - Float(game!.tilesDrawn)/Float(game!.MAX_TILES_TO_DRAW))

@@ -63,5 +63,11 @@ class PlayerHand: UIView {
       }
     }
   }
+  
+  func obscureLetters() {
+    for letter in playerHand {
+      letter.setImage(UIImage(named: "?"), for: .normal)
+    }
+  }
 
 }
