@@ -554,7 +554,7 @@ class ExpandedVC: UIViewController {
           }
         } else if !validWord {
           DispatchQueue.main.async { [unowned self] in
-            self.game!.pass()
+            self.game!.invalidPlay()
             self.endTurn.isEnabled = true
             self.endIfGameOver()
             self.setupScoreViews()

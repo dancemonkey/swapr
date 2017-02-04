@@ -210,6 +210,10 @@ class Game {
     _currentPlayer.setStartingHand()
   }
   
+  func invalidPlay() {
+    _currentPlayer.resetChainToZero()
+  }
+  
   func lockLetterInWord(at index: Int) {
     _currentWord?.lockLetter(at: index)
   }

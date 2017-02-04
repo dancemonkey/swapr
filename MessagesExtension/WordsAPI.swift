@@ -69,14 +69,6 @@ class WordsAPI {
       completion(true)
     } else {
       completion(false)
-//      NetworkRequest.get(withRequest: request) { (data, response) in
-//        if response.statusCode == 200 {
-//          completion(true)
-//          self.writeToLocalList(word: word)
-//        } else {
-//          completion(false)
-//        }
-//      }
     }
   }
   
